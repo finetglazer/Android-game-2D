@@ -1,1 +1,1 @@
-# Android-game-2D
+# demo-game-mobile

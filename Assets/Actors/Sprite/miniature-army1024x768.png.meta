@@ -1,0 +1,3877 @@
+fileFormatVersion: 2
+guid: 15b2d2faaecad4bfb9edc6585d94f509
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: knight-front-arm1
+  - first:
+      213: 21300002
+    second: knight-front-arm2
+  - first:
+      213: 21300004
+    second: soldier-back-arm
+  - first:
+      213: 21300006
+    second: soldier-front-arm1
+  - first:
+      213: 21300008
+    second: soldier-front-arm2
+  - first:
+      213: 21300010
+    second: peasant-back-arm-red
+  - first:
+      213: 21300012
+    second: peasant-front-arm1-red
+  - first:
+      213: 21300014
+    second: peasant-front-arm2-red
+  - first:
+      213: 21300016
+    second: priest-back-arm-red
+  - first:
+      213: 21300018
+    second: priest-front-arm1-red
+  - first:
+      213: 21300020
+    second: priest-front-arm2-red
+  - first:
+      213: 21300022
+    second: merchant-back-arm-red
+  - first:
+      213: 21300024
+    second: merchant-front-arm1-red
+  - first:
+      213: 21300026
+    second: merchant-front-arm2-red
+  - first:
+      213: 21300028
+    second: knight-body-red
+  - first:
+      213: 21300030
+    second: knight-body-blue
+  - first:
+      213: 21300032
+    second: knight-body-green
+  - first:
+      213: 21300034
+    second: knight-body-orange
+  - first:
+      213: 21300036
+    second: knight-body-yellow
+  - first:
+      213: 21300038
+    second: knight-body-white
+  - first:
+      213: 21300040
+    second: knight-body-black
+  - first:
+      213: 21300042
+    second: priest-feet
+  - first:
+      213: 21300044
+    second: knight-back-arm
+  - first:
+      213: 21300046
+    second: knight-leg1
+  - first:
+      213: 21300048
+    second: knight-leg2
+  - first:
+      213: 21300050
+    second: peasant-leg1
+  - first:
+      213: 21300052
+    second: peasant-leg2
+  - first:
+      213: 21300054
+    second: peasant-back-arm-blue
+  - first:
+      213: 21300056
+    second: peasant-front-arm1-blue
+  - first:
+      213: 21300058
+    second: peasant-front-arm2-blue
+  - first:
+      213: 21300060
+    second: priest-back-arm-blue
+  - first:
+      213: 21300062
+    second: priest-front-arm1-blue
+  - first:
+      213: 21300064
+    second: priest-front-arm2-blue
+  - first:
+      213: 21300066
+    second: merchant-back-arm-blue
+  - first:
+      213: 21300068
+    second: merchant-front-arm1-blue
+  - first:
+      213: 21300070
+    second: merchant-front-arm2-blue
+  - first:
+      213: 21300072
+    second: soldier-body-red
+  - first:
+      213: 21300074
+    second: soldier-body-blue
+  - first:
+      213: 21300076
+    second: soldier-body-green
+  - first:
+      213: 21300078
+    second: soldier-body-orange
+  - first:
+      213: 21300080
+    second: soldier-body-yellow
+  - first:
+      213: 21300082
+    second: soldier-body-white
+  - first:
+      213: 21300084
+    second: soldier-body-black
+  - first:
+      213: 21300086
+    second: head-light-yellow
+  - first:
+      213: 21300088
+    second: head-light-pink
+  - first:
+      213: 21300090
+    second: head-medium
+  - first:
+      213: 21300092
+    second: head-deep
+  - first:
+      213: 21300094
+    second: head-dark
+  - first:
+      213: 21300096
+    second: peasant-back-arm-green
+  - first:
+      213: 21300098
+    second: peasant-front-arm1-green
+  - first:
+      213: 21300100
+    second: peasant-front-arm2-green
+  - first:
+      213: 21300102
+    second: priest-back-arm-green
+  - first:
+      213: 21300104
+    second: priest-front-arm1-green
+  - first:
+      213: 21300106
+    second: priest-front-arm2-green
+  - first:
+      213: 21300108
+    second: merchant-back-arm-green
+  - first:
+      213: 21300110
+    second: merchant-front-arm1-green
+  - first:
+      213: 21300112
+    second: merchant-front-arm2-green
+  - first:
+      213: 21300114
+    second: thief-body-red
+  - first:
+      213: 21300116
+    second: thief-body-blue
+  - first:
+      213: 21300118
+    second: thief-body-green
+  - first:
+      213: 21300120
+    second: thief-body-orange
+  - first:
+      213: 21300122
+    second: thief-body-yellow
+  - first:
+      213: 21300124
+    second: thief-body-white
+  - first:
+      213: 21300126
+    second: thief-body-black
+  - first:
+      213: 21300128
+    second: arrow
+  - first:
+      213: 21300130
+    second: katana
+  - first:
+      213: 21300132
+    second: polearm
+  - first:
+      213: 21300134
+    second: spear
+  - first:
+      213: 21300136
+    second: peasant-back-arm-orange
+  - first:
+      213: 21300138
+    second: peasant-front-arm1-orange
+  - first:
+      213: 21300140
+    second: peasant-front-arm2-orange
+  - first:
+      213: 21300142
+    second: priest-back-arm-orange
+  - first:
+      213: 21300144
+    second: priest-front-arm1-orange
+  - first:
+      213: 21300146
+    second: priest-front-arm2-orange
+  - first:
+      213: 21300148
+    second: merchant-back-arm-orange
+  - first:
+      213: 21300150
+    second: merchant-front-arm1-orange
+  - first:
+      213: 21300152
+    second: merchant-front-arm2-orange
+  - first:
+      213: 21300154
+    second: priest-body-red
+  - first:
+      213: 21300156
+    second: priest-body-blue
+  - first:
+      213: 21300158
+    second: priest-body-green
+  - first:
+      213: 21300160
+    second: priest-body-orange
+  - first:
+      213: 21300162
+    second: priest-body-yellow
+  - first:
+      213: 21300164
+    second: priest-body-white
+  - first:
+      213: 21300166
+    second: priest-body-black
+  - first:
+      213: 21300168
+    second: mace
+  - first:
+      213: 21300170
+    second: rod
+  - first:
+      213: 21300172
+    second: staff
+  - first:
+      213: 21300174
+    second: sword
+  - first:
+      213: 21300176
+    second: peasant-back-arm-yellow
+  - first:
+      213: 21300178
+    second: peasant-front-arm1-yellow
+  - first:
+      213: 21300180
+    second: peasant-front-arm2-yellow
+  - first:
+      213: 21300182
+    second: priest-back-arm-yellow
+  - first:
+      213: 21300184
+    second: priest-front-arm1-yellow
+  - first:
+      213: 21300186
+    second: priest-front-arm2-yellow
+  - first:
+      213: 21300188
+    second: merchant-back-arm-yellow
+  - first:
+      213: 21300190
+    second: merchant-front-arm1-yellow
+  - first:
+      213: 21300192
+    second: merchant-front-arm2-yellow
+  - first:
+      213: 21300194
+    second: peasant-back-arm-white
+  - first:
+      213: 21300196
+    second: peasant-front-arm1-white
+  - first:
+      213: 21300198
+    second: peasant-front-arm2-white
+  - first:
+      213: 21300200
+    second: priest-back-arm-white
+  - first:
+      213: 21300202
+    second: priest-front-arm1-white
+  - first:
+      213: 21300204
+    second: priest-front-arm2-white
+  - first:
+      213: 21300206
+    second: merchant-back-arm-white
+  - first:
+      213: 21300208
+    second: merchant-front-arm1-white
+  - first:
+      213: 21300210
+    second: merchant-front-arm2-white
+  - first:
+      213: 21300212
+    second: peasant-body-red
+  - first:
+      213: 21300214
+    second: peasant-body-blue
+  - first:
+      213: 21300216
+    second: peasant-body-green
+  - first:
+      213: 21300218
+    second: peasant-body-orange
+  - first:
+      213: 21300220
+    second: peasant-body-yellow
+  - first:
+      213: 21300222
+    second: peasant-body-white
+  - first:
+      213: 21300224
+    second: peasant-body-black
+  - first:
+      213: 21300226
+    second: bow
+  - first:
+      213: 21300228
+    second: shield
+  - first:
+      213: 21300230
+    second: axe
+  - first:
+      213: 21300232
+    second: peasant-back-arm-black
+  - first:
+      213: 21300234
+    second: peasant-front-arm1-black
+  - first:
+      213: 21300236
+    second: peasant-front-arm2-black
+  - first:
+      213: 21300238
+    second: priest-back-arm-black
+  - first:
+      213: 21300240
+    second: priest-front-arm1-black
+  - first:
+      213: 21300242
+    second: priest-front-arm2-black
+  - first:
+      213: 21300244
+    second: merchant-back-arm-black
+  - first:
+      213: 21300246
+    second: merchant-front-arm1-black
+  - first:
+      213: 21300248
+    second: merchant-front-arm2-black
+  - first:
+      213: 21300250
+    second: merchant-body-red
+  - first:
+      213: 21300252
+    second: merchant-body-blue
+  - first:
+      213: 21300254
+    second: merchant-body-green
+  - first:
+      213: 21300256
+    second: merchant-body-orange
+  - first:
+      213: 21300258
+    second: merchant-body-yellow
+  - first:
+      213: 21300260
+    second: merchant-body-white
+  - first:
+      213: 21300262
+    second: merchant-body-black
+  - first:
+      213: 21300264
+    second: bukler
+  - first:
+      213: 21300266
+    second: dagger
+  - first:
+      213: 21300268
+    second: chain-hood
+  - first:
+      213: 21300270
+    second: hood
+  - first:
+      213: 21300272
+    second: hat-red
+  - first:
+      213: 21300274
+    second: hat-blue
+  - first:
+      213: 21300276
+    second: hat-green
+  - first:
+      213: 21300278
+    second: hat-orange
+  - first:
+      213: 21300280
+    second: hat-yellow
+  - first:
+      213: 21300282
+    second: hat-white
+  - first:
+      213: 21300284
+    second: hat-black
+  - first:
+      213: 21300286
+    second: helmet-red
+  - first:
+      213: 21300288
+    second: helmet-blue
+  - first:
+      213: 21300290
+    second: helmet-green
+  - first:
+      213: 21300292
+    second: helmet-orange
+  - first:
+      213: 21300294
+    second: helmet-yellow
+  - first:
+      213: 21300296
+    second: helmet-white
+  - first:
+      213: 21300298
+    second: helmet-black
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: knight-front-arm1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 677
+        width: 27
+        height: 79
+      alignment: 9
+      pivot: {x: 0.47071755, y: 0.8803031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-front-arm2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 698
+        width: 46
+        height: 58
+      alignment: 9
+      pivot: {x: 0.7062512, y: 0.8407898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-back-arm
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 679
+        width: 17
+        height: 74
+      alignment: 9
+      pivot: {x: 0.8, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-front-arm1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 676
+        width: 14
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-front-arm2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 698
+        width: 40
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7668377, y: 0.93843997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-red
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 680
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-red
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 676
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-red
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 698
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-red
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 681
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-red
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 677
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-red
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 698
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-red
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 680
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-red
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 676
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-red
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 698
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-red
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-blue
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-green
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-orange
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-white
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-body-black
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 676
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-feet
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 679
+        width: 14
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-back-arm
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 591
+        width: 23
+        height: 73
+      alignment: 9
+      pivot: {x: 0.6203133, y: 0.8953155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-leg1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 593
+        width: 18
+        height: 70
+      alignment: 9
+      pivot: {x: 0.43411425, y: 0.9687308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight-leg2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 594
+        width: 35
+        height: 69
+      alignment: 9
+      pivot: {x: 0.2176324, y: 0.9697947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-leg1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 593
+        width: 17
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4069851, y: 0.9687308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-leg2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 593
+        width: 37
+        height: 70
+      alignment: 9
+      pivot: {x: 0.22892718, y: 0.9687308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-blue
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 592
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-blue
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 588
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-blue
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 609
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-blue
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 592
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-blue
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 588
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-blue
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 610
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-blue
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 592
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-blue
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 588
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-blue
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 610
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-red
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-blue
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-green
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-orange
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-white
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soldier-body-black
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 583
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head-light-yellow
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 538
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head-light-pink
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 538
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head-medium
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 538
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head-deep
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 538
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head-dark
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 538
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-green
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 503
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-green
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 499
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-green
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 521
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-green
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 504
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-green
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 500
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-green
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 521
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-green
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 503
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-green
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 499
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-green
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 521
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-red
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-blue
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-green
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-orange
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-white
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief-body-black
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 456
+        width: 43
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 396
+        width: 16
+        height: 108
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.37920946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: katana
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 395
+        width: 18
+        height: 124
+      alignment: 9
+      pivot: {x: 0.47803837, y: 0.19076169}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polearm
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 395
+        width: 45
+        height: 125
+      alignment: 9
+      pivot: {x: 0.8162523, y: 0.21537353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 395
+        width: 26
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-orange
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 415
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-orange
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 411
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-orange
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 432
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-orange
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 415
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-orange
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 411
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-orange
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 433
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-orange
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 415
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-orange
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 411
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-orange
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 433
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-red
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-blue
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-green
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-orange
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-white
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-body-black
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 291
+        width: 55
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mace
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 269
+        width: 27
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5292827, y: 0.391397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rod
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 269
+        width: 26
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: staff
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 269
+        width: 46
+        height: 105
+      alignment: 9
+      pivot: {x: 0.414062, y: 0.3004601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 269
+        width: 38
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5, y: 0.14860903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-yellow
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 326
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-yellow
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 322
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-yellow
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 344
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-yellow
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 327
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-yellow
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 323
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-yellow
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 344
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-yellow
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 326
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-yellow
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 322
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-yellow
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 344
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-white
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 238
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-white
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 234
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-white
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 255
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-white
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 238
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-white
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 234
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-white
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 256
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-white
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 238
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-white
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 234
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-white
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 255
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-red
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f305410000000000800000000000000
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-blue
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f305410000000000800000000000000
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-green
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f305410000000000800000000000000
+      internalID: 21300216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-orange
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af305410000000000800000000000000
+      internalID: 21300218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf305410000000000800000000000000
+      internalID: 21300220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-white
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef305410000000000800000000000000
+      internalID: 21300222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-body-black
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 203
+        width: 41
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00405410000000000800000000000000
+      internalID: 21300224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bow
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 158
+        width: 42
+        height: 93
+      alignment: 9
+      pivot: {x: 0.12350954, y: 0.4489917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20405410000000000800000000000000
+      internalID: 21300226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 158
+        width: 53
+        height: 66
+      alignment: 9
+      pivot: {x: 0.49254134, y: 0.67968845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40405410000000000800000000000000
+      internalID: 21300228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: axe
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 158
+        width: 36
+        height: 69
+      alignment: 9
+      pivot: {x: 0.7635434, y: 0.21353967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60405410000000000800000000000000
+      internalID: 21300230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-back-arm-black
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 149
+        width: 16
+        height: 73
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80405410000000000800000000000000
+      internalID: 21300232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm1-black
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 145
+        width: 15
+        height: 77
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0405410000000000800000000000000
+      internalID: 21300234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: peasant-front-arm2-black
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 167
+        width: 40
+        height: 56
+      alignment: 9
+      pivot: {x: 0.73, y: 0.92}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0405410000000000800000000000000
+      internalID: 21300236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-back-arm-black
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 150
+        width: 20
+        height: 72
+      alignment: 9
+      pivot: {x: 0.85, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0405410000000000800000000000000
+      internalID: 21300238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm1-black
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 146
+        width: 19
+        height: 76
+      alignment: 9
+      pivot: {x: 0.2, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01405410000000000800000000000000
+      internalID: 21300240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: priest-front-arm2-black
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 167
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.73, y: 0.94}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21405410000000000800000000000000
+      internalID: 21300242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-back-arm-black
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 149
+        width: 17
+        height: 73
+      alignment: 9
+      pivot: {x: 0.75, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41405410000000000800000000000000
+      internalID: 21300244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm1-black
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 145
+        width: 20
+        height: 77
+      alignment: 9
+      pivot: {x: 0.22, y: 0.95}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61405410000000000800000000000000
+      internalID: 21300246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-front-arm2-black
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 167
+        width: 43
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7, y: 0.93}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81405410000000000800000000000000
+      internalID: 21300248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-red
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1405410000000000800000000000000
+      internalID: 21300250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-blue
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1405410000000000800000000000000
+      internalID: 21300252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-green
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1405410000000000800000000000000
+      internalID: 21300254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-orange
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02405410000000000800000000000000
+      internalID: 21300256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-yellow
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22405410000000000800000000000000
+      internalID: 21300258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-white
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42405410000000000800000000000000
+      internalID: 21300260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: merchant-body-black
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 96
+        width: 56
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62405410000000000800000000000000
+      internalID: 21300262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bukler
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 81
+        width: 48
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82405410000000000800000000000000
+      internalID: 21300264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dagger
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 77
+        width: 21
+        height: 59
+      alignment: 9
+      pivot: {x: 0.518825, y: 0.13818657}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2405410000000000800000000000000
+      internalID: 21300266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chain-hood
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 77
+        width: 35
+        height: 60
+      alignment: 9
+      pivot: {x: 0.43223268, y: 0.34846255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2405410000000000800000000000000
+      internalID: 21300268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hood
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 84
+        width: 43
+        height: 53
+      alignment: 9
+      pivot: {x: 0.43564767, y: 0.2986135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2405410000000000800000000000000
+      internalID: 21300270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-red
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 23
+        width: 47
+        height: 53
+      alignment: 9
+      pivot: {x: 0.2897274, y: 0.24640203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03405410000000000800000000000000
+      internalID: 21300272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-blue
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23405410000000000800000000000000
+      internalID: 21300274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-green
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43405410000000000800000000000000
+      internalID: 21300276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-orange
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63405410000000000800000000000000
+      internalID: 21300278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-yellow
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83405410000000000800000000000000
+      internalID: 21300280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-white
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3405410000000000800000000000000
+      internalID: 21300282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hat-black
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 23
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3405410000000000800000000000000
+      internalID: 21300284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-red
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3405410000000000800000000000000
+      internalID: 21300286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-blue
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04405410000000000800000000000000
+      internalID: 21300288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-green
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24405410000000000800000000000000
+      internalID: 21300290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-orange
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44405410000000000800000000000000
+      internalID: 21300292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-yellow
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64405410000000000800000000000000
+      internalID: 21300294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-white
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84405410000000000800000000000000
+      internalID: 21300296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: helmet-black
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 20
+        width: 49
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4405410000000000800000000000000
+      internalID: 21300298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      arrow: 21300128
+      axe: 21300230
+      bow: 21300226
+      bukler: 21300264
+      chain-hood: 21300268
+      dagger: 21300266
+      hat-black: 21300284
+      hat-blue: 21300274
+      hat-green: 21300276
+      hat-orange: 21300278
+      hat-red: 21300272
+      hat-white: 21300282
+      hat-yellow: 21300280
+      head-dark: 21300094
+      head-deep: 21300092
+      head-light-pink: 21300088
+      head-light-yellow: 21300086
+      head-medium: 21300090
+      helmet-black: 21300298
+      helmet-blue: 21300288
+      helmet-green: 21300290
+      helmet-orange: 21300292
+      helmet-red: 21300286
+      helmet-white: 21300296
+      helmet-yellow: 21300294
+      hood: 21300270
+      katana: 21300130
+      knight-back-arm: 21300044
+      knight-body-black: 21300040
+      knight-body-blue: 21300030
+      knight-body-green: 21300032
+      knight-body-orange: 21300034
+      knight-body-red: 21300028
+      knight-body-white: 21300038
+      knight-body-yellow: 21300036
+      knight-front-arm1: 21300000
+      knight-front-arm2: 21300002
+      knight-leg1: 21300046
+      knight-leg2: 21300048
+      mace: 21300168
+      merchant-back-arm-black: 21300244
+      merchant-back-arm-blue: 21300066
+      merchant-back-arm-green: 21300108
+      merchant-back-arm-orange: 21300148
+      merchant-back-arm-red: 21300022
+      merchant-back-arm-white: 21300206
+      merchant-back-arm-yellow: 21300188
+      merchant-body-black: 21300262
+      merchant-body-blue: 21300252
+      merchant-body-green: 21300254
+      merchant-body-orange: 21300256
+      merchant-body-red: 21300250
+      merchant-body-white: 21300260
+      merchant-body-yellow: 21300258
+      merchant-front-arm1-black: 21300246
+      merchant-front-arm1-blue: 21300068
+      merchant-front-arm1-green: 21300110
+      merchant-front-arm1-orange: 21300150
+      merchant-front-arm1-red: 21300024
+      merchant-front-arm1-white: 21300208
+      merchant-front-arm1-yellow: 21300190
+      merchant-front-arm2-black: 21300248
+      merchant-front-arm2-blue: 21300070
+      merchant-front-arm2-green: 21300112
+      merchant-front-arm2-orange: 21300152
+      merchant-front-arm2-red: 21300026
+      merchant-front-arm2-white: 21300210
+      merchant-front-arm2-yellow: 21300192
+      peasant-back-arm-black: 21300232
+      peasant-back-arm-blue: 21300054
+      peasant-back-arm-green: 21300096
+      peasant-back-arm-orange: 21300136
+      peasant-back-arm-red: 21300010
+      peasant-back-arm-white: 21300194
+      peasant-back-arm-yellow: 21300176
+      peasant-body-black: 21300224
+      peasant-body-blue: 21300214
+      peasant-body-green: 21300216
+      peasant-body-orange: 21300218
+      peasant-body-red: 21300212
+      peasant-body-white: 21300222
+      peasant-body-yellow: 21300220
+      peasant-front-arm1-black: 21300234
+      peasant-front-arm1-blue: 21300056
+      peasant-front-arm1-green: 21300098
+      peasant-front-arm1-orange: 21300138
+      peasant-front-arm1-red: 21300012
+      peasant-front-arm1-white: 21300196
+      peasant-front-arm1-yellow: 21300178
+      peasant-front-arm2-black: 21300236
+      peasant-front-arm2-blue: 21300058
+      peasant-front-arm2-green: 21300100
+      peasant-front-arm2-orange: 21300140
+      peasant-front-arm2-red: 21300014
+      peasant-front-arm2-white: 21300198
+      peasant-front-arm2-yellow: 21300180
+      peasant-leg1: 21300050
+      peasant-leg2: 21300052
+      polearm: 21300132
+      priest-back-arm-black: 21300238
+      priest-back-arm-blue: 21300060
+      priest-back-arm-green: 21300102
+      priest-back-arm-orange: 21300142
+      priest-back-arm-red: 21300016
+      priest-back-arm-white: 21300200
+      priest-back-arm-yellow: 21300182
+      priest-body-black: 21300166
+      priest-body-blue: 21300156
+      priest-body-green: 21300158
+      priest-body-orange: 21300160
+      priest-body-red: 21300154
+      priest-body-white: 21300164
+      priest-body-yellow: 21300162
+      priest-feet: 21300042
+      priest-front-arm1-black: 21300240
+      priest-front-arm1-blue: 21300062
+      priest-front-arm1-green: 21300104
+      priest-front-arm1-orange: 21300144
+      priest-front-arm1-red: 21300018
+      priest-front-arm1-white: 21300202
+      priest-front-arm1-yellow: 21300184
+      priest-front-arm2-black: 21300242
+      priest-front-arm2-blue: 21300064
+      priest-front-arm2-green: 21300106
+      priest-front-arm2-orange: 21300146
+      priest-front-arm2-red: 21300020
+      priest-front-arm2-white: 21300204
+      priest-front-arm2-yellow: 21300186
+      rod: 21300170
+      shield: 21300228
+      soldier-back-arm: 21300004
+      soldier-body-black: 21300084
+      soldier-body-blue: 21300074
+      soldier-body-green: 21300076
+      soldier-body-orange: 21300078
+      soldier-body-red: 21300072
+      soldier-body-white: 21300082
+      soldier-body-yellow: 21300080
+      soldier-front-arm1: 21300006
+      soldier-front-arm2: 21300008
+      spear: 21300134
+      staff: 21300172
+      sword: 21300174
+      thief-body-black: 21300126
+      thief-body-blue: 21300116
+      thief-body-green: 21300118
+      thief-body-orange: 21300120
+      thief-body-red: 21300114
+      thief-body-white: 21300124
+      thief-body-yellow: 21300122
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
