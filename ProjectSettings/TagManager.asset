@@ -16,7 +16,7 @@ TagManager:
   - Player
   - Player Weapon
   - Enemy
-  - 
+  - checkpoint
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 277843869
+    locked: 0
+  - name: Player
+    uniqueID: 3818798687
+    locked: 0
+  - name: checkpoint
+    uniqueID: 596180523
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3220912089
     locked: 0
