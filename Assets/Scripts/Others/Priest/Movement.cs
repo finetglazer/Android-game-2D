@@ -25,7 +25,7 @@ namespace Others.Priest
         private BoxCollider2D _characterBoxCollider;
         private Animator _animator;
         private float _clock;
-        private bool _enemyDetected = false;
+        private bool _enemyDetected;
         private void Start()
         {
             _characterBoxCollider = GetComponent<BoxCollider2D>();
@@ -89,12 +89,12 @@ namespace Others.Priest
         }
         private bool EnemyDetectedOnLeft()
         {
-            var raycastHitLeft = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0, Vector2.left, 1f, LayerMask.GetMask("Player"));
+            var raycastHitLeft = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0, Vector2.left, distanceDetectingEnemy, LayerMask.GetMask("Player"));
             return raycastHitLeft.collider is not null;            
         }
         private bool EnemyDetectedOnRight()
         {
-            var raycastHitRight = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0, Vector2.right, 1f, LayerMask.GetMask("Player"));
+            var raycastHitRight = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0, Vector2.right, distanceDetectingEnemy, LayerMask.GetMask("Player"));
             return raycastHitRight.collider is not null;
         }
         private void ChasePlayer()
