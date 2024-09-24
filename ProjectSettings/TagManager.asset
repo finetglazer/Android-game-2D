@@ -1,1 +1,70 @@
-
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - MerchantEnemy
+  - SoliderEnemy
+  - StopChasingPoint
+  - ThiefEnemy
+  - PeasantEnemy
+  - EnemyPeasantArrow
+  - EnemyWeapon
+  - PriestEnemy
+  - EnemyPriestLightning
+  - EnemyPriestLightningExplosion
+  - EnemyPriestLightningCautionZone
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Player
+  - Player Weapon
+  - Enemy
+  - Checkpoint
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 277843869
+    locked: 0
+  - name: Player
+    uniqueID: 3818798687
+    locked: 0
+  - name: checkpoint
+    uniqueID: 596180523
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3220912089
+    locked: 0
+  - name: UI
+    uniqueID: 2172159853
+    locked: 0
