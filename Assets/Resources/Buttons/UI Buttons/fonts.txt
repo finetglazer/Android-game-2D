@@ -1,0 +1,5 @@
+The font used in the asset is Josefin Sans.
+You can download the font here:
+https://www.fontsquirrel.com/fonts/josefin-sans
+
+The font is needed to properly display texts in vector files located in the "/asset/svg" folder.
