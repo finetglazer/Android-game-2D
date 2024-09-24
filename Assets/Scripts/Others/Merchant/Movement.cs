@@ -6,17 +6,16 @@ namespace Others.Merchant
     {
         public float walkSpeed = 4;
         public float jumpSpeed = 2;
-        public float currentHealth = 2;
+        public float currentHealth = 1;
         public float idleTime = 1;
         public float moveTime = 1;
-        public BoxCollider2D stopChasingPoint;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
-        private float _clock;
-        private bool _enemyDetected;
         private AttackHandler _characterDetector;
+        private float _clock;
+        private bool _playerDetected;
         private void Start()
         {
             _characterBoxCollider = GetComponent<BoxCollider2D>();
@@ -27,14 +26,12 @@ namespace Others.Merchant
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                // Destroy(_characterBoxCollider);
-                // Destroy(GetComponent<Rigidbody2D>());
                 Destroy(this);
-                enabled = false;
+                return;
             }
             
-            _enemyDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
-            if (!IsGrounded() || _enemyDetected) return;
+            _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
+            if (!IsGrounded() || _playerDetected) return;
             
             _clock += Time.deltaTime;
             
@@ -79,6 +76,7 @@ namespace Others.Merchant
             TurnLeft();
             _characterAnimator.SetTrigger(Walk);              
         }
+
         internal void TurnLeft()
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

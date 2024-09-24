@@ -1,5 +1,6 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace MainCharacter
 {
@@ -19,6 +20,8 @@ namespace MainCharacter
         private Animator _playerAnimator;
         private GameObject _enemy;
         private float _horizontalInput;
+        private float _countdownToDeath;
+        private bool _canDoubleJump;
 
         private void Start()
         {
@@ -26,17 +29,26 @@ namespace MainCharacter
             _playerBoxCollider = GetComponent<BoxCollider2D>();
             _playerAnimator = GetComponent<Animator>();
         }
-        // TODO: Must handle movement on Simulator
+        
         private void Update()
         {
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 Destroy(this);
-                // _playerBody.velocity = Vector2.zero;
-                enabled = false;   
+                return;
+            }
+
+            _horizontalInput = Input.GetAxis("Horizontal");
+            
+            if (IsGrounded())
+            {
+                _canDoubleJump = true;
+            }
+            else
+            {
+                _playerAnimator.SetTrigger(Jump);
             }
             
-            _horizontalInput = Input.GetAxis("Horizontal"); 
             if (_horizontalInput == 0 && IsGrounded())
             {
                 PlayerIdle();
@@ -51,8 +63,10 @@ namespace MainCharacter
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) || !IsGrounded())
+            if (Input.GetKeyDown(KeyCode.Space))
             {
+                if (!_canDoubleJump) return;
+                
                 PlayerJump();
             }
 
@@ -61,7 +75,6 @@ namespace MainCharacter
                 PlayerAttack();
             }
         }
-        
         private void PlayerCasting()
         {
             _playerAnimator.SetTrigger(Casting);    
@@ -75,7 +88,7 @@ namespace MainCharacter
         private void PlayerIdle()
         {
             _playerAnimator.SetTrigger(Idle);
-            _playerBody.velocity = Vector2.zero;
+            _playerBody.velocity = new Vector2(0, _playerBody.velocity.y);
         }
 
         private void PlayerWalk()
@@ -89,26 +102,35 @@ namespace MainCharacter
             };
         }
 
-        private void PlayerAttack()
+        internal void PlayerAttack()
         {
             _playerAnimator.SetTrigger(Attack);
         }
-        private void TurnLeft()
+
+        internal void PlayerJump()
+        {
+            _playerAnimator.SetTrigger(Jump);
+            if (IsGrounded())
+            {
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpSpeed);
+            }
+            else
+            {
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x, _playerBody.velocity.y + jumpSpeed);
+                _canDoubleJump = false;
+            }
+        }
+        
+        internal void TurnLeft()
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-
-        private void PlayerJump()
-        {
-            _playerAnimator.SetTrigger(Jump);
-            _playerBody.velocity = new Vector2(_playerBody.velocity.x, IsGrounded() ? jumpSpeed : _playerBody.velocity.y);
-
-        }
-        private void TurnRight()
+        
+        internal void TurnRight()
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-        private bool IsGrounded()
+        public bool IsGrounded()
         {
             var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
