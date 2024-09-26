@@ -4,6 +4,7 @@ namespace MainCharacter
 {
     public class PlayerDie : MonoBehaviour
     {
+        public float deathPoint;
         private Vector3 respawnPoint;
 
         private void Start()
@@ -14,8 +15,9 @@ namespace MainCharacter
 
         private void Update()
         {
-            if (transform.position.y < -10)
+            if (transform.position.y < deathPoint)
             {
+                Debug.Log("VAR");
                 Respawn();
             }
         }

@@ -53,6 +53,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BehindBG
+    uniqueID: 2936838963
+    locked: 0
   - name: BG
     uniqueID: 3220912089
     locked: 0
@@ -61,6 +64,9 @@ TagManager:
     locked: 0
   - name: checkpoint
     uniqueID: 596180523
+    locked: 0
+  - name: Enemy
+    uniqueID: 34193205
     locked: 0
   - name: Player
     uniqueID: 3818798687
