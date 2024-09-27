@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Others.Solider
+namespace Others.Soldier
 {
     public class AttackHandler : MonoBehaviour
     {

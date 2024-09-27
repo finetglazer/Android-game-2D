@@ -1,6 +1,7 @@
+using Others.Soldier;
 using UnityEngine;
 
-namespace Others.Solider
+namespace Others.Soldier
 {
     public class Movement : MonoBehaviour
     {
@@ -47,7 +48,7 @@ namespace Others.Solider
             {
                 CharacterIdle();                    
             } 
-            else if (_clock < 2 * moveTime + 2 * moveTime)
+            else if (_clock < 2 * moveTime + 2 * idleTime)
             {
                 CharacterWalkLeft();
             }

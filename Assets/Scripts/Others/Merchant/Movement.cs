@@ -47,7 +47,7 @@ namespace Others.Merchant
             {
                 CharacterIdle();                    
             } 
-            else if (_clock < 2 * moveTime + 2 * moveTime)
+            else if (_clock < 2 * moveTime + 2 * idleTime)
             {
                 CharacterWalkLeft();
             }
