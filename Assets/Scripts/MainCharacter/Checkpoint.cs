@@ -2,8 +2,11 @@ using UnityEngine;
 
 namespace MainCharacter
 {
+    
+    
     public class Checkpoint : MonoBehaviour
     {
+        public float offset = 0;
     
         // set up a reference to the player
         private void OnTriggerEnter2D(Collider2D other)
@@ -17,7 +20,7 @@ namespace MainCharacter
                 {
                     // set transform position -10 x compared to the checkpoint
                     // player.SetCheckpoint(transform.position);
-                    player.SetCheckpoint(new Vector3(transform.position.x - 1 , transform.position.y, transform.position.z));
+                    player.SetCheckpoint(new Vector3(transform.position.x + offset , transform.position.y, transform.position.z));
                     Debug.Log("Checkpoint activated at: " + transform.position);
                 }
             }
