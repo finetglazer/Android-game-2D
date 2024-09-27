@@ -72,7 +72,7 @@ namespace MainCharacter
             }
             else if (_enemy.CompareTag(SoliderEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Solider.Movement>();
+                var t = _enemy.GetComponent<Others.Soldier.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
