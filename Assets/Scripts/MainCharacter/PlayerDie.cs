@@ -23,7 +23,8 @@ namespace MainCharacter
         }
 
         public void SetCheckpoint(Vector3 checkpointPosition)
-        {
+        {   
+            
             // Set the respawn point to the checkpoint's position
             respawnPoint = checkpointPosition;
         }

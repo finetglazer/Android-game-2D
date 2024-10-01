@@ -1,42 +1,43 @@
 using UnityEngine;
 
-public class PlayerSlide : MonoBehaviour
+namespace MainCharacter
 {
-    public LayerMask slope;  // Add the slope layer here
-    public float slideSpeed;  // Control how fast the player slides
-    private Rigidbody2D rb;
-    // private bool isSliding = false;
-
-    void Start()
+    public class PlayerSlide : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        public LayerMask slope;  // Add the slope layer here
+        public float slideSpeed;  // Control how fast the player slides
+        private Rigidbody2D _rb;
+        // private bool isSliding = false;
 
-    void Update()
-    {
-        CheckForSlope();
-    }
-
-    void CheckForSlope()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, slope);
-
-        if (hit.collider != null)
+        private void Start()
         {
+            _rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            CheckForSlope();
+        }
+
+        private void CheckForSlope()
+        {
+            var hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, slope);
+
+            if (!hit.collider) return;
             // If we detect a slope, start sliding
             if (Mathf.Abs(hit.normal.x) > 0.1f)  // Detect a slope by checking the normal
             {
                 // isSliding = true;
-                rb.velocity = new Vector2(hit.normal.x * slideSpeed, rb.velocity.y);
+                _rb.velocity = new Vector2(hit.normal.x * slideSpeed, _rb.velocity.y);
             }
             // else
             // {
             //     isSliding = false;
             // }
+            // else
+            // {
+            //     isSliding = false;
+            // }
         }
-        // else
-        // {
-        //     isSliding = false;
-        // }
     }
 }
