@@ -9,12 +9,15 @@ namespace Others.Priest
         public float currentHealth = 1;
         public float idleTime = 1;
         public float moveTime = 1;
+        public float gravityAcceleration = 0.4f;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
+        private static readonly int Jump = Animator.StringToHash("jump");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private AttackHandler _characterDetector;
         private float _clock;
+        private float _fallVelocity;
         private bool _playerDetected;
         private void Start()
         {
@@ -31,8 +34,18 @@ namespace Others.Priest
             }
             
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
-            if (!IsGrounded() || _playerDetected) return;
+
+            if (!IsGrounded())
+            {
+                _fallVelocity += -gravityAcceleration * Time.deltaTime;
+                _characterAnimator.SetTrigger(Jump);
+                transform.Translate(new Vector2(0, _fallVelocity));
+                return;
+            }
             
+            if (_playerDetected) return;
+
+            _fallVelocity = 0;
             _clock += Time.deltaTime;
             
             if (_clock < idleTime)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace MainCharacter
 {
@@ -8,6 +9,7 @@ namespace MainCharacter
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
+        [FormerlySerializedAs("horizontalDragCoefficient")] public float horizontalDragSpeed = 0.5f;
         public GameObject player;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
@@ -18,6 +20,7 @@ namespace MainCharacter
         private Rigidbody2D _playerBody;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
+        [HideInInspector] public bool isDoubleJump;
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
 
@@ -36,7 +39,7 @@ namespace MainCharacter
                 return;
             }
 
-            // horizontalInput = Input.GetAxis("Horizontal");
+            // horizontalInput = Input.GetAxis("Horizontal");  // Uncomment this when using keyboard controlling player 
 
             if (IsGrounded())
             {
@@ -44,7 +47,7 @@ namespace MainCharacter
             }
             else
             {
-                _playerAnimator.SetTrigger(Jump);
+                PlayerJump();
             }
 
             if (IsGrounded() && horizontalInput == 0)
@@ -65,10 +68,11 @@ namespace MainCharacter
             {
                 if (!canDoubleJump) return;
                 
+                if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
 
-            // if (Input.GetMouseButtonDown(0))
+            // if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
             // {
             //     PlayerAttack();
             // }
@@ -113,10 +117,15 @@ namespace MainCharacter
             {
                 _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpSpeed);
             }
+            else if (isDoubleJump)
+            {
+                _playerBody.velocity = new Vector2(horizontalInput == 0 ? _playerBody.velocity.x : horizontalDragSpeed * horizontalInput, _playerBody.velocity.y + jumpSpeed);
+                canDoubleJump = false;
+                isDoubleJump = false;
+            }
             else
             {
-                _playerBody.velocity = new Vector2(_playerBody.velocity.x, _playerBody.velocity.y + jumpSpeed);
-                canDoubleJump = false;
+                _playerBody.velocity = new Vector2(horizontalInput == 0 ? _playerBody.velocity.x : horizontalDragSpeed * horizontalInput, _playerBody.velocity.y);
             }
         }
         

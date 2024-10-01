@@ -629,7 +629,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2122807443
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -741,7 +741,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnLeftButtonDown
           m_Mode: 1
@@ -757,7 +757,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnLeftButtonUp
           m_Mode: 1
@@ -1477,11 +1477,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1000011742669328, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 342184444}
+      insertIndex: 1
+      addedObject: {fileID: 342184448}
     - targetCorrespondingSourceObject: {fileID: 1000011742669328, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 342184443}
+      insertIndex: 2
+      addedObject: {fileID: 342184447}
     - targetCorrespondingSourceObject: {fileID: 1000011742669328, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 342184442}
@@ -1536,7 +1536,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.55317545, y: 1.7506993}
   m_EdgeRadius: 0
---- !u!114 &342184443
+--- !u!114 &342184447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1545,25 +1545,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 342184441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8747fb456f596e429ede9bb1da3c731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageDealt: 1
-  distanceTriggeringAttack: 1
-  distanceDetectingPlayer: 1111
-  increaseWalkSpeedWhenChasingBy: 0.2
-  attackCoolDownTime: 1
-  delayTimeBeforeAttacking: 0.2
---- !u!114 &342184444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342184441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3d7329df8b7c9240859e3b505400929, type: 3}
+  m_Script: {fileID: 11500000, guid: c4cbc84c958d8e44f8083a39121aaace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
@@ -1571,6 +1553,24 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 1
+--- !u!114 &342184448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342184441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd44b477c9c844fbf893463cba9fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1
+  distanceTriggeringAttack: 1
+  distanceDetectingPlayer: 1
+  increaseWalkSpeedWhenChasingBy: 0.2
+  attackCoolDownTime: 1
+  delayTimeBeforeAttacking: 0.2
 --- !u!4 &356262308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012858508312, guid: a3c1faf915dc240bca8ed7566d46910c, type: 3}
@@ -1678,7 +1678,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 277843869
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.45882353, g: 0.85490197, b: 0.5817497, a: 0.7254902}
@@ -1845,7 +1845,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnAttackButtonDown
           m_Mode: 1
@@ -1861,7 +1861,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnAttackButtonUp
           m_Mode: 1
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939603845}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af1d62265c6bca4cb239bf35489f9a5, type: 3}
   m_Name: 
@@ -2156,6 +2156,9 @@ MonoBehaviour:
   walkSpeed: 4
   jumpSpeed: 8
   currentHealth: 1111111
+  player: {fileID: 939603845}
+  horizontalInput: 0
+  canDoubleJump: 0
 --- !u!114 &939603849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,21 +2173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: 1
   distanceDealDamage: 1.2
---- !u!114 &939603850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939603845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d83136bc7e54ed49a2f92a02d4fecfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 4
-  jumpSpeed: 4
-  currentHealth: 1111111
 --- !u!1001 &960171958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,7 +2391,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 277843869
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.45882353, g: 0.85490197, b: 0.5817497, a: 0.7254902}
@@ -2752,7 +2740,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2122807443
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2782,7 +2770,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnRightButtonDown
           m_Mode: 1
@@ -2798,7 +2786,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnRightButtonUp
           m_Mode: 1
@@ -2914,9 +2902,6 @@ PrefabInstance:
       addedObject: {fileID: 939603848}
     - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 939603850}
-    - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 939603847}
     - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       insertIndex: -1
@@ -2956,7 +2941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013034572668, guid: 389c7e1a1dabb4e1e917001420b89c9a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000013034572668, guid: 389c7e1a1dabb4e1e917001420b89c9a, type: 3}
       propertyPath: m_TagString
@@ -3443,7 +3428,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2122807443
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3555,7 +3540,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnJumpButtonDown
           m_Mode: 1
@@ -3571,7 +3556,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 939603850}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UI.Buttons.MovementAndAttackButtons, Assembly-CSharp
           m_MethodName: OnJumpButtonUp
           m_Mode: 1
@@ -3713,7 +3698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013261649242, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000013261649242, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_TagString
@@ -3997,7 +3982,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 277843869
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.45882353, g: 0.85490197, b: 0.5817497, a: 0.7254902}
@@ -4211,7 +4196,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 277843869
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.45882353, g: 0.85490197, b: 0.5817497, a: 0.7254902}
@@ -4243,12 +4228,12 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1376327682}
   - {fileID: 519420032}
   - {fileID: 356743851}
   - {fileID: 2052524449}
   - {fileID: 1099841171}
   - {fileID: 2128243578}
-  - {fileID: 1376327682}
   - {fileID: 2018080420}
   - {fileID: 6599542}
   - {fileID: 9712872}
