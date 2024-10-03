@@ -15,7 +15,7 @@ namespace MainCharacter
             if (other.CompareTag("Player"))
             {
                 // Get the Player script and set the respawn position to this checkpoint
-                PlayerDie player = other.GetComponent<PlayerDie>();
+                PlayerDie12 player = other.GetComponent<PlayerDie12>();
                 if (player != null)
                 {
                     // set transform position -10 x compared to the checkpoint
