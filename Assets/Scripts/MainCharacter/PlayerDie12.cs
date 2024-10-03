@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MainCharacter
 {
-    public class PlayerDie : MonoBehaviour
+    public class PlayerDie12 : MonoBehaviour
     {
         public float deathPoint;
         private Vector3 respawnPoint;
