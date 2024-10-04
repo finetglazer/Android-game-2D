@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - MerchantEnemy
-  - SoliderEnemy
   - StopChasingPoint
   - ThiefEnemy
   - PeasantEnemy
@@ -16,6 +15,7 @@ TagManager:
   - EnemyPriestLightning
   - EnemyPriestLightningExplosion
   - EnemyPriestLightningCautionZone
+  - SoldierEnemy
   layers:
   - Default
   - TransparentFX
