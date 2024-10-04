@@ -469,11 +469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52
+      value: -52.13
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 7.01
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.z
@@ -651,11 +651,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.26
+      value: -46.36
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.03
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 4000010300450076, guid: 7d908ba845b1044e6829ed5fb7c4be10, type: 3}
       propertyPath: m_LocalPosition.z
@@ -844,6 +844,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1 &371955504
 GameObject:
@@ -2539,6 +2540,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1 &1241644389
 GameObject:
@@ -2951,6 +2953,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1 &1303489761
 GameObject:
@@ -3935,6 +3938,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1 &1624988218
 GameObject:
@@ -26783,7 +26787,7 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
+      m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -46160,7 +46164,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -197311854, guid: eb5211be0324fd34586a2855ddff291f, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 4160
+  - m_RefCount: 4159
     m_Data:
       e00: 1
       e01: 0
@@ -46173,6 +46177,24 @@ Tilemap:
       e20: 0
       e21: 0
       e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  - m_RefCount: 1
+    m_Data:
+      e00: 0.91468745
+      e01: -0.23712479
+      e02: -0.32751548
+      e03: 0.5312004
+      e10: 0.35944444
+      e11: 0.8478213
+      e12: 0.39002633
+      e13: -0.056339383
+      e20: 0.1851746
+      e21: -0.47441578
+      e22: 0.8607103
       e23: 0
       e30: 0
       e31: 0
@@ -47817,6 +47839,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+  - m_RefCount: 0
+    m_Data:
+      e00: 1.9158912e-33
+      e01: 0
+      e02: 4.408126e-39
+      e03: 4.408126e-39
+      e10: 5.9e-43
+      e11: 0
+      e12: 5.87e-43
+      e13: 5.87e-43
+      e20: -3.3802605e-10
+      e21: 5.22684e+9
+      e22: -1.1783281e-19
+      e23: 4.8762505e-10
+      e30: 4.5904e-41
+      e31: 5.9e-43
+      e32: 5.87e-43
+      e33: 5.9e-43
   m_TileColorArray:
   - m_RefCount: 134
     m_Data: {r: 1, g: 1, b: 1, a: 1}
@@ -48793,6 +48833,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1001 &1925211229
 PrefabInstance:
@@ -48860,11 +48901,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -55
+      value: -38.27
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: -9.05
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48974,13 +49015,13 @@ PrefabInstance:
       addedObject: {fileID: 1925211239}
     - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1925211242}
+    - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1925211232}
     - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1925211231}
-    - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1925211242}
   m_SourcePrefab: {fileID: 100100000, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
 --- !u!1 &1925211230 stripped
 GameObject:
@@ -49869,6 +49910,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.2
+  deathPoint: -100
   gravityAcceleration: 0.4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

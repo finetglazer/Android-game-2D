@@ -33,6 +33,7 @@ namespace MainCharacter
         
         private void Update()
         {
+            print(IsGrounded());
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 Destroy(this);
@@ -138,10 +139,10 @@ namespace MainCharacter
         {
             player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
-        
-        public bool IsGrounded()
+
+        private bool IsGrounded()
         {
-            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
+            var raycastHit = Physics2D.Raycast(_playerBoxCollider.bounds.center, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
         }
         

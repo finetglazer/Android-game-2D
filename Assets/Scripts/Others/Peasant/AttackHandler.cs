@@ -94,6 +94,9 @@ namespace Others.Peasant
         // ReSharper disable Unity.PerformanceAnalysis
         private void Firing()
         { 
+            if (_characterMovement.IsWallOnLeft() && PlayerDetectedOnLeft()) return;
+            if (_characterMovement.IsWallOnRight() && PlayerDetectedOnRight()) return;
+            
             foreach (var arrow in arrowArray)
             {
                 if (arrow.activeInHierarchy) continue;

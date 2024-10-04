@@ -99,7 +99,11 @@ namespace Others.Soldier
             if (PlayerDetectedOnLeft()) _characterMovement.TurnLeft();
             else _characterMovement.TurnRight();
             
+            if (_characterMovement.IsWallOnLeft() && PlayerDetectedOnLeft()) return;
+            if (_characterMovement.IsWallOnRight() && PlayerDetectedOnRight()) return;
+            
             _characterAnimator.SetTrigger(Walk);
+            
             var newWalkSpeed = _firstWalkSpeed * (1 + increaseWalkSpeedWhenChasingBy);
             GetComponent<Movement>().walkSpeed = newWalkSpeed;
             transform.position += Mathf.Approximately(Mathf.Sign(transform.localScale.x), 1) switch
