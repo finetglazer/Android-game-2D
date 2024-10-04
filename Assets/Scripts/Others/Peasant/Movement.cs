@@ -9,6 +9,7 @@ namespace Others.Peasant
         public float currentHealth = 1;
         public float idleTime = 1;
         public float moveTime = 1;
+        public float deathPoint = -100;
         public float gravityAcceleration = 0.4f;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
@@ -19,27 +20,45 @@ namespace Others.Peasant
         private float _clock;
         private float _fallVelocity;
         private bool _playerDetected;
+        private bool _isWallOnLeft;
+        private bool _isWallOnRight;
         private void Start()
         {
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterDetector = GetComponent<AttackHandler>();
         }
+        
         private void Update()
         {
-            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
+            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.x < deathPoint)
             {
                 Destroy(this);
                 return;
             }
             
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
-
+            _isWallOnLeft = IsWallOnLeft();
+            _isWallOnRight = IsWallOnRight();
+            
             if (!IsGrounded())
             {
                 _fallVelocity += -gravityAcceleration * Time.deltaTime;
                 _characterAnimator.SetTrigger(Jump);
                 transform.Translate(new Vector2(0, _fallVelocity));
+                return;
+            }
+
+            if (_isWallOnLeft && !_isWallOnRight)
+            {
+                _clock = idleTime;
+            }
+            else if (_isWallOnRight && !_isWallOnLeft)
+            {
+                _clock = 2 * idleTime + moveTime;
+            }
+            else if (_isWallOnLeft && _isWallOnRight)
+            {
                 return;
             }
             
@@ -99,9 +118,22 @@ namespace Others.Peasant
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
+        
         private bool IsGrounded()
         {
             var raycastHit = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
+            return raycastHit.collider is not null;
+        }
+
+        internal bool IsWallOnLeft()
+        {
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.left, 0.1f, LayerMask.GetMask("Ground"));
+            return raycastHit.collider is not null;
+        }
+
+        internal bool IsWallOnRight()
+        {
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.1f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
         }
     }
