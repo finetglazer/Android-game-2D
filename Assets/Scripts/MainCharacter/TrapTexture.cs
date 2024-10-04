@@ -14,5 +14,12 @@ public class Trap : MonoBehaviour
         {
             player.Die();
         }
+        
+        //check if enemies are detected
+        GameObject gameObject = other.gameObject;
+        if (gameObject != null)
+        {
+            
+        }
     }
 }
