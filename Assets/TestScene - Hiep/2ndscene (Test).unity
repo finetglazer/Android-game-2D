@@ -389,6 +389,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &154303249
 GameObject:
@@ -741,6 +742,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1001 &211750211
 PrefabInstance:
@@ -1191,6 +1193,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &371955504
 GameObject:
@@ -1543,6 +1546,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &543303709
 GameObject:
@@ -2111,11 +2115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.575
+      value: 23.68
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -25.989
+      value: -45.98
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2264,7 +2268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61f0e528d944fffab0c122b60d02870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: EndingScene (Test)
+  sceneName: 
 --- !u!61 &765727309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3692,8 +3696,8 @@ Tilemap:
   - first: {x: 29, y: -96, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 6
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4945,9 +4949,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1f873c3d1d9633046b8f02c15afea60b, type: 2}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: ee105cc3d10546142afec4ed299368a2, type: 2}
-  - m_RefCount: 20
+  - m_RefCount: 19
     m_Data: {fileID: 11400000, guid: da51d6952626084469bb00b0af51b196, type: 2}
-  - m_RefCount: 44
+  - m_RefCount: 45
     m_Data: {fileID: 11400000, guid: e7c32b514506b9843aa39e66eda3291e, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: dd965f587b0da3e4aae3ceded97e7b44, type: 2}
@@ -4976,13 +4980,13 @@ Tilemap:
     m_Data: {fileID: -527278161, guid: efe2b65533e47c4409552004b53d8620, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 1136404088, guid: efe2b65533e47c4409552004b53d8620, type: 3}
-  - m_RefCount: 44
+  - m_RefCount: 45
     m_Data: {fileID: -52843011, guid: efe2b65533e47c4409552004b53d8620, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 544220726, guid: efe2b65533e47c4409552004b53d8620, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: -1354023638, guid: efe2b65533e47c4409552004b53d8620, type: 3}
-  - m_RefCount: 20
+  - m_RefCount: 19
     m_Data: {fileID: -1777693529, guid: efe2b65533e47c4409552004b53d8620, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1913182758, guid: efe2b65533e47c4409552004b53d8620, type: 3}
@@ -5329,14 +5333,6 @@ CompositeCollider2D:
         Y: -360000000
       - X: 200000000
         Y: -360000000
-    - - X: 230000000
-        Y: -370000000
-      - X: 200000000
-        Y: -370000000
-      - X: 200000000
-        Y: -380000000
-      - X: 230000000
-        Y: -380000000
     - - X: 270000000
         Y: -370000000
       - X: 251718752
@@ -5348,6 +5344,14 @@ CompositeCollider2D:
       - X: 250156256
         Y: -380000000
       - X: 270000000
+        Y: -380000000
+    - - X: 230000000
+        Y: -370000000
+      - X: 200000000
+        Y: -370000000
+      - X: 200000000
+        Y: -380000000
+      - X: 230000000
         Y: -380000000
     - - X: 100000000
         Y: -380000000
@@ -5621,21 +5625,9 @@ CompositeCollider2D:
         Y: -940000000
       - X: 260000000
         Y: -940000000
-    - - X: 290000000
-        Y: -959687488
-      - X: 290156256
-        Y: -960000000
-      - X: 319687488
-        Y: -960000000
-      - X: 319687488
+    - - X: 319687488
         Y: -951249984
       - X: 318281248
-        Y: -950000000
-      - X: 291718752
-        Y: -950000000
-      - X: 290000000
-        Y: -952812480
-      - X: 290000000
         Y: -950000000
       - X: 281718752
         Y: -950000000
@@ -5645,7 +5637,7 @@ CompositeCollider2D:
         Y: -959687488
       - X: 280156256
         Y: -960000000
-      - X: 290000000
+      - X: 319687488
         Y: -960000000
   m_CompositePaths:
     m_Paths:
@@ -5918,15 +5910,9 @@ CompositeCollider2D:
       - {x: 25.999971, y: -93}
       - {x: 25, y: -93.00003}
       - {x: 25.000029, y: -94}
-    - - {x: 28.999971, y: -96}
-      - {x: 29.000076, y: -95.9689}
-      - {x: 29.015642, y: -96}
-      - {x: 31.96875, y: -95.99997}
+    - - {x: 31.96872, y: -96}
       - {x: 31.96874, y: -95.12499}
       - {x: 31.828115, y: -95}
-      - {x: 29.171865, y: -95.000015}
-      - {x: 29, y: -95.281105}
-      - {x: 28.999971, y: -95}
       - {x: 28.171865, y: -95.000015}
       - {x: 28, y: -95.28126}
       - {x: 28.000004, y: -95.96876}
@@ -6763,6 +6749,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &1131006774
 GameObject:
@@ -8094,6 +8081,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &1648393707
 GameObject:
@@ -50277,6 +50265,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 0.5
 --- !u!1001 &1937280628
 PrefabInstance:
@@ -50545,6 +50534,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1001 &1942510959
 PrefabInstance:
@@ -50813,6 +50803,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  deathPoint: -100
   gravityAcceleration: 1
 --- !u!1 &1962699699
 GameObject:
@@ -51025,7 +51016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f972637632d9544b83755166e22bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPoint: -50
+  deathPoint: -120
 --- !u!50 &1982959533
 Rigidbody2D:
   serializedVersion: 4
@@ -51113,7 +51104,7 @@ MonoBehaviour:
   walkSpeed: 4
   jumpSpeed: 5.5
   currentHealth: 10000
-  horizontalDragSpeed: 2
+  horizontalDragCoefficient: 0.2
   player: {fileID: 1982959531}
   isDoubleJump: 0
   horizontalInput: 0
@@ -51441,7 +51432,6 @@ SceneRoots:
   - {fileID: 764057316}
   - {fileID: 1964463730}
   - {fileID: 718023294}
-  - {fileID: 1135586795}
   - {fileID: 211750211}
   - {fileID: 458861738}
   - {fileID: 1114281553}
@@ -51456,3 +51446,4 @@ SceneRoots:
   - {fileID: 561548347}
   - {fileID: 1668366259}
   - {fileID: 765727311}
+  - {fileID: 1135586795}
