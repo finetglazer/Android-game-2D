@@ -30,14 +30,6 @@ namespace MainCharacter
                 // isSliding = true;
                 _rb.velocity = new Vector2(hit.normal.x * slideSpeed, _rb.velocity.y);
             }
-            // else
-            // {
-            //     isSliding = false;
-            // }
-            // else
-            // {
-            //     isSliding = false;
-            // }
         }
     }
 }

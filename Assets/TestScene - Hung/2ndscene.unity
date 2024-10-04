@@ -739,6 +739,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  gravityAcceleration: 0.4
 --- !u!1 &543303709
 GameObject:
   m_ObjectHideFlags: 0
@@ -47310,6 +47311,7 @@ MonoBehaviour:
   currentHealth: 1
   idleTime: 1
   moveTime: 0.7
+  gravityAcceleration: 0.4
 --- !u!1001 &1925211229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47376,11 +47378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47607,7 +47609,9 @@ MonoBehaviour:
   walkSpeed: 2
   jumpSpeed: 4
   currentHealth: 10000
+  horizontalDragCoefficient: 0.2
   player: {fileID: 1925211230}
+  isDoubleJump: 0
   horizontalInput: 0
   canDoubleJump: 0
 --- !u!114 &1925211242

@@ -9,7 +9,7 @@ namespace MainCharacter
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
-        [FormerlySerializedAs("horizontalDragCoefficient")] public float horizontalDragSpeed = 0.5f;
+        public float horizontalDragCoefficient = 0.2f;
         public GameObject player;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
@@ -39,7 +39,7 @@ namespace MainCharacter
                 return;
             }
 
-            // horizontalInput = Input.GetAxis("Horizontal");  // Uncomment this when using keyboard controlling player 
+            horizontalInput = Input.GetAxis("Horizontal");  // Uncomment this when using keyboard controlling player 
 
             if (IsGrounded())
             {
@@ -72,10 +72,10 @@ namespace MainCharacter
                 PlayerJump();
             }
 
-            // if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
-            // {
-            //     PlayerAttack();
-            // }
+            if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
+            {
+                PlayerAttack();
+            }
         }
 
         private void PlayerCasting()
@@ -115,17 +115,17 @@ namespace MainCharacter
             _playerAnimator.SetTrigger(Jump);
             if (IsGrounded())
             {
-                _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpSpeed);
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x * horizontalInput, jumpSpeed);
             }
             else if (isDoubleJump)
             {
-                _playerBody.velocity = new Vector2(horizontalInput == 0 ? _playerBody.velocity.x : horizontalDragSpeed * horizontalInput, _playerBody.velocity.y + jumpSpeed);
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x + walkSpeed * horizontalInput, _playerBody.velocity.y + jumpSpeed);
                 canDoubleJump = false;
                 isDoubleJump = false;
             }
-            else
+            else // When floating on air
             {
-                _playerBody.velocity = new Vector2(horizontalInput == 0 ? _playerBody.velocity.x : horizontalDragSpeed * horizontalInput, _playerBody.velocity.y);
+                _playerBody.velocity = new Vector2(walkSpeed * horizontalInput, _playerBody.velocity.y);
             }
         }
         
