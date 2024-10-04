@@ -33,7 +33,6 @@ namespace MainCharacter
         
         private void Update()
         {
-            print(IsGrounded());
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 Destroy(this);
