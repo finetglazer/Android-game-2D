@@ -13,7 +13,7 @@ namespace MainCharacter
         private const string MerchantEnemyTag = "MerchantEnemy";
         private const string PeasantEnemyTag = "PeasantEnemy";
         private const string PriestEnemyTag = "PriestEnemy";
-        private const string SoliderEnemyTag = "SoliderEnemy";
+        private const string SoldierEnemyTag = "SoldierEnemy";
         private const string ThiefEnemyTag = "ThiefEnemy";
         [CanBeNull] private GameObject _enemy; 
         private BoxCollider2D _playerBoxCollider;
@@ -70,7 +70,7 @@ namespace MainCharacter
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
-            else if (_enemy.CompareTag(SoliderEnemyTag))
+            else if (_enemy.CompareTag(SoldierEnemyTag))
             {
                 var t = _enemy.GetComponent<Others.Soldier.Movement>();
                 if (t is null) return;  // Enemy is dead
@@ -98,7 +98,8 @@ namespace MainCharacter
         private void EnemyDisappears()
         {
             if (!_isEnemyDead) return;
-            Destroy(_enemy);
+            ClearDeathEnemies.Clear();
+            // _enemy?.SetActive(false);
         }
     }   
 }
