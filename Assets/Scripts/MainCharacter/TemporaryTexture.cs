@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TemporaryTexture : MonoBehaviour
 {
-    private bool playerIsOnTexture = false;
+    [HideInInspector]public bool playerIsOnTexture;
     private float timeOnTexture = 0f;
     public float duration = 3f; // Time required for the texture to disappear.
 
