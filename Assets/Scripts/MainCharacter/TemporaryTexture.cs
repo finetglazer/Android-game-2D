@@ -24,15 +24,15 @@ public class TemporaryTexture : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Reset when the player leaves the texture's collider.
-        if (collision.collider.CompareTag("Player") && textureActive)
-        {
-            playerIsOnTexture = false;
-            timeOnTexture = 0f; // Reset the timer
-        }
-    }
+    // private void OnCollisionExit2D(Collision2D collision)
+    // {
+    //     // Reset when the player leaves the texture's collider.
+    //     if (collision.collider.CompareTag("Player") && textureActive)
+    //     {
+    //         playerIsOnTexture = false;
+    //         // timeOnTexture = 0f; // Reset the timer
+    //     }
+    // }
 
     private void Update()
     {
@@ -57,6 +57,8 @@ public class TemporaryTexture : MonoBehaviour
         gameObject.SetActive(true);
         timeOnTexture = 0f;
         textureActive = true;
+        playerIsOnTexture = false;
+
     }
 }
 /*

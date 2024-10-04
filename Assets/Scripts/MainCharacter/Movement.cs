@@ -39,7 +39,7 @@ namespace MainCharacter
                 return;
             }
 
-            // horizontalInput = Input.GetAxis("Horizontal");  // Uncomment this when using keyboard controlling player 
+            horizontalInput = Input.GetAxis("Horizontal");  // Uncomment this when using keyboard controlling player 
 
             if (IsGrounded())
             {
@@ -72,10 +72,10 @@ namespace MainCharacter
                 PlayerJump();
             }
 
-            // if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
-            // {
-            //     PlayerAttack();
-            // }
+            if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
+            {
+                PlayerAttack();
+            }
         }
 
         private void PlayerCasting()
