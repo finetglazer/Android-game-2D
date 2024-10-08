@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MainCharacter
+namespace GameObjects.Camera
 {
     public class CameraTarget : MonoBehaviour
     {

@@ -38,7 +38,7 @@ namespace Others.Merchant
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                Destroy(this);
+                GetComponent<AttackHandler>().enabled = false;
                 return;
             }
             

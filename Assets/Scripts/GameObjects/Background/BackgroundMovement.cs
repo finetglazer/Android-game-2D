@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MainCharacter
+namespace GameObjects.Background
 {
     public class BackgroundMovement:MonoBehaviour
     {

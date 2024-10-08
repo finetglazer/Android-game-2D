@@ -1,38 +1,38 @@
-﻿using UnityEngine;
+﻿using GameObjects.Checkpoint;
+using Recorder;
+using UnityEngine;
 
 namespace MainCharacter
 {
     public class PlayerDie45 : MonoBehaviour
     {
         public float deathPoint;
-        private Vector3 respawnPoint;
+        private Vector3 _respawnPoint;
 
         // Reference to the current checkpoint the player is at
-        private CheckPointWithTmpTexture currentCheckPointWithTmpTexture;
+        private CheckPointWithTmpTexture _currentCheckPointWithTmpTexture;
 
         private void Start()
         {
             // Set the default respawn point to the player's starting position
-            respawnPoint = transform.position;
+            _respawnPoint = transform.position;
         }
 
         private void Update()
         {
-            if (transform.position.y < deathPoint)
-            {
-                Debug.Log("Player fell below death point");
-                Respawn();
-            }
+            if (!(transform.position.y < deathPoint)) return;
+            
+            print("Below Death Point: " + transform.position.y);
+            Respawn();
         }
 
         public void SetCheckpoint(Vector3 checkpointPosition, CheckPointWithTmpTexture checkPointWithTmpTexture)
         {
             // Set the respawn point to the checkpoint's position
-            respawnPoint = checkpointPosition;
-            currentCheckPointWithTmpTexture = checkPointWithTmpTexture;
+            _respawnPoint = checkpointPosition;
+            _currentCheckPointWithTmpTexture = checkPointWithTmpTexture;
         }
-       
-
+        
         public void Die()
         {
             Respawn();
@@ -41,16 +41,14 @@ namespace MainCharacter
         private void Respawn()
         {
             // Move the player to the last checkpoint
-            transform.position = respawnPoint;
-            Debug.Log("Player respawned at: " + respawnPoint);
-            print(currentCheckPointWithTmpTexture == null);
+            transform.position = _respawnPoint;
+            print("Player respawned at: " + _respawnPoint);
 
             // Reset all temporary textures related to the current checkpoint
-            if (currentCheckPointWithTmpTexture != null)
-            {
-                Debug.Log("Resetting textures");
-                currentCheckPointWithTmpTexture.ResetTextures();
-            }
+            // if (_currentCheckPointWithTmpTexture is null) return;
+            // print("Resetting textures");
+            // _currentCheckPointWithTmpTexture.ResetTextures();
+            DeathNote.ReRender();
         }
     }
 }

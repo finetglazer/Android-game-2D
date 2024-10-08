@@ -9,7 +9,6 @@ namespace MainCharacter
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
-        public float horizontalDragCoefficient = 0.2f;
         public GameObject player;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");

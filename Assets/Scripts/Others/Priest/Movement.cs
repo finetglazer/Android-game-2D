@@ -1,3 +1,4 @@
+using Recorder;
 using UnityEngine;
 
 namespace Others.Priest
@@ -18,12 +19,15 @@ namespace Others.Priest
         private Animator _characterAnimator;
         private AttackHandler _characterDetector;
         private float _clock;
+        private Vector3 _initialPosition;
         private float _fallVelocity;
         private bool _playerDetected;
         private bool _isWallOnLeft;
         private bool _isWallOnRight;
         private void Start()
         {
+            _initialPosition = transform.position;
+            DeathNote.AddObject(gameObject, _initialPosition);
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterDetector = GetComponent<AttackHandler>();
@@ -31,7 +35,7 @@ namespace Others.Priest
         
         private void Update()
         {
-            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.x < deathPoint)
+            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
             {
                 Destroy(this);
                 return;

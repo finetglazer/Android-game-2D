@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using GameObjects.Texture;
+using UnityEngine;
 
-namespace MainCharacter
+namespace GameObjects.Checkpoint
 {
     public class CheckPointTriggersTmpTexture : MonoBehaviour
     {
