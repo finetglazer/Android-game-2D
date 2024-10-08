@@ -15,11 +15,11 @@ namespace MainCharacter
             var gameObjects = FindObjectsOfType<GameObject>();
             foreach (var x in gameObjects)
             {
-                if ((x.CompareTag(MerchantEnemyTag) && x.GetComponent<Others.Merchant.AttackHandler>().enabled == false)
-                    || (x.CompareTag(PeasantEnemyTag) && x.GetComponent<Others.Peasant.AttackHandler>().enabled == false)
-                    || (x.CompareTag(PriestEnemyTag) && x.GetComponent<Others.Priest.AttackHandler>().enabled == false)
-                    || (x.CompareTag(SoldierEnemyTag) && x.GetComponent<Others.Soldier.AttackHandler>().enabled == false)
-                    || (x.CompareTag(ThiefEnemyTag) && x.GetComponent<Others.Thief.AttackHandler>().enabled == false))
+                if ((x.CompareTag(MerchantEnemyTag) && !x.GetComponent<OtherCharacters.Merchant.AttackHandler>().enabled)
+                    || (x.CompareTag(PeasantEnemyTag) && !x.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled)
+                    || (x.CompareTag(PriestEnemyTag) && !x.GetComponent<OtherCharacters.Priest.AttackHandler>().enabled)
+                    || (x.CompareTag(SoldierEnemyTag) && !x.GetComponent<OtherCharacters.Soldier.AttackHandler>().enabled)
+                    || (x.CompareTag(ThiefEnemyTag) && !x.GetComponent<OtherCharacters.Thief.AttackHandler>().enabled))
                 {
                     x.SetActive(false);
                 }

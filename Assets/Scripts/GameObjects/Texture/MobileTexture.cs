@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameObjects.Texture
 {
@@ -9,7 +8,7 @@ namespace GameObjects.Texture
         public float yVelocity;         // Can < 0
         public float moveTime = 0.5f;
         public float clock;             // Start on the left side
-        
+        private const int GroundLayer = 3;
         
         private void Update()
         {
@@ -28,18 +27,31 @@ namespace GameObjects.Texture
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                var player = other.gameObject;
-                player.AddComponent<MobileTexture>();
-                var playerController = player.GetComponent<MobileTexture>();
-                playerController.xVelocity = xVelocity;
-                playerController.yVelocity = yVelocity;
-                playerController.moveTime = moveTime;
-                playerController.clock = clock;
-            }
-        }
+        // private void OnCollisionEnter2D(Collision2D other)
+        // {
+        //     if (other.gameObject.layer.Equals(GroundLayer)) return;
+        //     
+        //     var obj = other.gameObject;
+        //     obj.AddComponent<MobileTexture>();
+        //     var objController = obj.GetComponent<MobileTexture>();
+        //     objController.xVelocity = xVelocity;
+        //     objController.yVelocity = yVelocity;
+        //     objController.moveTime = moveTime;
+        //     objController.clock = clock;
+        // }
+        //
+        // private void OnTriggerEnter2D(Collider2D other)
+        // {
+        //     print("aa");
+        //     if (other.gameObject.layer.Equals(GroundLayer)) return;
+        //     
+        //     var obj = other.gameObject;
+        //     obj.AddComponent<MobileTexture>();
+        //     var objController = obj.GetComponent<MobileTexture>();
+        //     objController.xVelocity = xVelocity;
+        //     objController.yVelocity = yVelocity;
+        //     objController.moveTime = moveTime;
+        //     objController.clock = clock;
+        // }
     }
 }

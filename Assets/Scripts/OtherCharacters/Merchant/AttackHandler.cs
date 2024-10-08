@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Others.Thief
+namespace OtherCharacters.Merchant
 {
     public class AttackHandler : MonoBehaviour
     {
@@ -38,7 +38,7 @@ namespace Others.Thief
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                Destroy(this);
+                GetComponent<AttackHandler>().enabled = false;
                 return;
             }
             
@@ -71,14 +71,14 @@ namespace Others.Thief
 
         internal bool PlayerDetectedOnLeft()
         {
-            var raycastHit = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0f, Vector2.left, distanceDetectingPlayer, LayerMask.GetMask(PlayerMask));
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.left, distanceDetectingPlayer, LayerMask.GetMask(PlayerMask));
             if (raycastHit.collider is not null) _player = raycastHit.collider.gameObject;
             return raycastHit.collider is not null;
         }
 
         internal bool PlayerDetectedOnRight()
         {
-            var raycastHit = Physics2D.BoxCast(_characterBoxCollider.bounds.center, _characterBoxCollider.bounds.size, 0f, Vector2.right, distanceDetectingPlayer, LayerMask.GetMask(PlayerMask));
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, distanceDetectingPlayer, LayerMask.GetMask(PlayerMask));
             if (raycastHit.collider is not null) _player = raycastHit.collider.gameObject;
             return raycastHit.collider is not null;
         }
@@ -98,12 +98,12 @@ namespace Others.Thief
             
             if (PlayerDetectedOnLeft()) _characterMovement.TurnLeft();
             else _characterMovement.TurnRight();
-            
+
             if (_characterMovement.IsWallOnLeft() && PlayerDetectedOnLeft()) return;
             if (_characterMovement.IsWallOnRight() && PlayerDetectedOnRight()) return;
             
             _characterAnimator.SetTrigger(Walk);
-            
+
             var newWalkSpeed = _firstWalkSpeed * (1 + increaseWalkSpeedWhenChasingBy);
             GetComponent<Movement>().walkSpeed = newWalkSpeed;
             transform.position += Mathf.Approximately(Mathf.Sign(transform.localScale.x), 1) switch

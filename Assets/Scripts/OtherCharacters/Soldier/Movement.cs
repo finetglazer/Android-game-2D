@@ -1,8 +1,7 @@
-using System;
 using Recorder;
 using UnityEngine;
 
-namespace Others.Merchant
+namespace OtherCharacters.Soldier
 {
     public class Movement : MonoBehaviour
     {

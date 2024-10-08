@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Others.Priest
+namespace OtherCharacters.Priest
 {
     public class LightningCollision : MonoBehaviour
     {
