@@ -54,31 +54,31 @@ namespace MainCharacter
             float currentEnemyHealth = 0;
             if (_enemy.CompareTag(MerchantEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Merchant.Movement>();
+                var t = _enemy.GetComponent<OtherCharacters.Merchant.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
             else if (_enemy.CompareTag(PeasantEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Peasant.Movement>();
+                var t = _enemy.GetComponent<OtherCharacters.Peasant.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
             else if (_enemy.CompareTag(PriestEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Priest.Movement>();
+                var t = _enemy.GetComponent<OtherCharacters.Priest.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
             else if (_enemy.CompareTag(SoldierEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Soldier.Movement>();
+                var t = _enemy.GetComponent<OtherCharacters.Soldier.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
             else if (_enemy.CompareTag(ThiefEnemyTag))
             {
-                var t = _enemy.GetComponent<Others.Thief.Movement>();
+                var t = _enemy.GetComponent<OtherCharacters.Thief.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
             }
@@ -99,7 +99,6 @@ namespace MainCharacter
         {
             if (!_isEnemyDead) return;
             ClearDeathEnemies.Clear();
-            // _enemy?.SetActive(false);
         }
     }   
 }

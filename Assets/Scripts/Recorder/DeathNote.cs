@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GameObjects.Texture;
+using OtherCharacters.Merchant;
 using UnityEngine;
 
 namespace Recorder
@@ -67,28 +68,28 @@ namespace Recorder
                 switch (targetedGameObject.tag)
                 {
                     case MerchantEnemyTag:
-                        targetedGameObject.GetComponent<Others.Merchant.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Merchant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<Movement>().enabled = true;
+                        targetedGameObject.GetComponent<AttackHandler>().enabled = true;
                         break;
                     case PriestEnemyTag:
-                        targetedGameObject.GetComponent<Others.Priest.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Priest.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Priest.Movement>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Priest.AttackHandler>().enabled = true;
                         break;
                     case SoldierEnemyTag:
-                        targetedGameObject.GetComponent<Others.Soldier.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Soldier.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Soldier.Movement>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Soldier.AttackHandler>().enabled = true;
                         break;
                     case ThiefEnemyTag:
-                        targetedGameObject.GetComponent<Others.Thief.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Thief.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Thief.Movement>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Thief.AttackHandler>().enabled = true;
                         break;
                     case PeasantEnemyTag:
-                        targetedGameObject.GetComponent<Others.Peasant.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Peasant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled = true;
                         break;
                     default:
-                        targetedGameObject.GetComponent<Others.Peasant.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<Others.Peasant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled = true;
                         break;
                 }
             }

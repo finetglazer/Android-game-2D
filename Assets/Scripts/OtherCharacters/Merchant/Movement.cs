@@ -1,7 +1,7 @@
 using Recorder;
 using UnityEngine;
 
-namespace Others.Thief
+namespace OtherCharacters.Merchant
 {
     public class Movement : MonoBehaviour
     {
@@ -37,7 +37,7 @@ namespace Others.Thief
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
             {
-                Destroy(this);
+                GetComponent<Movement>().enabled = false;
                 return;
             }
             
