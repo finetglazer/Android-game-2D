@@ -1,7 +1,7 @@
 ﻿using MainCharacter;
 using UnityEngine;
 
-namespace GameObjects.Texture
+namespace GameObjects.Texture.TrapTexture
 {
     public class Trap : MonoBehaviour
     {
