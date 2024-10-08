@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GameObjects.Texture;
+using GameObjects.Texture.TemporaryTexture;
 using OtherCharacters.Merchant;
 using UnityEngine;
+using Movement = OtherCharacters.Merchant.Movement;
 
 namespace Recorder
 {
@@ -93,7 +95,7 @@ namespace Recorder
                         break;
                 }
             }
-            else if (targetedGameObject.name.ToLower().Contains("tmp"))
+            else if (targetedGameObject.GetComponent<TemporaryTexture>() is not null)
             {
                 var temporaryTextureScript = targetedGameObject.GetComponent<TemporaryTexture>();
                 temporaryTextureScript.timeOnTexture = 0;

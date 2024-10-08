@@ -1,13 +1,13 @@
 using Recorder;
 using UnityEngine;
 
-namespace GameObjects.Texture
+namespace GameObjects.Texture.TemporaryTexture
 {
     public class TemporaryTexture : MonoBehaviour
     {
-        [HideInInspector]public bool playerIsOnTexture;
-        [HideInInspector]public float timeOnTexture;
-        [HideInInspector]public bool textureActive = true;
+        public bool playerIsOnTexture;
+        public float timeOnTexture;
+        public bool textureActive = true;
         public float duration = 3f; // Time required for the texture to disappear.
 
         private Vector3 _initialPosition;
@@ -72,6 +72,3 @@ namespace GameObjects.Texture
         }
     }
 }
-/*
-
-*/
