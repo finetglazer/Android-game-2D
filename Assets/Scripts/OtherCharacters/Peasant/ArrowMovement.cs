@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Others.Peasant
+namespace OtherCharacters.Peasant
 { 
     public class ArrowMovement : MonoBehaviour
     {

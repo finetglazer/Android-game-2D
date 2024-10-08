@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Others.Soldier
+namespace OtherCharacters.Thief
 {
     public class AttackHandler : MonoBehaviour
     {
@@ -38,7 +38,7 @@ namespace Others.Soldier
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                Destroy(this);
+                GetComponent<AttackHandler>().enabled = false;
                 return;
             }
             

@@ -1,35 +1,38 @@
 using UnityEngine;
 
-namespace Others.Priest
+namespace OtherCharacters.Peasant
 {
     public class AttackHandler : MonoBehaviour
     {
-        public float damageDealt = 1;
-        public float distanceDetectingPlayer = 1;
-        public float attackCoolDownTime = 1;                // Must > 1 second
-        public Transform lightningOccurPoint;
-        public GameObject cautionZone;
-        public GameObject lightning;
-        public GameObject lightningExplosion;
         private static readonly int Attack = Animator.StringToHash("attack");
         private static readonly int Idle = Animator.StringToHash("idle");
+        public float damageDealt = 1;
+        public float distanceDetectingPlayer = 1;
+        public float attackCoolDownTime = 1;
+        public float arrowSpeed = 5;
+        public GameObject arrowStartingPoint;
+        public GameObject[] arrowArray;
         private const string PlayerMask = "Player";
         private const string PlayerTag = "Player";
-        private GameObject _player;
         private Animator _playerAnimator;
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private Movement _characterMovement;
         private float _attackCoolDownTime;
         private bool _isPlayerDead;
-        
+        internal float ArrowDirection;
+
+        public AttackHandler(GameObject[] arrowArray)
+        {
+            this.arrowArray = arrowArray;
+        }
+
         private void Start()
         {
             _attackCoolDownTime = attackCoolDownTime;
-            _player = GameObject.FindGameObjectWithTag(PlayerTag);
-            _playerAnimator = _player.GetComponent<Animator>();
-            _characterAnimator = GetComponent<Animator>();
+            _playerAnimator = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<Animator>();
             _characterBoxCollider = GetComponent<BoxCollider2D>();
+            _characterAnimator = GetComponent<Animator>();
             _characterMovement = GetComponent<Movement>();
             _isPlayerDead = false;
         }
@@ -38,10 +41,7 @@ namespace Others.Priest
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                cautionZone.SetActive(false);
-                lightning.SetActive(false);
-                lightningExplosion.SetActive(false);
-                Destroy(this);
+                GetComponent<AttackHandler>().enabled = false;
                 return;
             }
             
@@ -65,15 +65,16 @@ namespace Others.Priest
             if (PlayerDetectedOnLeft())
             {
                 _characterMovement.TurnLeft();
+                ArrowDirection = 1;
             }
             else if (PlayerDetectedOnRight())
             {
                 _characterMovement.TurnRight();
+                ArrowDirection = -1;
             }
             else return;
             
-            lightningOccurPoint.position = _player.transform.position;
-            _characterAnimator.SetTrigger(Attack);      // All events triggered in Attack animation
+            _characterAnimator.SetTrigger(Attack);  // Firing() will be called in Animation Event
         }
 
         internal bool PlayerDetectedOnLeft()
@@ -88,33 +89,21 @@ namespace Others.Priest
             return raycastHit.collider is not null;
         }
 
-        private void ActivateCautionZone()
-        {
-            cautionZone.SetActive(true);
-            cautionZone.transform.position = new Vector3(lightningOccurPoint.position.x, cautionZone.transform.position.y, cautionZone.transform.position.z);
-        }
-
-        private void DeActivateCautionZone()
-        {
-            cautionZone.SetActive(false);
-            lightning.SetActive(true);
-            lightning.transform.position = new Vector3(lightningOccurPoint.position.x, lightning.transform.position.y, lightning.transform.position.z);
-        }
-
-        private void ActivateLightningExplosion()
-        {
-            lightningExplosion.SetActive(true);
-            lightningExplosion.transform.position = new Vector3(lightningOccurPoint.position.x, lightningExplosion.transform.position.y, lightningExplosion.transform.position.z);
-        }
-
-        private void DeActivateLightningExplosion()
-        {
-            lightningExplosion.SetActive(false);
-        }
-
-        private void DeActivateLightning()
-        {
-            lightning.SetActive(false);
+        // ReSharper disabled Unity.PerformanceAnalysis avoiding GetComponent<T>() invoked continuously in Update()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void Firing()
+        { 
+            if (_characterMovement.IsWallOnLeft() && PlayerDetectedOnLeft()) return;
+            if (_characterMovement.IsWallOnRight() && PlayerDetectedOnRight()) return;
+            
+            foreach (var arrow in arrowArray)
+            {
+                if (arrow.activeInHierarchy) continue;
+                arrow.SetActive(true);
+                arrow.transform.position = arrowStartingPoint.transform.position;
+                ArrowDirection = Mathf.Sign(arrowStartingPoint.transform.localScale.x);
+                break;
+            }
         }
     }
 }
