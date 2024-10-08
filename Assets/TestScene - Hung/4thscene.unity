@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!1 &94755860 stripped
 GameObject:
@@ -579,7 +581,6 @@ MonoBehaviour:
   walkSpeed: 2
   jumpSpeed: 4
   currentHealth: 10000
-  horizontalDragCoefficient: 0.2
   player: {fileID: 94755860}
   isDoubleJump: 0
   horizontalInput: 0
@@ -808,6 +809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!483693784 &119480242
 TilemapRenderer:
@@ -1567,6 +1570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &159920560
 CompositeCollider2D:
@@ -2540,6 +2545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &498083635
 CompositeCollider2D:
@@ -3441,6 +3448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!483693784 &742521572
 TilemapRenderer:
@@ -3747,11 +3756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4607,6 +4616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!1 &914010178 stripped
 GameObject:
@@ -5759,6 +5770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &1029911785
 CompositeCollider2D:
@@ -6305,6 +6318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!1001 &1139576788
 PrefabInstance:
@@ -7892,6 +7907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &1327325805
 CompositeCollider2D:
@@ -8719,6 +8736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!483693784 &1406958972
 TilemapRenderer:
@@ -9505,6 +9524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!1 &1462145380
 GameObject:
@@ -9730,6 +9751,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &1499364863
 CompositeCollider2D:
@@ -10264,6 +10287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!483693784 &1510758246
 TilemapRenderer:
@@ -13806,6 +13831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!66 &1899289414
 CompositeCollider2D:
@@ -14609,6 +14636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!483693784 &2080252022
 TilemapRenderer:
@@ -15070,6 +15099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsOnTexture: 0
+  timeOnTexture: 0
+  textureActive: 1
   duration: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
