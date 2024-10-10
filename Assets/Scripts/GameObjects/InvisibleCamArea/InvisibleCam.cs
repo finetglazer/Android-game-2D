@@ -1,9 +1,9 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace GameObjects.InvisibleEndingCheckpoint
+namespace GameObjects.InvisibleCamArea
 {
-    public class EndingCamera : MonoBehaviour
+    public class InvisibleCam : MonoBehaviour
     {
         public CinemachineVirtualCamera targetCamera; // Reference to the target virtual camera
 

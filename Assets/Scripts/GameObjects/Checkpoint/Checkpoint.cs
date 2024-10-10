@@ -7,7 +7,7 @@ namespace GameObjects.Checkpoint
     public class Checkpoint : MonoBehaviour
     {
         public float offset;
-        public CinemachineVirtualCamera targetCamera; // Reference to the target virtual camera
+        // public CinemachineVirtualCamera targetCamera; // Reference to the target virtual camera
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -22,20 +22,20 @@ namespace GameObjects.Checkpoint
             player.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
 
             // Switch to the target camera
-            SwitchToTargetCamera();
+            // SwitchToTargetCamera();
 
             print("Checkpoint activated at: " + transform.position);
         }
 
-        private void SwitchToTargetCamera()
-        {
-            // Disable all other virtual cameras and enable the target camera
-            CinemachineVirtualCamera[] allCameras = FindObjectsOfType<CinemachineVirtualCamera>();
-
-            foreach (var cam in allCameras)
-            {
-                cam.Priority = cam == targetCamera ? 10 : 0; // Set target camera priority higher to activate it
-            }
-        }
+        // private void SwitchToTargetCamera()
+        // {
+        //     // Disable all other virtual cameras and enable the target camera
+        //     CinemachineVirtualCamera[] allCameras = FindObjectsOfType<CinemachineVirtualCamera>();
+        //
+        //     foreach (var cam in allCameras)
+        //     {
+        //         cam.Priority = cam == targetCamera ? 10 : 0; // Set target camera priority higher to activate it
+        //     }
+        // }
     }
 }
