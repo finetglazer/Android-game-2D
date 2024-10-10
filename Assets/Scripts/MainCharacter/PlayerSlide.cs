@@ -30,7 +30,7 @@ namespace MainCharacter
             {
                 
                 // isSliding = true;
-                Debug.DrawRay(transform.position, Vector2.down * 1f, Color.red);
+                // Debug.DrawRay(transform.position, Vector2.down * 1f, Color.red);
                 _rb.velocity = new Vector2(hit.normal.x * slideSpeed, _rb.velocity.y);
                 Debug.Log("Checking for slope" + Mathf.Abs(hit.normal.x));
                 // Debug.Log(_rb.velocity);
