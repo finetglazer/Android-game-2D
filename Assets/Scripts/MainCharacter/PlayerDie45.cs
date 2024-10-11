@@ -10,7 +10,6 @@ namespace MainCharacter
         private Vector3 _respawnPoint;
 
         // Reference to the current checkpoint the player is at
-        private CheckPointWithTmpTexture _currentCheckPointWithTmpTexture;
 
         private void Start()
         {
@@ -30,7 +29,6 @@ namespace MainCharacter
         {
             // Set the respawn point to the checkpoint's position
             _respawnPoint = checkpointPosition;
-            _currentCheckPointWithTmpTexture = checkPointWithTmpTexture;
         }
         
         public void Die()
@@ -44,10 +42,6 @@ namespace MainCharacter
             transform.position = _respawnPoint;
             print("Player respawned at: " + _respawnPoint);
 
-            // Reset all temporary textures related to the current checkpoint
-            // if (_currentCheckPointWithTmpTexture is null) return;
-            // print("Resetting textures");
-            // _currentCheckPointWithTmpTexture.ResetTextures();
             DeathNote.ReRender();
         }
     }

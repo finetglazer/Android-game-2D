@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 64810639608922124}
   - component: {fileID: 4387079605259758052}
   - component: {fileID: 8520104485774882800}
+  - component: {fileID: 7504095272185747566}
+  - component: {fileID: 8469188275627765880}
   - component: {fileID: 8218418554813157452}
   - component: {fileID: 7368509035061349115}
-  - component: {fileID: 7504095272185747566}
-  - component: {fileID: 3781711636355175316}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Player
@@ -110,6 +110,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   slideSpeed: 4
+--- !u!114 &7504095272185747566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f972637632d9544b83755166e22bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -100
+--- !u!114 &8469188275627765880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c2af9aa2e84270b88222b69dca9dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -100
 --- !u!61 &8218418554813157452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,35 +208,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7504095272185747566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f972637632d9544b83755166e22bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -100
---- !u!114 &3781711636355175316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1dc0128676213247a6e6916383ffb7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slope:
-    serializedVersion: 2
-    m_Bits: 2048
-  slideSpeed: 4
 --- !u!1 &1000011164445256
 GameObject:
   m_ObjectHideFlags: 0
