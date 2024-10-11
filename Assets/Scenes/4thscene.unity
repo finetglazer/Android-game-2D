@@ -5850,7 +5850,7 @@ Transform:
   m_GameObject: {fileID: 586672025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.012932, y: 2.8, z: -10}
+  m_LocalPosition: {x: -15.793936, y: 2.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6071,11 +6071,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7504095272185747566, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+    - {fileID: 3781711636355175316, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 803953877}
   m_SourcePrefab: {fileID: 100100000, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
 --- !u!1 &803953867 stripped
@@ -6100,7 +6101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c2af9aa2e84270b88222b69dca9dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPoint: -20
+  deathPoint: -100
 --- !u!1 &836353367
 GameObject:
   m_ObjectHideFlags: 0
@@ -14969,6 +14970,7 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 803953866}
   - {fileID: 564694306}
   - {fileID: 869190444}
   - {fileID: 1114131270}
@@ -14979,7 +14981,6 @@ SceneRoots:
   - {fileID: 1138098658}
   - {fileID: 1084203478}
   - {fileID: 312866990}
-  - {fileID: 803953866}
   - {fileID: 1322885752}
   - {fileID: 1949621135}
   - {fileID: 899750491}
