@@ -1,11 +1,11 @@
-﻿using System;
+﻿#nullable enable
 using UnityEngine;
 
 namespace GameObjects.Texture.MobileTexture
 {
     public class CollisionDetector : MonoBehaviour
     {
-        private Movement _blockMovement;
+        private Movement? _blockMovement;
 
         private void Start()
         {
@@ -14,18 +14,60 @@ namespace GameObjects.Texture.MobileTexture
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.name == "1") return; // If other is an overlapped box collider which is not triggered 
-            
             var obj = other.gameObject;
-            if (obj.GetComponent<Movement>() is null)
+            var objMobileMovement = obj.GetComponent<Movement>() ;
+            if (objMobileMovement is null)
             {
                 obj.AddComponent<Movement>();
             }
-            var objController = obj.GetComponent<Movement>();
-            objController.xVelocity = _blockMovement.xVelocity;
-            objController.yVelocity = _blockMovement.yVelocity;
-            objController.moveTime = _blockMovement.moveTime;
-            objController.clock = _blockMovement.clock;
+            else
+            {
+                objMobileMovement.enabled = true;
+            }
+            objMobileMovement = obj.GetComponent<Movement>();
+            objMobileMovement.xVelocity = _blockMovement!.xVelocity;
+            objMobileMovement.yVelocity = _blockMovement.yVelocity;
+            objMobileMovement.moveTime = _blockMovement.moveTime;
+            objMobileMovement.clock = _blockMovement.clock;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            var obj = other.gameObject;
+            var objMobileMovement = other.GetComponent<Movement>(); 
+            if (objMobileMovement is not null)
+            {
+                objMobileMovement.enabled = false;
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            var obj = other.gameObject;
+            var objMobileMovement = obj.GetComponent<Movement>();
+            if (objMobileMovement is null)
+            {
+                obj.AddComponent<Movement>();
+            }
+            else
+            {
+                objMobileMovement.enabled = true;
+            }
+            objMobileMovement = obj.GetComponent<Movement>();
+            objMobileMovement.xVelocity = _blockMovement!.xVelocity;
+            objMobileMovement.yVelocity = _blockMovement.yVelocity;
+            objMobileMovement.moveTime = _blockMovement.moveTime;
+            objMobileMovement.clock = _blockMovement.clock;
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            var obj = other.gameObject;
+            var objMobileMovement = obj.GetComponent<Movement>();
+            if (objMobileMovement is not null)
+            {
+                objMobileMovement.enabled = false;
+            }
         }
     }
 }
