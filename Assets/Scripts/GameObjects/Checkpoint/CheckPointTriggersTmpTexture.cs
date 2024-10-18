@@ -1,5 +1,4 @@
-﻿using GameObjects.Texture;
-using GameObjects.Texture.TemporaryTexture;
+﻿using GameObjects.Texture.TemporaryTexture;
 using UnityEngine;
 
 namespace GameObjects.Checkpoint
