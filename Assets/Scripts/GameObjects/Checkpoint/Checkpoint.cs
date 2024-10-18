@@ -15,12 +15,13 @@ namespace GameObjects.Checkpoint
             if (!other.CompareTag("Player")) return;
             
             // Get the Player script and set the respawn position to this checkpoint
-            var player = other.GetComponent<PlayerDie12>();
-            if (player is null) return;
+            var player12 = other.GetComponent<PlayerDie12>();
+            var player45 = other.GetComponent<PlayerDie45>();
+            // if (player is null) return;
 
             // Set the player's respawn position relative to the checkpoint
-            player.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
-
+            player12.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
+            player45.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
             // Switch to the target camera
             // SwitchToTargetCamera();
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using GameObjects.Texture;
 using GameObjects.Texture.TemporaryTexture;
 using MainCharacter;
 using UnityEngine;
@@ -20,7 +19,7 @@ namespace GameObjects.Checkpoint
             if (player == null) return;
             // set transform position -10 x compared to the checkpoint
             // player.SetCheckpoint(transform.position);
-            player.SetCheckpoint(new Vector3(transform.position.x + offset , transform.position.y, transform.position.z), this);
+            player.SetCheckpoint(new Vector3(transform.position.x + offset , transform.position.y, transform.position.z));
             print("Checkpoint activated at: " + transform.position);
             
         }

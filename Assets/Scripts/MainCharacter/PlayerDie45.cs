@@ -1,5 +1,4 @@
-﻿using GameObjects.Checkpoint;
-using Recorder;
+﻿using Recorder;
 using UnityEngine;
 
 namespace MainCharacter
@@ -8,9 +7,7 @@ namespace MainCharacter
     {
         public float deathPoint;
         private Vector3 _respawnPoint;
-
-        // Reference to the current checkpoint the player is at
-        private CheckPointWithTmpTexture _currentCheckPointWithTmpTexture;
+        
 
         private void Start()
         {
@@ -26,11 +23,11 @@ namespace MainCharacter
             Respawn();
         }
 
-        public void SetCheckpoint(Vector3 checkpointPosition, CheckPointWithTmpTexture checkPointWithTmpTexture)
+        public void SetCheckpoint(Vector3 checkpointPosition)
         {
             // Set the respawn point to the checkpoint's position
             _respawnPoint = checkpointPosition;
-            _currentCheckPointWithTmpTexture = checkPointWithTmpTexture;
+            // _currentCheckPointWithTmpTexture = checkPointWithTmpTexture;
         }
         
         public void Die()
