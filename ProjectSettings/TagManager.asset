@@ -16,6 +16,7 @@ TagManager:
   - EnemyPriestLightningExplosion
   - EnemyPriestLightningCautionZone
   - SoldierEnemy
+  - SoliderEnemy
   layers:
   - Default
   - TransparentFX
