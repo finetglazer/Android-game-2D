@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cinemachine;
 using MainCharacter; // Make sure to include the Cinemachine namespace
 
 namespace GameObjects.Checkpoint
@@ -13,15 +12,12 @@ namespace GameObjects.Checkpoint
         {
             // Check if the player touched the checkpoint
             if (!other.CompareTag("Player")) return;
-            
-            // Get the Player script and set the respawn position to this checkpoint
-            var player12 = other.GetComponent<PlayerDie12>();
-            var player45 = other.GetComponent<PlayerDie45>();
+
+            var player = other.GetComponent<PlayerDie>();
             // if (player is null) return;
 
             // Set the player's respawn position relative to the checkpoint
-            player12.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
-            player45.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
+            player.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
             // Switch to the target camera
             // SwitchToTargetCamera();
 

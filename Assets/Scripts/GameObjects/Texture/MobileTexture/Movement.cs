@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Recorder;
+using UnityEngine;
 
 namespace GameObjects.Texture.MobileTexture
 {
@@ -8,6 +9,11 @@ namespace GameObjects.Texture.MobileTexture
         public float yVelocity;         // Can < 0
         public float moveTime = 0.5f;
         public float clock;             // Start on the left side
+
+        private void Start()
+        {
+            DeathNote.AddObject(gameObject, transform.position);
+        }
         
         private void Update()
         {

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GameObjects.Texture;
 using GameObjects.Texture.TemporaryTexture;
 using OtherCharacters.Merchant;
 using UnityEngine;
@@ -16,10 +15,16 @@ namespace Recorder
         private const string SoldierEnemyTag = "SoldierEnemy";
         private const string ThiefEnemyTag = "ThiefEnemy";
         private static readonly List<KeyValuePair<GameObject, Vector3>> List = new(); 
-            
+        private static readonly List<KeyValuePair<GameObject, float>> MobileTextureList = new();
+
         public static void AddObject(GameObject obj, Vector3 position)
         {
             List.Add(new KeyValuePair<GameObject, Vector3>(obj, position));
+            var movementScript = obj.GetComponent<GameObjects.Texture.MobileTexture.Movement>();
+            if (movementScript is not null)
+            {
+                MobileTextureList.Add(new KeyValuePair<GameObject, float>(obj, movementScript.clock));
+            }
         }
 
         public static void ClearList()
@@ -95,13 +100,21 @@ namespace Recorder
                         break;
                 }
             }
-            else if (targetedGameObject.GetComponent<TemporaryTexture>() is not null)
+            if (targetedGameObject.GetComponent<TemporaryTexture>() is not null)
             {
                 var temporaryTextureScript = targetedGameObject.GetComponent<TemporaryTexture>();
                 temporaryTextureScript.timeOnTexture = 0;
                 temporaryTextureScript.playerIsOnTexture = false;
                 temporaryTextureScript.textureActive = true;
             }
+            if (targetedGameObject.GetComponent<GameObjects.Texture.MobileTexture.Movement>() is not null)
+            {
+                var clock = MobileTextureList.Find(
+                    obj => obj.Key.name == objName).Value;
+                var mobileTextureScript = targetedGameObject.GetComponent<GameObjects.Texture.MobileTexture.Movement>();
+                mobileTextureScript.clock = clock;
+            }
         }
     }
 }
+

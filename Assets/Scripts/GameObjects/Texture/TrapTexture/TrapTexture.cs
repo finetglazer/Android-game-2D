@@ -9,7 +9,7 @@ namespace GameObjects.Texture.TrapTexture
         private void OnTriggerEnter2D(Collider2D other)
         {
             // Check if the object colliding with the trap is the player
-            var player = other.GetComponent<PlayerDie45>();
+            var player = other.GetComponent<PlayerDie>();
 
             // If the player is detected, call the Die method on the player script
             if (player)
