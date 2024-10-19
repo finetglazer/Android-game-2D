@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 95000011895321844}
   - component: {fileID: 64810639608922124}
   - component: {fileID: 4387079605259758052}
+  - component: {fileID: 7889437289098207044}
   - component: {fileID: 8520104485774882800}
-  - component: {fileID: 458906622565008411}
-  - component: {fileID: 3355392838947733124}
   - component: {fileID: 8218418554813157452}
   - component: {fileID: 8629885119648172418}
   m_Layer: 6
@@ -94,6 +93,19 @@ MonoBehaviour:
   isDoubleJump: 0
   horizontalInput: 0
   canDoubleJump: 0
+--- !u!114 &7889437289098207044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b605453f5264846ae9decd78e736bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -100
 --- !u!114 &8520104485774882800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,32 +122,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   slideSpeed: 4
---- !u!114 &458906622565008411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f972637632d9544b83755166e22bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: 0
---- !u!114 &3355392838947733124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c2af9aa2e84270b88222b69dca9dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -100
 --- !u!61 &8218418554813157452
 BoxCollider2D:
   m_ObjectHideFlags: 0
