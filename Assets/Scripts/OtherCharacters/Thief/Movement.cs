@@ -12,6 +12,7 @@ namespace OtherCharacters.Thief
         public float moveTime = 1;
         public float deathPoint = -100;
         public float gravityAcceleration = 0.4f;
+        public float distanceDetectingFire = 1f;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
         private static readonly int Jump = Animator.StringToHash("jump");
@@ -21,6 +22,7 @@ namespace OtherCharacters.Thief
         private float _clock;
         private Vector3 _initialPosition;
         private float _fallVelocity;
+        private float _distanceToFire;
         private bool _playerDetected;
         private bool _isWallOnLeft;
         private bool _isWallOnRight;
@@ -38,6 +40,15 @@ namespace OtherCharacters.Thief
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
             {
                 GetComponent<Movement>().enabled = false;
+                return;
+            }
+
+            if (IsFireOnLeft())
+            {
+                if (_distanceToFire <= 0.5 * distanceDetectingFire)
+                {
+                    RunAwayFromFire();
+                }
                 return;
             }
             
@@ -139,6 +150,25 @@ namespace OtherCharacters.Thief
         {
             var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.1f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
+        }
+
+        private bool IsFireOnLeft()
+        {
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.left, distanceDetectingFire, LayerMask.GetMask("Fire"));
+            if (raycastHit.collider is not null)
+            {
+                _distanceToFire = raycastHit.distance;
+            }
+            return raycastHit.collider is not null;
+        }
+
+        private void RunAwayFromFire()
+        {
+            if (_isWallOnRight) return;
+            TurnRight();
+            _characterAnimator.SetTrigger(Walk);
+            var newWalkSpeed = walkSpeed * 2;   // Increase by 200% of walk speed
+            transform.Translate(new Vector2(newWalkSpeed * Time.deltaTime, 0));
         }
     }
 }

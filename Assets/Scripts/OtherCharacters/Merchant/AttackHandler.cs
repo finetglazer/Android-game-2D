@@ -50,7 +50,7 @@ namespace OtherCharacters.Merchant
                 return;
             }
             
-            ChasePlayer();                              // Chase player
+            ChasePlayer();
 
             if (!PlayerIsInDamageDealtDistance()) return;
 
