@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Recorder;
 using UnityEngine;
 
 namespace MainCharacter
@@ -7,6 +8,7 @@ namespace MainCharacter
     {
         public float damageDealt = 1;
         public float distanceDealDamage = 1;
+        [HideInInspector] public bool isFighting;
         private static readonly int Hurt = Animator.StringToHash("hurt");
         private static readonly int Die = Animator.StringToHash("die");
         private const string EnemyTag = "Enemy";
@@ -33,7 +35,13 @@ namespace MainCharacter
                 return;
             }
 
-            if (EnemyIsInDamageDealtDistance()){}   // Just a reason to update _enemy
+            if (EnemyIsInDamageDealtDistance())  // Just a reason to update _enemy
+            {
+                isFighting = true;
+                return;
+            }
+
+            isFighting = false;
         }
         
         private bool EnemyIsInDamageDealtDistance()
@@ -51,46 +59,60 @@ namespace MainCharacter
             if (!EnemyIsInDamageDealtDistance()) return;
             
             var enemyAnimator = _enemy.GetComponent<Animator>();
-            float currentEnemyHealth = 0;
+            float currentEnemyHealth = 0, immortalRerenderTime = 0;
             if (_enemy.CompareTag(MerchantEnemyTag))
             {
                 var t = _enemy.GetComponent<OtherCharacters.Merchant.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
+                immortalRerenderTime = t.immortalRerenderTime;
             }
             else if (_enemy.CompareTag(PeasantEnemyTag))
             {
                 var t = _enemy.GetComponent<OtherCharacters.Peasant.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
+                immortalRerenderTime = t.immortalRerenderTime;
             }
             else if (_enemy.CompareTag(PriestEnemyTag))
             {
                 var t = _enemy.GetComponent<OtherCharacters.Priest.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
+                immortalRerenderTime = t.immortalRerenderTime;
             }
             else if (_enemy.CompareTag(SoldierEnemyTag))
             {
                 var t = _enemy.GetComponent<OtherCharacters.Soldier.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
+                immortalRerenderTime = t.immortalRerenderTime;
             }
             else if (_enemy.CompareTag(ThiefEnemyTag))
             {
                 var t = _enemy.GetComponent<OtherCharacters.Thief.Movement>();
                 if (t is null) return;  // Enemy is dead
                 currentEnemyHealth = t.currentHealth;
+                immortalRerenderTime = t.immortalRerenderTime;
             }
             
             if (EnemyIsInDamageDealtDistance())
             {
                 currentEnemyHealth -= damageDealt;
                 enemyAnimator.SetTrigger(Hurt);
+                if (_enemy.CompareTag(PriestEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Priest.Movement>().currentHealth = currentEnemyHealth;
+                }
             }
-
-            if (currentEnemyHealth > 0) return;
             
+            if (currentEnemyHealth > 0) return;
+            if (_enemy.name.Contains("Immortal"))
+            {
+                DeathNote.AddImmortalEnemy(_enemy, immortalRerenderTime);
+                _enemy.SetActive(false);
+                return;
+            }
             enemyAnimator.SetTrigger(Die);
             _isEnemyDead = true;
         }

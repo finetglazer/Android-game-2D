@@ -1296,12 +1296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548bd4087a6149dea0e1fbff425216fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
-  tempTextures:
-  - {fileID: 925421543}
-  - {fileID: 1812846516}
-  - {fileID: 1821694719}
-  - {fileID: 250599111}
 --- !u!61 &182690838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2773,7 +2767,7 @@ Transform:
   m_GameObject: {fileID: 395056132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.478252, y: 3, z: -10}
+  m_LocalPosition: {x: -23, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5871,23 +5865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548bd4087a6149dea0e1fbff425216fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
-  tempTextures:
-  - {fileID: 2018848619}
-  - {fileID: 955467656}
-  - {fileID: 1234697742}
-  - {fileID: 2021697484}
-  - {fileID: 136907239}
-  - {fileID: 2078913727}
-  - {fileID: 2029274066}
-  - {fileID: 901733192}
-  - {fileID: 9795011}
-  - {fileID: 1365921431}
-  - {fileID: 1938280507}
-  - {fileID: 925421543}
-  - {fileID: 1812846516}
-  - {fileID: 1821694719}
-  - {fileID: 250599111}
 --- !u!61 &564694304
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6026,7 +6003,7 @@ Transform:
   m_GameObject: {fileID: 586672025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.978252, y: 2.8, z: -10}
+  m_LocalPosition: {x: -15.651413, y: 2.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8622,24 +8599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548bd4087a6149dea0e1fbff425216fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
-  tempTextures:
-  - {fileID: 525597011}
-  - {fileID: 2018848619}
-  - {fileID: 955467656}
-  - {fileID: 1234697742}
-  - {fileID: 2021697484}
-  - {fileID: 136907239}
-  - {fileID: 2078913727}
-  - {fileID: 2029274066}
-  - {fileID: 901733192}
-  - {fileID: 9795011}
-  - {fileID: 1365921431}
-  - {fileID: 1938280507}
-  - {fileID: 925421543}
-  - {fileID: 1812846516}
-  - {fileID: 1821694719}
-  - {fileID: 250599111}
 --- !u!61 &1079659614
 BoxCollider2D:
   m_ObjectHideFlags: 0

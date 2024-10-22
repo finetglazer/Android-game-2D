@@ -12,7 +12,7 @@ namespace MainCharacter
         {
             if (!other.CompareTag("Player")) return;
             
-            DeathNote.ClearList();
+            DeathNote.ClearLists();
             SceneManager.LoadScene(sceneName);
         }
     }

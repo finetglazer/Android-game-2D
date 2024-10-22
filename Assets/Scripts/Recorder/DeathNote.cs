@@ -16,7 +16,29 @@ namespace Recorder
         private const string ThiefEnemyTag = "ThiefEnemy";
         private static readonly List<KeyValuePair<GameObject, Vector3>> List = new(); 
         private static readonly List<KeyValuePair<GameObject, float>> MobileTextureList = new();
+        private static readonly List<KeyValuePair<GameObject, KeyValuePair<float, float>>> ImmortalEnemiesList = new();
 
+        private void Update()
+        {
+            if (ImmortalEnemiesList.Count == 0) return;
+
+            for (var i = 0; i < ImmortalEnemiesList.Count; i++)
+            {
+                var cooldownTime = ImmortalEnemiesList[i].Value.Key;
+                var currentClock = ImmortalEnemiesList[i].Value.Value;
+                currentClock += Time.deltaTime;
+                print(currentClock);
+                if (currentClock < cooldownTime)
+                {
+                    ImmortalEnemiesList[i] = new KeyValuePair<GameObject, KeyValuePair<float, float>>(
+                        ImmortalEnemiesList[i].Key, new KeyValuePair<float, float>(cooldownTime, currentClock));
+                    continue;
+                }
+                ReRenderImmortalEnemy(ImmortalEnemiesList[i].Key.name);
+                ImmortalEnemiesList.RemoveAt(i);
+            }
+        }
+        
         public static void AddObject(GameObject obj, Vector3 position)
         {
             List.Add(new KeyValuePair<GameObject, Vector3>(obj, position));
@@ -27,9 +49,11 @@ namespace Recorder
             }
         }
 
-        public static void ClearList()
+        public static void ClearLists()
         {
             List.Clear();
+            MobileTextureList.Clear();
+            ImmortalEnemiesList.Clear();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -51,6 +75,8 @@ namespace Recorder
 
         private static void ReRenderObject(string objName)
         {
+            if (objName.Contains("Immortal")) return;
+            
             print("Re-rendering object: " + objName);
             KeyValuePair<GameObject, Vector3> temp = new(null, Vector3.zero);
             foreach (var i in List.Where(i => i.Key.name == objName))
@@ -114,6 +140,20 @@ namespace Recorder
                 var mobileTextureScript = targetedGameObject.GetComponent<GameObjects.Texture.MobileTexture.Movement>();
                 mobileTextureScript.clock = clock;
             }
+        }
+
+        public static void AddImmortalEnemy(GameObject obj, float cooldownTime)
+        {
+            KeyValuePair<float, float> timeSets = new(cooldownTime, 0f);
+            ImmortalEnemiesList.Add(new KeyValuePair<GameObject, KeyValuePair<float, float>>(obj, timeSets));
+        }
+
+        private static void ReRenderImmortalEnemy(string objName)
+        {
+            print("Re-rendering Immortal Enemy:  " + objName);
+            var (targetedGameObject, initialPosition) = List.First(i => i.Key.name == objName);
+            targetedGameObject.SetActive(true);
+            targetedGameObject.transform.position = initialPosition;
         }
     }
 }
