@@ -1,7 +1,4 @@
-﻿using System;
-using MainCharacter;
-using UI.Buttons;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Movement = OtherCharacters.Priest.Movement;
 
@@ -12,50 +9,37 @@ namespace GameObjects.HealthBar
         public GameObject character;
         [Header("Render enemies when HP percentage lost (< 1)")]
         public float renderEnemiesWhenHpPercentageLost = 1f;
-        private Animator _characterAnimator;
-        private AttackHandler _playerAttackHandler;
-        private AttackButton _attackButton;
+        private Movement _characterMovement;
+        private GameObject _healthBarSystem;
         private Image[] _healthBarImages;
-        private const string PlayerTag = "Player";
-        private float _damageReceived;
-        private float _proportionHpLost;
+        private const string PriestEnemyTag = "PriestEnemy";
+        private float _proportionRemainedHp;
         private float _initialHealth;
-        private bool _isFighting;
+        private float _currentHealth;
 
         private void Start()
         {
-            _characterAnimator = character.GetComponent<Animator>();
-            _playerAttackHandler = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<AttackHandler>();
+            _healthBarSystem = GameObject.Find("HealthBarSystem");
+            _characterMovement = GameObject.FindGameObjectWithTag(PriestEnemyTag).GetComponent<Movement>();
             _healthBarImages = GetComponentsInChildren<Image>();
-            while (!_attackButton)
-            {
-                try
-                {
-                    _attackButton = FindObjectOfType<Button>().GetComponent<AttackButton>();
-                }
-                catch (Exception e)
-                {
-                    // ignored
-                }
-            }
-            _damageReceived = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<AttackHandler>().damageDealt;
             _initialHealth = character.GetComponent<Movement>().currentHealth;
-            _proportionHpLost = _damageReceived / _initialHealth;
         }
 
         private void Update()
         {
-            _isFighting = _playerAttackHandler.isFighting;
-            if (!_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("hurt") || !_isFighting) return;
-            print("aew");
-            var fillAmountLost = _proportionHpLost * _healthBarImages.Length;
-            foreach (var healthBarImage in _healthBarImages)
+            _currentHealth = _characterMovement.currentHealth;
+            if (_currentHealth <= 0)
             {
-                if (fillAmountLost <= 0) break;
-                if (healthBarImage.fillAmount == 0) continue;
-                var t = 1 - healthBarImage.fillAmount;
-                healthBarImage.fillAmount = Mathf.Max(healthBarImage.fillAmount - fillAmountLost, 0f);
-                fillAmountLost -= Mathf.Min(fillAmountLost, t);
+                _healthBarSystem.SetActive(false);
+                return;
+            }
+            _proportionRemainedHp = _currentHealth / _initialHealth;
+            var fillAmountNeeded = _proportionRemainedHp * _healthBarImages.Length;
+            for (var i = _healthBarImages.Length - 1; i >= 0; i--)
+            {
+                var maximumFillAmount = Mathf.Min(1f, fillAmountNeeded);
+                _healthBarImages[i].fillAmount = maximumFillAmount;
+                fillAmountNeeded -= maximumFillAmount;
             }
         }
     }
