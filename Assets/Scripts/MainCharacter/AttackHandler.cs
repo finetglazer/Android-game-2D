@@ -8,7 +8,6 @@ namespace MainCharacter
     {
         public float damageDealt = 1;
         public float distanceDealDamage = 1;
-        [HideInInspector] public bool isFighting;
         private static readonly int Hurt = Animator.StringToHash("hurt");
         private static readonly int Die = Animator.StringToHash("die");
         private const string EnemyTag = "Enemy";
@@ -36,12 +35,8 @@ namespace MainCharacter
             }
 
             if (EnemyIsInDamageDealtDistance())  // Just a reason to update _enemy
-            {
-                isFighting = true;
-                return;
-            }
-
-            isFighting = false;
+            {}
+            
         }
         
         private bool EnemyIsInDamageDealtDistance()
