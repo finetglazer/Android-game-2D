@@ -398,6 +398,7 @@ MonoBehaviour:
   moveTime: 1
   deathPoint: -100
   gravityAcceleration: 0.4
+  distanceDetectingFire: 1
 --- !u!114 &2208780306687886347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +414,8 @@ MonoBehaviour:
   damageDealt: 1
   distanceDetectingPlayer: 1
   attackCoolDownTime: 1
-  lightningOccurPoint: {fileID: 0}
+  increaseWalkSpeedWhenChasingBy: 0.2
+  distanceTriggeringAttack: 1
   cautionZone: {fileID: 0}
   lightning: {fileID: 0}
   lightningExplosion: {fileID: 0}
