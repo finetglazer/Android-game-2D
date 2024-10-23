@@ -95,6 +95,7 @@ namespace OtherCharacters.Priest
             return raycastHitLeft.collider is not null || raycastHitRight.collider is not null;            
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private void ChasePlayer()
         {
             if (_player is null || PlayerIsInDamageDealtDistance())
@@ -129,13 +130,13 @@ namespace OtherCharacters.Priest
         {
             cautionZone.SetActive(false);
             lightning.SetActive(true);
-            lightning.transform.position = new Vector3(_lightningOccurPoint.x, lightning.transform.position.y, lightning.transform.position.z);
+            lightning.transform.position = new Vector3(cautionZone.transform.position.x, lightning.transform.position.y, lightning.transform.position.z);
         }
 
         private void ActivateLightningExplosion()
         {
             lightningExplosion.SetActive(true);
-            lightningExplosion.transform.position = new Vector3(_lightningOccurPoint.x, lightningExplosion.transform.position.y, lightningExplosion.transform.position.z);
+            lightningExplosion.transform.position = new Vector3(cautionZone.transform.position.x, lightningExplosion.transform.position.y, lightningExplosion.transform.position.z);
         }
 
         private void DeActivateLightningExplosion()
