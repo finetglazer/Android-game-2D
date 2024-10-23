@@ -14,9 +14,9 @@ namespace OtherCharacters.Priest
         public float gravityAcceleration = 0.4f;
         public float distanceDetectingFire = 1f;
         public float immortalRerenderTime = 1f;
+        public GameObject healthBar;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
-        private static readonly int Jump = Animator.StringToHash("jump");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private AttackHandler _characterDetector;
@@ -39,6 +39,11 @@ namespace OtherCharacters.Priest
         
         private void Update()
         {
+            if (currentHealth <= 0)
+            {
+                healthBar.SetActive(false);
+            }
+            
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
             {
                 GetComponent<Movement>().enabled = false;
@@ -63,7 +68,6 @@ namespace OtherCharacters.Priest
             if (!IsGrounded())
             {
                 _fallVelocity += -gravityAcceleration * Time.deltaTime;
-                _characterAnimator.SetTrigger(Jump);
                 transform.Translate(new Vector2(0, _fallVelocity));
                 return;
             }

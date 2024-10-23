@@ -6,7 +6,7 @@ namespace GameObjects.HealthBar
     public class HealthBarFollow : MonoBehaviour
     {
         public Transform priestTransform;  // Reference to the Priest object (GameObject)
-        public RectTransform healthBarSystemTransform;  // The RectTransform of the health bar
+        public RectTransform healthBarTransform;  // The RectTransform of the health bar
         public UnityEngine.Camera mainCamera;  // Reference to the camera (likely Camera.main)
 
         public Vector3 offset = new Vector3(0, 1.5f, 0);  // Offset to position the health bar above the Priest
@@ -18,7 +18,7 @@ namespace GameObjects.HealthBar
             var screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
 
             // Set the health bar's position in the UI Canvas
-            healthBarSystemTransform.position = screenPosition;
+            healthBarTransform.position = screenPosition;
         }
     }
 }
