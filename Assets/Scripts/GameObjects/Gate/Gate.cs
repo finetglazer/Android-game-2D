@@ -14,7 +14,7 @@ namespace GameObjects.Gate
 
             // Move the player to the destination gate's position
             // Offset the player's position by a small amount to prevent the player from immediately teleporting again
-            other.transform.position = destinationGate.position + new Vector3(0, -2f, 0);
+            other.transform.position = destinationGate.position + new Vector3(0, -2.5f, 0);
             
         }
     }
