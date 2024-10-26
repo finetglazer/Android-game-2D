@@ -16,7 +16,6 @@ namespace OtherCharacters.Peasant
         public float immortalRerenderTime = 1f;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
-        private static readonly int Jump = Animator.StringToHash("jump");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private AttackHandler _characterDetector;
@@ -55,7 +54,7 @@ namespace OtherCharacters.Peasant
                 RunAwayFromFire();
                 return;
             }
-            
+
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
             _isWallOnLeft = IsWallOnLeft();
             _isWallOnRight = IsWallOnRight();
@@ -63,7 +62,6 @@ namespace OtherCharacters.Peasant
             if (!IsGrounded())
             {
                 _fallVelocity += -gravityAcceleration * Time.deltaTime;
-                _characterAnimator.SetTrigger(Jump);
                 transform.Translate(new Vector2(0, _fallVelocity));
                 return;
             }

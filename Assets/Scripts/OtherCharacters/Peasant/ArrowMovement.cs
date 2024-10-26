@@ -4,24 +4,18 @@ namespace OtherCharacters.Peasant
 { 
     public class ArrowMovement : MonoBehaviour
     {
+        [HideInInspector] public AttackHandler characterController;
         private static readonly int Hurt = Animator.StringToHash("hurt");
         private static readonly int Die = Animator.StringToHash("die");
         private GameObject _arrow;
-        private const string EnemyPeasantTag = "PeasantEnemy";
-        private const string EnemyPeasantArrowTag = "EnemyPeasantArrow";
-        private GameObject _character;
-        private AttackHandler _attackHandler;
         private float _damageDealt;
         private float _speed ;
         private float _arrowDirection;
         private void Start()
         {
-            _character = GameObject.FindGameObjectWithTag(EnemyPeasantTag);
-            _arrow = GameObject.FindGameObjectWithTag(EnemyPeasantArrowTag);
-            _attackHandler = _character.GetComponent<AttackHandler>();
-            _damageDealt = _attackHandler.damageDealt;
-            _speed = _attackHandler.arrowSpeed;
-            _arrowDirection = _attackHandler.ArrowDirection;
+            _damageDealt = characterController.damageDealt;
+            _speed = characterController.arrowSpeed;
+            _arrowDirection = characterController.ArrowDirection;
         }
 
         private void Update()
@@ -51,7 +45,7 @@ namespace OtherCharacters.Peasant
 
         private void DeActivateArrow()
         {
-            _arrow.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

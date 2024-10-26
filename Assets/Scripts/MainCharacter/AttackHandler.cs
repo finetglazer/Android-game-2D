@@ -104,7 +104,7 @@ namespace MainCharacter
             if (currentEnemyHealth > 0) return;
             if (_enemy.name.Contains("Immortal"))
             {
-                DeathNote.AddImmortalEnemy(_enemy, immortalRerenderTime);
+                DeathNote.AddImmortalEnemy(_enemy, immortalRerenderTime, _enemy.transform.position);
                 _enemy.SetActive(false);
                 return;
             }
