@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using GameObjects.Texture.TemporaryTexture;
 using OtherCharacters.Merchant;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Recorder
         private const string ThiefEnemyTag = "ThiefEnemy";
         private static readonly List<KeyValuePair<GameObject, Vector3>> List = new(); 
         private static readonly List<KeyValuePair<GameObject, float>> MobileTextureList = new();
-        private static readonly List<KeyValuePair<GameObject, KeyValuePair<float, float>>> ImmortalEnemiesList = new();
+        private static readonly List<(GameObject, float, float, Vector3)> ImmortalEnemiesList = new();
 
         private void Update()
         {
@@ -24,21 +25,21 @@ namespace Recorder
 
             for (var i = 0; i < ImmortalEnemiesList.Count; i++)
             {
-                var cooldownTime = ImmortalEnemiesList[i].Value.Key;
-                var currentClock = ImmortalEnemiesList[i].Value.Value;
+                var cooldownTime = ImmortalEnemiesList[i].Item2;
+                var currentClock = ImmortalEnemiesList[i].Item3;
                 currentClock += Time.deltaTime;
-                print(currentClock);
                 if (currentClock < cooldownTime)
                 {
-                    ImmortalEnemiesList[i] = new KeyValuePair<GameObject, KeyValuePair<float, float>>(
-                        ImmortalEnemiesList[i].Key, new KeyValuePair<float, float>(cooldownTime, currentClock));
+                    ImmortalEnemiesList[i] = (ImmortalEnemiesList[i].Item1, ImmortalEnemiesList[i].Item2,
+                        ImmortalEnemiesList[i].Item3 + Time.deltaTime, ImmortalEnemiesList[i].Item4);
                     continue;
                 }
-                ReRenderImmortalEnemy(ImmortalEnemiesList[i].Key.name);
+                ReRenderImmortalEnemy(ImmortalEnemiesList[i].Item1.name);
                 ImmortalEnemiesList.RemoveAt(i);
             }
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         public static void AddObject(GameObject obj, Vector3 position)
         {
             List.Add(new KeyValuePair<GameObject, Vector3>(obj, position));
@@ -75,7 +76,6 @@ namespace Recorder
 
         private static void ReRenderObject(string objName)
         {
-            if (objName.Contains("Immortal")) return;
             
             print("Re-rendering object: " + objName);
             KeyValuePair<GameObject, Vector3> temp = new(null, Vector3.zero);
@@ -142,18 +142,17 @@ namespace Recorder
             }
         }
 
-        public static void AddImmortalEnemy(GameObject obj, float cooldownTime)
+        public static void AddImmortalEnemy(GameObject obj, float cooldownTime, Vector3 position)
         {
-            KeyValuePair<float, float> timeSets = new(cooldownTime, 0f);
-            ImmortalEnemiesList.Add(new KeyValuePair<GameObject, KeyValuePair<float, float>>(obj, timeSets));
+            ImmortalEnemiesList.Add((obj, cooldownTime, 0, position));
         }
 
         private static void ReRenderImmortalEnemy(string objName)
         {
             print("Re-rendering Immortal Enemy:  " + objName);
-            var (targetedGameObject, initialPosition) = List.First(i => i.Key.name == objName);
-            targetedGameObject.SetActive(true);
-            targetedGameObject.transform.position = initialPosition;
+            var targetedEnemy = ImmortalEnemiesList.Find(enemy => enemy.Item1.name == objName);
+            targetedEnemy.Item1.SetActive(true);
+            targetedEnemy.Item1.transform.position = targetedEnemy.Item4;
         }
     }
 }

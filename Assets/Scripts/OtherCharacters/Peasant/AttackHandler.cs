@@ -22,11 +22,6 @@ namespace OtherCharacters.Peasant
         private bool _isPlayerDead;
         internal float ArrowDirection;
 
-        public AttackHandler(GameObject[] arrowArray)
-        {
-            this.arrowArray = arrowArray;
-        }
-
         private void Start()
         {
             _attackCoolDownTime = attackCoolDownTime;
@@ -92,7 +87,7 @@ namespace OtherCharacters.Peasant
         // ReSharper disabled Unity.PerformanceAnalysis avoiding GetComponent<T>() invoked continuously in Update()
         // ReSharper disable Unity.PerformanceAnalysis
         private void Firing()
-        { 
+        {
             if (_characterMovement.IsWallOnLeft() && PlayerDetectedOnLeft()) return;
             if (_characterMovement.IsWallOnRight() && PlayerDetectedOnRight()) return;
             
@@ -101,7 +96,12 @@ namespace OtherCharacters.Peasant
                 if (arrow.activeInHierarchy) continue;
                 arrow.SetActive(true);
                 arrow.transform.position = arrowStartingPoint.transform.position;
-                ArrowDirection = Mathf.Sign(arrowStartingPoint.transform.localScale.x);
+                arrow.transform.localScale = new Vector3(arrow.transform.localScale.x,
+                    Mathf.Sign(gameObject.transform.localScale.x) * Mathf.Abs(arrow.transform.localScale.y),
+                    arrow.transform.localScale.z);
+                ArrowDirection = Mathf.Sign(gameObject.transform.localScale.x);
+                arrow.GetComponent<ArrowMovement>().characterController = this;
+                print(ArrowDirection);
                 break;
             }
         }
