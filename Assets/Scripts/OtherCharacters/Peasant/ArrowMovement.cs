@@ -28,6 +28,7 @@ namespace OtherCharacters.Peasant
             if (other.CompareTag("Player"))
             {
                 var playerAnimator = other.GetComponent<Animator>();
+                if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die")) return;
                 playerAnimator.SetTrigger(Hurt);
 
                 var playerCurrentHealth = other.GetComponent<MainCharacter.Movement>().currentHealth;

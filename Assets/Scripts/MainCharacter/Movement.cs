@@ -131,7 +131,7 @@ namespace MainCharacter
             player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
         
-        private void TurnRight()
+        public void TurnRight()
         {
             player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }

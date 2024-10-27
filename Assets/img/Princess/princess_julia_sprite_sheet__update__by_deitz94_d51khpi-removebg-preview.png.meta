@@ -1,0 +1,1548 @@
+fileFormatVersion: 2
+guid: 226d3adb1fe0ec14aa4b6babd4ff2758
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 343
+        width: 25
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a1ff276d8dd74498593c3e0a6eabc5
+      internalID: 1548721678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 343
+        width: 24
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6030fb6af76944ba00ffb938ba86eb
+      internalID: -2055883836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 343
+        width: 25
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a841fe37e78c747ab3ea1fea5bb62b
+      internalID: 1953865787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 343
+        width: 24
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c9b7ec210cf1c48af2fcacdf6a38ee
+      internalID: -638013312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 343
+        width: 23
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d697504c21f4804e894727fd24317ea
+      internalID: 364112345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 343
+        width: 25
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ffe24d8d077ce44f9f71f1e33f68674
+      internalID: -2131543164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 343
+        width: 24
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81adab1adfb22ac4bb9afe66fe73571b
+      internalID: 1853147677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 343
+        width: 28
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022bcaed0b682114e9cd7f2ecd5107ef
+      internalID: -559410134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 343
+        width: 32
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23df503408637d429d7c8ce261db74f
+      internalID: -1601391712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 343
+        width: 32
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9839cff6a7823cd428e46975bd1029eb
+      internalID: -1506264426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 344
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1106a7f5374d4428a2fb1571e9b1de
+      internalID: 336939749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 344
+        width: 22
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3341e18817284948a02beda32941e31
+      internalID: 1385468319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 343
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4aa59deee71f6f479ce25c293f0a127
+      internalID: 1395017306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 212
+        width: 156
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fdd22642924cd438ef6fea8bcc9139
+      internalID: -2084640064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 285
+        width: 24
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21599ac787afdc48b656bd9d88e898e
+      internalID: 845919099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 285
+        width: 23
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e039402566b9274b87709bd50987c4b
+      internalID: 348067015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 285
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50fde4b70500a2d47a538e44cbb8ca43
+      internalID: -1732717682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 285
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb3ad6207705e84f9a39c8dcf34ec76
+      internalID: 626784843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 285
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55973992ebd899c47b4bc07eb80d68c1
+      internalID: -685139441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 285
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dfa2a712ccd4e41a472a08a1bf08dc
+      internalID: 1682275472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 285
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebed2af2853b57b41b535cabf2dbfd82
+      internalID: 1679877828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 285
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8421a01305c1bb4fb3d0dd49ee07ad2
+      internalID: -263650278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 285
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92fab510325c7764aa3f09e5295ed994
+      internalID: -2098121194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 285
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3dca96bca8aa046af25b21353390fc
+      internalID: 441581210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 285
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b64c471e940e23408ef1a470a16b225
+      internalID: 273886868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 285
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d05f9a28e818d4fb4970aca5147c6e
+      internalID: -1763446705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 285
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7caf44b8986ac1446bff60f6bd6cb932
+      internalID: 606086263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 226
+        width: 25
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f913cb9833da50442b557e085752704d
+      internalID: 1731097631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 226
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00f036acac8519449be67492e78abb0
+      internalID: 1862644053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 226
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf96181503a49ee4994af3adb30cddf9
+      internalID: 118618409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 226
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f4ab21c8d65a2449f0510edfc2df92
+      internalID: 2095958126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 226
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75111e0946ca0c4eb6ae5c7778dd6e9
+      internalID: -1984279474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 226
+        width: 27
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0805f6ac5f547f64189e69d11b97a6e9
+      internalID: -172749695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 228
+        width: 35
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb6ebcfd75af3340b8039f2dcdb9773
+      internalID: -421906886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 228
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3911f4220146c094faa7485f399ab322
+      internalID: 283413527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_35
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 168
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c028bf37d96e7645abacce7ca9f8573
+      internalID: -1393613798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_36
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 168
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01b0ec99305ec94692d1cf19ff11115
+      internalID: 1131063154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_37
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 168
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787ce70bd2013694cbb5a561db85c455
+      internalID: 880620519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_38
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 167
+        width: 26
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044c414e236cf40489aca8026300fe3c
+      internalID: 729782812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_39
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 167
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1268aa40d48ff1c478f384db14b27427
+      internalID: 410011386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_40
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 167
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89a5fb8118e47d4d868f21d5ba49438
+      internalID: 776262606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_41
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 200
+        width: 47
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a36a400d36b2b88488c2f763c7670109
+      internalID: 7587245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_42
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 200
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0703a2f5f06d0f541abc19131d34800a
+      internalID: 2042015163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_43
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 198
+        width: 37
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c82d5564dd640942811f5e9d781b57a
+      internalID: -87492173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_44
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 198
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d74429ea06633f45aeafa0c1d8d3faf
+      internalID: -1194216995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_45
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 200
+        width: 55
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691c5f3d79daa6b4aba651c4f12c5bcf
+      internalID: -2044518500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_46
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 184
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be332f921556c340adb400b97cfb92b
+      internalID: 1028234371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_47
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 184
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae70ae435f2ed443a2f51a51655b523
+      internalID: 322681977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_48
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 183
+        width: 67
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90bfcc0aacf9174f8601c8462762bec
+      internalID: -202489404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_49
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 108
+        width: 25
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969172c2ac25c6d44bf8e9a0c2b637b7
+      internalID: -1012698153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_50
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 107
+        width: 25
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fd519e94813e049b405cb80e94ce9b
+      internalID: -446290826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_51
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 107
+        width: 33
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06589de5c1f312e4cb1f959d5938b6c0
+      internalID: 1333489957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_52
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 107
+        width: 36
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737103a3978f73c46a9ec2d3f125404a
+      internalID: 956674595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_53
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 107
+        width: 33
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d40a20cf7cb244478c9acfeed6a38a0
+      internalID: -1990308881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_54
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 107
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa33ebdc03d092341b4388eb09a8dd8e
+      internalID: 905077470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_55
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 107
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114f4469f45c89b45bb5ed8e9ee9e9cd
+      internalID: -908722502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_56
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 15
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ee59434e25f334e94f9d28d5165278
+      internalID: 1714922345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_57
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 22
+        width: 56
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8456d7633e6204f449b4cd59d6e98fad
+      internalID: -1060477198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_58
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 22
+        width: 53
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb5b62c8b989144083f80299e9918aa
+      internalID: -1884837373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_59
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 22
+        width: 33
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d464fb4582b5440a75e871944f8aa5
+      internalID: 793637358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_60
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 14
+        width: 62
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0062739b190ae6644b7ba4409b4a4ba8
+      internalID: 224766828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_61
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 17
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7851bbf765ea54d8e83f94f6663adb
+      internalID: -1406879456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_62
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 0
+        width: 118
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2dc0361ceacb84ea29c3bb68f3b376
+      internalID: 437426972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_63
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 67
+        width: 81
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7f32405ae140946856b8537fa05e87
+      internalID: 206559032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_0: 1548721678
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_1: -2055883836
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_10: 336939749
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_11: 1385468319
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_12: 1395017306
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_13: -2084640064
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_14: 845919099
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_15: 348067015
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_16: -1732717682
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_17: 626784843
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_18: -685139441
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_19: 1682275472
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_2: 1953865787
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_20: 1679877828
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_21: -263650278
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_22: -2098121194
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_23: 441581210
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_24: 273886868
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_25: -1763446705
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_26: 606086263
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_27: 1731097631
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_28: 1862644053
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_29: 118618409
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_3: -638013312
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_30: 2095958126
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_31: -1984279474
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_32: -172749695
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_33: -421906886
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_34: 283413527
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_35: -1393613798
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_36: 1131063154
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_37: 880620519
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_38: 729782812
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_39: 410011386
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_4: 364112345
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_40: 776262606
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_41: 7587245
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_42: 2042015163
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_43: -87492173
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_44: -1194216995
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_45: -2044518500
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_46: 1028234371
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_47: 322681977
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_48: -202489404
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_49: -1012698153
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_5: -2131543164
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_50: -446290826
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_51: 1333489957
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_52: 956674595
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_53: -1990308881
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_54: 905077470
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_55: -908722502
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_56: 1714922345
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_57: -1060477198
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_58: -1884837373
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_59: 793637358
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_6: 1853147677
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_60: 224766828
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_61: -1406879456
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_62: 437426972
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_63: 206559032
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_7: -559410134
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_8: -1601391712
+      princess_julia_sprite_sheet__update__by_deitz94_d51khpi-removebg-preview_9: -1506264426
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
