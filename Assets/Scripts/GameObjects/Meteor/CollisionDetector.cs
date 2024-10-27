@@ -12,17 +12,25 @@ namespace GameObjects.Meteor
         private static void CausesDamage(GameObject obj)
         {
             var objAnimator = obj.GetComponent<Animator>();
-            objAnimator.SetTrigger(Die);
-            if (obj.tag.Contains(EnemyTag))
+            if (objAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                ClearDeathEnemies.Clear();
+                // ClearDeathEnemies.Clear();
+                return;
             }
+            objAnimator.SetTrigger(Die);
+            // if (obj.tag.Contains(EnemyTag))
+            // {
+            //     ClearDeathEnemies.Clear();
+            // }
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag(PlayerTag) && !other.tag.Contains(EnemyTag)) return;
-            CausesDamage(other.gameObject);
+            if (other.CompareTag(PlayerTag) || (other.tag.Contains(EnemyTag) && !other.tag.Contains("Arrow")))
+            {
+                CausesDamage(other.gameObject);
+            }
+            gameObject.SetActive(false);
         }
         
     }

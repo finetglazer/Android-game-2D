@@ -101,7 +101,6 @@ namespace OtherCharacters.Peasant
                     arrow.transform.localScale.z);
                 ArrowDirection = Mathf.Sign(gameObject.transform.localScale.x);
                 arrow.GetComponent<ArrowMovement>().characterController = this;
-                print(ArrowDirection);
                 break;
             }
         }
