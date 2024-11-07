@@ -922,6 +922,8 @@ MonoBehaviour:
   moveTime: 0.7
   deathPoint: -100
   gravityAcceleration: 0.4
+  distanceDetectingFire: 1
+  immortalRerenderTime: 1
 --- !u!1 &543303709
 GameObject:
   m_ObjectHideFlags: 0
@@ -50087,6 +50089,8 @@ MonoBehaviour:
   moveTime: 0.7
   deathPoint: -100
   gravityAcceleration: 0.4
+  distanceDetectingFire: 1
+  immortalRerenderTime: 1
 --- !u!1001 &1925211229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50258,6 +50262,10 @@ PrefabInstance:
     - target: {fileID: 458906622565008411, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: deathPoint
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387079605259758052, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+      propertyPath: currentHealth
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3781711636355175316, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
@@ -50448,7 +50456,6 @@ GameObject:
   - component: {fileID: 1964463730}
   - component: {fileID: 1964463729}
   - component: {fileID: 1964463728}
-  - component: {fileID: 1964463731}
   - component: {fileID: 1964463732}
   m_Layer: 0
   m_Name: Main Camera
@@ -50500,7 +50507,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -50525,7 +50532,7 @@ Transform:
   m_GameObject: {fileID: 1964463727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 29.110329, y: -93.67613, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50533,21 +50540,6 @@ Transform:
   - {fileID: 1438993539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1964463731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964463727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2fc9cd620e3ba4e8a3613b1e1a84ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1925211230}
-  yOffset: 2
-  speed: 2
 --- !u!114 &1964463732
 MonoBehaviour:
   m_ObjectHideFlags: 0

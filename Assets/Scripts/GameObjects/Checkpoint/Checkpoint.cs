@@ -14,25 +14,12 @@ namespace GameObjects.Checkpoint
             if (!other.CompareTag("Player")) return;
 
             var player = other.GetComponent<PlayerDie>();
-            // if (player is null) return;
 
             // Set the player's respawn position relative to the checkpoint
             player.SetCheckpoint(new Vector3(transform.position.x + offset, transform.position.y, transform.position.z));
-            // Switch to the target camera
-            // SwitchToTargetCamera();
 
             print("Checkpoint activated at: " + transform.position);
         }
         
-        // private void SwitchToTargetCamera()
-        // {
-        //     // Disable all other virtual cameras and enable the target camera
-        //     CinemachineVirtualCamera[] allCameras = FindObjectsOfType<CinemachineVirtualCamera>();
-        //
-        //     foreach (var cam in allCameras)
-        //     {
-        //         cam.Priority = cam == targetCamera ? 10 : 0; // Set target camera priority higher to activate it
-        //     }
-        // }
     }
 }
