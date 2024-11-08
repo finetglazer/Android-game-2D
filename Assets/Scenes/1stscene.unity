@@ -4621,7 +4621,7 @@ GameObject:
   - component: {fileID: 1649197639}
   - component: {fileID: 1649197638}
   m_Layer: 0
-  m_Name: Static Sprite
+  m_Name: SceneTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4703,7 +4703,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.51, y: 3.84}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4753,7 +4753,7 @@ SpriteRenderer:
   m_SortingLayerID: 277843869
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01a4d9437477cd9499ee40387053ed1f, type: 3}
   m_Color: {r: 1, g: 0.99650455, b: 0.8836478, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4773,7 +4773,7 @@ Transform:
   m_GameObject: {fileID: 1649197637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.3, y: -11.49, z: 0}
+  m_LocalPosition: {x: -18.62, y: -11.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

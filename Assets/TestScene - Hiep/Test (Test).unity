@@ -6276,7 +6276,7 @@ GameObject:
   - component: {fileID: 1725186639}
   - component: {fileID: 1725186638}
   m_Layer: 8
-  m_Name: Peasant
+  m_Name: ImmortalPeasant
   m_TagString: PeasantEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7182,7 +7182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1956593397
 MonoBehaviour:
   m_ObjectHideFlags: 0
