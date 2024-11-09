@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections;
 using TMPro;
+using ServerInteraction.Responses;
 
 namespace ServerInteraction
 {
@@ -14,7 +15,7 @@ namespace ServerInteraction
         public Button signInButton;
         public Button goToSignUpButton;
         public TMP_Text feedbackText; // For displaying messages
-
+        internal static string UserId;
         private void Start()
         {
             signInButton.onClick.AddListener(OnSignInButtonClicked);
@@ -66,6 +67,8 @@ namespace ServerInteraction
                 Debug.Log(request.downloadHandler.text);
 
                 // You can parse the response and store the session token if needed
+                var signInResponse = JsonUtility.FromJson<SignInResponse>(request.downloadHandler.text);
+                StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
                 // For now, we'll load the next scene
                 SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 StartCoroutine(LoadingSceneDelay());
@@ -81,6 +84,21 @@ namespace ServerInteraction
         IEnumerator LoadingSceneDelay()
         {
             yield return new WaitForSeconds(2f); // 2-second delay
+        }
+        
+        private static IEnumerator GetUserIdBySessionToken(string sessionToken)
+        {
+            const string getUserIdUrl = "http://localhost:8080/api/auth/user-id";
+            var getUserIdBySessionTokenReq = new UnityWebRequest(getUserIdUrl, "POST");
+            var jsonBody = "{\"sessionToken\":\"" + sessionToken + "\"}";
+            var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
+            getUserIdBySessionTokenReq.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            getUserIdBySessionTokenReq.downloadHandler = new DownloadHandlerBuffer();
+            getUserIdBySessionTokenReq.SetRequestHeader("Content-Type", "application/json");
+            yield return getUserIdBySessionTokenReq.SendWebRequest();
+            UserId = getUserIdBySessionTokenReq.result == UnityWebRequest.Result.Success
+                ? JsonUtility.FromJson<GetUserIdBySessionTokenResponse>(getUserIdBySessionTokenReq.downloadHandler.text).userId
+                : "";
         }
 
     }
