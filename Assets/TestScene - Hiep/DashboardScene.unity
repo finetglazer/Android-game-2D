@@ -575,6 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 901240340}
+  - component: {fileID: 901240342}
   - component: {fileID: 901240339}
   - component: {fileID: 901240338}
   - component: {fileID: 901240337}
@@ -688,9 +689,25 @@ MonoBehaviour:
   emailInputField: {fileID: 0}
   passwordInputField: {fileID: 0}
   confirmPasswordInputField: {fileID: 0}
-  signUpButton: {fileID: 0}
+  SignUpButton: {fileID: 0}
   goToSignInButton: {fileID: 0}
   feedbackText: {fileID: 0}
+--- !u!114 &901240342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901240336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f24a113364a40b69b004b9d6dbe05cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1000010755293042, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+  newGameButton: {fileID: 0}
+  continueGameButton: {fileID: 0}
+  leaderboardButton: {fileID: 0}
 --- !u!1 &1322502774
 GameObject:
   m_ObjectHideFlags: 0
