@@ -14,6 +14,7 @@ namespace ServerInteraction
         public Button signInButton;
         public Button goToSignUpButton;
         public Text feedbackText; // For displaying messages
+        internal static string UserId;
 
         private void Start()
         {
@@ -45,8 +46,8 @@ namespace ServerInteraction
         IEnumerator SignIn(string usernameOrEmail, string password)
         {
             // Prepare the request
-            string url = "http://localhost:8080/api/auth/signin"; // Update with your server's URL
-            UnityWebRequest request = new UnityWebRequest(url, "POST");
+            string signinUrl = "http://localhost:8080/api/auth/signin"; // Update with your server's URL
+            UnityWebRequest request = new UnityWebRequest(signinUrl, "POST");
 
             // Create the JSON body
             string jsonBody = "{\"usernameOrEmail\":\"" + usernameOrEmail + "\",\"password\":\"" + password + "\"}";
@@ -63,8 +64,9 @@ namespace ServerInteraction
                 // Handle success
                 // feedbackText.text = "Sign-in successful!";
                 Debug.Log(request.downloadHandler.text);
-
+                var sessionToken = request.downloadHandler.text;
                 // You can parse the response and store the session token if needed
+                StartCoroutine(GetUserIdBySessionToken(sessionToken));
                 // For now, we'll load the next scene
                 SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
             }
@@ -74,6 +76,21 @@ namespace ServerInteraction
                 feedbackText.text = "Sign-in failed: " + request.downloadHandler.text;
                 Debug.LogError(request.error);
             }
+        }
+
+        private static IEnumerator GetUserIdBySessionToken(string sessionToken)
+        {
+            const string getUserIdUrl = "http://localhost:8080/api/auth/user-id";
+            var getUserIdBySessionTokenReq = new UnityWebRequest(getUserIdUrl, "GET");
+            var jsonBody = "{\"sessionToken\":\"" + sessionToken + "\"}";
+            var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
+            getUserIdBySessionTokenReq.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            getUserIdBySessionTokenReq.downloadHandler = new DownloadHandlerBuffer();
+            getUserIdBySessionTokenReq.SetRequestHeader("Content-Type", "application/json");
+            yield return getUserIdBySessionTokenReq.SendWebRequest();
+            UserId = getUserIdBySessionTokenReq.result == UnityWebRequest.Result.Success
+                ? getUserIdBySessionTokenReq.downloadHandler.text
+                : "";
         }
 
     }
