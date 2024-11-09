@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   jumpSpeed: 4
-  currentHealth: 1111111
+  currentHealth: 1
   player: {fileID: 1000010755293042}
   isDoubleJump: 0
   horizontalInput: 0
