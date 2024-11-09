@@ -14,12 +14,11 @@ namespace ServerInteraction
         public Button newGameButton;
         public Button continueGameButton;
         public Button leaderboardButton;
-        private const string RootRequestURL = "http://localhost:8080/api/gameplay/"; 
+        private const string RootRequestURL = "http://localhost:8080/api/gameplay"; 
         private string _userId;
 
         private void Start()
         {
-            _userId = SignInManager.UserId;
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
@@ -27,11 +26,13 @@ namespace ServerInteraction
 
         private void OnGameContinueButtonClicked()
         {
+            _userId = SignInManager.UserId;
             StartCoroutine(CreateContinueGameRequest());
         }
 
         private void OnNewGameButtonClicked()
         {
+            _userId = SignInManager.UserId;
             StartCoroutine(CreateNewGameRequest());
         }
 
@@ -60,7 +61,7 @@ namespace ServerInteraction
 
         private IEnumerator CreateNewGameRequest()
         {
-            var request = RequestGenerator("http://localhost:8080/api/gameplay/new-game", new[] { "userId" }, new []{_userId}, "POST");
+            var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new []{_userId}, "POST");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
@@ -74,7 +75,7 @@ namespace ServerInteraction
         
         private IEnumerator CreatePlayerRankingRequest()
         {
-            var request = RequestGenerator(RootRequestURL + "/rank", new[] { "userId" }, new[] { _userId }, "GET");
+            var request = RequestGenerator(RootRequestURL + "/rank", new string[] {}, new string[] {}, "GET");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {

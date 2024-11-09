@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using System.Collections;
 using TMPro;
 using ServerInteraction.Responses;
+using UnityEditor.PackageManager.Requests;
 
 namespace ServerInteraction
 {
@@ -64,20 +65,20 @@ namespace ServerInteraction
                 // Handle success
                 feedbackText.text = "Sign-in successful!";
                 feedbackText.color = Color.green;
-                Debug.Log(request.downloadHandler.text);
+                print(request.downloadHandler.text);
 
                 // You can parse the response and store the session token if needed
                 var signInResponse = JsonUtility.FromJson<SignInResponse>(request.downloadHandler.text);
-                StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
+                yield return StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
                 // For now, we'll load the next scene
-                SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
+                SceneManager.LoadScene("TestScene - Hiep/DashboardScene"); // Replace with your gameplay scene
                 StartCoroutine(LoadingSceneDelay());
             }
             else
             {
                 // Handle error
                 feedbackText.text = "Sign-in failed: " + request.downloadHandler.text;
-                Debug.LogError(request.error);
+                print(request.error);
             }
         }
         
@@ -99,6 +100,7 @@ namespace ServerInteraction
             UserId = getUserIdBySessionTokenReq.result == UnityWebRequest.Result.Success
                 ? JsonUtility.FromJson<GetUserIdBySessionTokenResponse>(getUserIdBySessionTokenReq.downloadHandler.text).userId
                 : "";
+            print(getUserIdBySessionTokenReq.downloadHandler.text);
         }
 
     }
