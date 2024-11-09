@@ -14,13 +14,13 @@ namespace ServerInteraction
     public TMP_InputField emailInputField;
     public TMP_InputField passwordInputField;
     public TMP_InputField confirmPasswordInputField;
-    public Button signUpButton;
+    public Button SignUpButton;
     public Button goToSignInButton;
-    public Text feedbackText; // For displaying messages
+    public TMP_Text feedbackText; // For displaying messages
 
     private void Start()
     {
-        signUpButton.onClick.AddListener(OnSignUpButtonClicked);
+        SignUpButton.onClick.AddListener(OnSignUpButtonClicked);
         goToSignInButton.onClick.AddListener(OnGoToSignInButtonClicked);
     }
 
@@ -72,19 +72,26 @@ namespace ServerInteraction
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            // Handle success
-            // feedbackText.text = "Sign-up successful!";
+            // Display the server's response message
+            feedbackText.text = request.downloadHandler.text;
+            feedbackText.color = Color.green;
             Debug.Log(request.downloadHandler.text);
 
-            // Optionally, navigate to the sign-in scene
-            SceneManager.LoadScene("SignInScene");
+            // Optionally, delay before transitioning to the SignInScene
+            StartCoroutine(LoadSignInSceneAfterDelay(2f)); // 2-second delay
         }
         else
         {
-            // Handle error
-            feedbackText.text = "Sign-up failed: " + request.downloadHandler.text;
+            // Handle error + display feedback
+            feedbackText.text = "Sign-up failed: " + request.downloadHandler.text; ;
             Debug.LogError(request.error);
         }
+    }
+    
+    IEnumerator LoadSignInSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("SignInScene");
     }
 }
 

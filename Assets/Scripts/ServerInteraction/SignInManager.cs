@@ -13,7 +13,7 @@ namespace ServerInteraction
         public TMP_InputField passwordInputField;
         public Button signInButton;
         public Button goToSignUpButton;
-        public Text feedbackText; // For displaying messages
+        public TMP_Text feedbackText; // For displaying messages
 
         private void Start()
         {
@@ -61,12 +61,14 @@ namespace ServerInteraction
             if (request.result == UnityWebRequest.Result.Success)
             {
                 // Handle success
-                // feedbackText.text = "Sign-in successful!";
+                feedbackText.text = "Sign-in successful!";
+                feedbackText.color = Color.green;
                 Debug.Log(request.downloadHandler.text);
 
                 // You can parse the response and store the session token if needed
                 // For now, we'll load the next scene
                 SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
+                StartCoroutine(LoadingSceneDelay());
             }
             else
             {
@@ -74,6 +76,11 @@ namespace ServerInteraction
                 feedbackText.text = "Sign-in failed: " + request.downloadHandler.text;
                 Debug.LogError(request.error);
             }
+        }
+        
+        IEnumerator LoadingSceneDelay()
+        {
+            yield return new WaitForSeconds(2f); // 2-second delay
         }
 
     }
