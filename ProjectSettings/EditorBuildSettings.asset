@@ -7,19 +7,28 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/SignInScene.unity
-    guid: bf9cd73f45ee5874580b753653f1fe34
+    guid: 1c147a454b26943418abf884b79433e5
   - enabled: 1
     path: Assets/Scenes/SignUpScene.unity
     guid: b56469cc2bd465948a4d2ebc63cb883e
   - enabled: 1
+    path: Assets/Scenes/PasswordReset.unity
+    guid: 6d4eb292765e25e4ea980f90e65b2cd9
+  - enabled: 1
     path: Assets/Scenes/DashboardScene.unity
     guid: f373e26f93c189149aa53303ad3fc93a
+  - enabled: 1
+    path: Assets/Scenes/PasswordChangeScene.unity
+    guid: 7e0dc63a7260c7748a3146e40b740993
   - enabled: 1
     path: Assets/Scenes/RankScene.unity
     guid: b733ab45fe406e54d8db4488c2ce2451
   - enabled: 1
     path: Assets/Scenes/SettingScene.unity
     guid: 2eefe24c437df3c44be5c7cf0393347a
+  - enabled: 1
+    path: Assets/Scenes/SignOutScene.unity
+    guid: bf9cd73f45ee5874580b753653f1fe34
   - enabled: 1
     path: Assets/Scenes/1stscene.unity
     guid: c61b59491975a7442aa1e159a49e2d5e
