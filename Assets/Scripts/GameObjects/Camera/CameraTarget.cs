@@ -11,6 +11,7 @@ namespace GameObjects.Camera
         // Update is called once per frame
         void Update()
         {
+            if (player is null) return;
             Vector3 target = new Vector3(player.transform.position.x, player.transform.position.y + yOffset, -10f);
             transform.position = Vector3.Slerp(transform.position, target, speed * Time.deltaTime);
         }

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Globalization;
 using System.Linq;
 using ServerInteraction.Responses;
 using UnityEngine;
@@ -14,8 +16,9 @@ namespace ServerInteraction
         public Button continueGameButton;
         public Button leaderboardButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
-        private static readonly string[] Scenes = new string[] {"Scenes/1stscene", "Scenes/2ndscene", "Scenes/4thscene", "Scenes/5thScene", "Scenes/7thscene", "Scenes/8thscene", };
-
+        private Vector3 _playerPosition;
+        internal static PlayerRankingResponse PlayerRankingResponse = new();
+        
         private void Start()
         {
            
@@ -39,6 +42,7 @@ namespace ServerInteraction
             StartCoroutine(CreatePlayerRankingRequest());
         }
 
+        
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateContinueGameRequest()
         {
@@ -50,11 +54,14 @@ namespace ServerInteraction
                 var currentPositionString = gameContinueResponse.currentPosition;
                 if (gameContinueResponse.currentPosition != "")
                 {
-                    var currentPositionNums = currentPositionString.Split(",\\s+").Select(float.Parse).ToArray();
-                    var player = GameObject.Find("Player");
-                    player.transform.position = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
+                    var currentPositionNums = currentPositionString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => float.Parse(s.Trim(), CultureInfo.InvariantCulture)).ToArray();
+                    _playerPosition = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
                 }
-                SceneManager.LoadScene(Scenes[gameContinueResponse.sceneIndex - 1]);
+                SceneManager.LoadScene(SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1]);
+                yield return new WaitForSeconds(1);
+                print("adaadad");
+                var player = GameObject.FindWithTag("Player");
+                player.transform.position = _playerPosition;
             }
             else
             {
@@ -82,9 +89,8 @@ namespace ServerInteraction
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                var playerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
-                SceneManager.LoadScene("Scenes/RankScene");
-                // TODO: Add display logic
+                PlayerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
+                SceneManager.LoadScene("TestScene - Hiep/RankScene");
             }
             else
             {

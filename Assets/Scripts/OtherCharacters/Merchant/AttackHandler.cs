@@ -24,7 +24,6 @@ namespace OtherCharacters.Merchant
         private float _attackCoolDownTime;
         private float _delayClock;
         private float _firstWalkSpeed;
-        private bool _isPlayerDead;
         
         private void Start()
         {
@@ -134,13 +133,7 @@ namespace OtherCharacters.Merchant
             if (currentPlayerHealth > 0) return;
            
             playerAnimator.SetTrigger(Die);
-            _isPlayerDead = true;
         }
 
-        private void PlayerDisappears()
-        {
-            if (!_isPlayerDead) return;
-            Destroy(_player);
-        }
     }
 }

@@ -37,7 +37,6 @@ namespace OtherCharacters.Peasant
                 if (playerCurrentHealth <= 0)
                 {
                     playerAnimator.SetTrigger(Die);
-                    Destroy(other, 2);
                 }
             }
             
