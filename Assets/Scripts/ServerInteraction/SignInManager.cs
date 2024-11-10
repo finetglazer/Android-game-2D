@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections;
 using Newtonsoft.Json.Linq;
+using ServerInteraction.Responses;
 using TMPro;
 
 namespace ServerInteraction
@@ -77,10 +79,12 @@ namespace ServerInteraction
                 JObject obj = JObject.Parse(request.downloadHandler.text);
                 Debug.Log(obj["sessionToken"]);
                 // from x, I want to take the value of key sessionToken
-
+                
                 PlayerPrefs.SetString("SessionToken", obj["sessionToken"]?.ToString());
 
                 // You can parse the response and store the session token if needed
+                var signInResponse = JsonUtility.FromJson<SignInResponse>(request.downloadHandler.text);
+                StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
                 // For now, we'll load the next scene
                 yield return GetUserIdBySessionToken(obj["sessionToken"]?.ToString());
                 //for testing

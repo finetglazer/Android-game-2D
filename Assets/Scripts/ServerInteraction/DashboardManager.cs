@@ -18,6 +18,7 @@ namespace ServerInteraction
 
         private void Start()
         {
+           
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
