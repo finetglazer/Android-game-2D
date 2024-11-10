@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections;
+using Newtonsoft.Json.Linq;
 using TMPro;
 
 namespace ServerInteraction
@@ -14,11 +16,20 @@ namespace ServerInteraction
         public Button signInButton;
         public Button goToSignUpButton;
         public TMP_Text feedbackText; // For displaying messages
-
+        public Button forgotPasswordButton; // For moving to the forgot password scene
+         // For moving to the sign-up scene
+        
+        
         private void Start()
         {
             signInButton.onClick.AddListener(OnSignInButtonClicked);
             goToSignUpButton.onClick.AddListener(OnGoToSignUpButtonClicked);
+            forgotPasswordButton.onClick.AddListener(OnForgotPasswordButtonClicked);
+        }
+        
+        private void OnForgotPasswordButtonClicked()
+        {
+            SceneManager.LoadScene("PasswordResetScene");
         }
 
         private void OnSignInButtonClicked()
@@ -30,6 +41,7 @@ namespace ServerInteraction
             if (string.IsNullOrEmpty(usernameOrEmail) || string.IsNullOrEmpty(password))
             {
                 feedbackText.text = "Please enter your username/email and password.";
+                feedbackText.color = Color.red;
                 return;
             }
 
@@ -64,16 +76,25 @@ namespace ServerInteraction
                 feedbackText.text = "Sign-in successful!";
                 feedbackText.color = Color.green;
                 Debug.Log(request.downloadHandler.text);
+                JObject obj = JObject.Parse(request.downloadHandler.text);
+                Debug.Log(obj["sessionToken"]);
+                // from x, I want to take the value of key sessionToken
+
+                PlayerPrefs.SetString("SessionToken", obj["sessionToken"]?.ToString());
 
                 // You can parse the response and store the session token if needed
                 // For now, we'll load the next scene
-                SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
+                
+                //for testing
+                SceneManager.LoadScene("PasswordChangeScene");
+                // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 StartCoroutine(LoadingSceneDelay());
             }
             else
             {
                 // Handle error
                 feedbackText.text = "Sign-in failed: " + request.downloadHandler.text;
+                feedbackText.color = Color.red;
                 Debug.LogError(request.error);
             }
         }
