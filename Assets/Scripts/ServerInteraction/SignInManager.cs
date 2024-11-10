@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections;
+using Newtonsoft.Json.Linq;
 using TMPro;
-using ServerInteraction.Responses;
 
 namespace ServerInteraction
 {
@@ -15,11 +16,20 @@ namespace ServerInteraction
         public Button signInButton;
         public Button goToSignUpButton;
         public TMP_Text feedbackText; // For displaying messages
-        internal static string UserId;
+        public Button forgotPasswordButton; // For moving to the forgot password scene
+         // For moving to the sign-up scene
+        
+        
         private void Start()
         {
             signInButton.onClick.AddListener(OnSignInButtonClicked);
             goToSignUpButton.onClick.AddListener(OnGoToSignUpButtonClicked);
+            forgotPasswordButton.onClick.AddListener(OnForgotPasswordButtonClicked);
+        }
+        
+        private void OnForgotPasswordButtonClicked()
+        {
+            SceneManager.LoadScene("PasswordResetScene");
         }
 
         private void OnSignInButtonClicked()
@@ -31,6 +41,7 @@ namespace ServerInteraction
             if (string.IsNullOrEmpty(usernameOrEmail) || string.IsNullOrEmpty(password))
             {
                 feedbackText.text = "Please enter your username/email and password.";
+                feedbackText.color = Color.red;
                 return;
             }
 
@@ -65,18 +76,25 @@ namespace ServerInteraction
                 feedbackText.text = "Sign-in successful!";
                 feedbackText.color = Color.green;
                 Debug.Log(request.downloadHandler.text);
+                JObject obj = JObject.Parse(request.downloadHandler.text);
+                Debug.Log(obj["sessionToken"]);
+                // from x, I want to take the value of key sessionToken
+
+                PlayerPrefs.SetString("SessionToken", obj["sessionToken"]?.ToString());
 
                 // You can parse the response and store the session token if needed
-                var signInResponse = JsonUtility.FromJson<SignInResponse>(request.downloadHandler.text);
-                StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
                 // For now, we'll load the next scene
-                SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
+                
+                //for testing
+                SceneManager.LoadScene("PasswordChangeScene");
+                // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 StartCoroutine(LoadingSceneDelay());
             }
             else
             {
                 // Handle error
                 feedbackText.text = "Sign-in failed: " + request.downloadHandler.text;
+                feedbackText.color = Color.red;
                 Debug.LogError(request.error);
             }
         }
@@ -84,21 +102,6 @@ namespace ServerInteraction
         IEnumerator LoadingSceneDelay()
         {
             yield return new WaitForSeconds(2f); // 2-second delay
-        }
-        
-        private static IEnumerator GetUserIdBySessionToken(string sessionToken)
-        {
-            const string getUserIdUrl = "http://localhost:8080/api/auth/user-id";
-            var getUserIdBySessionTokenReq = new UnityWebRequest(getUserIdUrl, "POST");
-            var jsonBody = "{\"sessionToken\":\"" + sessionToken + "\"}";
-            var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
-            getUserIdBySessionTokenReq.uploadHandler = new UploadHandlerRaw(jsonToSend);
-            getUserIdBySessionTokenReq.downloadHandler = new DownloadHandlerBuffer();
-            getUserIdBySessionTokenReq.SetRequestHeader("Content-Type", "application/json");
-            yield return getUserIdBySessionTokenReq.SendWebRequest();
-            UserId = getUserIdBySessionTokenReq.result == UnityWebRequest.Result.Success
-                ? JsonUtility.FromJson<GetUserIdBySessionTokenResponse>(getUserIdBySessionTokenReq.downloadHandler.text).userId
-                : "";
         }
 
     }

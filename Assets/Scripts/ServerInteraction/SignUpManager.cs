@@ -36,12 +36,14 @@ namespace ServerInteraction
         if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(emailAddress) || string.IsNullOrEmpty(password))
         {
             feedbackText.text = "Please fill in all the fields.";
+            feedbackText.color = Color.red;
             return;
         }
 
         if (password != confirmPassword)
         {
             feedbackText.text = "Passwords do not match.";
+            feedbackText.color = Color.red;
             return;
         }
 
@@ -83,7 +85,8 @@ namespace ServerInteraction
         else
         {
             // Handle error + display feedback
-            feedbackText.text = "Sign-up failed: " + request.downloadHandler.text; ;
+            feedbackText.text = "Sign-up failed: " + request.downloadHandler.text;
+            feedbackText.color = Color.red;
             Debug.LogError(request.error);
         }
     }
