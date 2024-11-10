@@ -1749,10 +1749,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 901240340}
+  - component: {fileID: 901240341}
   - component: {fileID: 901240339}
   - component: {fileID: 901240338}
   - component: {fileID: 901240337}
-  - component: {fileID: 901240341}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   emailInputField: {fileID: 599356705}
   passwordInputField: {fileID: 1568194351}
   confirmPasswordInputField: {fileID: 2133094399}
-  SignUpButton: {fileID: 2014011799}
+  signUpButton: {fileID: 2014011799}
   goToSignInButton: {fileID: 498442720}
   feedbackText: {fileID: 855552910}
 --- !u!1 &925786241

@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: da8b9f1ececd3dd4dbc79ebf7672ddd7
+  - enabled: 1
+    path: Assets/TestScene - Hiep/DashboardScene.unity
+    guid: 80f61cf014a6199489cb234f8ab7cc13
   m_configObjects: {}

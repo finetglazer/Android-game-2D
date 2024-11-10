@@ -14,13 +14,13 @@ namespace ServerInteraction
     public TMP_InputField emailInputField;
     public TMP_InputField passwordInputField;
     public TMP_InputField confirmPasswordInputField;
-    public Button SignUpButton;
+    public Button signUpButton;
     public Button goToSignInButton;
     public TMP_Text feedbackText; // For displaying messages
 
     private void Start()
     {
-        SignUpButton.onClick.AddListener(OnSignUpButtonClicked);
+        signUpButton.onClick.AddListener(OnSignUpButtonClicked);
         goToSignInButton.onClick.AddListener(OnGoToSignInButtonClicked);
     }
 
