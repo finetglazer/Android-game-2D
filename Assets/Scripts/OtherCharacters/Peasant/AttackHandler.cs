@@ -13,23 +13,18 @@ namespace OtherCharacters.Peasant
         public GameObject arrowStartingPoint;
         public GameObject[] arrowArray;
         private const string PlayerMask = "Player";
-        private const string PlayerTag = "Player";
-        private Animator _playerAnimator;
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private Movement _characterMovement;
         private float _attackCoolDownTime;
-        private bool _isPlayerDead;
         internal float ArrowDirection;
 
         private void Start()
         {
             _attackCoolDownTime = attackCoolDownTime;
-            _playerAnimator = GameObject.FindGameObjectWithTag(PlayerTag).GetComponent<Animator>();
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterMovement = GetComponent<Movement>();
-            _isPlayerDead = false;
         }
 
         private void Update()
@@ -43,11 +38,7 @@ namespace OtherCharacters.Peasant
             _attackCoolDownTime += Time.deltaTime;
                 
             if (!PlayerDetectedOnLeft() && !PlayerDetectedOnRight()) return;
-
-            if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
-            {
-                _isPlayerDead = true;
-            }
+            
             if (_attackCoolDownTime < attackCoolDownTime)
             {
                 _characterAnimator.SetTrigger(Idle);
@@ -55,7 +46,6 @@ namespace OtherCharacters.Peasant
             }
             
             _attackCoolDownTime = 0;
-            if (_isPlayerDead) return;
             
             if (PlayerDetectedOnLeft())
             {

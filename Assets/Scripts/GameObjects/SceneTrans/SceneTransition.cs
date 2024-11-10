@@ -13,6 +13,8 @@ namespace GameObjects.SceneTrans
             if (!other.CompareTag("Player")) return;
             
             DeathNote.ClearLists();
+            
+            //TODO: Add updateFinishTime and updateScenePoint APIs
             SceneManager.LoadScene(sceneName);
         }
     }

@@ -1106,7 +1106,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.65
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -4089,13 +4089,6 @@ AnimationClip:
   m_Events:
   - time: 0.55
     functionName: CauseDamage
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.75
-    functionName: PlayerDisappears
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

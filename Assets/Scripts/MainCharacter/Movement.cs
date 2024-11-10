@@ -32,7 +32,8 @@ namespace MainCharacter
         {
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                Destroy(this);
+                gameObject.GetComponent<PlayerDie>().Die();
+                PlayerIdle();
                 return;
             }
 

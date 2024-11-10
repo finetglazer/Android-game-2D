@@ -19,24 +19,20 @@ namespace OtherCharacters.Priest
         private const string PlayerTag = "Player";
         private Vector3 _lightningOccurPoint;
         private GameObject _player;
-        private Animator _playerAnimator;
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private Movement _characterMovement;
         private float _attackCoolDownTime;
         private float _firstWalkSpeed;
-        private bool _isPlayerDead;
         
         private void Start()
         {
             _attackCoolDownTime = attackCoolDownTime;
             _player = GameObject.FindGameObjectWithTag(PlayerTag);
-            _playerAnimator = _player.GetComponent<Animator>();
             _characterAnimator = GetComponent<Animator>();
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterMovement = GetComponent<Movement>();
             _firstWalkSpeed = GetComponent<Movement>().walkSpeed;
-            _isPlayerDead = false;
         }
 
         private void Update()
@@ -58,11 +54,7 @@ namespace OtherCharacters.Priest
             ChasePlayer();
             
             if (!PlayerIsInDamageDealtDistance()) return;
-
-            if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
-            {
-                _isPlayerDead = true;
-            }
+            
             if (_attackCoolDownTime < attackCoolDownTime)
             {
                 _characterAnimator.SetTrigger(Idle);
@@ -70,7 +62,6 @@ namespace OtherCharacters.Priest
             }
             
             _attackCoolDownTime = 0;
-            if (_isPlayerDead) return;
             
             _lightningOccurPoint = _player.transform.position;
             _characterAnimator.SetTrigger(Attack);      // All events triggered in Attack animation
