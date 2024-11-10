@@ -79,7 +79,7 @@ namespace ServerInteraction
                 JObject obj = JObject.Parse(request.downloadHandler.text);
                 Debug.Log(obj["sessionToken"]);
                 // from x, I want to take the value of key sessionToken
-
+                
                 PlayerPrefs.SetString("SessionToken", obj["sessionToken"]?.ToString());
 
                 // You can parse the response and store the session token if needed

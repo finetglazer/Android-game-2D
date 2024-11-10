@@ -19,7 +19,7 @@ namespace ServerInteraction
 
         private void Start()
         {
-            _userId = SignInManager.UserId;
+            // _userId = SignInManager.UserId;
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
