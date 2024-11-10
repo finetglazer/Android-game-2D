@@ -33,7 +33,8 @@ namespace ServerInteraction
 
         IEnumerator ResetPassword(string email)
         {
-            
+            // TODO: Bro fix this =)))
+            yield return null;
         }
     }
 }

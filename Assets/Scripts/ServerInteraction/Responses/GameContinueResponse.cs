@@ -3,7 +3,7 @@
     [System.Serializable]
     public class GameContinueResponse
     {
-        public string sceneName;
+        public int sceneIndex;
         public string currentPosition;
     }
 }

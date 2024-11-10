@@ -10,12 +10,11 @@ namespace ServerInteraction
 {
     public class DashboardManager : MonoBehaviour
     {
-        public GameObject player;
         public Button newGameButton;
         public Button continueGameButton;
         public Button leaderboardButton;
-        private const string RootRequestURL = "http://localhost:8080/api/gameplay"; 
-        private string _userId;
+        private const string RootRequestURL = "http://localhost:8080/api/gameplay";
+        private static readonly string[] Scenes = new string[] {"Scenes/1stscene", "Scenes/2ndscene", "Scenes/4thscene", "Scenes/5thScene", "Scenes/7thscene", "Scenes/8thscene", };
 
         private void Start()
         {
@@ -26,13 +25,11 @@ namespace ServerInteraction
 
         private void OnGameContinueButtonClicked()
         {
-            _userId = SignInManager.UserId;
             StartCoroutine(CreateContinueGameRequest());
         }
 
         private void OnNewGameButtonClicked()
         {
-            _userId = SignInManager.UserId;
             StartCoroutine(CreateNewGameRequest());
         }
 
@@ -41,17 +38,22 @@ namespace ServerInteraction
             StartCoroutine(CreatePlayerRankingRequest());
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateContinueGameRequest()
         {
-            var request = RequestGenerator(RootRequestURL + "/continue", new[] { "userId" }, new[] { _userId }, "POST");
+            var request = RequestGenerator(RootRequestURL + "/continue", new[] { "userId" }, new[] { PlayerPrefs.GetString("userId") }, "POST");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
                 var gameContinueResponse = JsonUtility.FromJson<GameContinueResponse>(request.downloadHandler.text);
                 var currentPositionString = gameContinueResponse.currentPosition;
-                var currentPositionNums = currentPositionString.Split(",\\s+").Select(float.Parse).ToArray();
-                SceneManager.LoadScene(gameContinueResponse.sceneName);
-                player.transform.position = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
+                if (gameContinueResponse.currentPosition != "")
+                {
+                    var currentPositionNums = currentPositionString.Split(",\\s+").Select(float.Parse).ToArray();
+                    var player = GameObject.Find("Player");
+                    player.transform.position = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
+                }
+                SceneManager.LoadScene(Scenes[gameContinueResponse.sceneIndex - 1]);
             }
             else
             {
@@ -59,9 +61,9 @@ namespace ServerInteraction
             }
         }
 
-        private IEnumerator CreateNewGameRequest()
+        private static IEnumerator CreateNewGameRequest()
         {
-            var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new []{_userId}, "POST");
+            var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new []{ PlayerPrefs.GetString("userId") }, "POST");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
@@ -97,7 +99,7 @@ namespace ServerInteraction
             {
                 jsonBody += "\"" + fieldNames[i] + "\":\"" + values[i] + "\",";
             }
-            jsonBody += "\"" + fieldNames[^1] + "\":\"" + values[^1] + "\"}";
+            jsonBody += "\"" + (fieldNames.Length != 0 ? fieldNames[^1] : "") + "\":\"" + (values.Length != 0 ? values[^1] : "") + "\"}";
             var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(jsonToSend);
             request.downloadHandler = new DownloadHandlerBuffer();

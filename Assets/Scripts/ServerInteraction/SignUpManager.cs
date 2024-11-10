@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System.Collections;
 using TMPro;
-using UnityEngine.Serialization;
 
 namespace ServerInteraction
 {
