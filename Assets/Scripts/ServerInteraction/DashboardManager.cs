@@ -46,13 +46,11 @@ namespace ServerInteraction
         
         private void OnGameContinueButtonClicked()
         {
-            Time.timeScale = 1;
             StartCoroutine(CreateContinueGameRequest());
         }
 
         private void OnNewGameButtonClicked()
         {
-            Time.timeScale = 1;
             StartCoroutine(CreateNewGameRequest());
         }
 
