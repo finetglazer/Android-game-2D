@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 502913462}
+  targetCam: {fileID: 0}
 --- !u!1 &640132485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 773662321}
+  targetCam: {fileID: 0}
 --- !u!1 &668767973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 773662321}
+  targetCam: {fileID: 0}
 --- !u!61 &668767976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 640132487}
+  targetCam: {fileID: 0}
 --- !u!1 &1067364835
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,7 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 773662321}
+  targetCam: {fileID: 0}
 --- !u!1 &1131006774
 GameObject:
   m_ObjectHideFlags: 0
@@ -5070,7 +5070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 773662321}
+  targetCam: {fileID: 0}
 --- !u!1 &1880102184
 GameObject:
   m_ObjectHideFlags: 0
@@ -47130,7 +47130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 176873096}
+  targetCam: {fileID: 0}
 --- !u!66 &1915852403
 CompositeCollider2D:
   m_ObjectHideFlags: 0
