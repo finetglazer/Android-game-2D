@@ -97,7 +97,7 @@ namespace ServerInteraction
                   feedBackText.text = "Password change successful!";
                   feedBackText.color = Color.green;
                   StartCoroutine(LoadingSceneDelay());
-                  SceneManager.LoadScene("Scenes/1stscene");
+                  SceneManager.LoadScene("Scenes/DashboardScene");
               }
               else
               {

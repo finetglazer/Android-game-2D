@@ -37,7 +37,7 @@ namespace ServerInteraction
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                SceneManager.LoadScene("TestScene - Hiep/DashboardScene");
+                SceneManager.LoadScene("Scenes/DashboardScene");
             }
             else
             {
