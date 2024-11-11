@@ -17,6 +17,8 @@ namespace ServerInteraction
         public Button leaderboardButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
         private Vector3 _playerPosition;
+        public Button passwordChangeButton;
+        public Button signOutButton;
         internal static PlayerRankingResponse PlayerRankingResponse = new();
         
         private void Start()
@@ -25,8 +27,20 @@ namespace ServerInteraction
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
+            passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
+            signOutButton.onClick.AddListener(OnSignOutButtonClicked);
         }
 
+        private void OnSignOutButtonClicked()
+        {
+            SceneManager.LoadScene("Scenes/SignOutScene");
+        }
+        
+        private void OnPasswordChangeButtonClicked()
+        {
+            SceneManager.LoadScene("PasswordChangeScene");
+        }
+        
         private void OnGameContinueButtonClicked()
         {
             StartCoroutine(CreateContinueGameRequest());

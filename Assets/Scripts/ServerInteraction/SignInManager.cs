@@ -88,9 +88,10 @@ namespace ServerInteraction
                 // For now, we'll load the next scene
                 yield return GetUserIdBySessionToken(obj["sessionToken"]?.ToString());
                 //for testing
-                SceneManager.LoadScene("PasswordChangeScene");
-                // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 StartCoroutine(LoadingSceneDelay());
+                SceneManager.LoadScene("TestScene - Hiep/DashboardScene");
+                // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
+                
             }
             else
             {
