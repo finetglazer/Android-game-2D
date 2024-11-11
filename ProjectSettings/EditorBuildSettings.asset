@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TestScene - Hiep/RankScene.unity
     guid: b1a0c627489401648b7cb32eca0d6516
+  - enabled: 1
+    path: Assets/TestScene - Hiep/1stscene.unity
+    guid: a2811f4f9225f4b4dab62418cc878a65
   m_configObjects: {}

@@ -19,7 +19,10 @@ namespace ServerInteraction
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
         public Button signOutButton;
+        private float[] _playerPositionNums;
+        private bool _isNewGame = true;
         internal static PlayerRankingResponse PlayerRankingResponse = new();
+        
         
         private void Start()
         {
@@ -73,7 +76,7 @@ namespace ServerInteraction
                 }
                 
                 SceneManager.sceneLoaded += OnSceneLoaded;
-                SceneManager.LoadScene(SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1]);
+                SceneManager.LoadScene(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
             }
             else
             {
@@ -86,7 +89,12 @@ namespace ServerInteraction
             SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe after the scene is loaded to prevent multiple triggers.
             var player = GameObject.FindWithTag("Player");
             if (player is null) return;
-            player.transform.position = _playerPosition;
+            if (_isNewGame)
+            {
+                _isNewGame = false;
+                player.transform.position = _playerPosition;
+            }
+
             print("Player position set after scene load.");
         }
 
