@@ -89,7 +89,7 @@ namespace ServerInteraction
                 yield return GetUserIdBySessionToken(obj["sessionToken"]?.ToString());
                 //for testing
                 StartCoroutine(LoadingSceneDelay());
-                SceneManager.LoadScene("TestScene - Hiep/DashboardScene");
+                SceneManager.LoadScene("Scenes/DashboardScene");
                 // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 
             }

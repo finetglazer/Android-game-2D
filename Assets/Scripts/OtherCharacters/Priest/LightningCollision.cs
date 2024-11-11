@@ -32,7 +32,6 @@ namespace OtherCharacters.Priest
             if (!(currentPlayerHealth <= 0)) return;
             
             _playerAnimator.SetTrigger(Die);
-            Destroy(other, 3);
         }
     }
 }

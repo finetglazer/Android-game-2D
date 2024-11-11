@@ -22,6 +22,7 @@ namespace MainCharacter
         [HideInInspector] public bool isDoubleJump;
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
+        [HideInInspector] public int deathCount;
         public static float SceneTime;
 
         private void Start()
@@ -38,6 +39,7 @@ namespace MainCharacter
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();
+                ++deathCount;
                 PlayerIdle();
                 StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
@@ -140,8 +142,8 @@ namespace MainCharacter
         {
             player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
-        
-        public void TurnRight()
+
+        private void TurnRight()
         {
             player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
@@ -181,14 +183,9 @@ namespace MainCharacter
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             yield return request.SendWebRequest();
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                print("+1 death times on server!");
-            }
-            else
-            {
-                print(request.downloadHandler.text);
-            }
+            print(request.result == UnityWebRequest.Result.Success
+                ? "+1 death time on server!"
+                : request.downloadHandler.text);
         }
     }
 }

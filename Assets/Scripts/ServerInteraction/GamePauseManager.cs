@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Recorder;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ namespace ServerInteraction
 
         private void OnPauseButtonClicked()
         {
+            Time.timeScale = 0;
             StartCoroutine(CreateUpdatePlayerPositionRequest());
         }
 
@@ -37,7 +39,8 @@ namespace ServerInteraction
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                SceneManager.LoadScene("TestScene - Hiep/DashboardScene");
+                SceneManager.LoadScene("Scenes/DashboardScene");
+                DeathNote.ClearLists();
             }
             else
             {
