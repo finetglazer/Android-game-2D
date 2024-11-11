@@ -57,16 +57,23 @@ namespace ServerInteraction
                     var currentPositionNums = currentPositionString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => float.Parse(s.Trim(), CultureInfo.InvariantCulture)).ToArray();
                     _playerPosition = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
                 }
+                
+                SceneManager.sceneLoaded += OnSceneLoaded;
                 SceneManager.LoadScene(SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1]);
-                yield return new WaitForSeconds(1);
-                print("adaadad");
-                var player = GameObject.FindWithTag("Player");
-                player.transform.position = _playerPosition;
             }
             else
             {
                 print(request.downloadHandler.text);
             }
+        }
+        
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe after the scene is loaded to prevent multiple triggers.
+            var player = GameObject.FindWithTag("Player");
+            if (player is null) return;
+            player.transform.position = _playerPosition;
+            print("Player position set after scene load.");
         }
 
         private static IEnumerator CreateNewGameRequest()
