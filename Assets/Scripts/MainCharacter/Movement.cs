@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace MainCharacter
 {
@@ -20,6 +22,7 @@ namespace MainCharacter
         [HideInInspector] public bool isDoubleJump;
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
+        public static float SceneTime;
 
         private void Start()
         {
@@ -30,10 +33,13 @@ namespace MainCharacter
         
         private void Update()
         {
+            SceneTime += Time.deltaTime;
+            
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();
                 PlayerIdle();
+                StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
             }
 
@@ -162,6 +168,27 @@ namespace MainCharacter
             
             _playerAnimator.SetTrigger(Walk);
             _playerBody.velocity = new Vector2(walkSpeed, _playerBody.velocity.y);
+        }
+
+        private IEnumerator CreateUpdateDeathCountRequest()
+        {
+            const string url = "http://localhost:8080/api/gameplay/update-death-count";
+            var request = new UnityWebRequest(url, "POST");
+            var userId = PlayerPrefs.GetString("userId");
+            var jsonBody = "{\"userId\":\"" + userId + "\"}";  
+            var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                print("+1 death times on server!");
+            }
+            else
+            {
+                print(request.downloadHandler.text);
+            }
         }
     }
 }
