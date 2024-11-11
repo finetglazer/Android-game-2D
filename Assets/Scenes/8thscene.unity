@@ -10554,7 +10554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 858091000}
+  targetCam: {fileID: 0}
 --- !u!61 &636550495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13464,7 +13464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1321761932}
+  targetCam: {fileID: 0}
 --- !u!1 &821191240
 GameObject:
   m_ObjectHideFlags: 0
@@ -36137,7 +36137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1562830100}
+  targetCam: {fileID: 0}
 --- !u!66 &1772826459
 CompositeCollider2D:
   m_ObjectHideFlags: 0

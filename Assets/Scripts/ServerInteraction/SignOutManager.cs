@@ -31,7 +31,7 @@ namespace ServerInteraction
             // Redirect to the main menu scene
             // Back to the last scene
             
-            SceneManager.LoadScene("SignInScene");
+            SceneManager.LoadScene("DashboardScene");
             
             
         }
