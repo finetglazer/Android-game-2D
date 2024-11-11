@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using Recorder;
 using ServerInteraction;
 using UnityEngine;
@@ -55,18 +56,16 @@ namespace GameObjects.SceneTrans
             }
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateUpdateScenePointRequest()
         {
             const string url = "http://localhost:8080/api/gameplay/update-scene-points";
             var request = new UnityWebRequest(url, "POST");
             var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, sceneName => sceneName == SceneManager.GetActiveScene().name) + 1;
             var userId = PlayerPrefs.GetString("userId");
-            
-            
-            // TODO: Add scene point retrieval logic
-            
-            
-            var jsonBody = "{\"userId\":\"" + userId + "\",\"sceneIndex\":\"" + sceneIndex + "\",\"scenePoint\":\"" + "" + "\"}";   
+            var deathCount = GameObject.FindWithTag("Player").GetComponent<MainCharacter.Movement>().deathCount;
+            var scenePoint = Mathf.Max(0f, 100f - deathCount * 2 - Mathf.Max((MainCharacter.Movement.SceneTime - 120), 0f));
+            var jsonBody = "{\"userId\":\"" + userId + "\",\"sceneIndex\":\"" + sceneIndex + "\",\"scenePoint\":\"" + scenePoint.ToString(CultureInfo.InvariantCulture) + "\"}";   
             var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(jsonToSend);
             request.downloadHandler = new DownloadHandlerBuffer();
