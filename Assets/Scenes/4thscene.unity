@@ -8557,7 +8557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1783046795}
+  targetCam: {fileID: 0}
 --- !u!50 &1098140924
 Rigidbody2D:
   serializedVersion: 4
@@ -10812,7 +10812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1284545880}
+  targetCam: {fileID: 0}
 --- !u!50 &1562594339
 Rigidbody2D:
   serializedVersion: 4
@@ -11459,7 +11459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1029673451}
+  targetCam: {fileID: 0}
 --- !u!61 &1778780848
 BoxCollider2D:
   m_ObjectHideFlags: 0

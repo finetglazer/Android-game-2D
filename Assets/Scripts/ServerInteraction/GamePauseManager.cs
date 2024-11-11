@@ -18,7 +18,6 @@ namespace ServerInteraction
 
         private void OnPauseButtonClicked()
         {
-            Time.timeScale = 0;
             StartCoroutine(CreateUpdatePlayerPositionRequest());
         }
 
