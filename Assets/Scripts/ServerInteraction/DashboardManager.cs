@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Globalization;
 using System.Linq;
+using Recorder;
 using ServerInteraction.Responses;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -19,7 +20,6 @@ namespace ServerInteraction
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
         public Button signOutButton;
-        private float[] _playerPositionNums;
         private bool _isNewGame = true;
         internal static PlayerRankingResponse PlayerRankingResponse = new();
         
@@ -46,11 +46,13 @@ namespace ServerInteraction
         
         private void OnGameContinueButtonClicked()
         {
+            Time.timeScale = 1;
             StartCoroutine(CreateContinueGameRequest());
         }
 
         private void OnNewGameButtonClicked()
         {
+            Time.timeScale = 1;
             StartCoroutine(CreateNewGameRequest());
         }
 
@@ -69,10 +71,12 @@ namespace ServerInteraction
             {
                 var gameContinueResponse = JsonUtility.FromJson<GameContinueResponse>(request.downloadHandler.text);
                 var currentPositionString = gameContinueResponse.currentPosition;
+                
                 if (gameContinueResponse.currentPosition != "")
                 {
                     var currentPositionNums = currentPositionString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => float.Parse(s.Trim(), CultureInfo.InvariantCulture)).ToArray();
                     _playerPosition = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
+                    _isNewGame = false;
                 }
                 
                 SceneManager.sceneLoaded += OnSceneLoaded;
@@ -89,12 +93,11 @@ namespace ServerInteraction
             SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe after the scene is loaded to prevent multiple triggers.
             var player = GameObject.FindWithTag("Player");
             if (player is null) return;
-            if (_isNewGame)
+            if (!_isNewGame)
             {
-                _isNewGame = false;
                 player.transform.position = _playerPosition;
             }
-
+            
             print("Player position set after scene load.");
         }
 
@@ -119,7 +122,7 @@ namespace ServerInteraction
             if (request.result == UnityWebRequest.Result.Success)
             {
                 PlayerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
-                SceneManager.LoadScene("TestScene - Hiep/RankScene");
+                SceneManager.LoadScene("Scenes/LeaderboardScene");
             }
             else
             {

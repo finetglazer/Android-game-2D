@@ -2,6 +2,8 @@
 using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace ServerInteraction
 {
@@ -9,6 +11,7 @@ namespace ServerInteraction
     {
         public GameObject rowPrefab;
         public Transform contentParent;
+        public Button backToDashboardButton;
         
         [System.Serializable]
         public class LeaderboardEntry
@@ -31,6 +34,11 @@ namespace ServerInteraction
 
         private readonly List<LeaderboardEntry> _leaderboardData = new();
 
+        private void Start()
+        {
+            backToDashboardButton.onClick.AddListener(() => SceneManager.LoadScene("Scenes/DashboardScene"));    
+        }
+        
         private void OnEnable()
         {
             var playerRankingResponse = DashboardManager.PlayerRankingResponse;

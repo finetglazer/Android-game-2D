@@ -703,14 +703,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 843259331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6faa52b456a471293cfdef19a371ce9, type: 3}
+  m_Script: {fileID: 11500000, guid: dbeccbe73bec4df7ab6de107fc2c8536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInputField: {fileID: 0}
-  passwordInputField: {fileID: 0}
-  signInButton: {fileID: 0}
-  goToSignUpButton: {fileID: 0}
-  feedbackText: {fileID: 0}
+  signOutButton: {fileID: 1395038008}
+  cancelButton: {fileID: 1001480}
 --- !u!1 &1084079353
 GameObject:
   m_ObjectHideFlags: 0
