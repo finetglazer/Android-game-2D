@@ -76,6 +76,7 @@ namespace ServerInteraction
                 feedbackText.text = "Sign-in successful!";
                 feedbackText.color = Color.green;
                 Debug.Log(request.downloadHandler.text);
+                
                 JObject obj = JObject.Parse(request.downloadHandler.text);
                 Debug.Log(obj["sessionToken"]);
                 // from x, I want to take the value of key sessionToken
