@@ -99,6 +99,7 @@ namespace MainCharacter
                 {
                     _enemy.GetComponent<OtherCharacters.Priest.Movement>().currentHealth = currentEnemyHealth;
                 }
+                _enemy.GetComponent<OtherCharacters.Merchant.Movement>().currentHealth = currentEnemyHealth;
             }
             
             if (currentEnemyHealth > 0) return;

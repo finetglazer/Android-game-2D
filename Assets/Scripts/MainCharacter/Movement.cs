@@ -44,7 +44,7 @@ namespace MainCharacter
                 StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
             }
-
+// f1
             // if (GameObject.Find("RightButton") is not null)
             // {
             //     horizontalInput = Input.GetAxis("Horizontal"); // Uncomment this when using keyboard controlling player 
@@ -80,11 +80,11 @@ namespace MainCharacter
                 if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
-
-            // if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
-            // {
-            //     PlayerAttack();
-            // }
+// //f2
+//             if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
+//             {
+//                 PlayerAttack();
+//             }
         }
 
         private void PlayerCasting()
