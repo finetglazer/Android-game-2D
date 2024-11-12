@@ -22,11 +22,11 @@ namespace GameObjects.Background
             float temp = cam.transform.position.x * (1 - ParallaxEffect);
             
             // 
-            transform.position = new Vector3(transform.position.x + dist, transform.position.y, transform.position.z);
+            transform.position = new Vector3(_startPos + dist, transform.position.y, transform.position.z);
             // cap nhat vi tris khi qua khoir man
             if (temp > _startPos + _length)
                 _startPos += _length;
-            else if (temp < _startPos + _length)
+            else if (temp < _startPos - _length)
                 _startPos -= _length;
         }   
     }
