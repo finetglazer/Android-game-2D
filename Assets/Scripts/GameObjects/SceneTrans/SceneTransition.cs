@@ -28,7 +28,6 @@ namespace GameObjects.SceneTrans
             DeathNote.ClearLists();
             
             //TODO: Add updateFinishTime and updateScenePoint APIs
-            var sceneTime = MainCharacter.Movement.SceneTime;
             StartCoroutine(CreateUpdateSceneFinishTimeRequest());   // Async operation
             StartCoroutine(CreateUpdateScenePointRequest());    // Async operation
         }
@@ -37,7 +36,7 @@ namespace GameObjects.SceneTrans
         {
             const string url = "http://localhost:8080/api/gameplay/update-scene-finish-time";
             var request = new UnityWebRequest(url, "POST");
-            var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, sceneName => sceneName == SceneManager.GetActiveScene().name) + 1;
+            var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, s => s == SceneManager.GetActiveScene().name) + 1;
             var userId = PlayerPrefs.GetString("userId");
             var jsonBody = "{\"userId\":\"" + userId + "\",\"sceneIndex\":\"" + sceneIndex + "\",\"sceneFinishTime\":\"" + MainCharacter.Movement.SceneTime + "\"}";  
             var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
@@ -61,7 +60,7 @@ namespace GameObjects.SceneTrans
         {
             const string url = "http://localhost:8080/api/gameplay/update-scene-points";
             var request = new UnityWebRequest(url, "POST");
-            var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, sceneName => sceneName == SceneManager.GetActiveScene().name) + 1;
+            var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, s => s == SceneManager.GetActiveScene().name) + 1;
             var userId = PlayerPrefs.GetString("userId");
             var deathCount = GameObject.FindWithTag("Player").GetComponent<MainCharacter.Movement>().deathCount;
             var scenePoint = Mathf.Max(0f, 100f - deathCount * 2 - Mathf.Max((MainCharacter.Movement.SceneTime - 120), 0f));

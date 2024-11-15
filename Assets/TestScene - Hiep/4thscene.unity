@@ -2631,7 +2631,7 @@ Transform:
   m_GameObject: {fileID: 395056132}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 115.34001, y: 6.12, z: -10}
+  m_LocalPosition: {x: 115.34001, y: 6.1200004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8557,7 +8557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1783046795}
+  targetCam: {fileID: 1783046795}
 --- !u!50 &1098140924
 Rigidbody2D:
   serializedVersion: 4
@@ -10812,7 +10812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1284545880}
+  targetCam: {fileID: 1284545880}
 --- !u!50 &1562594339
 Rigidbody2D:
   serializedVersion: 4
@@ -11459,7 +11459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad70add9c645a0b9f5f363c6477cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 1029673451}
+  targetCam: {fileID: 1029673451}
 --- !u!61 &1778780848
 BoxCollider2D:
   m_ObjectHideFlags: 0
