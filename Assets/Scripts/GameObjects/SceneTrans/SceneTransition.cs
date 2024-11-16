@@ -85,7 +85,16 @@ namespace GameObjects.SceneTrans
             MainCharacter.Movement.SceneTime = 0;
             _sceneFinishTimeUpdated = false;
             _scenePointUpdated = false;
-            SceneManager.LoadScene(sceneName);
+            LoadSceneWithLoadingScreen(sceneName);
+        }
+        
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
+        {
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }

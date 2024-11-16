@@ -31,7 +31,8 @@ namespace ServerInteraction
             // Redirect to the main menu scene
             // Back to the last scene
             
-            SceneManager.LoadScene("DashboardScene");
+            LoadSceneWithLoadingScreen("DashboardScene");
+            // SceneManager.LoadScene("DashboardScene");
             
             
         }
@@ -42,7 +43,6 @@ namespace ServerInteraction
             if (string.IsNullOrEmpty(sessionToken))
             {
                 Debug.Log("No session token found, you need to sign in first");
-                StartCoroutine(Delayed());
                 SceneManager.LoadScene("SignInScene");
                 yield break;
             }
@@ -65,21 +65,24 @@ namespace ServerInteraction
                 // Display the server's response message
                 Debug.Log("Sign out successful");
                 PlayerPrefs.DeleteKey("SessionToken");
-                StartCoroutine(Delayed());
-                SceneManager.LoadScene("SignInScene");
+                LoadSceneWithLoadingScreen("SignInScene");
             }
             else
             {
                 Debug.Log("Sign out failed" + webRequest.downloadHandler.text);
                 PlayerPrefs.DeleteKey("SessionToken");
-                StartCoroutine(Delayed());
-                SceneManager.LoadScene("SignInScene");
+                LoadSceneWithLoadingScreen("SignInScene");
             }
         }
 
-        IEnumerator Delayed()
+    
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
-            yield return new WaitForSeconds(2f);
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
     

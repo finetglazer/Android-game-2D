@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SignInScene.unity
     guid: fee10c7327c39fa4e8ccaba7ceb2c8aa
   - enabled: 1
+    path: Assets/Scenes/FastLoadingScene.unity
+    guid: 55860db87f116a34a973c1c68c2314ce
+  - enabled: 1
     path: Assets/Scenes/SignUpScene.unity
     guid: 6d37388953ec2104aaa46a7132f38689
   - enabled: 1
@@ -18,8 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/PasswordResetConfirmScene.unity
     guid: 87f48bcda8bae184e824e81c21551146
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: fe2e363884f086646b3d830433b4139d
+  - enabled: 1
     path: Assets/Scenes/DashboardScene.unity
-    guid: 6a5e630f3415490488721dbc1ea33e48
+    guid: 769b4c33d345d3c42b5bc3c737860234
   - enabled: 1
     path: Assets/Scenes/LeaderboardScene.unity
     guid: bb7877098dc4c9142b9ce72bc53e6f07
@@ -43,7 +49,7 @@ EditorBuildSettings:
     guid: 677f43f834b469940b42cf0a6ecedff2
   - enabled: 1
     path: Assets/Scenes/7thscene.unity
-    guid: 72bc8ce993a5de148af4987d1dc1e5f9
+    guid: 0ea6c4b968d06bb41bd5fe6103d893c7
   - enabled: 1
     path: Assets/Scenes/8thscene.unity
     guid: dc6fb1cfca0771e4d892faf3f01a9fa4
@@ -73,7 +79,7 @@ EditorBuildSettings:
     guid: 9b9feed058149204b8c350332bded5d7
   - enabled: 1
     path: Assets/TestScene - Hiep/8thscene.unity
-    guid: 08bd293fbbc9a544fbaf0918c9e9f8ac
+    guid: adc174dd75bba354ca2352de0a75ca3e
   - enabled: 1
     path: Assets/TestScene - Hiep/EndingScene.unity
     guid: 65c33ff62000ef749a036624da7b7ab9

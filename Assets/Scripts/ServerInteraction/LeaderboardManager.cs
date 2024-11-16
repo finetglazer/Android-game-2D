@@ -36,7 +36,7 @@ namespace ServerInteraction
 
         private void Start()
         {
-            backToDashboardButton.onClick.AddListener(() => SceneManager.LoadScene("Scenes/DashboardScene"));    
+            backToDashboardButton.onClick.AddListener(() => LoadSceneWithLoadingScreen("DashboardScene"));    
         }
         
         private void OnEnable()
@@ -72,6 +72,15 @@ namespace ServerInteraction
                 rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y - 100f * i);
             }
             GameObject.Find("RowPrefab").SetActive(false);
+        }
+        
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
+        {
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }
