@@ -62,8 +62,8 @@ namespace ServerInteraction
             {
                 feedbackText.text = request.downloadHandler.text;
                 feedbackText.color = Color.green;
-
-                StartCoroutine(DelayLoadScene());
+                LoadSceneWithLoadingScreen("PasswordResetConfirmScene");
+                
             }
             else
             {
@@ -76,10 +76,13 @@ namespace ServerInteraction
 
         }
 
-        IEnumerator DelayLoadScene()
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
-            yield return new WaitForSeconds(5f);
-            SceneManager.LoadScene("PasswordResetConfirmScene");
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }

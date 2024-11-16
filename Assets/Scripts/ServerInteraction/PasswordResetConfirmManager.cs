@@ -83,7 +83,7 @@ namespace ServerInteraction
             {
                 feedbackText.text = webRequest.downloadHandler.text;
                 feedbackText.color = Color.green;
-                StartCoroutine(DelayLoadScene());
+                LoadSceneWithLoadingScreen("SignInScene");
 
             }
             else
@@ -93,10 +93,14 @@ namespace ServerInteraction
             }
         }
 
-        IEnumerator DelayLoadScene()
+       
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
-            yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("Scenes/SignInScene");
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }

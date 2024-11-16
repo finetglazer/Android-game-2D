@@ -96,8 +96,8 @@ namespace ServerInteraction
                   Debug.Log("Password change successful: " + request.downloadHandler.text);
                   feedBackText.text = "Password change successful!";
                   feedBackText.color = Color.green;
-                  StartCoroutine(LoadingSceneDelay());
-                  SceneManager.LoadScene("Scenes/DashboardScene");
+                  LoadSceneWithLoadingScreen("DashboardScene");
+                  // SceneManager.LoadScene("Scenes/DashboardScene");
               }
               else
               {
@@ -110,9 +110,13 @@ namespace ServerInteraction
         }
         
         // delay for 2 seconds
-        IEnumerator LoadingSceneDelay()
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
-            yield return new WaitForSeconds(2f);
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }

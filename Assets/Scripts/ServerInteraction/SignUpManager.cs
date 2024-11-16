@@ -53,7 +53,7 @@ namespace ServerInteraction
 
     private void OnGoToSignInButtonClicked()
     {
-        SceneManager.LoadScene("SignInScene");
+        LoadSceneWithLoadingScreen("SignInScene");
     }
 
     IEnumerator SignUp(string fullName, string username, string emailAddress, string password)
@@ -80,7 +80,7 @@ namespace ServerInteraction
             Debug.Log(request.downloadHandler.text);
 
             // Optionally, delay before transitioning to the SignInScene
-            StartCoroutine(LoadSignInSceneAfterDelay(2f)); // 2-second delay
+            LoadSceneWithLoadingScreen("SignInScene");
         }
         else
         {
@@ -91,10 +91,15 @@ namespace ServerInteraction
         }
     }
     
-    IEnumerator LoadSignInSceneAfterDelay(float delay)
+ 
+    
+    public void LoadSceneWithLoadingScreen(string sceneToLoad)
     {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("SignInScene");
+        // Set the next scene name in the SceneLoader static class
+        SceneLoader.nextSceneName = sceneToLoad;
+
+        // Load the loading scene
+        SceneManager.LoadScene("Scenes/FastLoadingScene");
     }
 }
 

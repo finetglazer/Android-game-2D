@@ -89,8 +89,8 @@ namespace ServerInteraction
                 // For now, we'll load the next scene
                 yield return GetUserIdBySessionToken(obj["sessionToken"]?.ToString());
                 //for testing
-                StartCoroutine(LoadingSceneDelay());
-                SceneManager.LoadScene("Scenes/DashboardScene");
+                // StartCoroutine(LoadingSceneDelay());
+                LoadSceneWithLoadingScreen("DashboardScene");
                 // SceneManager.LoadScene("1stscene"); // Replace with your gameplay scene
                 
             }
@@ -119,9 +119,13 @@ namespace ServerInteraction
             print(getUserIdBySessionTokenReq.downloadHandler.text);
         }
         
-        IEnumerator LoadingSceneDelay()
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
-            yield return new WaitForSeconds(2f); // 2-second delay
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("LoadingScene");
         }
 
     }

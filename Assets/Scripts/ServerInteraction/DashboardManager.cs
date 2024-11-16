@@ -78,7 +78,8 @@ namespace ServerInteraction
                 }
                 
                 SceneManager.sceneLoaded += OnSceneLoaded;
-                SceneManager.LoadScene(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
+                LoadSceneWithLoadingScreen(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
+                // SceneManager.LoadScene(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
             }
             else
             {
@@ -99,13 +100,14 @@ namespace ServerInteraction
             print("Player position set after scene load.");
         }
 
-        private static IEnumerator CreateNewGameRequest()
+        private IEnumerator CreateNewGameRequest()
         {
             var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new []{ PlayerPrefs.GetString("userId") }, "POST");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                SceneManager.LoadScene("Scenes/1stscene");
+                LoadSceneWithLoadingScreen("Scenes/1stscene");
+                // SceneManager.LoadScene("Scenes/1stscene");
             }
             else
             {
@@ -120,7 +122,8 @@ namespace ServerInteraction
             if (request.result == UnityWebRequest.Result.Success)
             {
                 PlayerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
-                SceneManager.LoadScene("Scenes/LeaderboardScene");
+                LoadSceneWithLoadingScreen("Scenes/LeaderboardScene");   
+                // SceneManager.LoadScene("Scenes/LeaderboardScene");
             }
             else
             {
@@ -142,6 +145,15 @@ namespace ServerInteraction
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             return request;
+        }
+        
+        public void LoadSceneWithLoadingScreen(string sceneToLoad)
+        {
+            // Set the next scene name in the SceneLoader static class
+            SceneLoader.nextSceneName = sceneToLoad;
+
+            // Load the loading scene
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
     }
 }
