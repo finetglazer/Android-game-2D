@@ -4624,10 +4624,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649197642}
+  - component: {fileID: 1649197638}
   - component: {fileID: 1649197641}
   - component: {fileID: 1649197640}
   - component: {fileID: 1649197639}
-  - component: {fileID: 1649197638}
   m_Layer: 0
   m_Name: SceneTransition
   m_TagString: Untagged
@@ -50147,7 +50147,7 @@ Transform:
   m_GameObject: {fileID: 1964463727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55, y: 9, z: -10}
+  m_LocalPosition: {x: -22.517828, y: -9.16271, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

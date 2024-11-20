@@ -45,9 +45,12 @@ namespace MainCharacter
                 return;
             }
 // f1
+
+            horizontalInput = Input.GetAxis("Horizontal");      // Mouse mode - Comment this
+            
             if (GameObject.Find("RightButton") is not null)
             {
-                horizontalInput = Input.GetAxis("Horizontal"); // Uncomment this when using keyboard controlling player 
+                // horizontalInput = Input.GetAxis("Horizontal"); // Mouse mode - Comment this
             }
 
             if (IsGrounded())
@@ -63,7 +66,6 @@ namespace MainCharacter
             {
                 PlayerIdle();
             }
-            
             if (horizontalInput != 0)
             {
                 if (horizontalInput < 0) TurnLeft(); else TurnRight();
@@ -81,7 +83,7 @@ namespace MainCharacter
                 PlayerJump();
             }
 // //f2
-             if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
+             if (Input.GetMouseButtonDown(0))    // Keyboard mode: Uncomment this
              {
                  PlayerAttack();
              }
