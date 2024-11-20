@@ -87,8 +87,8 @@ namespace GameObjects.SceneTrans
             _scenePointUpdated = false;
             LoadSceneWithLoadingScreen(sceneName);
         }
-        
-        public void LoadSceneWithLoadingScreen(string sceneToLoad)
+
+        private void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
             // Set the next scene name in the SceneLoader static class
             SceneLoader.nextSceneName = sceneToLoad;

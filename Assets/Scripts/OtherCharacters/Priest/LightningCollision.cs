@@ -30,7 +30,6 @@ namespace OtherCharacters.Priest
             other.GetComponent<MainCharacter.Movement>().currentHealth = currentPlayerHealth;
             
             if (!(currentPlayerHealth <= 0)) return;
-            
             _playerAnimator.SetTrigger(Die);
         }
     }

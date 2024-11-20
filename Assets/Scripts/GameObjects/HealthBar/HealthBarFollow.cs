@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
+
 
 namespace GameObjects.HealthBar
 {
@@ -9,14 +9,15 @@ namespace GameObjects.HealthBar
         public RectTransform healthBarTransform;  // The RectTransform of the health bar
         public UnityEngine.Camera mainCamera;  // Reference to the camera (likely Camera.main)
 
-        public Vector3 offset = new Vector3(0, 1.5f, 0);  // Offset to position the health bar above the Priest
+        public Vector3 offset = new (0, 1.5f, 0);  // Offset to position the health bar above the Priest
 
         private void Update()
         {
             // Convert the Priest's world position to screen position
-            var worldPosition = priestTransform.position + offset;  // Add the offset to place the health bar above
-            var screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
+            var worldPosition = priestTransform.position + offset;
+            // var screenPosition = mainCamera.WorldToScreenPoint(worldPosition);   // For Canvas - World space mode
 
+            var screenPosition = worldPosition;     // For Canvas - Screen space Camera mode
             // Set the health bar's position in the UI Canvas
             healthBarTransform.position = screenPosition;
         }

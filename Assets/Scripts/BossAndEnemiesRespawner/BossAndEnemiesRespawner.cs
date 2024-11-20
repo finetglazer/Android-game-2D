@@ -22,7 +22,7 @@ namespace BossAndEnemiesRespawner
         private float _initialHealth;
         private float _clock;
         private bool _canRenderEnemies = true;
-        private GameObject[] _renderCautionZones;
+        private GameObject[] _renderEnemiesCautionZones;
         private readonly Dictionary<GameObject, bool > _used = new();
 
         private void Start()
@@ -32,12 +32,12 @@ namespace BossAndEnemiesRespawner
             _xRight = GameObject.Find("X-Right").transform.position.x;
             _yUp = GameObject.Find("Y-Up").transform.position.y;
             _yDown = GameObject.Find("Y-Down").transform.position.y;
-            _renderCautionZones = new GameObject[priestBosses.Length + enemies.Length];
-            for (var i = 0; i < priestBosses.Length + enemies.Length; ++i)
+            _renderEnemiesCautionZones = new GameObject[enemies.Length];
+            for (var i = 0; i < enemies.Length; ++i)
             {
-                _renderCautionZones[i] = Instantiate(referencingRenderCautionZone);
-                _renderCautionZones[i].name = "RenderCautionZone" + i;
-                _renderCautionZones[i].SetActive(false);
+                _renderEnemiesCautionZones[i] = Instantiate(referencingRenderCautionZone);
+                _renderEnemiesCautionZones[i].name = "RenderCautionZone" + i;
+                _renderEnemiesCautionZones[i].SetActive(false);
             }
         }
 
@@ -68,7 +68,7 @@ namespace BossAndEnemiesRespawner
             _clock += Time.deltaTime;
             if (_used.Count == 0)
             {
-                foreach (var obj in _renderCautionZones)
+                foreach (var obj in _renderEnemiesCautionZones)
                 {
                     obj.SetActive(true);
                     obj.transform.position = new Vector3(GetRandomPosition().x, obj.transform.position.y, 0);
@@ -88,7 +88,7 @@ namespace BossAndEnemiesRespawner
                 }
             }
             
-            foreach (var obj in _renderCautionZones)
+            foreach (var obj in _renderEnemiesCautionZones)
             {
                 obj.SetActive(false);
             }

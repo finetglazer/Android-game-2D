@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 using Movement = OtherCharacters.Priest.Movement;
 
 namespace GameObjects.HealthBar
 {
-    public class Controller : MonoBehaviour
+    public class HealthBarController : MonoBehaviour
     {
         public GameObject character;
         private Movement _characterMovement;
@@ -16,7 +17,7 @@ namespace GameObjects.HealthBar
         private void OnEnable()
         {
             _characterMovement = character.GetComponent<Movement>();
-            _healthBarImages = GetComponentsInChildren<Image>();
+            _healthBarImages = GetComponentsInChildren<Image>().Where(image => image.name.Contains("FilledHealthBar")).ToArray();
             _initialHealth = _characterMovement.currentHealth;
         }
 
