@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
-namespace GameObjects.Meteor.Controller
+namespace GameObjects.Meteor
 {
-    public class Controller : MonoBehaviour
+    public class MeteorController : MonoBehaviour
     {
         public GameObject[] meteors;
         public float initialHeight = 1f;
         public float startPositionX;
         public float endPositionX = 1f;
-        public float fallAngle; // In degrees
-        public float fallSpeed;
-        public float disappearDepth;
+        public float fallAngle = 30f; // In degrees
+        public float fallSpeed = 1f;
+        public float disappearDepth = -10f;
         public float cooldownTime = 1f;
         [HideInInspector] public Vector3 initialPosition = Vector3.zero;
         private float _cooldownClock;

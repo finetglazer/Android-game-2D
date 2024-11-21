@@ -5,18 +5,18 @@ namespace GameObjects.Meteor
 {
     public class Movement : MonoBehaviour
     {
-        private Controller.Controller _controller;
+        private MeteorController _meteorController;
         private float _fallAngle; // In degrees
         private float _fallSpeed;
         private float _disappearDepth;
 
         private void OnEnable()
         {
-            _controller = GetComponentInParent<Controller.Controller>();
-            _fallAngle = _controller.fallAngle;
-            _fallSpeed = _controller.fallSpeed;
-            _disappearDepth = _controller.disappearDepth;
-            transform.position = _controller.initialPosition;
+            _meteorController = GetComponentInParent<MeteorController>();
+            _fallAngle = _meteorController.fallAngle;
+            _fallSpeed = _meteorController.fallSpeed;
+            _disappearDepth = _meteorController.disappearDepth;
+            transform.position = _meteorController.initialPosition;
         }
         
         private void Update()

@@ -1,4 +1,4 @@
-﻿using MainCharacter;
+﻿
 using UnityEngine;
 
 namespace GameObjects.Meteor

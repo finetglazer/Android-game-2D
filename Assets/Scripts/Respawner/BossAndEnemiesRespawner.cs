@@ -4,7 +4,7 @@ using OtherCharacters.Priest;
 using UnityEngine;
 using Random = System.Random;
 
-namespace BossAndEnemiesRespawner
+namespace Respawner
 {
     public class BossAndEnemiesRespawner : MonoBehaviour
     {

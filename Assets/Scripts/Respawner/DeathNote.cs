@@ -5,12 +5,11 @@ using OtherCharacters.Merchant;
 using UnityEngine;
 using Movement = OtherCharacters.Merchant.Movement;
 
-namespace Recorder
+namespace Respawner
 {
     public class DeathNote : MonoBehaviour
     {
         private const string MerchantEnemyTag = "MerchantEnemy";
-        private const string PeasantEnemyTag = "PeasantEnemy";
         private const string PriestEnemyTag = "PriestEnemy";
         private const string SoldierEnemyTag = "SoldierEnemy";
         private const string ThiefEnemyTag = "ThiefEnemy";
@@ -114,10 +113,6 @@ namespace Recorder
                     case ThiefEnemyTag:
                         targetedGameObject.GetComponent<OtherCharacters.Thief.Movement>().enabled = true;
                         targetedGameObject.GetComponent<OtherCharacters.Thief.AttackHandler>().enabled = true;
-                        break;
-                    case PeasantEnemyTag:
-                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled = true;
                         break;
                     default:
                         targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
