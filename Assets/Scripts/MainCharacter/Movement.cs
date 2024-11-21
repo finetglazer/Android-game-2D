@@ -1,21 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
 namespace MainCharacter
 {
     public class Movement : MonoBehaviour
     {
+        public InputActionAsset inputActions;
+        public GameObject player;
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
-        public GameObject player;
+        public static float SceneTime;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
         private static readonly int Casting = Animator.StringToHash("casting");
         private static readonly int Victory = Animator.StringToHash("victory");
         private static readonly int Idle = Animator.StringToHash("idle");
         private static readonly int Jump = Animator.StringToHash("jump");
+        private InputAction _inputAction;
         private Rigidbody2D _playerBody;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
@@ -23,13 +27,14 @@ namespace MainCharacter
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
         [HideInInspector] public int deathCount;
-        public static float SceneTime;
 
         private void Start()
         {
             _playerBody = player.GetComponent<Rigidbody2D>();
             _playerBoxCollider = player.GetComponent<BoxCollider2D>();
             _playerAnimator = player.GetComponent<Animator>();
+            _inputAction = inputActions.FindAction("Movement/Move");
+            _inputAction.Enable();
         }
         
         private void Update()
@@ -45,13 +50,8 @@ namespace MainCharacter
                 return;
             }
 // f1
-
-            horizontalInput = Input.GetAxis("Horizontal");      // Mouse mode - Comment this
             
-            if (GameObject.Find("RightButton") is not null)
-            {
-                // horizontalInput = Input.GetAxis("Horizontal"); // Mouse mode - Comment this
-            }
+            horizontalInput = _inputAction.ReadValue<Vector2>().x;  // Keyboard mode - Uncomment this
 
             if (IsGrounded())
             {
@@ -75,15 +75,15 @@ namespace MainCharacter
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (!canDoubleJump) return;
                 
                 if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
-// //f2
-             if (Input.GetMouseButtonDown(0))    // Keyboard mode: Uncomment this
+//f2
+             if (Input.GetMouseButtonDown(0))    // Keyboard mode - Uncomment this
              {
                  PlayerAttack();
              }
