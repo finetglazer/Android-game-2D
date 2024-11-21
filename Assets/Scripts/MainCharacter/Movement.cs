@@ -36,11 +36,11 @@ namespace MainCharacter
             _inputAction = inputActions.FindAction("Movement/Move");
             _inputAction.Enable();
         }
-        
+
         private void Update()
         {
             SceneTime += Time.deltaTime;
-            
+
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();
@@ -50,8 +50,8 @@ namespace MainCharacter
                 return;
             }
 // f1
-            
-            horizontalInput = _inputAction.ReadValue<Vector2>().x;  // Keyboard mode - Uncomment this
+
+            horizontalInput = _inputAction.ReadValue<Vector2>().x; // Keyboard mode - Uncomment this
 
             if (IsGrounded())
             {
@@ -66,9 +66,11 @@ namespace MainCharacter
             {
                 PlayerIdle();
             }
+
             if (horizontalInput != 0)
             {
-                if (horizontalInput < 0) TurnLeft(); else TurnRight();
+                if (horizontalInput < 0) TurnLeft();
+                else TurnRight();
                 if (IsGrounded())
                 {
                     PlayerWalk();
@@ -78,15 +80,21 @@ namespace MainCharacter
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (!canDoubleJump) return;
-                
+
                 if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
+
 //f2
-             if (Input.GetMouseButtonDown(0))    // Keyboard mode - Uncomment this
-             {
-                 PlayerAttack();
-             }
+            if (Input.GetMouseButtonDown(0)) // Keyboard mode - Uncomment this
+            {
+                PlayerAttack();
+            }
+
+            if (Keyboard.current.uKey.wasPressedThisFrame) // Keyboard mode - Uncomment this
+            {
+                PlayerAttack();
+            }
         }
 
         private void PlayerCasting()

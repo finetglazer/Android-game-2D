@@ -1,5 +1,5 @@
 using JetBrains.Annotations;
-using Recorder;
+using Respawner;
 using UnityEngine;
 
 namespace MainCharacter
@@ -129,7 +129,7 @@ namespace MainCharacter
                 return;
             }
             
-            _isEnemyDead = !_enemy.name.Contains("Priest")|| !BossAndEnemiesRespawner.BossAndEnemiesRespawner.CanReproducible;
+            _isEnemyDead = !_enemy.name.Contains("Priest")|| !BossAndEnemiesRespawner.CanReproducible;
             if (_isEnemyDead) enemyAnimator.SetTrigger(Die);
         }
         
