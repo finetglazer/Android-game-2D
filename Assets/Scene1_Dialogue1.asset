@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Scene1_Dialogue1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 1
+    text: 'Hello bro, what cloud leads you to here? '
+    duration: 4
+  - speaker: 0
+    text: ...
+    duration: 2
+  - speaker: 1
+    text: Your name is...
+    duration: 3
+  - speaker: 0
+    text: My name is not important compared to her. Where I should go now?
+    duration: 4
+  - speaker: 1
+    text: At this age, we do not fear unemployment, just fear the feeling of lovelorn
+      ^_~
+    duration: 4
+  - speaker: 1
+    text: Just go!
+    duration: 2
+  - speaker: 1
+    text: How a strange thing! If you love, just let your heart guide your way, well, 
+      unrequited love?
+    duration: 4
+  - speaker: 0
+    text: Hey, do you know the girl...?
+    duration: 3
+  - speaker: 1
+    text: It hurts you, but don't worry! In this world, no ones die, just a loop
+      which no ones get our of here.
+    duration: 5
+  - speaker: 0
+    text: Well, you are the same team. And year, hurting me?
+    duration: 3
+  - speaker: 0
+    text: The way to the love is always challenged!
+    duration: 3
