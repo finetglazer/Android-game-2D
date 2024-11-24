@@ -1,30 +1,26 @@
 ﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Movement = OtherCharacters.Priest.Movement;
 
 namespace GameObjects.HealthBar
 {
     public class HealthBarController : MonoBehaviour
     {
         public GameObject character;
-        private Movement _characterMovement;
         private Image[] _healthBarImages;
         private float _proportionRemainedHp;
         private float _initialHealth;
-        private float _currentHealth;
 
         private void OnEnable()
         {
-            _characterMovement = character.GetComponent<Movement>();
             _healthBarImages = GetComponentsInChildren<Image>().Where(image => image.name.Contains("FilledHealthBar")).ToArray();
-            _initialHealth = _characterMovement.currentHealth;
+            _initialHealth = GetCharacterCurrentHealth();
         }
 
         private void Update()
         {
-            _currentHealth = _characterMovement.currentHealth;
-            _proportionRemainedHp = _currentHealth / _initialHealth;
+            var currentHealth = GetCharacterCurrentHealth();
+            _proportionRemainedHp = currentHealth / _initialHealth;
             var fillAmountNeeded = _proportionRemainedHp * _healthBarImages.Length;
             for (var i = _healthBarImages.Length - 1; i >= 0; i--)
             {
@@ -32,6 +28,37 @@ namespace GameObjects.HealthBar
                 _healthBarImages[i].fillAmount = maximumFillAmount;
                 fillAmountNeeded -= maximumFillAmount;
             }
+        }
+
+        private float GetCharacterCurrentHealth()
+        {
+            var mainCharacterMovement = character.GetComponent<MainCharacter.Movement>();
+            var priestMovement = character.GetComponent<OtherCharacters.Priest.Movement>();
+            var merchantMovement = character.GetComponent<OtherCharacters.Merchant.Movement>();
+            var peasantMovement = character.GetComponent<OtherCharacters.Peasant.Movement>();
+            var soldierMovement = character.GetComponent<OtherCharacters.Soldier.Movement>();
+            var thiefMovement = character.GetComponent<OtherCharacters.Thief.Movement>(); 
+            if (mainCharacterMovement is not null)
+            {
+                return mainCharacterMovement.currentHealth;
+            }
+            if (priestMovement is not null)
+            {
+                return priestMovement.currentHealth;
+            }
+            if (merchantMovement is not null)
+            {
+                return merchantMovement.currentHealth;
+            }
+            if (peasantMovement is not null)
+            {
+                return peasantMovement.currentHealth;
+            }
+            if (soldierMovement is not null)
+            {
+                return soldierMovement.currentHealth;
+            }
+            return thiefMovement.currentHealth;
         }
     }
 }

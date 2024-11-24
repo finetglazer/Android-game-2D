@@ -42,8 +42,7 @@ namespace OtherCharacters.Priest
                 cautionZone.SetActive(false);
                 lightning.SetActive(false);
                 lightningExplosion.SetActive(false);
-                
-                GetComponent<AttackHandler>().enabled = false;
+                enabled = false;
                 return;
             }
             

@@ -219,11 +219,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   jumpSpeed: 2
-  currentHealth: 1
+  currentHealth: 3
   idleTime: 1
   moveTime: 1
-  deathPoint: -100
+  deathPoint: -150
   gravityAcceleration: 0.4
+  distanceDetectingFire: 1
+  immortalRerenderTime: 1
+  healthBar: {fileID: 0}
 --- !u!114 &-7749268147900058281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: 1
   distanceTriggeringAttack: 1
-  distanceDetectingPlayer: 1
-  increaseWalkSpeedWhenChasingBy: 0.2
+  distanceDetectingPlayer: 5
+  increaseWalkSpeedWhenChasingBy: 0.5
   attackCoolDownTime: 1
   delayTimeBeforeAttacking: 0.2
 --- !u!95 &95000011251442710

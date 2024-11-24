@@ -31,7 +31,7 @@ namespace OtherCharacters.Peasant
         {
             if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                GetComponent<AttackHandler>().enabled = false;
+                enabled = false;
                 return;
             }
             
