@@ -1,5 +1,8 @@
-﻿using Respawner;
+﻿using GameObjects.Fire;
+using GameObjects.Water;
+using Respawner;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MainCharacter
 {
@@ -39,9 +42,33 @@ namespace MainCharacter
             // Move the player to the last checkpoint
             transform.position = _respawnPoint;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Movement>().currentHealth = 1;
+            GetComponent<Movement>().currentHealth = 5;
+            GetComponent<Movement>().healthBar.SetActive(true);
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             print("Player respawned at: " + _respawnPoint);
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "6thScene":
+                    if (FireAccelerationAndCauseDamage.FireIsOngoing == false)
+                    {
+                        break;
+                    }
+                    var fireWall = GameObject.Find("FireWall");
+                    var playerPosition = gameObject.transform.position;
+                    fireWall.SetActive(true);
+                    fireWall.transform.position = new Vector2(playerPosition.x - 5f, playerPosition.y);
+                    break;
+                case "9thscene":
+                    if (WaterAccelerationAndCauseDamage.WaterIsOngoing == false)
+                    {
+                        break;
+                    }
+                    var water = GameObject.Find("Water");
+                    playerPosition = gameObject.transform.position;
+                    water.SetActive(true);
+                    water.transform.position = new Vector2(playerPosition.x, playerPosition.y - 5f);
+                    break;
+            }
         }
     }
 }

@@ -5,23 +5,31 @@ namespace GameObjects.Fire
 {
     public class FireAccelerationAndCauseDamage : MonoBehaviour
     {
+        public static bool FireIsOngoing = true;
         private static readonly int Die = Animator.StringToHash("die");
         public float speedIncrement = 1f;
         private Movement _fireMovement;
-        private const string SpeedAcceleratorName = "Accelerator";
+        private const string SpeedAcceleratorName = "FireAccelerator";
         private void Start()
         {
             _fireMovement = GetComponent<Movement>();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.name == SpeedAcceleratorName)
+            if (other.name.Contains(SpeedAcceleratorName))
             {
                 _fireMovement.currentSpeed += speedIncrement;
             }
+
+            if (other.name.Contains("FireEndingPoint"))
+            {
+                gameObject.SetActive(false);
+                FireIsOngoing = false;
+                return;
+            }
             
+            if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies
             var characterAnimator = other.GetComponent<Animator>();
-            if (characterAnimator == null) return;  // is not player or enemies
             characterAnimator.SetTrigger(Die);
             ClearDeathEnemies.Clear();
         }

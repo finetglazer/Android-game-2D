@@ -1,4 +1,6 @@
 ﻿
+using MainCharacter;
+using Respawner;
 using UnityEngine;
 
 namespace GameObjects.Meteor
@@ -17,11 +19,16 @@ namespace GameObjects.Meteor
                 // ClearDeathEnemies.Clear();
                 return;
             }
-            objAnimator.SetTrigger(Die);
-            // if (obj.tag.Contains(EnemyTag))
-            // {
-            //     ClearDeathEnemies.Clear();
-            // }
+
+            if (obj.name.Contains("Immortal") is false)
+            {
+                objAnimator.SetTrigger(Die);
+                return;
+            }
+            
+            // Immortal enemies
+            DeathNote.AddImmortalEnemy(obj, 1, obj.transform.position);
+            obj.SetActive(false);
         }
         
         private void OnTriggerEnter2D(Collider2D other)

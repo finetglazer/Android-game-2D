@@ -9,6 +9,7 @@ namespace MainCharacter
     {
         public InputActionAsset inputActions;
         public GameObject player;
+        public GameObject healthBar;
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
@@ -41,6 +42,11 @@ namespace MainCharacter
         {
             SceneTime += Time.deltaTime;
 
+            if (currentHealth <= 0)
+            {
+                healthBar.SetActive(false);    
+            }
+            
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();

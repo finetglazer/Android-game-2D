@@ -129,8 +129,11 @@ namespace MainCharacter
                 return;
             }
             
-            _isEnemyDead = !_enemy.name.Contains("Priest")|| !BossAndEnemiesRespawner.CanReproducible;
-            if (_isEnemyDead) enemyAnimator.SetTrigger(Die);
+            _isEnemyDead = !_enemy.name.ToLower().Contains("priest")|| !BossAndEnemiesRespawner.CanReproducible;
+            if (_isEnemyDead)
+            {
+                enemyAnimator.SetTrigger(Die);
+            }
         }
         
         private void EnemyDisappears()

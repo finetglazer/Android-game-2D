@@ -14,6 +14,7 @@ namespace OtherCharacters.Peasant
         public float gravityAcceleration = 0.4f;
         public float distanceDetectingFire = 1f;
         public float immortalRerenderTime = 1f;
+        public GameObject healthBar;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
         private BoxCollider2D _characterBoxCollider;
@@ -30,17 +31,18 @@ namespace OtherCharacters.Peasant
         private void Start()
         {
             _initialPosition = transform.position;
-            DeathNote.AddObject(gameObject, _initialPosition);
+            if(gameObject.name.Contains("BAER") is false && gameObject.name.Contains("Immortal") is false) DeathNote.AddObject(gameObject, _initialPosition);
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterDetector = GetComponent<AttackHandler>();
         }
-        
+
         private void Update()
         {
-            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
+            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint || currentHealth <= 0)
             {
-                GetComponent<Movement>().enabled = false;
+                enabled = false;
+                if (gameObject.name.Contains("Immortal") is false) healthBar.SetActive(false);
                 return;
             }
 
@@ -54,16 +56,21 @@ namespace OtherCharacters.Peasant
                 RunAwayFromFire();
                 return;
             }
-
+            
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
             _isWallOnLeft = IsWallOnLeft();
             _isWallOnRight = IsWallOnRight();
-            
+
             if (!IsGrounded())
             {
                 _fallVelocity += -gravityAcceleration * Time.deltaTime;
                 transform.Translate(new Vector2(0, _fallVelocity));
                 return;
+            }
+
+            if (IsGrounded())
+            {
+                _fallVelocity = 0;
             }
 
             if (_isWallOnLeft && !_isWallOnRight)
@@ -150,7 +157,7 @@ namespace OtherCharacters.Peasant
 
         internal bool IsWallOnRight()
         {
-            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.1f, LayerMask.GetMask("Ground"));
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.5f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
         }
 
@@ -163,12 +170,20 @@ namespace OtherCharacters.Peasant
         // ReSharper disable Unity.PerformanceAnalysis
         private void RunAwayFromFire()
         {
-            if (_isWallOnRight) return;
+            if (IsWallOnRight()) return;
             TurnRight();
             gameObject.GetComponent<AttackHandler>().enabled = false;
             _characterAnimator.SetTrigger(Walk);
             var newWalkSpeed = walkSpeed * 2;   // Increase by 200% of walk speed
-            transform.position += new Vector3(newWalkSpeed * Time.deltaTime , 0, 0);
+            if (IsGrounded())
+            {
+                transform.position += new Vector3(newWalkSpeed * Time.deltaTime, 0, 0);
+                _fallVelocity = 0;
+            }
+            else {
+                _fallVelocity += -gravityAcceleration * Time.deltaTime;
+                transform.Translate(new Vector2(0, _fallVelocity));
+            }
         }
     }
 }

@@ -88,9 +88,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
   player: {fileID: 1000010755293042}
+  healthBar: {fileID: 0}
   walkSpeed: 4
   jumpSpeed: 4
-  currentHealth: 1
+  currentHealth: 5
   isDoubleJump: 0
   horizontalInput: 0
   canDoubleJump: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b605453f5264846ae9decd78e736bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPoint: -100
+  deathPoint: -150
 --- !u!114 &8520104485774882800
 MonoBehaviour:
   m_ObjectHideFlags: 0
