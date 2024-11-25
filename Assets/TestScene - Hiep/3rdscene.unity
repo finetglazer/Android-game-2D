@@ -3652,6 +3652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 564395289}
     - target: {fileID: 2208780306687886347, guid: 389c7e1a1dabb4e1e917001420b89c9a, type: 3}
+      propertyPath: attackCoolDownTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208780306687886347, guid: 389c7e1a1dabb4e1e917001420b89c9a, type: 3}
       propertyPath: lightningExplosion
       value: 
       objectReference: {fileID: 1437046160}
@@ -20300,11 +20304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -132
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011028196368, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20416,7 +20420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387079605259758052, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: currentHealth
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8490957185895940308, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: deathPoint
@@ -22571,7 +22575,7 @@ Transform:
   m_GameObject: {fileID: 1730689645}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.9, y: -96.85, z: 0}
+  m_LocalPosition: {x: 33.61, y: -118.91, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

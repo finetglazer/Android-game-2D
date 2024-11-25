@@ -45,6 +45,13 @@ namespace OtherCharacters.Priest
                 enabled = false;
                 return;
             }
+
+            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("hurt"))
+            {
+                cautionZone.SetActive(false);
+                lightning.SetActive(false);
+                lightningExplosion.SetActive(false);
+            }
             
             _attackCoolDownTime += Time.deltaTime;
                 
