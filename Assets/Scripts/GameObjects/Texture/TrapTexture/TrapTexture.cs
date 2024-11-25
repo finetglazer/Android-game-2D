@@ -21,14 +21,19 @@ namespace GameObjects.Texture.TrapTexture
         
             // Check if enemy is detected
             if (!other.tag.Contains("Enemy")) return;
-            var merchantMovement = other.GetComponent<OtherCharacters.Merchant.Movement>();
-            var peasantMovement = other.GetComponent<OtherCharacters.Peasant.Movement>();
-            var soldierMovement = other.GetComponent<OtherCharacters.Soldier.Movement>();
-            var thiefMovement = other.GetComponent<OtherCharacters.Thief.Movement>();
-            merchantMovement?.healthBar.gameObject.SetActive(false);
-            peasantMovement?.healthBar.gameObject.SetActive(false);
-            soldierMovement?.healthBar.gameObject.SetActive(false);
-            thiefMovement?.healthBar.gameObject.SetActive(false);
+            if (!other.name.Contains("Immortal"))
+            {
+                var merchantMovement = other.GetComponent<OtherCharacters.Merchant.Movement>();
+                var peasantMovement = other.GetComponent<OtherCharacters.Peasant.Movement>();
+                var soldierMovement = other.GetComponent<OtherCharacters.Soldier.Movement>();
+                var thiefMovement = other.GetComponent<OtherCharacters.Thief.Movement>();
+                var priestMovement = other.GetComponent<OtherCharacters.Priest.Movement>();
+                merchantMovement?.healthBar.gameObject.SetActive(false);
+                peasantMovement?.healthBar.gameObject.SetActive(false);
+                soldierMovement?.healthBar.gameObject.SetActive(false);
+                thiefMovement?.healthBar.gameObject.SetActive(false);
+                priestMovement?.healthBar.gameObject.SetActive(false);
+            }
             
             other.gameObject.SetActive(false);
         }
