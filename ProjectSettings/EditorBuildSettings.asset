@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DashboardScene.unity
     guid: 769b4c33d345d3c42b5bc3c737860234
   - enabled: 1
+    path: Assets/Scenes/LobbyScene.unity
+    guid: c9405ed6ed3bb4b4dbddf29d9998c597
+  - enabled: 1
     path: Assets/Scenes/LeaderboardScene.unity
     guid: bb7877098dc4c9142b9ce72bc53e6f07
   - enabled: 1
@@ -58,29 +61,29 @@ EditorBuildSettings:
     guid: 83e90bf5e0820cd4da61e45db7c2c282
   - enabled: 1
     path: Assets/TestScene - Hiep/SignInScene.unity
-    guid: d31db0a30407a4e4e86bcfc7006cf5d0
+    guid: a2dc0f9794afe2844b25b97a45879679
   - enabled: 1
     path: Assets/TestScene - Hiep/DashboardScene.unity
-    guid: 80f61cf014a6199489cb234f8ab7cc13
+    guid: 21a4f2fda62ee2c4da71dfa0e277fb5a
   - enabled: 1
     path: Assets/TestScene - Hiep/1stscene.unity
-    guid: ec3ca13dd68dc2346887975f1c9eb16f
+    guid: e3665c8654a72794ab74417e4657ce20
   - enabled: 1
     path: Assets/TestScene - Hiep/2ndscene.unity
-    guid: 4237b232180cc3d45bdb8fc44f4b8955
+    guid: d612be4dda7a92345889a6f11087deaa
   - enabled: 1
     path: Assets/TestScene - Hiep/4thscene.unity
-    guid: 8a3652fb8dbac52488c42feb5800980b
+    guid: 73abdb92687062549a988b6c5d5213ec
   - enabled: 1
     path: Assets/TestScene - Hiep/5thScene.unity
-    guid: 433e1c37e2922a44cbb774fbea2ff0c7
+    guid: cfc45e748b81e094a830862ad93f1de6
   - enabled: 1
     path: Assets/TestScene - Hiep/7thscene.unity
-    guid: 9b9feed058149204b8c350332bded5d7
+    guid: 863438834a5582647ad09ffb953af2bb
   - enabled: 1
     path: Assets/TestScene - Hiep/8thscene.unity
-    guid: adc174dd75bba354ca2352de0a75ca3e
+    guid: 705d0688478f1c248bf584c917cc3acd
   - enabled: 1
     path: Assets/TestScene - Hiep/EndingScene.unity
-    guid: 65c33ff62000ef749a036624da7b7ab9
+    guid: fe99af51f4d677649b5fdbf843b9fc04
   m_configObjects: {}
