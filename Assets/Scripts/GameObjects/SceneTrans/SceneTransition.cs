@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Globalization;
-using Recorder;
+using Respawner;
 using ServerInteraction;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -87,8 +87,8 @@ namespace GameObjects.SceneTrans
             _scenePointUpdated = false;
             LoadSceneWithLoadingScreen(sceneName);
         }
-        
-        public void LoadSceneWithLoadingScreen(string sceneToLoad)
+
+        private void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
             // Set the next scene name in the SceneLoader static class
             SceneLoader.nextSceneName = sceneToLoad;

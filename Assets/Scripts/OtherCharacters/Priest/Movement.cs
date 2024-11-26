@@ -1,4 +1,4 @@
-using Recorder;
+using Respawner;
 using UnityEngine;
 
 namespace OtherCharacters.Priest
@@ -31,22 +31,18 @@ namespace OtherCharacters.Priest
         private void Start()
         {
             _initialPosition = transform.position;
-            DeathNote.AddObject(gameObject, _initialPosition);
+            if(gameObject.name.Contains("BAER") is false && gameObject.name.Contains("Immortal") is false) DeathNote.AddObject(gameObject, _initialPosition);
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterDetector = GetComponent<AttackHandler>();
         }
-        
+
         private void Update()
         {
-            if (currentHealth <= 0)
+            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint || currentHealth <= 0)
             {
-                healthBar.SetActive(false);
-            }
-            
-            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") || transform.position.y < deathPoint)
-            {
-                GetComponent<Movement>().enabled = false;
+                enabled = false;
+                if (gameObject.name.Contains("Immortal") is false) healthBar.SetActive(false);
                 return;
             }
 
@@ -64,12 +60,17 @@ namespace OtherCharacters.Priest
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
             _isWallOnLeft = IsWallOnLeft();
             _isWallOnRight = IsWallOnRight();
-            
+
             if (!IsGrounded())
             {
                 _fallVelocity += -gravityAcceleration * Time.deltaTime;
                 transform.Translate(new Vector2(0, _fallVelocity));
                 return;
+            }
+
+            if (IsGrounded())
+            {
+                _fallVelocity = 0;
             }
 
             if (_isWallOnLeft && !_isWallOnRight)
@@ -156,7 +157,7 @@ namespace OtherCharacters.Priest
 
         internal bool IsWallOnRight()
         {
-            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.1f, LayerMask.GetMask("Ground"));
+            var raycastHit = Physics2D.Raycast(_characterBoxCollider.bounds.center, Vector2.right, 0.5f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
         }
 
@@ -169,12 +170,20 @@ namespace OtherCharacters.Priest
         // ReSharper disable Unity.PerformanceAnalysis
         private void RunAwayFromFire()
         {
-            if (_isWallOnRight) return;
+            if (IsWallOnRight()) return;
             TurnRight();
             gameObject.GetComponent<AttackHandler>().enabled = false;
             _characterAnimator.SetTrigger(Walk);
             var newWalkSpeed = walkSpeed * 2;   // Increase by 200% of walk speed
-            transform.position += new Vector3(newWalkSpeed * Time.deltaTime , 0, 0);
+            if (IsGrounded())
+            {
+                transform.position += new Vector3(newWalkSpeed * Time.deltaTime, 0, 0);
+                _fallVelocity = 0;
+            }
+            else {
+                _fallVelocity += -gravityAcceleration * Time.deltaTime;
+                transform.Translate(new Vector2(0, _fallVelocity));
+            }
         }
     }
 }

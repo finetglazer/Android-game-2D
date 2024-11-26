@@ -1,21 +1,26 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
 namespace MainCharacter
 {
     public class Movement : MonoBehaviour
     {
+        public InputActionAsset inputActions;
+        public GameObject player;
+        public GameObject healthBar;
         public float walkSpeed = 2;
         public float jumpSpeed = 2;
         public float currentHealth = 2;
-        public GameObject player;
+        public static float SceneTime;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
         private static readonly int Casting = Animator.StringToHash("casting");
         private static readonly int Victory = Animator.StringToHash("victory");
         private static readonly int Idle = Animator.StringToHash("idle");
         private static readonly int Jump = Animator.StringToHash("jump");
+        private InputAction _inputAction;
         private Rigidbody2D _playerBody;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
@@ -23,18 +28,24 @@ namespace MainCharacter
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
         [HideInInspector] public int deathCount;
-        public static float SceneTime;
 
         private void Start()
         {
             _playerBody = player.GetComponent<Rigidbody2D>();
             _playerBoxCollider = player.GetComponent<BoxCollider2D>();
             _playerAnimator = player.GetComponent<Animator>();
+            _inputAction = inputActions.FindAction("Movement/Move");
+            _inputAction.Enable();
         }
-        
+
         private void Update()
         {
             SceneTime += Time.deltaTime;
+
+            if (currentHealth <= 0)
+            {
+                healthBar.SetActive(false);    
+            }
             
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
@@ -45,10 +56,8 @@ namespace MainCharacter
                 return;
             }
 // f1
-            if (GameObject.Find("RightButton") is not null)
-            {
-                horizontalInput = Input.GetAxis("Horizontal"); // Uncomment this when using keyboard controlling player 
-            }
+
+            horizontalInput = _inputAction.ReadValue<Vector2>().x; // Keyboard mode - Uncomment this
 
             if (IsGrounded())
             {
@@ -63,28 +72,35 @@ namespace MainCharacter
             {
                 PlayerIdle();
             }
-            
+
             if (horizontalInput != 0)
             {
-                if (horizontalInput < 0) TurnLeft(); else TurnRight();
+                if (horizontalInput < 0) TurnLeft();
+                else TurnRight();
                 if (IsGrounded())
                 {
                     PlayerWalk();
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (!canDoubleJump) return;
-                
+
                 if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
-// //f2
-             if (Input.GetMouseButtonDown(0))    // Uncomment this when using keyboard controlling player 
-             {
-                 PlayerAttack();
-             }
+
+//f2
+            if (Input.GetMouseButtonDown(0)) // Keyboard mode - Uncomment this
+            {
+                PlayerAttack();
+            }
+
+            if (Keyboard.current.uKey.wasPressedThisFrame) // Keyboard mode - Uncomment this
+            {
+                PlayerAttack();
+            }
         }
 
         private void PlayerCasting()

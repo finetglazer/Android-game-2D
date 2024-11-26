@@ -5,6 +5,8 @@ namespace GameObjects.Texture.TrapTexture
 {
     public class Trap : MonoBehaviour
     {
+        private static readonly int Die = Animator.StringToHash("die");
+
         // When the trap collides with something
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -18,10 +20,22 @@ namespace GameObjects.Texture.TrapTexture
             }
         
             // Check if enemy is detected
-            if (other.tag.Contains("Enemy"))
+            if (!other.tag.Contains("Enemy")) return;
+            if (!other.name.Contains("Immortal"))
             {
-                other.gameObject.SetActive(false);               
+                var merchantMovement = other.GetComponent<OtherCharacters.Merchant.Movement>();
+                var peasantMovement = other.GetComponent<OtherCharacters.Peasant.Movement>();
+                var soldierMovement = other.GetComponent<OtherCharacters.Soldier.Movement>();
+                var thiefMovement = other.GetComponent<OtherCharacters.Thief.Movement>();
+                var priestMovement = other.GetComponent<OtherCharacters.Priest.Movement>();
+                merchantMovement?.healthBar.gameObject.SetActive(false);
+                peasantMovement?.healthBar.gameObject.SetActive(false);
+                soldierMovement?.healthBar.gameObject.SetActive(false);
+                thiefMovement?.healthBar.gameObject.SetActive(false);
+                priestMovement?.healthBar.gameObject.SetActive(false);
             }
+            
+            other.gameObject.SetActive(false);
         }
     }
 }

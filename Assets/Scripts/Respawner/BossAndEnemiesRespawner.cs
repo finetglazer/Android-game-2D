@@ -4,7 +4,7 @@ using OtherCharacters.Priest;
 using UnityEngine;
 using Random = System.Random;
 
-namespace BossAndEnemiesRespawner
+namespace Respawner
 {
     public class BossAndEnemiesRespawner : MonoBehaviour
     {
@@ -14,7 +14,7 @@ namespace BossAndEnemiesRespawner
         public static bool CanReproducible = true;
         public GameObject referencingRenderCautionZone;
         public GameObject[] priestBosses;
-        public GameObject[] enemies;
+        public GameObject[] baerEnemies;
         private float _xLeft;
         private float _xRight;
         private float _yUp;
@@ -22,7 +22,7 @@ namespace BossAndEnemiesRespawner
         private float _initialHealth;
         private float _clock;
         private bool _canRenderEnemies = true;
-        private GameObject[] _renderCautionZones;
+        private GameObject[] _renderEnemiesCautionZones;
         private readonly Dictionary<GameObject, bool > _used = new();
 
         private void Start()
@@ -32,12 +32,12 @@ namespace BossAndEnemiesRespawner
             _xRight = GameObject.Find("X-Right").transform.position.x;
             _yUp = GameObject.Find("Y-Up").transform.position.y;
             _yDown = GameObject.Find("Y-Down").transform.position.y;
-            _renderCautionZones = new GameObject[priestBosses.Length + enemies.Length];
-            for (var i = 0; i < priestBosses.Length + enemies.Length; ++i)
+            _renderEnemiesCautionZones = new GameObject[baerEnemies.Length];
+            for (var i = 0; i < baerEnemies.Length; ++i)
             {
-                _renderCautionZones[i] = Instantiate(referencingRenderCautionZone);
-                _renderCautionZones[i].name = "RenderCautionZone" + i;
-                _renderCautionZones[i].SetActive(false);
+                _renderEnemiesCautionZones[i] = Instantiate(referencingRenderCautionZone);
+                _renderEnemiesCautionZones[i].name = "RenderCautionZone" + i;
+                _renderEnemiesCautionZones[i].SetActive(false);
             }
         }
 
@@ -55,6 +55,7 @@ namespace BossAndEnemiesRespawner
                     }
                     priestBoss.SetActive(true);
                     priestBoss.transform.position = GetRandomPosition();
+                    priestBoss.GetComponent<Movement>().enabled = true;
                     priestBoss.GetComponent<Movement>().currentHealth = _initialHealth / 2;
                     priestBoss.GetComponent<Movement>().healthBar.SetActive(true);
 
@@ -68,7 +69,7 @@ namespace BossAndEnemiesRespawner
             _clock += Time.deltaTime;
             if (_used.Count == 0)
             {
-                foreach (var obj in _renderCautionZones)
+                foreach (var obj in _renderEnemiesCautionZones)
                 {
                     obj.SetActive(true);
                     obj.transform.position = new Vector3(GetRandomPosition().x, obj.transform.position.y, 0);
@@ -77,18 +78,26 @@ namespace BossAndEnemiesRespawner
             }
 
             if (_clock < delayRenderEnemyTimeAfterCautionZoneEmerges) return;
-            foreach (var enemy in enemies)
+            foreach (var enemy in baerEnemies)
             {
                 foreach (var cautionZone in _used.Where(cautionZone => !cautionZone.Value))
                 {
                     enemy.SetActive(true);
+                    var merchantMovement = enemy.GetComponent<OtherCharacters.Merchant.Movement>();
+                    var peasantMovement = enemy.GetComponent<OtherCharacters.Peasant.Movement>();
+                    var soldierMovement = enemy.GetComponent<OtherCharacters.Soldier.Movement>();
+                    var thiefMovement = enemy.GetComponent<OtherCharacters.Thief.Movement>();
+                    merchantMovement?.healthBar.SetActive(true);
+                    peasantMovement?.healthBar.SetActive(true);
+                    soldierMovement?.healthBar.SetActive(true);
+                    thiefMovement?.healthBar.SetActive(true);
                     _used[cautionZone.Key] = true;
                     enemy.transform.position = new Vector3(cautionZone.Key.transform.position.x, GetRandomPosition().y, 0);
                     break;
                 }
             }
             
-            foreach (var obj in _renderCautionZones)
+            foreach (var obj in _renderEnemiesCautionZones)
             {
                 obj.SetActive(false);
             }

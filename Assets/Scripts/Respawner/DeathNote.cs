@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GameObjects.Texture.TemporaryTexture;
-using OtherCharacters.Merchant;
 using UnityEngine;
-using Movement = OtherCharacters.Merchant.Movement;
 
-namespace Recorder
+namespace Respawner
 {
     public class DeathNote : MonoBehaviour
     {
         private const string MerchantEnemyTag = "MerchantEnemy";
-        private const string PeasantEnemyTag = "PeasantEnemy";
-        private const string PriestEnemyTag = "PriestEnemy";
         private const string SoldierEnemyTag = "SoldierEnemy";
         private const string ThiefEnemyTag = "ThiefEnemy";
         private static readonly List<KeyValuePair<GameObject, Vector3>> List = new(); 
@@ -59,7 +55,7 @@ namespace Recorder
         // ReSharper disable Unity.PerformanceAnalysis
         public static void ReRender()
         {
-            foreach (var obj in List)
+            foreach (var obj in List.Where(obj => !obj.Key.name.ToLower().Contains("priest")))
             {
                 ReRenderObject(obj.Key.name);
             }
@@ -75,7 +71,6 @@ namespace Recorder
 
         private static void ReRenderObject(string objName)
         {
-            
             print("Re-rendering object: " + objName);
             KeyValuePair<GameObject, Vector3> temp = new(null, Vector3.zero);
             foreach (var i in List.Where(i => i.Key.name == objName))
@@ -100,28 +95,32 @@ namespace Recorder
                 switch (targetedGameObject.tag)
                 {
                     case MerchantEnemyTag:
-                        targetedGameObject.GetComponent<Movement>().enabled = true;
-                        targetedGameObject.GetComponent<AttackHandler>().enabled = true;
-                        break;
-                    case PriestEnemyTag:
-                        targetedGameObject.GetComponent<OtherCharacters.Priest.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<OtherCharacters.Priest.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Merchant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Merchant.Movement>().enabled = true;
+                        var merchantMovement = targetedGameObject.GetComponent<OtherCharacters.Merchant.Movement>();
+                        merchantMovement.currentHealth = 3;
+                        merchantMovement.healthBar.SetActive(true);
                         break;
                     case SoldierEnemyTag:
-                        targetedGameObject.GetComponent<OtherCharacters.Soldier.Movement>().enabled = true;
                         targetedGameObject.GetComponent<OtherCharacters.Soldier.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Soldier.Movement>().enabled = true;
+                        var soldierMovement = targetedGameObject.GetComponent<OtherCharacters.Soldier.Movement>();
+                        soldierMovement.currentHealth = 3;
+                        soldierMovement.healthBar.SetActive(true);
                         break;
                     case ThiefEnemyTag:
-                        targetedGameObject.GetComponent<OtherCharacters.Thief.Movement>().enabled = true;
                         targetedGameObject.GetComponent<OtherCharacters.Thief.AttackHandler>().enabled = true;
-                        break;
-                    case PeasantEnemyTag:
-                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
-                        targetedGameObject.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Thief.Movement>().enabled = true;
+                        var thiefMovement = targetedGameObject.GetComponent<OtherCharacters.Thief.Movement>();
+                        thiefMovement.currentHealth = 3;
+                        thiefMovement.healthBar.SetActive(true);
                         break;
                     default:
-                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true;
                         targetedGameObject.GetComponent<OtherCharacters.Peasant.AttackHandler>().enabled = true;
+                        targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>().enabled = true; 
+                        var peasantMovement = targetedGameObject.GetComponent<OtherCharacters.Peasant.Movement>();
+                        peasantMovement.currentHealth = 3;
+                        peasantMovement.healthBar.SetActive(true);
                         break;
                 }
             }

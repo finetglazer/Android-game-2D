@@ -1,5 +1,5 @@
 using JetBrains.Annotations;
-using Recorder;
+using Respawner;
 using UnityEngine;
 
 namespace MainCharacter
@@ -99,7 +99,26 @@ namespace MainCharacter
                 {
                     _enemy.GetComponent<OtherCharacters.Priest.Movement>().currentHealth = currentEnemyHealth;
                 }
-                _enemy.GetComponent<OtherCharacters.Merchant.Movement>().currentHealth = currentEnemyHealth;
+                if (_enemy.CompareTag(MerchantEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Merchant.Movement>().currentHealth = currentEnemyHealth;
+                }
+                else if (_enemy.CompareTag(PeasantEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Peasant.Movement>().currentHealth = currentEnemyHealth;
+                }
+                else if (_enemy.CompareTag(PriestEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Priest.Movement>().currentHealth = currentEnemyHealth;
+                }
+                else if (_enemy.CompareTag(SoldierEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Soldier.Movement>().currentHealth = currentEnemyHealth;
+                }
+                else if (_enemy.CompareTag(ThiefEnemyTag))
+                {
+                    _enemy.GetComponent<OtherCharacters.Thief.Movement>().currentHealth = currentEnemyHealth;
+                }
             }
             
             if (currentEnemyHealth > 0) return;
@@ -110,8 +129,11 @@ namespace MainCharacter
                 return;
             }
             
-            _isEnemyDead = !_enemy.name.Contains("Priest")|| !BossAndEnemiesRespawner.BossAndEnemiesRespawner.CanReproducible;
-            if (_isEnemyDead) enemyAnimator.SetTrigger(Die);
+            _isEnemyDead = !_enemy.name.ToLower().Contains("priest")|| !BossAndEnemiesRespawner.CanReproducible;
+            if (_isEnemyDead)
+            {
+                enemyAnimator.SetTrigger(Die);
+            }
         }
         
         private void EnemyDisappears()

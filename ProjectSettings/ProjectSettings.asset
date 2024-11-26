@@ -162,6 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.demogamemobile
+    Standalone: com.DefaultCompany.demo-game-mobile
   buildNumber:
     Standalone: 0
     VisionOS: 0

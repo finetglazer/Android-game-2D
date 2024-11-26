@@ -393,12 +393,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   jumpSpeed: 2
-  currentHealth: 1
+  currentHealth: 18
   idleTime: 1
   moveTime: 1
-  deathPoint: -100
+  deathPoint: -150
   gravityAcceleration: 0.4
   distanceDetectingFire: 1
+  immortalRerenderTime: 1
+  healthBar: {fileID: 0}
 --- !u!114 &2208780306687886347
 MonoBehaviour:
   m_ObjectHideFlags: 0
