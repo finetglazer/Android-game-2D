@@ -1,10 +1,10 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-namespace ServerInteraction
+namespace Photon
 {
     public class LobbyManager : MonoBehaviourPunCallbacks
     {
@@ -14,7 +14,7 @@ namespace ServerInteraction
         public Button startMatchButton;
         public TMP_Text passcodeText;
 
-        private int currentPlayerCount = 0;
+        private int currentPlayerCount = 1;
         
         private void Start()
         {
