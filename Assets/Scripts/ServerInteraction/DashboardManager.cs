@@ -19,10 +19,12 @@ namespace ServerInteraction
 {
     public class DashboardManager : MonoBehaviourPunCallbacks
     {
+        public TMP_Text informText;
         public TMP_Dropdown roomOptionsDropdown;
         public Button confirmButton;
         public TMP_InputField passcodeInputField;
         private string passcode = "";
+        public Button joinButton;
         
         public Button newGameButton;
         public Button continueGameButton;
@@ -46,19 +48,30 @@ namespace ServerInteraction
             leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
+            
 
             // Ensure Photon is connected before displaying options
             // Listen for the confirm button click
             confirmButton.onClick.AddListener(OnConfirmSelection);
+
+            // Set the default Inactive with the passcode input field
+            passcodeInputField.gameObject.SetActive(false);
+            joinButton.gameObject.SetActive(false);
             
             // Connect to Photon if not already connected
             if (PhotonNetwork.IsConnectedAndReady)
             {
-                Debug.Log("Already connected, ready to create or join rooms.");
+                informText.fontStyle = FontStyles.Normal;
+                informText.text = "Already connected, ready to create or join rooms.";
+                informText.color = Color.green;
+                // Debug.Log("Already connected, ready to create or join rooms.");
             }
             else
             {
-                Debug.Log("Not connected, attempting to connect...");
+                informText.text = "Connecting to Photon...";
+                informText.color = Color.yellow;
+                informText.fontStyle = FontStyles.Italic;
+                // Debug.Log("Not connected, attempting to connect...");
                 PhotonNetwork.ConnectUsingSettings();  // Connect to Photon server
             }
         }
@@ -71,11 +84,16 @@ namespace ServerInteraction
             // Now that we're connected, we can try to create or join rooms
             if (PhotonNetwork.IsConnectedAndReady)
             {
-                Debug.Log("Photon is ready, you can now create/join rooms.");
+                informText.fontStyle = FontStyles.Normal;
+                informText.text = "Photon is ready, you can now create/join rooms.";
+                informText.color = Color.green;
+                // Debug.Log("Photon is ready, you can now create/join rooms.");
             }
             else
             {
-                Debug.LogWarning("Photon is not ready yet.");
+                informText.text = "Photon is not ready yet.";
+                informText.color = Color.yellow;
+                // Debug.LogWarning("Photon is not ready yet.");
             }
         }
         
@@ -99,10 +117,16 @@ namespace ServerInteraction
                 if (selectedOption == 0)
                 {
                     CreateRoom();  // Create room if option is selected
+                    passcodeInputField.gameObject.SetActive(false);  // Show the passcode input field
+                    joinButton.gameObject.SetActive(false);  // Show the join button
                 }
                 else if (selectedOption == 1)
                 {
-                    JoinRoom();  // Join room if option is selected
+                    passcodeInputField.gameObject.SetActive(true);  // Show the passcode input field
+                    joinButton.gameObject.SetActive(true);  // Show the join button
+                    
+                    joinButton.onClick.AddListener(JoinRoom);  // Join room if option is selected
+                    // JoinRoom();  // Join room if option is selected
                 }
             }
             else
@@ -160,6 +184,7 @@ namespace ServerInteraction
         
         void JoinRoom()
         {
+            
             string enteredPasscode = passcodeInputField.text;  // Get the passcode from the input field
 
             if (string.IsNullOrEmpty(enteredPasscode))
