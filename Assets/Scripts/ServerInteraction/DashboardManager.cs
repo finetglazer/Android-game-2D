@@ -40,7 +40,6 @@ namespace ServerInteraction
         // The list of rooms in the lobby
         private List<RoomInfo> availableRooms = new List<RoomInfo>();
 
-        
         private void Start()
         {
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
@@ -49,30 +48,24 @@ namespace ServerInteraction
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
             
-
-            // Ensure Photon is connected before displaying options
-            // Listen for the confirm button click
             confirmButton.onClick.AddListener(OnConfirmSelection);
 
             // Set the default Inactive with the passcode input field
             passcodeInputField.gameObject.SetActive(false);
             joinButton.gameObject.SetActive(false);
             
-            // Connect to Photon if not already connected
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 informText.fontStyle = FontStyles.Normal;
                 informText.text = "Already connected, ready to create or join rooms.";
                 informText.color = Color.green;
-                // Debug.Log("Already connected, ready to create or join rooms.");
             }
             else
             {
                 informText.text = "Connecting to Photon...";
                 informText.color = Color.yellow;
                 informText.fontStyle = FontStyles.Italic;
-                // Debug.Log("Not connected, attempting to connect...");
-                PhotonNetwork.ConnectUsingSettings();  // Connect to Photon server
+                PhotonNetwork.ConnectUsingSettings();
             }
         }
         
@@ -80,151 +73,199 @@ namespace ServerInteraction
         public override void OnConnectedToMaster()
         {
             Debug.Log("Connected to Photon Master Server.");
-            
-            // Now that we're connected, we can try to create or join rooms
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 informText.fontStyle = FontStyles.Normal;
                 informText.text = "Photon is ready, you can now create/join rooms.";
                 informText.color = Color.green;
-                // Debug.Log("Photon is ready, you can now create/join rooms.");
             }
             else
             {
                 informText.text = "Photon is not ready yet.";
                 informText.color = Color.yellow;
-                // Debug.LogWarning("Photon is not ready yet.");
             }
         }
         
         
-        // Callback for when the room list is updated (if using custom room lists)
+        // This callback is triggered once room list is updated
         public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            availableRooms = roomList.Where(room =>
-                room.CustomProperties.ContainsKey("passcode") &&
-                room.CustomProperties["passcode"].ToString() == passcodeInputField.text).ToList();
-            Debug.Log("Room list updated");
+            // First, clear the list of available rooms
+            availableRooms.Clear();
+    
+            // Filter rooms based on the passcode entered by the user
+            string enteredPasscode = passcodeInputField.text.Trim();  // Trim the input passcode to remove any extra spaces
+            if (string.IsNullOrEmpty(enteredPasscode))
+            {
+                Debug.LogError("Please enter a passcode to join a room.");
+                return;
+            }
+
+            // Debugging the passcode you're trying to match
+            Debug.Log("Entered Passcode: " + enteredPasscode);
+
+            foreach (var room in roomList)
+            {
+                // Make sure the room contains the passcode key in custom properties
+                if (room.CustomProperties.ContainsKey("passcode"))
+                {
+                    string roomPasscode = room.CustomProperties["passcode"]?.ToString(); // Get the passcode from the room properties
+            
+                    // Debugging log for each room's passcode
+                    Debug.Log($"Room: {room.Name} | Room Passcode: {roomPasscode}");
+            
+                    // If the passcode matches the entered passcode, add the room to the availableRooms list
+                    if (roomPasscode != null && roomPasscode == enteredPasscode)
+                    {
+                        availableRooms.Add(room);
+                        Debug.Log("Room added to available rooms: " + room.Name);
+                    }
+                }
+                else
+                {
+                    Debug.Log($"Room {room.Name} does not have a passcode.");
+                }
+            }
+
+            // Log available rooms after filtering
+            Debug.Log("Available Rooms: " + availableRooms.Count);
         }
+
+
         
         void OnConfirmSelection()
         {
-            // First check if we are connected to Photon and ready
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 int selectedOption = roomOptionsDropdown.value;
 
+                // If the user wants to create a new room
                 if (selectedOption == 0)
                 {
-                    CreateRoom();  // Create room if option is selected
-                    passcodeInputField.gameObject.SetActive(false);  // Show the passcode input field
-                    joinButton.gameObject.SetActive(false);  // Show the join button
+                    CreateRoom();
+                    passcodeInputField.gameObject.SetActive(false); // Hide the passcode input field
+                    joinButton.gameObject.SetActive(false); // Hide the join button
                 }
-                else if (selectedOption == 1)
+                else if (selectedOption == 1) // If the user wants to join an existing room
                 {
-                    passcodeInputField.gameObject.SetActive(true);  // Show the passcode input field
-                    joinButton.gameObject.SetActive(true);  // Show the join button
-                    
-                    joinButton.onClick.AddListener(JoinRoom);  // Join room if option is selected
-                    // JoinRoom();  // Join room if option is selected
+                    passcodeInputField.gameObject.SetActive(true); // Show passcode input field
+                    joinButton.gameObject.SetActive(true); // Show join button
+                    joinButton.onClick.AddListener(JoinRoom); // Attach the JoinRoom function to the join button
                 }
             }
             else
             {
-                // Optionally, show a loading screen or message telling the user they need to wait for the connection
                 Debug.LogWarning("Photon is not connected yet. Please wait...");
             }
         }
 
-        
-        // Function to create a room with a passcode
+
         void CreateRoom()
         {
-            // Generate a random passcode
+            // Generate a random passcode for the new room
             passcode = new Random().Next(1000, 9999).ToString();
 
-            // Room options (you can customize these)
+            // Room options (customize these as needed)
             RoomOptions roomOptions = new RoomOptions
             {
-                MaxPlayers = 4,  // Max players in the room
-                IsVisible = true, // Room is visible to others
-                IsOpen = true     // Room is open for players to join
+                MaxPlayers = 4,    // Max players in the room
+                IsVisible = true,   // Room is visible to others
+                IsOpen = true       // Room is open for players to join
             };
 
-            // Store the passcode in the room properties
+            // Store the passcode in the room's custom properties
             roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable
             {
-                { "passcode", passcode }  // Store passcode in room properties
+                { "passcode", passcode }
             };
 
-            // Create the room with a random name
-            string roomName = "Room_" + new Random().Next(1, 1000);  // You can use a more descriptive room name
-            PhotonNetwork.CreateRoom(roomName, roomOptions);  // Create the room
+            // Create a room with a random name
+            string roomName = "Room_" + new Random().Next(1, 1000); // Random room name
+            PhotonNetwork.CreateRoom(roomName, roomOptions); // Create the room
 
-            Debug.Log("Creating room with passcode: " + passcode);
-            PlayerPrefs.SetString("roomPasscode", passcode);
-            PlayerPrefs.Save();
+            // Debugging log to see the passcode
+            Debug.Log("Room created with passcode: " + passcode);
         }
-        
-        // Callback for when room creation succeeds
+
+
+
+        IEnumerator WaitForRoomListUpdate()
+        {
+            // Wait for a short period to allow the room list to update
+            yield return new WaitForSeconds(1f);  // You can adjust this delay time
+
+            // After the delay, try joining the room again
+            Debug.Log("Attempting to join room with passcode: " + passcodeInputField.text);
+            JoinRoom(); // Now attempt to join the room
+        }
+
+
+
         public override void OnCreatedRoom()
         {
-            Debug.Log("Room created successfully.");
-
-            // After room creation, load the LobbyScene
+            Debug.Log("Room created successfully with passcode: " + passcode);
             PhotonNetwork.LoadLevel("LobbyScene");
         }
-        
-        // Callback for when room creation fails
+
         public override void OnCreateRoomFailed(short returnCode, string message)
         {
             Debug.LogError("Room creation failed: " + message);
         }
-
-        
         void JoinRoom()
         {
-            
-            string enteredPasscode = passcodeInputField.text;  // Get the passcode from the input field
+            string enteredPasscode = passcodeInputField.text.Trim(); // Ensure we are using the trimmed input
 
+            // Check if the entered passcode is empty
             if (string.IsNullOrEmpty(enteredPasscode))
             {
-                Debug.LogError("Please enter a passcode.");
+                Debug.LogError("Please enter a passcode to join a room.");
                 return;
             }
 
-            // Search for a room that has a matching passcode
+            // Debugging the entered passcode
+            Debug.Log("Entered Passcode: " + enteredPasscode);
+
+            // Loop through the available rooms to find one with the correct passcode
             foreach (var room in availableRooms)
             {
-                if (room.CustomProperties.ContainsKey("passcode") &&
-                    room.CustomProperties["passcode"].ToString() == enteredPasscode)
+                string roomPasscode = room.CustomProperties["passcode"]?.ToString(); // Ensure the passcode is fetched properly
+        
+                // Debugging log for each room's passcode and whether it's a match
+                if (roomPasscode != null)
                 {
-                    PhotonNetwork.JoinRoom(room.Name);  // Join the room with the matching passcode
-                    Debug.Log("Joining room: " + room.Name);
-                    return;
+                    Debug.Log($"Room: {room.Name} | Passcode: {roomPasscode}");
+
+                    // If we find a matching passcode, attempt to join the room
+                    if (roomPasscode == enteredPasscode)
+                    {
+                        PhotonNetwork.JoinRoom(room.Name); // Join the room
+                        Debug.Log("Joining room: " + room.Name);
+                        return;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Room " + room.Name + " does not have a passcode.");
                 }
             }
 
-            // If no room matches, show an error
-            Debug.LogError("No room found with that passcode.");
+            // If no room is found with the passcode, log an error
+            Debug.LogError("No room found with the entered passcode: " + enteredPasscode);
         }
 
-        // Callback for when the player successfully joins a room
+
+
+
         public override void OnJoinedRoom()
         {
             Debug.Log("Successfully joined the room.");
-            // Load the lobby scene (replace with your actual scene name)
             PhotonNetwork.LoadLevel("LobbyScene");
         }
 
-       
-
-        // Callback for when joining a room fails
         public override void OnJoinRoomFailed(short returnCode, string message)
         {
             Debug.LogError("Join room failed: " + message);
         }
-        
 
         private void OnSignOutButtonClicked()
         {

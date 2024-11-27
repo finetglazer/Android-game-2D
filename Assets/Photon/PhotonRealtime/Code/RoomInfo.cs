@@ -156,7 +156,7 @@ namespace Photon.Realtime
         /// </summary>
         /// <param name="roomName">Name of the room and unique ID at the same time.</param>
         /// <param name="roomProperties">Properties for this room.</param>
-        protected internal RoomInfo(string roomName, Hashtable roomProperties)
+        public RoomInfo(string roomName, Hashtable roomProperties)
         {
             this.InternalCacheProperties(roomProperties);
 
