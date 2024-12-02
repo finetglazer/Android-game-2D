@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +8,13 @@ namespace Photon
 {
     public class LobbyChat : MonoBehaviourPunCallbacks
     {
-        public TMP_InputField chatInputField;
-        public TMP_Text chatText;
-        public Button sendButton;
-        public Transform contentTransform;
+        public TMP_InputField chatInputField; // Input field for chat messages
+        public TMP_Text chatText;             // Text component to show validation message (e.g., "Please enter a message!")
+        public Button sendButton;             // Button for sending messages
+        public Transform contentTransform;    // The parent transform that holds the chat messages
 
-        public GameObject messagePrefab;
+        public GameObject messagePrefab;      // Prefab to instantiate for each new message
+
         private void Start()
         {
             if (photonView == null)
@@ -26,7 +28,6 @@ namespace Photon
             }
         }
 
-        
         // Method to send a chat message
         private void OnSendMessage()
         {
@@ -34,26 +35,26 @@ namespace Photon
 
             if (!string.IsNullOrEmpty(message))
             {
-                // send the message to the Photon network
-                photonView.RPC("BroadcastChatMessage", RpcTarget.All, message);
+                // Send the message to the Photon network, including the player's nickname
+                photonView.RPC("BroadcastChatMessage", RpcTarget.All, message, PhotonNetwork.LocalPlayer.NickName);
                 
-                // Clear the input field
+                // Clear the input field after sending the message
                 chatInputField.text = "";
             }
-            
             else
             {
-                chatText.text = "Please enter a message!";
+                chatText.text = "Please enter a message!";  // Show a message if the input is empty
             }
         }
-        
+
         [PunRPC]
-        private void BroadcastChatMessage(string message)
+        private void BroadcastChatMessage(string message, string senderNickName)
         {
             // Debugging to check if the references are assigned
             Debug.Log("Message Prefab: " + (messagePrefab != null ? "Assigned" : "Not Assigned"));
             Debug.Log("Content Transform: " + (contentTransform != null ? "Assigned" : "Not Assigned"));
 
+            // If prefab or content transform is not assigned, log error
             if (messagePrefab == null)
             {
                 Debug.LogError("Message Prefab is not assigned!");
@@ -66,13 +67,10 @@ namespace Photon
                 return;
             }
 
-            // Get the player's name from Photon
-            string playerName = PhotonNetwork.NickName;
-
-            // Format the message with the player's name
-            string formattedMessage = $"{playerName}: {message}";
-
-            // Check if the prefab contains the TMP_Text component
+            // Format the message with the player's name (senderNickName)
+            string formattedMessage = $"<color=blue>{senderNickName}:</color> {message}";  // Use the passed nickname
+            
+            // Instantiate the message prefab in the content transform
             GameObject newMessage = Instantiate(messagePrefab, contentTransform);
 
             if (newMessage == null)
@@ -89,9 +87,10 @@ namespace Photon
                 return;
             }
 
-            messageText.text = formattedMessage;  // Set the player's name and message
+            // Set the formatted message text
+            messageText.text = formattedMessage;
 
-            // Ensure the Content Transform has a ScrollRect
+            // Ensure the Content Transform has a ScrollRect component (for auto-scrolling)
             ScrollRect scrollRect = contentTransform.GetComponentInParent<ScrollRect>();  // Get ScrollRect from the parent
             if (scrollRect == null)
             {
@@ -103,9 +102,5 @@ namespace Photon
             Canvas.ForceUpdateCanvases();
             scrollRect.verticalNormalizedPosition = 0f;  // Scroll to the bottom
         }
-
-
-
-
     }
 }
