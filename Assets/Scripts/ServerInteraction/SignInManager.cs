@@ -79,10 +79,12 @@ namespace ServerInteraction
                 
                 JObject obj = JObject.Parse(request.downloadHandler.text);
                 Debug.Log(obj["sessionToken"]);
+                Debug.Log(obj["alias"]);
                 // from x, I want to take the value of key sessionToken
                 
                 PlayerPrefs.SetString("SessionToken", obj["sessionToken"]?.ToString());
-
+                PlayerPrefs.SetString("alias", obj["alias"]?.ToString());
+                
                 // You can parse the response and store the session token if needed
                 var signInResponse = JsonUtility.FromJson<SignInResponse>(request.downloadHandler.text);
                 StartCoroutine(GetUserIdBySessionToken(signInResponse.sessionToken));
