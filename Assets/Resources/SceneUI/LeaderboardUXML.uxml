@@ -1,0 +1,143 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/SceneUI/LeaderboardUSS.uss?fileID=7433441132597879392&amp;guid=117858a84e5d47845b64f493dc905468&amp;type=3#LeaderboardUSS" />
+    <ui:VisualElement name="LeaderboardContainer" style="flex-grow: 1; max-width: 100%; max-height: 100%;">
+        <ui:VisualElement name="SummaryBoard" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 95%; height: 30%; background-image: url(&quot;project://database/Assets/img/whiteimg.jpg?fileID=1434449723&amp;guid=f8c09d388663ff7428e602010b86cbd4&amp;type=3#whiteimg_0&quot;); max-height: 30%; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 15px; max-width: 95%; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; flex-direction: row; min-height: 30%; min-width: 95%;">
+            <ui:VisualElement name="TopRankedContainer" class="text-container" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Username" class="summary-board-username" />
+                <ui:Label tabindex="-1" text="Top ranked" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" class="summary-board-description" />
+                <ui:Label tabindex="-1" text="1st" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Rank" class="summary-board-rank-and-points" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BiggestClimberContainer" class="text-container" style="flex-grow: 1; left: 115px;">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Username" class="summary-board-username" />
+                <ui:Label tabindex="-1" text="Biggest climber" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" class="summary-board-description" />
+                <ui:VisualElement name="StatusContainer" class="summary-board-status-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="UpArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/up-arrow&apos;);" />
+                    <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Status" class="summary-board-status" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="MostPointsGainedContainer" class="text-container" style="flex-grow: 1; left: 225px;">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Username" class="summary-board-username" />
+                <ui:Label tabindex="-1" text="Most points gained" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" class="summary-board-description" />
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsGained" class="summary-board-rank-and-points" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BiggestDropContainer" class="text-container" style="flex-grow: 1; left: 335px;">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Username" class="summary-board-username" />
+                <ui:Label tabindex="-1" text="Biggest drop" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" class="summary-board-description" />
+                <ui:VisualElement name="StatusContainer" class="summary-board-status-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DownArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/arrow-down&apos;); scale: 3.2 2.5;" />
+                    <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Status" class="summary-board-status" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="MostPointsLostContainer" class="text-container" style="flex-grow: 1; left: 445px;">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Username" class="summary-board-username" />
+                <ui:Label tabindex="-1" text="Most points lost" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" class="summary-board-description" />
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsLost" class="summary-board-rank-and-points" />
+            </ui:VisualElement>
+            <ui:VisualElement name="VerticalDivider" class="vertical-divider" style="left: 110px;" />
+            <ui:VisualElement name="VerticalDivider" class="vertical-divider" style="left: 220px;" />
+            <ui:VisualElement name="VerticalDivider" class="vertical-divider" style="left: 330px;" />
+            <ui:VisualElement name="VerticalDivider" class="vertical-divider" style="left: 440px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RankingBoard" style="flex-grow: 1; width: 94%; height: 45%; background-image: url(&quot;project://database/Assets/img/whiteimg.jpg?fileID=1434449723&amp;guid=f8c09d388663ff7428e602010b86cbd4&amp;type=3#whiteimg_0&quot;); max-height: 45%; position: absolute; bottom: 0; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+            <ui:VisualElement name="ColumnNamesRow" style="flex-grow: 1; position: absolute; background-image: url(&quot;project://database/Assets/img/whiteimg.jpg?fileID=1434449723&amp;guid=f8c09d388663ff7428e602010b86cbd4&amp;type=3#whiteimg_0&quot;); -unity-background-image-tint-color: rgb(80, 91, 115); width: 100%; height: 30%; top: -30px; flex-direction: row; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; left: 0;">
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1; left: 5px;">
+                    <ui:Label tabindex="-1" text="RK" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingText" class="ranking-board-column-name" style="left: 10px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1; left: 80px;">
+                    <ui:Label tabindex="-1" text="Username" parse-escape-sequences="true" display-tooltip-when-elided="true" name="UsernameText" class="ranking-board-column-name" style="left: -15px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1; left: 10px;">
+                    <ui:Label tabindex="-1" text="Total Points" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TotalPointsText" class="ranking-board-column-name" style="left: 155px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Previous Points" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PreviousPointsText" class="ranking-board-column-name" style="left: 250px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1; left: -10px;">
+                    <ui:Label tabindex="-1" text="+/-" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PointsDIfferenceText" class="ranking-board-column-name" style="left: 355px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="Match Window" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MatchWindowText" class="ranking-board-column-name" style="left: 405px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="RankingBoardColumnNameContainer" class="ranking-board-coimn-name-container" style="flex-grow: 1;">
+                    <ui:Label tabindex="-1" text="More" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MoreText" class="ranking-board-column-name" style="left: 500px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="RankingBoardStatsRow" class="ranking-board-stats-row" style="left: 10px; display: none; visibility: visible; position: absolute;">
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardRankText" text="1" class="ranking-board-row-data" style="background-image: none; left: 5px; -unity-font-style: bold;" />
+                <ui:VisualElement name="RankingBoardDifferenceRankContainer" class="ranking-board-row-data ranking-board-difference-rank-container" style="flex-grow: 1; left: 35px; top: 3px;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="UpArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/up-arrow&apos;);" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DownArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/arrow-down&apos;); scale: 3.2 2.5;" />
+                    <ui:Label tabindex="-1" text="1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Status" class="summary-board-status" style="-unity-font-style: bold; font-size: 14px; top: -8px;" />
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardUsernameText" text="OLogN" class="ranking-board-row-data" style="background-image: none; left: 60px; top: -4px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardTotalPointsText" text="1296.54" class="ranking-board-row-data" style="background-image: none; left: 155px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardPreviousPointsText" text="2000" class="ranking-board-row-data" style="background-image: none; left: 250px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardDifferenceRankText" text="- 703.46" class="ranking-board-row-data" style="background-image: none; left: 315px; font-size: 12px;" />
+                <ui:VisualElement name="RankingBoardMatchWindowContainer" class="ranking-board-row-data" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 429px; display: none;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 463px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 429px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 463px;" />
+                </ui:VisualElement>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardExtendButton" class="ranking-board-row-data" style="background-image: resource(&apos;SceneUI/down-arrow 1&apos;); background-color: rgb(216, 210, 194); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; left: 490px; top: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RankingBoardStatsRow" class="ranking-board-stats-row" style="left: 10px; display: none; visibility: visible; position: absolute; top: 30px;">
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardRankText" text="1" class="ranking-board-row-data" style="background-image: none; left: 5px; -unity-font-style: bold;" />
+                <ui:VisualElement name="RankingBoardDifferenceRankContainer" class="ranking-board-row-data ranking-board-difference-rank-container" style="flex-grow: 1; left: 35px; top: 3px;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="UpArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/up-arrow&apos;);" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DownArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/arrow-down&apos;); scale: 3.2 2.5;" />
+                    <ui:Label tabindex="-1" text="1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Status" class="summary-board-status" style="-unity-font-style: bold; font-size: 14px; top: -8px;" />
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardUsernameText" text="OLogN" class="ranking-board-row-data" style="background-image: none; left: 60px; top: -4px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardTotalPointsText" text="1296.54" class="ranking-board-row-data" style="background-image: none; left: 155px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardPreviousPointsText" text="2000" class="ranking-board-row-data" style="background-image: none; left: 250px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardDifferenceRankText" text="- 703.46" class="ranking-board-row-data" style="background-image: none; left: 315px; font-size: 12px;" />
+                <ui:VisualElement name="RankingBoardMatchWindowContainer" class="ranking-board-row-data" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 429px; display: none;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 463px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 429px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 463px;" />
+                </ui:VisualElement>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardExtendButton" class="ranking-board-row-data" style="background-image: resource(&apos;SceneUI/down-arrow 1&apos;); background-color: rgb(216, 210, 194); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; left: 490px; top: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RankingBoardStatsRow" class="ranking-board-stats-row" style="left: 10px; display: none; visibility: visible; position: absolute; top: 55px;">
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardRankText" text="1" class="ranking-board-row-data" style="background-image: none; left: 5px; -unity-font-style: bold;" />
+                <ui:VisualElement name="RankingBoardDifferenceRankContainer" class="ranking-board-row-data ranking-board-difference-rank-container" style="flex-grow: 1; left: 35px; top: 3px;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="UpArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/up-arrow&apos;);" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DownArrowIcon" class="summary-board-status-icon" style="background-image: resource(&apos;SceneUI/arrow-down&apos;); scale: 3.2 2.5;" />
+                    <ui:Label tabindex="-1" text="1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Status" class="summary-board-status" style="-unity-font-style: bold; font-size: 14px; top: -8px;" />
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardUsernameText" text="OLogN" class="ranking-board-row-data" style="background-image: none; left: 60px; top: -4px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardTotalPointsText" text="1296.54" class="ranking-board-row-data" style="background-image: none; left: 155px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardPreviousPointsText" text="2000" class="ranking-board-row-data" style="background-image: none; left: 250px; font-size: 12px;" />
+                <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardDifferenceRankText" text="- 703.46" class="ranking-board-row-data" style="background-image: none; left: 315px; font-size: 12px;" />
+                <ui:VisualElement name="RankingBoardMatchWindowContainer" class="ranking-board-row-data" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 429px; display: none;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="WinMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-w&apos;); left: 463px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 395px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 412px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 429px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 446px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LoseMatchIcon" class="match-icon" style="background-image: resource(&apos;SceneUI/letter-l&apos;); left: 463px;" />
+                </ui:VisualElement>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="RankingBoardExtendButton" class="ranking-board-row-data" style="background-image: resource(&apos;SceneUI/down-arrow 1&apos;); background-color: rgb(216, 210, 194); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; left: 490px; top: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="LineGraphContainer" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/img/whiteimg.jpg?fileID=1434449723&amp;guid=f8c09d388663ff7428e602010b86cbd4&amp;type=3#whiteimg_0&quot;); width: 70%; height: 55%; margin-left: 120px; margin-right: 20px; margin-bottom: 0; -unity-background-image-tint-color: rgb(170, 167, 159); position: absolute; margin-top: 50px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display: none; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" />
+    </ui:VisualElement>
+</ui:UXML>

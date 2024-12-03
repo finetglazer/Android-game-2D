@@ -64,7 +64,10 @@ EditorBuildSettings:
     guid: a2dc0f9794afe2844b25b97a45879679
   - enabled: 1
     path: Assets/TestScene - Hiep/DashboardScene.unity
-    guid: 21a4f2fda62ee2c4da71dfa0e277fb5a
+    guid: 38610b6edc0253b44b4f207b50ee7ee2
+  - enabled: 1
+    path: Assets/TestScene - Hiep/LeaderboardScene.unity
+    guid: 87a880e9c107f374d96429ee4279cf76
   - enabled: 1
     path: Assets/TestScene - Hiep/1stscene.unity
     guid: e3665c8654a72794ab74417e4657ce20

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Photon.Pun;
 using Photon.Pun.Demo.Cockpit.Forms;
 using Photon.Realtime;
@@ -28,6 +31,7 @@ namespace ServerInteraction
         public Button newGameButton;
         public Button continueGameButton;
         public Button leaderboardButton;
+        public Button matchHistoryButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
@@ -43,7 +47,8 @@ namespace ServerInteraction
         {
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
-            leaderboardButton.onClick.AddListener(OnLeaderBoardButtonClicked);
+            leaderboardButton.onClick.AddListener(OnLeaderboardButtonClicked);
+            matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
             
@@ -207,11 +212,29 @@ namespace ServerInteraction
             StartCoroutine(CreateNewGameRequest());
         }
 
-        private void OnLeaderBoardButtonClicked()
+        private async void OnLeaderboardButtonClicked()
         {
-            StartCoroutine(CreatePlayerRankingRequest());
+            try
+            {
+                await CreateGetAllSoloStatsRequest();
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
         }
 
+        private async void OnMatchHistoryButtonClicked()
+        {
+            try
+            {
+               await CreateGetMultiplayerMatchHistoryRequest();
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
+        }
         
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateContinueGameRequest()
@@ -282,6 +305,38 @@ namespace ServerInteraction
             {
                 print(request.downloadHandler.text);
             }
+        }
+        
+        private async Task CreateGetAllSoloStatsRequest()
+        {
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.GetStringAsync(RootRequestURL + "/get-all-solo-stats");
+                var statsResponseList = JsonConvert.DeserializeObject<GetAllSoloStatsResponse>(response).soloStatsList;
+                LeaderboardUIScript.SoloStatsList = statsResponseList;
+                SceneManager.LoadScene("TestScene - Hiep/LeaderboardScene");
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
+        }
+
+        private async Task CreateGetMultiplayerMatchHistoryRequest()
+        {
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.GetStringAsync(RootRequestURL + "/get-multi-player-match-history");
+                var multiPlayerMatchHistoryList = JsonConvert.DeserializeObject<GetMultiPlayerMatchHistoryResponse>(response).multiPlayerMatchHistoryList;
+                SceneManager.LoadScene("TestScene - Hiep/LeaderboardScene");
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
+
         }
 
         private static UnityWebRequest RequestGenerator(string url, string[] fieldNames, string[] values, string method)
