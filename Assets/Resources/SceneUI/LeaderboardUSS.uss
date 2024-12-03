@@ -30,11 +30,12 @@ VisualElement {
 
 .summary-board-username {
     -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/Aleo/static/Aleo-Black.ttf?fileID=12800000&guid=7cfaf2aa65bb8c34bbd557f023a63aca&type=3#Aleo-Black");
-    -unity-font-style: normal;
+    -unity-font-style: bold;
+    font-size: 16px;
 }
 
 .summary-board-description {
-    font-size: 5px;
+    font-size: 8px;
     -unity-font-style: normal;
     top: -5px;
 }
@@ -128,4 +129,5 @@ VisualElement {
     width: 15px;
     height: 15px;
     top: 5px;
+    display: none;
 }
