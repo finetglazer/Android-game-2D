@@ -224,17 +224,23 @@ namespace ServerInteraction
             }
         }
 
-        private async void OnMatchHistoryButtonClicked()
+        // private async void OnMatchHistoryButtonClicked()
+        // {
+        //     try
+        //     {
+        //        await CreateGetMultiplayerMatchHistoryRequest();
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         print(e.ToString());
+        //     }
+        // }
+
+        private void OnMatchHistoryButtonClicked()
         {
-            try
-            {
-               await CreateGetMultiplayerMatchHistoryRequest();
-            }
-            catch (Exception e)
-            {
-                print(e.ToString());
-            }
+            SceneManager.LoadScene("TestScene - Hiep/OptionsMatchHistoryScene");
         }
+        
         
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateContinueGameRequest()
