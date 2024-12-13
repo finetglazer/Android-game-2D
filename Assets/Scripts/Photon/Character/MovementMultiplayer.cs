@@ -1,19 +1,18 @@
-using System.Collections;
+﻿using MainCharacter;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
-using UnityEngine.Networking; // Import Photon.Pun for networking
 
-namespace MainCharacter
+namespace Photon.Character
 {
-    public class Movement : MonoBehaviourPunCallbacks
+    public class MovementMultiplayer : MonoBehaviourPun, IPunObservable
     {
         public InputActionAsset inputActions;
         public GameObject player;
         public GameObject healthBar;
-        public float walkSpeed = 2;
-        public float jumpSpeed = 2;
-        public float currentHealth = 2;
+        public float walkSpeed = 2f;
+        public float jumpSpeed = 2f;
+        public float currentHealth = 15f; // Adjusted for multiplayer
         public static float SceneTime;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
@@ -21,54 +20,76 @@ namespace MainCharacter
         private static readonly int Victory = Animator.StringToHash("victory");
         private static readonly int Idle = Animator.StringToHash("idle");
         private static readonly int Jump = Animator.StringToHash("jump");
-        private InputAction _inputAction;
+        private InputAction _moveAction;
         private Rigidbody2D _playerBody;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
+
         [HideInInspector] public bool isDoubleJump;
         [HideInInspector] public float horizontalInput;
         [HideInInspector] public bool canDoubleJump;
         [HideInInspector] public int deathCount;
+
+        // Network synchronization variables
+        private Vector2 networkPosition;
+        private Vector2 networkVelocity;
+        private float lerpRate = 10f;
 
         private void Start()
         {
             _playerBody = player.GetComponent<Rigidbody2D>();
             _playerBoxCollider = player.GetComponent<BoxCollider2D>();
             _playerAnimator = player.GetComponent<Animator>();
-            _inputAction = inputActions.FindAction("Movement/Move");
-            _inputAction.Enable();
 
-            // Disable movement input and animation for other players
-            // if (!photonView.IsMine)
-            // {
-            //     enabled = false;  // Disable this script for non-local players
-            //     return;
-            // }
+            // Initialize input actions only for the local player
+            if (photonView.IsMine)
+            {
+                _moveAction = inputActions.FindAction("Movement/Move");
+                _moveAction.Enable();
+            }
+            else
+            {
+                // Disable scripts for remote players if necessary
+                healthBar.SetActive(false); // Hide health bar for remote players
+            }
         }
 
         private void Update()
         {
-            // Check if this is the local player's object
-            // if (!photonView.IsMine) return;
-
             SceneTime += Time.deltaTime;
 
-            if (currentHealth <= 0)
+            if (photonView.IsMine)
+            {
+                HandleInput();
+            }
+            else
+            {
+                // Smoothly interpolate remote players' positions
+                _playerBody.position = Vector2.Lerp(_playerBody.position, networkPosition, Time.deltaTime * lerpRate);
+                _playerBody.velocity = networkVelocity;
+            }
+
+            // Common updates
+            if (currentHealth <= 0 && photonView.IsMine)
             {
                 healthBar.SetActive(false);
             }
 
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
-                gameObject.GetComponent<PlayerDie>().Die();
-                ++deathCount;
+                if (photonView.IsMine)
+                {
+                    gameObject.GetComponent<PlayerDie>().Die();
+                    ++deathCount;
+                }
                 PlayerIdle();
-                StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
             }
+        }
 
-            // Handle input for movement and jumping
-            horizontalInput = _inputAction.ReadValue<Vector2>().x; // Keyboard mode - Uncomment this
+        private void HandleInput()
+        {
+            horizontalInput = _moveAction.ReadValue<Vector2>().x;
 
             if (IsGrounded())
             {
@@ -137,17 +158,13 @@ namespace MainCharacter
         private void PlayerWalk()
         {
             _playerAnimator.SetTrigger(Walk);
-            _playerBody.velocity = horizontalInput switch
-            {
-                > 0 => new Vector2(walkSpeed, _playerBody.velocity.y),
-                < 0 => new Vector2(-walkSpeed, _playerBody.velocity.y),
-                _ => _playerBody.velocity
-            };
+            _playerBody.velocity = new Vector2(horizontalInput * walkSpeed, _playerBody.velocity.y);
         }
 
         public void PlayerAttack()
         {
             _playerAnimator.SetTrigger(Attack);
+            // Implement attack logic (e.g., instantiate attack effects, detect hits)
         }
 
         public void PlayerJump()
@@ -155,34 +172,30 @@ namespace MainCharacter
             _playerAnimator.SetTrigger(Jump);
             if (IsGrounded())
             {
-                _playerBody.velocity = new Vector2(_playerBody.velocity.x * horizontalInput, jumpSpeed);
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpSpeed);
             }
             else if (isDoubleJump)
             {
-                _playerBody.velocity = new Vector2(_playerBody.velocity.x + walkSpeed * horizontalInput, _playerBody.velocity.y + jumpSpeed);
+                _playerBody.velocity = new Vector2(_playerBody.velocity.x, jumpSpeed);
                 canDoubleJump = false;
                 isDoubleJump = false;
-            }
-            else // When floating on air
-            {
-                _playerBody.velocity = new Vector2(walkSpeed * horizontalInput, _playerBody.velocity.y);
             }
         }
 
         private void TurnLeft()
         {
-            player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
 
         private void TurnRight()
         {
-            player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
+            player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
         }
 
         private bool IsGrounded()
         {
             var raycastHit = Physics2D.Raycast(_playerBoxCollider.bounds.center, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
-            return raycastHit.collider is not null;
+            return raycastHit.collider != null;
         }
 
         public void PlayerWalkLeft()
@@ -203,20 +216,24 @@ namespace MainCharacter
             _playerBody.velocity = new Vector2(walkSpeed, _playerBody.velocity.y);
         }
 
-        private IEnumerator CreateUpdateDeathCountRequest()
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            const string url = "http://localhost:8080/api/gameplay/update-death-count";
-            var request = new UnityWebRequest(url, "POST");
-            var userId = PlayerPrefs.GetString("userId");
-            var jsonBody = "{\"userId\":\"" + userId + "\"}";  
-            var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);
-            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-            yield return request.SendWebRequest();
-            print(request.result == UnityWebRequest.Result.Success
-                ? "+1 death time on server!"
-                : request.downloadHandler.text);
+            if (stream.IsWriting)
+            {
+                // Send data to others
+                stream.SendNext(_playerBody.position);
+                stream.SendNext(_playerBody.velocity);
+                stream.SendNext(currentHealth);
+                // Add more variables if needed (e.g., animation states)
+            }
+            else
+            {
+                // Receive data from others
+                networkPosition = (Vector2)stream.ReceiveNext();
+                networkVelocity = (Vector2)stream.ReceiveNext();
+                currentHealth = (float)stream.ReceiveNext();
+                // Update more variables if needed
+            }
         }
     }
 }

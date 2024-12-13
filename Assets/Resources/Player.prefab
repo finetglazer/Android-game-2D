@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011028196368}
   - component: {fileID: 95000011895321844}
-  - component: {fileID: 64810639608922124}
-  - component: {fileID: 4387079605259758052}
-  - component: {fileID: 8490957185895940308}
-  - component: {fileID: 8520104485774882800}
   - component: {fileID: 8218418554813157452}
   - component: {fileID: 8629885119648172418}
+  - component: {fileID: 7701361171676535256}
+  - component: {fileID: 5866473534273664485}
+  - component: {fileID: 3281346066402803628}
+  - component: {fileID: 8283381682048601820}
   m_Layer: 6
-  m_Name: Knight
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,71 +60,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &64810639608922124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ffb87c4d83b7eb43ac344d15567a423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageDealt: 1
-  distanceDealDamage: 1.2
---- !u!114 &4387079605259758052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af1d62265c6bca4cb239bf35489f9a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
-  player: {fileID: 1000010755293042}
-  healthBar: {fileID: 0}
-  walkSpeed: 4
-  jumpSpeed: 4
-  currentHealth: 5
-  isDoubleJump: 0
-  horizontalInput: 0
-  canDoubleJump: 0
-  deathCount: 0
---- !u!114 &8490957185895940308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b605453f5264846ae9decd78e736bf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -150
---- !u!114 &8520104485774882800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010755293042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1dc0128676213247a6e6916383ffb7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slope:
-    serializedVersion: 2
-    m_Bits: 2048
-  slideSpeed: 4
 --- !u!61 &8218418554813157452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +132,80 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7701361171676535256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f88c21b7ff44dd9e04be9b13b554de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1
+  distanceDealDamage: 1
+--- !u!114 &5866473534273664485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c301f53af844014bd20c2a762a9bd24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActions: {fileID: 0}
+  player: {fileID: 0}
+  healthBar: {fileID: 0}
+  walkSpeed: 2
+  jumpSpeed: 2
+  currentHealth: 15
+  isDoubleJump: 0
+  horizontalInput: 0
+  canDoubleJump: 0
+  deathCount: 0
+--- !u!114 &3281346066402803628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53325453adbf4accbfb4f5fa716dab18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -15
+--- !u!114 &8283381682048601820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010755293042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7701361171676535256}
+  - {fileID: 5866473534273664485}
+  - {fileID: 3281346066402803628}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1000011164445256
 GameObject:
   m_ObjectHideFlags: 0

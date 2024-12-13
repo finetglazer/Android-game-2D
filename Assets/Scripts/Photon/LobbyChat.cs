@@ -50,22 +50,6 @@ namespace Photon
         [PunRPC]
         private void BroadcastChatMessage(string message, string senderNickName)
         {
-            // Debugging to check if the references are assigned
-            Debug.Log("Message Prefab: " + (messagePrefab != null ? "Assigned" : "Not Assigned"));
-            Debug.Log("Content Transform: " + (contentTransform != null ? "Assigned" : "Not Assigned"));
-
-            // If prefab or content transform is not assigned, log error
-            if (messagePrefab == null)
-            {
-                Debug.LogError("Message Prefab is not assigned!");
-                return;
-            }
-
-            if (contentTransform == null)
-            {
-                Debug.LogError("Content Transform is not assigned!");
-                return;
-            }
 
             // Format the message with the player's name (senderNickName)
             string formattedMessage = $"<color=blue>{senderNickName}:</color> {message}";  // Use the passed nickname
@@ -73,31 +57,14 @@ namespace Photon
             // Instantiate the message prefab in the content transform
             GameObject newMessage = Instantiate(messagePrefab, contentTransform);
 
-            if (newMessage == null)
-            {
-                Debug.LogError("Failed to instantiate the message prefab!");
-                return;
-            }
-
             TMP_Text messageText = newMessage.GetComponent<TMP_Text>();
-
-            if (messageText == null)
-            {
-                Debug.LogError("Message prefab does not contain a TMP_Text component! GameObject: " + newMessage.name);
-                return;
-            }
-
+            
             // Set the formatted message text
             messageText.text = formattedMessage;
 
             // Ensure the Content Transform has a ScrollRect component (for auto-scrolling)
             ScrollRect scrollRect = contentTransform.GetComponentInParent<ScrollRect>();  // Get ScrollRect from the parent
-            if (scrollRect == null)
-            {
-                Debug.LogError("ScrollRect component is not found in parent of Content Transform!");
-                return;
-            }
-
+ 
             // Optionally, automatically scroll down the chat to the newest message
             Canvas.ForceUpdateCanvases();
             scrollRect.verticalNormalizedPosition = 0f;  // Scroll to the bottom

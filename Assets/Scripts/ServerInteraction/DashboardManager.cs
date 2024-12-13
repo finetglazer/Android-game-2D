@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Photon;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -27,7 +28,7 @@ namespace ServerInteraction
         public Button confirmButton;
         public TMP_InputField passcodeInputField;
         public Button joinButton;
-        
+
         public Button newGameButton;
         public Button continueGameButton;
         public Button leaderboardButton;
@@ -38,10 +39,9 @@ namespace ServerInteraction
         public Button signOutButton;
         private bool _isNewGame = true;
         internal static PlayerRankingResponse PlayerRankingResponse = new();
-        
-        
-        // The list of rooms in the lobby
-        private List<RoomInfo> availableRooms = new List<RoomInfo>();
+
+        private bool isInLobby = false;
+        private bool isSceneLoading = false;
 
         private void Start()
         {
@@ -51,34 +51,52 @@ namespace ServerInteraction
             matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
-            
+
             confirmButton.onClick.AddListener(OnConfirmSelection);
 
             // Set the default Inactive with the passcode input field
             passcodeInputField.gameObject.SetActive(false);
             joinButton.gameObject.SetActive(false);
-            
+            joinButton.onClick.RemoveAllListeners(); // Ensure no previous listeners
+
             PhotonNetwork.NickName = PlayerPrefs.GetString("alias", "Player");
-            
+
             if (PhotonNetwork.IsConnectedAndReady)
             {
-                informText.fontStyle = FontStyles.Normal;
-                informText.text = "Already connected, ready to create or join rooms.";
-                informText.color = Color.green;
+                if (PhotonNetwork.InRoom)
+                {
+                    Debug.Log("Leaving the current room before proceeding.");
+                    PhotonNetwork.LeaveRoom();
+                }
+                else if (!PhotonNetwork.InLobby)
+                {
+                    Debug.Log("Joining the lobby.");
+                    PhotonNetwork.JoinLobby();
+                }
+                else
+                {
+                    Debug.Log("Already in the lobby.");
+                }
             }
             else
             {
+                Debug.Log("Connecting to Photon...");
                 informText.text = "Connecting to Photon...";
                 informText.color = Color.yellow;
                 informText.fontStyle = FontStyles.Italic;
                 PhotonNetwork.ConnectUsingSettings();
-                // PhotonNetwork.AutomaticallySyncScene = true;
-
             }
-            
+
+            // Subscribe to sceneLoaded
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        
-        // This callback is triggered once connected to the Photon Master Server
+
+        private void OnDestroy()
+        {
+            // Unregister from the scene loaded event to avoid memory leaks
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
         public override void OnConnectedToMaster()
         {
             Debug.Log("Connected to Photon Master Server.");
@@ -90,6 +108,7 @@ namespace ServerInteraction
 
                 // Request the room list after successfully connecting to Photon
                 PhotonNetwork.JoinLobby();  // This joins the default lobby, which should update the room list.
+                Debug.Log("Joining Lobby...");
             }
             else
             {
@@ -97,23 +116,27 @@ namespace ServerInteraction
                 informText.color = Color.yellow;
             }
         }
-        
-        // This callback is triggered once room list is updated
-        public override void OnRoomListUpdate(List<RoomInfo> roomList)
-        {
-            foreach (var room in roomList)
-            {
-                availableRooms.Add(room);
-                Debug.Log("Room available: " + room.Name);
-            }
 
-            // Log the available rooms count after filtering
-            Debug.Log("Filtered Available Rooms: " + availableRooms.Count);
+        public override void OnJoinedLobby()
+        {
+            base.OnJoinedLobby();
+            isInLobby = true;
+            Debug.Log("Successfully joined the Lobby.");
+            informText.fontStyle = FontStyles.Normal;
+            informText.text = "Already connected, ready to create or join rooms.";
+            informText.color = Color.green;
+        }
+
+        public override void OnLeftLobby()
+        {
+            base.OnLeftLobby();
+            isInLobby = false;
+            Debug.Log("Left the Lobby.");
         }
 
         void OnConfirmSelection()
         {
-            if (PhotonNetwork.IsConnectedAndReady)
+            if (PhotonNetwork.IsConnectedAndReady && isInLobby)
             {
                 int selectedOption = roomOptionsDropdown.value;
 
@@ -133,10 +156,12 @@ namespace ServerInteraction
             }
             else
             {
-                Debug.LogWarning("Photon is not connected yet. Please wait...");
+                Debug.LogWarning("Photon is not connected or not in the lobby yet. Please wait...");
+                informText.text = "Unable to proceed. Waiting to join the lobby...";
+                informText.color = Color.red;
             }
         }
-        
+
         void CreateRoom()
         {
             // Room options (customize these as needed)
@@ -150,58 +175,62 @@ namespace ServerInteraction
             // Create a room with a random name
             string roomName = new Random().Next(1000, 9999).ToString(); // Random room name
             PhotonNetwork.CreateRoom(roomName, roomOptions); // Create the room
-            PlayerPrefs.SetString("roomPasscode", roomName); // Save the room passcode in PlayerPrefs
+            Debug.Log($"Room '{roomName}' creation initiated.");
         }
-        
+
         public override void OnCreatedRoom()
         {
-            // Accessing the current room properties
-            Room room = PhotonNetwork.CurrentRoom;
-
-            // Accessing basic room information
-            Debug.Log("Room Name: " + room.Name);
-            Debug.Log("Max Players: " + room.MaxPlayers);
-            Debug.Log("Player Count: " + room.PlayerCount);
-            
-            PhotonNetwork.LoadLevel("LobbyScene");
-            
-            
+            base.OnCreatedRoom();
+            Debug.Log("Room successfully created. Loading LobbyScene.");
+            if (!isSceneLoading)
+            {
+                isSceneLoading = true;
+                PhotonNetwork.LoadLevel("LobbyScene");
+            }
         }
 
         public override void OnCreateRoomFailed(short returnCode, string message)
         {
             Debug.LogError("Room creation failed: " + message);
+            informText.text = "Room creation failed: " + message;
+            informText.color = Color.red;
         }
-        
+
         void JoinRoom()
         {
             string roomName = passcodeInputField.text;
             Debug.Log("Joining room: " + roomName);
             PhotonNetwork.JoinRoom(roomName);
-            
         }
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("Successfully joined the room.");
-            PhotonNetwork.LoadLevel("LobbyScene");
+            base.OnJoinedRoom();
+            Debug.Log("Successfully joined the room. Loading LobbyScene.");
+            if (!isSceneLoading)
+            {
+                isSceneLoading = true;
+                PhotonNetwork.LoadLevel("LobbyScene");
+            }
         }
 
         public override void OnJoinRoomFailed(short returnCode, string message)
         {
             Debug.LogError("Join room failed: " + message);
+            informText.text = "Join room failed: " + message;
+            informText.color = Color.red;
         }
 
         private void OnSignOutButtonClicked()
         {
             SceneManager.LoadScene("Scenes/SignOutScene");
         }
-        
+
         private void OnPasswordChangeButtonClicked()
         {
             SceneManager.LoadScene("PasswordChangeScene");
         }
-        
+
         private void OnGameContinueButtonClicked()
         {
             StartCoroutine(CreateContinueGameRequest());
@@ -240,8 +269,7 @@ namespace ServerInteraction
         {
             SceneManager.LoadScene("TestScene - Hiep/OptionsMatchHistoryScene");
         }
-        
-        
+
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator CreateContinueGameRequest()
         {
@@ -251,61 +279,59 @@ namespace ServerInteraction
             {
                 var gameContinueResponse = JsonUtility.FromJson<GameContinueResponse>(request.downloadHandler.text);
                 var currentPositionString = gameContinueResponse.currentPosition;
-                
+
                 if (gameContinueResponse.currentPosition != "")
                 {
                     var currentPositionNums = currentPositionString.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => float.Parse(s.Trim(), CultureInfo.InvariantCulture)).ToArray();
                     _playerPosition = new Vector3(currentPositionNums[0], currentPositionNums[1], currentPositionNums[2]);
                     _isNewGame = false;
                 }
-                
+
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 LoadSceneWithLoadingScreen(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
-                // SceneManager.LoadScene(gameContinueResponse.currentPosition != "" ? SceneNamesAndURLs.SceneUrLs[gameContinueResponse.sceneIndex - 1] : SceneNamesAndURLs.SceneUrLs[0]);
             }
             else
             {
                 print(request.downloadHandler.text);
             }
         }
-        
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            isSceneLoading = false;
             SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe after the scene is loaded to prevent multiple triggers.
             var player = GameObject.FindWithTag("Player");
-            if (player is null) return;
+            if (player == null) return;
             if (!_isNewGame)
             {
                 player.transform.position = _playerPosition;
             }
-            
-            print("Player position set after scene load.");
+
+            Debug.Log("Player position set after scene load.");
         }
 
         private IEnumerator CreateNewGameRequest()
         {
-            var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new []{ PlayerPrefs.GetString("userId") }, "POST");
+            var request = RequestGenerator(RootRequestURL + "/new-game", new[] { "userId" }, new[] { PlayerPrefs.GetString("userId") }, "POST");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
                 LoadSceneWithLoadingScreen("Scenes/1stscene");
-                // SceneManager.LoadScene("Scenes/1stscene");
             }
             else
             {
                 print(request.downloadHandler.text);
             }
         }
-        
+
         private IEnumerator CreatePlayerRankingRequest()
         {
-            var request = RequestGenerator(RootRequestURL + "/rank", new string[] {}, new string[] {}, "GET");
+            var request = RequestGenerator(RootRequestURL + "/rank", new string[] { }, new string[] { }, "GET");
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
                 PlayerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
-                LoadSceneWithLoadingScreen("Scenes/LeaderboardScene");   
-                // SceneManager.LoadScene("Scenes/LeaderboardScene");
+                LoadSceneWithLoadingScreen("Scenes/LeaderboardScene");
             }
             else
             {
@@ -360,7 +386,7 @@ namespace ServerInteraction
             request.SetRequestHeader("Content-Type", "application/json");
             return request;
         }
-        
+
         public void LoadSceneWithLoadingScreen(string sceneToLoad)
         {
             // Set the next scene name in the SceneLoader static class
