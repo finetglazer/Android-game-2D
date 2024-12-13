@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215b4a5c9e3447bca1f49b97020b6d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0.005
+  currentSpeed: 0.01
 --- !u!61 &431376385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7865,6 +7865,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 174069877}
+    - target: {fileID: 4387079605259758052, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+      propertyPath: jumpSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4387079605259758052, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
       propertyPath: currentHealth
       value: 15

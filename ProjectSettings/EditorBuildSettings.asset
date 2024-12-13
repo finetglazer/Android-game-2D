@@ -60,11 +60,17 @@ EditorBuildSettings:
     path: Assets/Scenes/EndingScene.unity
     guid: 83e90bf5e0820cd4da61e45db7c2c282
   - enabled: 1
+    path: Assets/Scenes/SoloScene.unity
+    guid: 2fa422a79226a7c48baef465070c836c
+  - enabled: 1
     path: Assets/TestScene - Hiep/SignInScene.unity
     guid: a2dc0f9794afe2844b25b97a45879679
   - enabled: 1
     path: Assets/TestScene - Hiep/DashboardScene.unity
-    guid: 21a4f2fda62ee2c4da71dfa0e277fb5a
+    guid: 38610b6edc0253b44b4f207b50ee7ee2
+  - enabled: 1
+    path: Assets/TestScene - Hiep/LeaderboardScene.unity
+    guid: 87a880e9c107f374d96429ee4279cf76
   - enabled: 1
     path: Assets/TestScene - Hiep/1stscene.unity
     guid: e3665c8654a72794ab74417e4657ce20
@@ -87,6 +93,18 @@ EditorBuildSettings:
     path: Assets/TestScene - Hiep/EndingScene.unity
     guid: fe99af51f4d677649b5fdbf843b9fc04
   - enabled: 1
-    path: Assets/Scenes/SoloScene.unity
-    guid: 2fa422a79226a7c48baef465070c836c
+    path: Assets/TestScene - Hiep/OptionsMatchHistoryScene.unity
+    guid: 5e9d9a18ebf644743950a6635434070a
+  - enabled: 1
+    path: Assets/TestScene - Hiep/SoloMatchHistoryScene.unity
+    guid: a357bd833906c1f49a3f21857592188a
+  - enabled: 1
+    path: Assets/TestScene - Hiep/SoloStatsMatchHistoryScene.unity
+    guid: a5348186a9304f64bb094e48a9969641
+  - enabled: 1
+    path: Assets/TestScene - Hiep/TeamMatchHistoryScene.unity
+    guid: a26ab2af7f103af4b8602d3813ab5ce4
+  - enabled: 1
+    path: Assets/TestScene - Hiep/TeamStatsMatchHistoryScene.unity
+    guid: 69fe1f5365d651341a4294677af68def
   m_configObjects: {}
