@@ -31,7 +31,7 @@ namespace MainCharacter
         private void Update()
         {
             // Only process input for the local player's character
-            if (!photonView.IsMine) return;
+            // if (!photonView.IsMine) return;
 
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {

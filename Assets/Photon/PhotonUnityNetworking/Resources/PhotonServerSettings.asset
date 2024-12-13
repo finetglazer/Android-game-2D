@@ -42,6 +42,11 @@ MonoBehaviour:
   - BroadcastChatMessage
   - StartMatch
   - SetPlayerReady
+  - TakeDamage
+  - CauseDamage
+  - SyncRespawn
+  - OnPhotonSerializeView
+  - SpawnPlayerRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

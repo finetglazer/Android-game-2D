@@ -127,7 +127,7 @@ namespace ServerInteraction
             SceneLoader.nextSceneName = sceneToLoad;
 
             // Load the loading scene
-            SceneManager.LoadScene("LoadingScene");
+            SceneManager.LoadScene("Scenes/FastLoadingScene");
         }
 
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Photon
 {
@@ -34,6 +33,9 @@ namespace Photon
         public Sprite readyIcon;
         public Sprite waitingIcon;
 
+        // Spawn points (optional)
+        public Transform[] spawnPoints;
+
         // Ready Status Tracking
         private Dictionary<int, bool> playerReadyStatus = new Dictionary<int, bool>();
 
@@ -43,10 +45,6 @@ namespace Photon
         {
             // Ensure the PhotonView is correctly assigned.
             _photonView = GetComponent<PhotonView>();
-            if (_photonView == null)
-            {
-                Debug.LogError("PhotonView is not attached to this GameObject.");
-            }
         }
 
         private void Start()
@@ -66,13 +64,24 @@ namespace Photon
             // Initialize button based on client role
             InitializeStartMatchButton();
 
-            passcodeText.text = $"Passcode: {PhotonNetwork.CurrentRoom.Name}"; // room name
+            if (PhotonNetwork.CurrentRoom != null)
+            {
+                passcodeText.text = $"Passcode: {PhotonNetwork.CurrentRoom.Name}"; // room name
+            }
+            else
+            {
+                passcodeText.text = "Not in a room";
+            }
 
             // Update the player slots
             UpdatePlayerSlots();
 
             // Register to the scene loaded event
             SceneManager.sceneLoaded += OnSceneLoaded;
+            
+            // Enable automatic scene synchronization
+            PhotonNetwork.AutomaticallySyncScene = true;
+
         }
 
         private void OnDestroy()
@@ -109,8 +118,9 @@ namespace Photon
         public override void OnLeftRoom()
         {
             base.OnLeftRoom();
+            PhotonNetwork.JoinLobby();
             // Load the previous scene (Dashboard, for example) after leaving the room
-            SceneManager.LoadScene("Scenes/DashboardScene");
+            PhotonNetwork.LoadLevel("Scenes/DashboardScene");
         }
 
         public override void OnJoinedRoom()
@@ -131,7 +141,9 @@ namespace Photon
             }
             else
             {
-                startMatchButton.GetComponentInChildren<TMP_Text>().text = "Ready";
+                // Check if the player is already ready
+                bool isReady = playerReadyStatus.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber) && playerReadyStatus[PhotonNetwork.LocalPlayer.ActorNumber];
+                startMatchButton.GetComponentInChildren<TMP_Text>().text = isReady ? "Unready" : "Ready";
                 // Non-master clients don't start the match, so ensure button is interactable
                 startMatchButton.interactable = true;
             }
@@ -174,6 +186,12 @@ namespace Photon
 
             UpdatePlayerSlots();
             UpdateStartMatchButtonInteractable();
+
+            // If the RPC is for the local player and they are not the master, update the button text
+            if (actorNumber == PhotonNetwork.LocalPlayer.ActorNumber && !PhotonNetwork.IsMasterClient)
+            {
+                startMatchButton.GetComponentInChildren<TMP_Text>().text = isReady ? "Unready" : "Ready";
+            }
         }
 
         bool AreAllNonMasterPlayersReady()
@@ -197,7 +215,7 @@ namespace Photon
             }
             else
             {
-                // Non-master clients' button is always interactable for readying
+                // Non-master clients' button is always interactable for readying/unreadying
                 startMatchButton.interactable = true;
             }
         }
@@ -264,31 +282,22 @@ namespace Photon
             }
         }
 
-        // RPC method that is called on all clients to start the match
         [PunRPC]
         void StartMatch()
         {
-            // All clients will execute this method
-            Debug.Log("StartMatch RPC called");
-
-            // Load the match scene for all players
-            PhotonNetwork.LoadLevel("EndingScene"); // Replace with your actual match scene name
+            // Load the SoloScene for all players
+            PhotonNetwork.LoadLevel("SoloScene"); // Ensure SoloScene is added to Build Settings
         }
 
-        // This method is called when the scene has finished loading on all clients
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (scene.name == "SoloScene")
             {
-                // Define the spawn position (can be random or fixed depending on your needs)
-                Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), 0f, 0f);  // Example spawn position
-
-                // Instantiate the player object for each player in the room
-                PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, Quaternion.identity);
+                
             }
         }
 
-        // New method to handle Leave Room button click
+        // Method to handle Leave Room button click
         void OnLeaveRoomButtonClicked()
         {
             PhotonNetwork.LeaveRoom();
