@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ServerInteraction.MatchHistoryManager.Solo
@@ -8,13 +9,13 @@ namespace ServerInteraction.MatchHistoryManager.Solo
     public class SoloStatsMatchHistoryManager : MonoBehaviour
     {
         public TMP_Text durationText;
-        public Button backToSoloMatchHistoryButton;
+        public Button backToMatchHistoryButton;
         public GameObject winnerFrame;
         public GameObject loserFrame;
 
         private void Start()
         {
-            backToSoloMatchHistoryButton.onClick.AddListener(OnBackToSoloMatchHistoryButtonClicked);
+            backToMatchHistoryButton.onClick.AddListener(OnBackToMatchHistoryButtonClicked);
             var winnerContent = winnerFrame.GetComponentInChildren<TextMeshProUGUI>();
             var winnerPointsText = winnerFrame.transform.Find("Points").GetComponentInChildren<TextMeshProUGUI>();
             var winnerDamageDealtText = winnerFrame.transform.Find("DamageDealt").GetComponentInChildren<TextMeshProUGUI>();
@@ -44,9 +45,9 @@ namespace ServerInteraction.MatchHistoryManager.Solo
             loserDamageTakenText.text = loser.damageTaken.ToString("F1");
         }
 
-        private void OnBackToSoloMatchHistoryButtonClicked()
+        private void OnBackToMatchHistoryButtonClicked()
         {
-            SceneManager.LoadScene("TestScene - Hiep/SoloMatchHistoryScene");
+            SceneManager.LoadScene("TestScene - Hiep/MatchHistoryScene");
         }
     }
 }

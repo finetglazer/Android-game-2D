@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationText: {fileID: 551705579}
-  backToSoloMatchHistoryButton: {fileID: 2120142111}
+  backToMatchHistoryButton: {fileID: 2120142111}
   winnerFrame: {fileID: 1456045918}
   loserFrame: {fileID: 613551575}
 --- !u!1 &530891311
@@ -2982,7 +2982,7 @@ GameObject:
   - component: {fileID: 2120142112}
   - component: {fileID: 2120142111}
   m_Layer: 5
-  m_Name: BackToSoloMatchHistoryButton
+  m_Name: BackToMatchHistoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

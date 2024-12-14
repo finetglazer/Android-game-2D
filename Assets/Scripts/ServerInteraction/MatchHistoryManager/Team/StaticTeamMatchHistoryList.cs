@@ -1,5 +1,4 @@
-﻿using ServerInteraction.Responses;
-
+﻿using Models;
 namespace ServerInteraction.MatchHistoryManager.Solo
 {
     public static class StaticTeamMatchHistoryList
