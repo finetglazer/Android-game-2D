@@ -50631,6 +50631,10 @@ PrefabInstance:
       propertyPath: moveAction.m_SingletonActionBindings.Array.data[2].m_Interactions
       value: Press
       objectReference: {fileID: 0}
+    - target: {fileID: 7168787021346190846, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3781711636355175316, guid: 978fa2fb617654f5eaeff9da6fc7d116, type: 3}
     m_RemovedGameObjects: []

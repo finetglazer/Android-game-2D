@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ServerInteraction.MatchHistoryManager.Team
@@ -9,13 +10,13 @@ namespace ServerInteraction.MatchHistoryManager.Team
     public class TeamStatsMatchHistoryManager : MonoBehaviour
     {
         public TMP_Text durationText;
-        public Button backToTeamMatchHistoryButton;
+        [FormerlySerializedAs("backToTeamMatchHistoryButton")] public Button backToMatchHistoryButton;
         public GameObject[] playerFrameList;
 
         private void Start()
         {
             var teamMatchHistory = StaticTeamMatchHistoryList.teamMatchHistoryList[StaticTeamMatchHistoryList.teamMatchHistoryIndex];
-            backToTeamMatchHistoryButton.onClick.AddListener(OnBackToTeamMatchHistoryButtonClicked);
+            backToMatchHistoryButton.onClick.AddListener(OnBackToMatchHistoryButtonClicked);
             durationText.text = teamMatchHistory.duration.ToString();
             for (var i = 0; i < teamMatchHistory.teamSize; ++i)
             {
@@ -27,9 +28,9 @@ namespace ServerInteraction.MatchHistoryManager.Team
             }
         }
 
-        private void OnBackToTeamMatchHistoryButtonClicked()
+        private void OnBackToMatchHistoryButtonClicked()
         {
-            SceneManager.LoadScene("TestScene - Hiep/TeamMatchHistoryScene");
+            SceneManager.LoadScene("TestScene - Hiep/MatchHistoryScene");
         }
     }
 }

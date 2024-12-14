@@ -1,26 +1,11 @@
-﻿using UnityEngine;
+﻿using Models;
+using UnityEngine;
 
 namespace ServerInteraction.Responses
 {
-    public class GetTeamMatchHistoryResponse
+    public class GetTeamMatchHistoryResponseByTeamNameResponse
     {
         public TeamMatchHistoryModel[] teamMatchHistoryList;
-    }
-    public class TeamMatchHistoryModel
-    {
-        public string id;
-        public int duration;
-        public string startTime;   // dd-mm-yyyy hh:mm
-        public TeamMember[] teamMembers;
-        public string teamName;
-        public int teamSize;
-    }
-
-    public class TeamMember
-    {
-        public string userId;
-        public string username;
-        public int deathCount;
     }
 }  
         
