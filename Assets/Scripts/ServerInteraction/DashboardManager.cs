@@ -48,7 +48,7 @@ namespace ServerInteraction
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             leaderboardButton.onClick.AddListener(OnLeaderboardButtonClicked);
-            matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
+            // matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
 
@@ -61,6 +61,8 @@ namespace ServerInteraction
 
             PhotonNetwork.NickName = PlayerPrefs.GetString("alias", "Player");
 
+            // **Add AutomaticallySyncScene before connecting or joining**
+            PhotonNetwork.AutomaticallySyncScene = true; // Ensure this is set before connecting to Photon
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 if (PhotonNetwork.InRoom)

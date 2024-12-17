@@ -25,9 +25,6 @@ namespace Photon
         [Header("UI Texts")]
         public TMP_Text passcodeText;
 
-        [Header("Player Prefab")]
-        public GameObject playerPrefab;
-
         [Header("Icons")]
         public Sprite masterIcon;
         public Sprite readyIcon;
@@ -79,9 +76,26 @@ namespace Photon
             // Register to the scene loaded event
             SceneManager.sceneLoaded += OnSceneLoaded;
             
-            // Enable automatic scene synchronization
-            PhotonNetwork.AutomaticallySyncScene = true;
+           
 
+            
+        }
+        
+        void AssignSpawnIndicesToAllPlayers()
+        {
+            
+            // Make sure you have the same spawnPoints array or logic available here.
+            // For simplicity, we’ll just assign indices in order of PlayerList.
+            Player[] players = PhotonNetwork.PlayerList;
+            Debug.LogWarning(players.Length);            
+            for (int i = 0; i < players.Length; i++)
+            {
+                int spawnIndex = i % spawnPoints.Length;
+                ExitGames.Client.Photon.Hashtable spawnProps = new ExitGames.Client.Photon.Hashtable();
+                spawnProps["SpawnIndex"] = spawnIndex;
+                players[i].SetCustomProperties(spawnProps);
+                Debug.Log("Assignin spawn index to player " + players[i].NickName);
+            }
         }
 
         private void OnDestroy()
@@ -285,6 +299,10 @@ namespace Photon
         [PunRPC]
         void StartMatch()
         {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                AssignSpawnIndicesToAllPlayers(); // Assign here when all players are present and ready
+            }
             // Load the SoloScene for all players
             PhotonNetwork.LoadLevel("SoloScene"); // Ensure SoloScene is added to Build Settings
         }

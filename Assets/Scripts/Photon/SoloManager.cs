@@ -2,37 +2,26 @@
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
+using ExitGames.Client.Photon;
 
 namespace Photon
 {
     public class SoloSceneManager : MonoBehaviourPunCallbacks
     {
         [Header("Player Settings")]
-        [Tooltip("Player prefab must be placed inside a Resources folder.")]
         public GameObject playerPrefab;
-
-        [Tooltip("Assign spawn points in the Inspector.")]
         public Transform[] spawnPoints;
 
         [Header("UI Elements")]
-        [Tooltip("Button to leave the room.")]
         public Button leaveButton;
 
-        // Flag to prevent multiple LeaveRoom calls
+        private bool hasSpawned = false;
         private bool isLeaving = false;
 
         private void Awake()
         {
-            // Ensure PhotonView is attached to this GameObject
-            if (photonView == null)
-            {
-                Debug.LogError("PhotonView is not attached to SoloSceneManager.");
-            }
-
-            // Implement Singleton pattern to ensure only one instance exists
             if (FindObjectsOfType<SoloSceneManager>().Length > 1)
             {
-                Debug.LogWarning("Multiple SoloSceneManager instances detected. Destroying duplicate.");
                 Destroy(this.gameObject);
             }
             else
@@ -43,82 +32,88 @@ namespace Photon
 
         private void Start()
         {
-            // Spawn the local player
-            SpawnLocalPlayer();
+            // Attempt to spawn the player immediately if SpawnIndex is already available.
+            if (!hasSpawned && PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("SpawnIndex", out object indexObj))
+            {
+                int spawnIndex = (int)indexObj;
+                SpawnLocalPlayer(spawnIndex);
+                hasSpawned = true;
+            }
 
-            // Setup Leave Room button
+            // Set up leave button
             if (leaveButton != null)
             {
-                leaveButton.onClick.RemoveAllListeners(); // Prevent multiple listeners
+                leaveButton.onClick.RemoveAllListeners();
                 leaveButton.onClick.AddListener(LeaveRoom);
             }
             else
             {
                 Debug.LogError("Leave Button is not assigned in the Inspector.");
             }
+
+            // Debug check for non-master client
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                Debug.Log("Non-master client detected. Waiting for SpawnIndex to be set if not already.");
+            }
         }
 
-        /// <summary>
-        /// Spawns the local player at the assigned spawn point.
-        /// </summary>
-        void SpawnLocalPlayer()
+        public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
         {
+            base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
+
+            // If the local player's SpawnIndex is set later, spawn now.
+            if (targetPlayer == PhotonNetwork.LocalPlayer && changedProps.ContainsKey("SpawnIndex") && !hasSpawned)
+            {
+                int spawnIndex = (int)changedProps["SpawnIndex"];
+                SpawnLocalPlayer(spawnIndex);
+                hasSpawned = true;
+            }
+        }
+
+        private void SpawnLocalPlayer(int spawnIndex)
+        {
+            Debug.Log("The call");
             if (playerPrefab == null)
             {
                 Debug.LogError("Player Prefab is not assigned in SoloSceneManager.");
                 return;
             }
 
-            Vector3 spawnPosition = Vector3.zero;
-            Quaternion spawnRotation = Quaternion.identity;
-            int spawnIndex = 0;
+            Vector3 spawnPosition;
+            Quaternion spawnRotation;
 
-            if (spawnPoints != null && spawnPoints.Length > 0)
+            if (spawnIndex >= 0 && spawnPoints != null && spawnIndex < spawnPoints.Length)
             {
-                spawnIndex = (PhotonNetwork.LocalPlayer.ActorNumber - 1) % spawnPoints.Length;
                 spawnPosition = spawnPoints[spawnIndex].position;
                 spawnRotation = spawnPoints[spawnIndex].rotation;
             }
             else
             {
-                // Default spawn position if no spawn points are assigned
                 spawnPosition = new Vector3(Random.Range(-5f, 5f), 0f, 0f);
-                Debug.LogWarning("No spawn points assigned. Spawning at a random position.");
+                spawnRotation = Quaternion.identity;
+                Debug.LogWarning("No valid spawn point found. Spawning at a random position.");
             }
 
-            Debug.Log($"Spawning player {PhotonNetwork.LocalPlayer.NickName} at index {spawnIndex} position {spawnPosition}");
-
-            // Instantiate the player prefab across the network
+            Debug.Log($"Spawning player {PhotonNetwork.LocalPlayer.NickName} at {spawnPosition} with SpawnIndex {spawnIndex}");
             GameObject instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnRotation);
-            if (instantiatedPlayer != null)
-            {
-                Debug.Log($"Player instantiated for ActorNumber: {PhotonNetwork.LocalPlayer.ActorNumber} at {spawnPosition}");
-            }
-            else
+            if (instantiatedPlayer == null)
             {
                 Debug.LogError("Failed to instantiate player prefab in SoloScene.");
             }
         }
 
-        /// <summary>
-        /// Handles the Leave Room button click.
-        /// </summary>
         private void LeaveRoom()
         {
-            if (isLeaving)
-            {
-                Debug.LogWarning("Already leaving the room. Please wait.");
-                return;
-            }
+            if (isLeaving) return;
 
             if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom)
             {
                 isLeaving = true;
                 if (leaveButton != null)
                 {
-                    leaveButton.interactable = false; // Disable the button to prevent multiple clicks
+                    leaveButton.interactable = false; 
                 }
-                Debug.Log("Leaving the room...");
                 PhotonNetwork.LeaveRoom();
             }
             else
@@ -127,46 +122,11 @@ namespace Photon
             }
         }
 
-        /// <summary>
-        /// Callback when the client has successfully left the room.
-        /// </summary>
         public override void OnLeftRoom()
         {
-            Debug.Log("Successfully left the room. Joining lobby and loading DashboardScene.");
             base.OnLeftRoom();
             PhotonNetwork.JoinLobby();
-
-            // Load the DashboardScene, ensure it's added to Build Settings
             PhotonNetwork.LoadLevel("Scenes/DashboardScene");
-        }
-
-        /// <summary>
-        /// Callback when the client has joined the lobby.
-        /// </summary>
-        public override void OnJoinedLobby()
-        {
-            base.OnJoinedLobby();
-            Debug.Log("Joined the lobby.");
-        }
-
-        /// <summary>
-        /// Callback when another player joins the room.
-        /// </summary>
-        /// <param name="newPlayer">The player who joined.</param>
-        public override void OnPlayerEnteredRoom(Player newPlayer)
-        {
-            base.OnPlayerEnteredRoom(newPlayer);
-            Debug.Log($"Player {newPlayer.NickName} entered the room.");
-        }
-
-        /// <summary>
-        /// Callback when a player leaves the room.
-        /// </summary>
-        /// <param name="otherPlayer">The player who left.</param>
-        public override void OnPlayerLeftRoom(Player otherPlayer)
-        {
-            base.OnPlayerLeftRoom(otherPlayer);
-            Debug.Log($"Player {otherPlayer.NickName} left the room.");
         }
     }
 }

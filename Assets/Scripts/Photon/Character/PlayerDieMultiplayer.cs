@@ -53,38 +53,38 @@ namespace Photon.Character
             transform.position = _respawnPoint;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<MovementMultiplayer>().currentHealth = 15;
-            GetComponent<MovementMultiplayer>().healthBar.SetActive(true);
+            // GetComponent<MovementMultiplayer>().healthBar.SetActive(true);
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             print("Player respawned at: " + _respawnPoint);
 
             // Handle scene-specific respawn logic
-            switch (SceneManager.GetActiveScene().name)
-            {
-                case "6thScene":
-                    if (FireAccelerationAndCauseDamage.FireIsOngoing == false)
-                    {
-                        break;
-                    }
-                    var fireWall = GameObject.Find("FireWalls");
-                    var playerPosition = gameObject.transform.position;
-                    fireWall.SetActive(true);
-                    fireWall.GetComponent<GameObjects.Fire.Movement>().currentSpeed = 0.005f;
-                    fireWall.transform.position = new Vector2(playerPosition.x - 5f, playerPosition.y);
-                    break;
-                case "9thscene":
-                    if (WaterAccelerationAndCauseDamage.WaterIsOngoing == false)
-                    {
-                        break;
-                    }
-
-                    var water = GameObject.Find("Water");
-                    playerPosition = gameObject.transform.position;
-                    water.SetActive(true);
-                    water.GetComponent<GameObjects.Water.Movement>().currentSpeed = 0.01f;
-                    water.transform.position = new Vector2(playerPosition.x, playerPosition.y - 100f);
-                    print(water.transform.position.y);
-                    break;
-            }
+            // switch (SceneManager.GetActiveScene().name)
+            // {
+            //     case "6thScene":
+            //         if (FireAccelerationAndCauseDamage.FireIsOngoing == false)
+            //         {
+            //             break;
+            //         }
+            //         var fireWall = GameObject.Find("FireWalls");
+            //         var playerPosition = gameObject.transform.position;
+            //         fireWall.SetActive(true);
+            //         fireWall.GetComponent<GameObjects.Fire.Movement>().currentSpeed = 0.005f;
+            //         fireWall.transform.position = new Vector2(playerPosition.x - 5f, playerPosition.y);
+            //         break;
+            //     case "9thscene":
+            //         if (WaterAccelerationAndCauseDamage.WaterIsOngoing == false)
+            //         {
+            //             break;
+            //         }
+            //
+            //         var water = GameObject.Find("Water");
+            //         playerPosition = gameObject.transform.position;
+            //         water.SetActive(true);
+            //         water.GetComponent<GameObjects.Water.Movement>().currentSpeed = 0.01f;
+            //         water.transform.position = new Vector2(playerPosition.x, playerPosition.y - 100f);
+            //         print(water.transform.position.y);
+            //         break;
+            // }
 
             // Optionally synchronize respawn across network
             // PhotonView.RPC("SyncRespawn", RpcTarget.Others, _respawnPoint);
@@ -98,7 +98,7 @@ namespace Photon.Character
                 transform.position = respawnPosition;
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<MovementMultiplayer>().currentHealth = 15;
-                GetComponent<MovementMultiplayer>().healthBar.SetActive(true);
+                // GetComponent<MovementMultiplayer>().healthBar.SetActive(true);
                 transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 print("Player respawned at: " + _respawnPoint);
             }

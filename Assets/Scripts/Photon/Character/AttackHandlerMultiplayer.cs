@@ -38,14 +38,14 @@ namespace Photon.Character
             }
 
             // Common updates
-            if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
-            {
-                if (photonView.IsMine)
-                {
-                    gameObject.GetComponent<PlayerDie>().Die();
-                }
-                return;
-            }
+            // if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
+            // {
+            //     if (photonView.IsMine)
+            //     {
+            //         gameObject.GetComponent<PlayerDie>().Die();
+            //     }
+            //     return;
+            // }
 
             if (EnemyIsInDamageDealtDistance())
             {
@@ -80,6 +80,14 @@ namespace Photon.Character
             _enemy = null;
             return false;
         }
+        
+        
+        // Temporary no-op to stop warnings
+        public void CauseDamage() 
+        {
+            // Temporary no-op to stop warnings
+        }
+
 
         // ReSharper disable Unity.PerformanceAnalysis
         // [PunRPC]
