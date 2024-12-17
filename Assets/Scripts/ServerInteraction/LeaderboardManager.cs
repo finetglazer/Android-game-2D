@@ -41,7 +41,7 @@ namespace ServerInteraction
         
         private void OnEnable()
         {
-            var playerRankingResponse = DashboardManager.PlayerRankingResponse;
+            var playerRankingResponse = DashboardManager.GetAllSingleStatsResponse;
             for (var i = 0; i < playerRankingResponse.usernameList.Length; i++)
             {
                 var rank = i + 1;

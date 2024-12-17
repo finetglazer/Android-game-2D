@@ -12,10 +12,12 @@ using Photon.Pun.Demo.Cockpit.Forms;
 using Photon.Realtime;
 
 using ServerInteraction.Responses;
+using SingleLeaderboard;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = System.Random;
 
@@ -31,14 +33,15 @@ namespace ServerInteraction
 
         public Button newGameButton;
         public Button continueGameButton;
-        public Button leaderboardButton;
+        public Button soloLeaderboardButton;
+        public Button singleLeaderboardButton;
         public Button matchHistoryButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
         public Button signOutButton;
         private bool _isNewGame = true;
-        internal static PlayerRankingResponse PlayerRankingResponse = new();
+        internal static GetAllSingleStatsResponse GetAllSingleStatsResponse = new();
 
         private bool isInLobby = false;
         private bool isSceneLoading = false;
@@ -47,7 +50,8 @@ namespace ServerInteraction
         {
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
-            leaderboardButton.onClick.AddListener(OnLeaderboardButtonClicked);
+            soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
+            singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
             matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
@@ -241,11 +245,23 @@ namespace ServerInteraction
             StartCoroutine(CreateNewGameRequest());
         }
 
-        private async void OnLeaderboardButtonClicked()
+        private async void OnSoloLeaderboardButtonClicked()
         {
             try
             {
                 await CreateGetAllSoloStatsRequest();
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
+        }
+
+        private async void OnSingleLeaderboardButtonClicked()
+        {
+            try
+            {
+                await CreateGetAllSingleStatsRequest();
             }
             catch (Exception e)
             {
@@ -330,7 +346,7 @@ namespace ServerInteraction
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                PlayerRankingResponse = JsonUtility.FromJson<PlayerRankingResponse>(request.downloadHandler.text);
+                GetAllSingleStatsResponse = JsonUtility.FromJson<GetAllSingleStatsResponse>(request.downloadHandler.text);
                 LoadSceneWithLoadingScreen("Scenes/LeaderboardScene");
             }
             else
@@ -347,7 +363,23 @@ namespace ServerInteraction
                 var response = await client.GetStringAsync(RootRequestURL + "/get-all-solo-stats");
                 var statsResponseList = JsonConvert.DeserializeObject<GetAllSoloStatsResponse>(response).soloStatsList;
                 LeaderboardUIScript.SoloStatsList = statsResponseList;
-                SceneManager.LoadScene("TestScene - Hiep/LeaderboardScene");
+                SceneManager.LoadScene("TestScene - Hiep/SoloLeaderboardScene");
+            }
+            catch (Exception e)
+            {
+                print(e.ToString());
+            }
+        }
+
+        private async Task CreateGetAllSingleStatsRequest()
+        {
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.GetStringAsync(RootRequestURL + "/get-all-single-stats");
+                var statsResponseLists = JsonConvert.DeserializeObject<GetAllSingleStatsResponse>(response);
+                StaticSingleLeaderboardLists.allSingleStatsLists = statsResponseLists;
+                SceneManager.LoadScene("TestScene - Hiep/SingleLeaderboardScene");
             }
             catch (Exception e)
             {
