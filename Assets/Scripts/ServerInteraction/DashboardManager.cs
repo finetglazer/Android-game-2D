@@ -269,7 +269,7 @@ namespace ServerInteraction
 
         private void OnMatchHistoryButtonClicked()
         {
-            SceneManager.LoadScene("TestScene - Hiep/OptionsMatchHistoryScene");
+            SceneManager.LoadScene("TestScene - Hiep/MatchHistoryScene");
         }
 
         // ReSharper disable Unity.PerformanceAnalysis

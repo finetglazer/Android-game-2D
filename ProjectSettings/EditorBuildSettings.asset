@@ -96,7 +96,7 @@ EditorBuildSettings:
     path: Assets/TestScene - Hiep/OptionsMatchHistoryScene.unity
     guid: 5e9d9a18ebf644743950a6635434070a
   - enabled: 1
-    path: Assets/TestScene - Hiep/SoloMatchHistoryScene.unity
+    path: Assets/TestScene - Hiep/MatchHistoryScene.unity
     guid: a357bd833906c1f49a3f21857592188a
   - enabled: 1
     path: Assets/TestScene - Hiep/SoloStatsMatchHistoryScene.unity
