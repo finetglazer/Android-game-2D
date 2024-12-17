@@ -256,9 +256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'PK mode
-
-'
+  m_text: Solo mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 806dd5652628b5c4c85673e6cc07f895, type: 2}
   m_sharedMaterial: {fileID: -2940875413807154895, guid: 806dd5652628b5c4c85673e6cc07f895, type: 2}
@@ -611,7 +609,7 @@ GameObject:
   - component: {fileID: 1835391358}
   - component: {fileID: 1835391357}
   m_Layer: 0
-  m_Name: PKBtn
+  m_Name: SoloBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
