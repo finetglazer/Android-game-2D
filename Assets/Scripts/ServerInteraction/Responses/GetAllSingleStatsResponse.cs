@@ -1,6 +1,6 @@
 ﻿namespace ServerInteraction.Responses
 {
-    public class PlayerRankingResponse
+    public class GetAllSingleStatsResponse
     {
         public string[] usernameList;
         public float[] finalFinishTimeList;
