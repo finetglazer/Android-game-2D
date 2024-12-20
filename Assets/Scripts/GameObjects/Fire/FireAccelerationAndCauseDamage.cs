@@ -23,9 +23,11 @@ namespace GameObjects.Fire
 
             if (other.name.Contains("FireEndingPoint"))
             {
-                gameObject.SetActive(false);
+                // gameObject.SetActive(false);
                 FireIsOngoing = false;
-                return;
+                // speed = 0;
+                _fireMovement.currentSpeed = 0;
+                // return;
             }
             
             if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies
