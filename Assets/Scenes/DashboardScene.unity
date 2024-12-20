@@ -2355,8 +2355,6 @@ MonoBehaviour:
   joinButton: {fileID: 853334007}
   newGameButton: {fileID: 248610484}
   continueGameButton: {fileID: 2095661161}
-  leaderboardButton: {fileID: 754519972}
-  matchHistoryButton: {fileID: 0}
   passwordChangeButton: {fileID: 1793913012}
   signOutButton: {fileID: 1474616787}
 --- !u!1 &943813860

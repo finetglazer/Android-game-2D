@@ -33,9 +33,9 @@ namespace ServerInteraction
 
         public Button newGameButton;
         public Button continueGameButton;
-        public Button soloLeaderboardButton;
-        public Button singleLeaderboardButton;
-        public Button matchHistoryButton;
+        // public Button soloLeaderboardButton;
+        // public Button singleLeaderboardButton;
+        // public Button matchHistoryButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
@@ -46,48 +46,58 @@ namespace ServerInteraction
         private bool isInLobby = false;
         private bool isSceneLoading = false;
 
-        private void Start()
+              private void Start()
         {
+            // Attach listeners to buttons
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
-            // leaderboardButton.onClick.AddListener(OnLeaderboardButtonClicked);
-            // matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
-            soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
-            singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
-            matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
+            // future leaderboard or match history handlers go here...
+
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
 
             confirmButton.onClick.AddListener(OnConfirmSelection);
 
-            // Set the default Inactive with the passcode input field
+            // Initially hide passcode input and join button
             passcodeInputField.gameObject.SetActive(false);
             joinButton.gameObject.SetActive(false);
-            joinButton.onClick.RemoveAllListeners(); // Ensure no previous listeners
+            joinButton.onClick.RemoveAllListeners();
+
+            // Disable confirm button until lobby is joined
+            confirmButton.interactable = false;
 
             PhotonNetwork.NickName = PlayerPrefs.GetString("alias", "Player");
+            PhotonNetwork.AutomaticallySyncScene = true;
 
-            // **Add AutomaticallySyncScene before connecting or joining**
-            PhotonNetwork.AutomaticallySyncScene = true; // Ensure this is set before connecting to Photon
+            // Check Photon connection state
             if (PhotonNetwork.IsConnectedAndReady)
             {
                 if (PhotonNetwork.InRoom)
                 {
-                    Debug.Log("Leaving the current room before proceeding.");
+                    Debug.Log("Leaving current room before proceeding to dashboard logic.");
                     PhotonNetwork.LeaveRoom();
                 }
                 else if (!PhotonNetwork.InLobby)
                 {
-                    Debug.Log("Joining the lobby.");
+                    Debug.Log("Joining the lobby, please wait...");
+                    informText.text = "Joining the lobby, please wait...";
+                    informText.color = Color.yellow;
+                    informText.fontStyle = FontStyles.Italic;
                     PhotonNetwork.JoinLobby();
                 }
                 else
                 {
-                    Debug.Log("Already in the lobby.");
+                    // Already in the lobby
+                    isInLobby = true;
+                    confirmButton.interactable = true;
+                    informText.text = "Already connected, ready to create or join rooms.";
+                    informText.color = Color.green;
+                    informText.fontStyle = FontStyles.Normal;
                 }
             }
             else
             {
+                // Not connected yet, connect to Photon
                 Debug.Log("Connecting to Photon...");
                 informText.text = "Connecting to Photon...";
                 informText.color = Color.yellow;
@@ -95,7 +105,7 @@ namespace ServerInteraction
                 PhotonNetwork.ConnectUsingSettings();
             }
 
-            // Subscribe to sceneLoaded
+            // Subscribe to sceneLoaded for position setting after new game/continue
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -131,8 +141,11 @@ namespace ServerInteraction
             isInLobby = true;
             Debug.Log("Successfully joined the Lobby.");
             informText.fontStyle = FontStyles.Normal;
-            informText.text = "Already connected, ready to create or join rooms.";
+            informText.text = "Connected, you can create or join rooms.";
             informText.color = Color.green;
+
+            // Now allow the user to proceed
+            confirmButton.interactable = true;
         }
 
         public override void OnLeftLobby()
@@ -140,51 +153,36 @@ namespace ServerInteraction
             base.OnLeftLobby();
             isInLobby = false;
             Debug.Log("Left the Lobby.");
+            informText.text = "Left the lobby. Please wait...";
+            informText.color = Color.yellow;
+            confirmButton.interactable = false;
         }
-
+        
+        
         void OnConfirmSelection()
         {
-            if (PhotonNetwork.IsConnectedAndReady && isInLobby)
+            if (!PhotonNetwork.InLobby)
             {
-                int selectedOption = roomOptionsDropdown.value;
-
-                // If the user wants to create a new room
-                if (selectedOption == 0)
-                {
-                    CreateRoom();
-                    passcodeInputField.gameObject.SetActive(false); // Hide the passcode input field
-                    joinButton.gameObject.SetActive(false); // Hide the join button
-                }
-                else if (selectedOption == 1) // If the user wants to join an existing room
-                {
-                    passcodeInputField.gameObject.SetActive(true); // Show passcode input field
-                    joinButton.gameObject.SetActive(true); // Show join button
-                    joinButton.onClick.AddListener(JoinRoom); // Attach the JoinRoom function to the join button
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Photon is not connected or not in the lobby yet. Please wait...");
                 informText.text = "Unable to proceed. Waiting to join the lobby...";
                 informText.color = Color.red;
+                return;
+            }
+
+            int selectedOption = roomOptionsDropdown.value;
+            if (selectedOption == 0)
+            {
+                // Load CreateRoomScene where user chooses Solo or Multi mode
+                PhotonNetwork.LoadLevel("CreateRoomScene");
+            }
+            else if (selectedOption == 1)
+            {
+                // Join an existing room
+                passcodeInputField.gameObject.SetActive(true);
+                joinButton.gameObject.SetActive(true);
+                joinButton.onClick.AddListener(JoinRoom);
             }
         }
-
-        void CreateRoom()
-        {
-            // Room options (customize these as needed)
-            RoomOptions roomOptions = new RoomOptions
-            {
-                MaxPlayers = 4,    // Max players in the room
-                IsVisible = true,   // Room is visible to others
-                IsOpen = true       // Room is open for players to join
-            };
-
-            // Create a room with a random name
-            string roomName = new Random().Next(1000, 9999).ToString(); // Random room name
-            PhotonNetwork.CreateRoom(roomName, roomOptions); // Create the room
-            Debug.Log($"Room '{roomName}' creation initiated.");
-        }
+        
 
         public override void OnCreatedRoom()
         {
@@ -210,7 +208,8 @@ namespace ServerInteraction
             Debug.Log("Joining room: " + roomName);
             PhotonNetwork.JoinRoom(roomName);
         }
-
+        
+        
         public override void OnJoinedRoom()
         {
             base.OnJoinedRoom();

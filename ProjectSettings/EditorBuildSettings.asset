@@ -27,8 +27,17 @@ EditorBuildSettings:
     path: Assets/Scenes/DashboardScene.unity
     guid: 769b4c33d345d3c42b5bc3c737860234
   - enabled: 1
+    path: Assets/Scenes/CreateRoomScene.unity
+    guid: 17fc621415bcaf64984ed8e5b78a33a0
+  - enabled: 1
+    path: Assets/Scenes/SoloLobbyScene.unity
+    guid: e01c0471ad983fd4b8c401328f724e55
+  - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: c9405ed6ed3bb4b4dbddf29d9998c597
+  - enabled: 1
+    path: Assets/Scenes/SoloScene.unity
+    guid: 2fa422a79226a7c48baef465070c836c
   - enabled: 1
     path: Assets/Scenes/LeaderboardScene.unity
     guid: bb7877098dc4c9142b9ce72bc53e6f07
@@ -59,9 +68,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: 83e90bf5e0820cd4da61e45db7c2c282
-  - enabled: 1
-    path: Assets/Scenes/SoloScene.unity
-    guid: 2fa422a79226a7c48baef465070c836c
   - enabled: 1
     path: Assets/TestScene - Hiep/SignInScene.unity
     guid: a2dc0f9794afe2844b25b97a45879679

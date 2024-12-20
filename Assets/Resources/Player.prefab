@@ -605,7 +605,8 @@ GameObject:
   - component: {fileID: 3586428183536318134}
   - component: {fileID: 3732794479741691267}
   - component: {fileID: 5024254674191267590}
-  - component: {fileID: 8336283478519261359}
+  - component: {fileID: 5335375419219510388}
+  - component: {fileID: 3243630649414286602}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -769,7 +770,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPoint: -15
---- !u!114 &8336283478519261359
+--- !u!114 &5335375419219510388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81daf57c08b947b280d1f3d0fed1c6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
+--- !u!114 &3243630649414286602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -791,6 +805,7 @@ MonoBehaviour:
   - {fileID: 3586428183536318134}
   - {fileID: 3732794479741691267}
   - {fileID: 5024254674191267590}
+  - {fileID: 5335375419219510388}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
