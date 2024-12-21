@@ -8,22 +8,16 @@ namespace Photon.Character
 {
     public class AttackHandlerMultiplayer : MonoBehaviourPun, IPunObservable
     {
-        public float damageDealt = 1f;
-        public float distanceDealDamage = 1f;
         private static readonly int Hurt = Animator.StringToHash("hurt");
         private static readonly int Die = Animator.StringToHash("die");
+        public float damageDealt = 1f;
+        public float distanceDealDamage = 1f;
         private const string EnemyTag = "Enemy";
-        private const string MerchantEnemyTag = "MerchantEnemy";
-        private const string PeasantEnemyTag = "PeasantEnemy";
-        private const string PriestEnemyTag = "PriestEnemy";
-        private const string SoldierEnemyTag = "SoldierEnemy";
-        private const string ThiefEnemyTag = "ThiefEnemy";
-
         [CanBeNull] private GameObject _enemy;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
         private bool _isEnemyDead;
-
+        
         private void Start()
         {
             _playerBoxCollider = GetComponent<BoxCollider2D>();
@@ -68,7 +62,7 @@ namespace Photon.Character
                 0,
                 direction,
                 distanceDealDamage,
-                LayerMask.GetMask(EnemyTag)
+                LayerMask.GetMask("Player")
             );
 
             if (raycastHit.collider != null)
@@ -90,98 +84,79 @@ namespace Photon.Character
 
 
         // ReSharper disable Unity.PerformanceAnalysis
-        // [PunRPC]
-        // private void CauseDamage(int enemyViewID)
-        // {
-        //     GameObject enemy = PhotonView.Find(enemyViewID)?.gameObject;
-        //     if (enemy == null) return;
-        //
-        //     Animator enemyAnimator = enemy.GetComponent<Animator>();
-        //     if (enemyAnimator == null) return;
-        //
-        //     // Determine enemy type and get health component
-        //     float currentEnemyHealth = 0f;
-        //     float immortalRerenderTime = 0f;
-        //     MovementMultiplayer enemyMovement = null;
+        [PunRPC]
+        private void CauseDamage(int enemyViewID)
+        {
+            GameObject enemy = PhotonView.Find(enemyViewID)?.gameObject;
+            if (enemy == null) return;
+        
+            Animator enemyAnimator = enemy.GetComponent<Animator>();
+            if (enemyAnimator == null) return;
+        
+            // Determine enemy type and get health component
+            float currentEnemyHealth = 0f;
+            MovementMultiplayer enemyMovement = enemy.GetComponent<MovementMultiplayer>();
+           
 
-            // if (enemy.CompareTag(MerchantEnemyTag))
-            // {
-            //     enemyMovement = enemy.GetComponent<OtherCharacters.Merchant.MovementMultiplayer>();
-            // }
-            // else if (enemy.CompareTag(PeasantEnemyTag))
-            // {
-            //     enemyMovement = enemy.GetComponent<OtherCharacters.Peasant.MovementMultiplayer>();
-            // }
-            // else if (enemy.CompareTag(PriestEnemyTag))
-            // {
-            //     enemyMovement = enemy.GetComponent<OtherCharacters.Priest.MovementMultiplayer>();
-            // }
-            // else if (enemy.CompareTag(SoldierEnemyTag))
-            // {
-            //     enemyMovement = enemy.GetComponent<OtherCharacters.Soldier.MovementMultiplayer>();
-            // }
-            // else if (enemy.CompareTag(ThiefEnemyTag))
-            // {
-            //     enemyMovement = enemy.GetComponent<OtherCharacters.Thief.MovementMultiplayer>();
-            // }
+            if (enemyMovement == null) return;
+            
+            currentEnemyHealth = enemyMovement.currentHealth;
+            
+            if (EnemyIsInDamageDealtDistance())
+            {
+                currentEnemyHealth -= damageDealt;
+                enemyAnimator.SetTrigger(Hurt);
+            
+                // Update enemy health over the network
+                enemyMovement.photonView.RPC("UpdateHealth", RpcTarget.All, currentEnemyHealth);
+            
+                if (currentEnemyHealth <= 0)
+                {
+                    _isEnemyDead = !enemy.name.ToLower().Contains("priest") || !BossAndEnemiesRespawner.CanReproducible;
+                    if (_isEnemyDead)
+                    {
+                        enemyAnimator.SetTrigger(Die);
+                    }
+                }
+            }
+        }
+        
+        [PunRPC]
+        public void UpdateHealth(float newHealth, MovementMultiplayer enemyMovement)
+        {
+            enemyMovement.currentHealth = newHealth;
+            if (newHealth <= 0)
+            {
+                gameObject.GetComponent<PlayerDieNetworked>().Die();
+            }
+        }
 
-            // if (enemyMovement == null) return;
-            //
-            // currentEnemyHealth = enemyMovement.currentHealth;
-            // immortalRerenderTime = enemyMovement.immortalRerenderTime;
-            //
-            // if (EnemyIsInDamageDealtDistance())
-            // {
-            //     currentEnemyHealth -= damageDealt;
-            //     enemyAnimator.SetTrigger(Hurt);
-            //
-            //     // Update enemy health over the network
-            //     enemyMovement.photonView.RPC("UpdateHealth", RpcTarget.All, currentEnemyHealth);
-            //
-            //     if (currentEnemyHealth <= 0)
-            //     {
-            //         if (enemy.name.Contains("Immortal"))
-            //         {
-            //             DeathNote.AddImmortalEnemy(enemy, immortalRerenderTime, enemy.transform.position);
-            //             enemy.SetActive(false);
-            //             return;
-            //         }
-            //
-            //         _isEnemyDead = !enemy.name.ToLower().Contains("priest") || !BossAndEnemiesRespawner.CanReproducible;
-            //         if (_isEnemyDead)
-            //         {
-            //             enemyAnimator.SetTrigger(Die);
-            //         }
-            //     }
-            // }
-        // }
-        //
-        // [PunRPC]
-        // public void UpdateHealth(float newHealth)
-        // {
-        //     currentHealth = newHealth;
-        //     if (currentHealth <= 0)
-        //     {
-        //         // Handle enemy death if necessary
-        //     }
-        // }
-
-        // private void OnTriggerEnter2D(Collider2D collision)
-        // {
-        //     // Example: Trigger damage when attacking
-        //     if (photonView.IsMine && collision.CompareTag(EnemyTag))
-        //     {
-        //         PhotonView enemyPhotonView = collision.GetComponent<PhotonView>();
-        //         if (enemyPhotonView != null)
-        //         {
-        //             photonView.RPC("CauseDamage", RpcTarget.All, enemyPhotonView.ViewID);
-        //         }
-        //     }
-        // }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            // Example: Trigger damage when attacking
+            if (photonView.IsMine && collision.CompareTag("Player"))
+            {
+                PhotonView enemyPhotonView = collision.GetComponent<PhotonView>();
+                if (enemyPhotonView != null)
+                {
+                    photonView.RPC("CauseDamage", RpcTarget.All, enemyPhotonView.ViewID);
+                }
+            }
+        }
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            // Implement if you need to synchronize additional data
+            var currentHealth = gameObject.GetComponent<MovementMultiplayer>().currentHealth;
+            if (stream.IsWriting)
+            {
+                // Send the current health to other players
+                stream.SendNext(currentHealth);
+            }
+            else
+            {
+                // Receive the health from the network
+                currentHealth = (float)stream.ReceiveNext();
+            }
         }
     }
 }

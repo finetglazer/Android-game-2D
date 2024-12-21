@@ -47,6 +47,7 @@ MonoBehaviour:
   - SyncRespawn
   - OnPhotonSerializeView
   - SpawnPlayerRPC
+  - UpdateHealth
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
