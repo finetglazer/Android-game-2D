@@ -37,6 +37,7 @@ namespace SingleLeaderboard
                 rowData[i].transform.Find("RankText").GetComponent<TextMeshProUGUI>().text = "#" + (i + 1);
                 rowData[i].transform.Find("PlayerNameText").GetComponent<TextMeshProUGUI>().text = _usernameList[i];
                 rowData[i].transform.Find("PointsCircle").transform.Find("FilledCircle").GetComponent<Image>().fillAmount = _finalPointsList[i] / 100;
+                rowData[i].transform.Find("PointsCircle").transform.Find("Text").GetComponent<TextMeshProUGUI>().text = _finalPointsList[i].ToString("F1");
                 rowData[i].transform.Find("FinishTimeText").GetComponent<TextMeshProUGUI>().text = _finishTimeList[i].ToString("F1");
                 rowData[i].transform.Find("DeathCountText").GetComponent<TextMeshProUGUI>().text = _deathCountList[i].ToString();
                 rowData[i].transform.Find("MoreButton").GetComponent<Button>().onClick.AddListener(() => OnMoreButtonClicked(i1));
@@ -45,7 +46,8 @@ namespace SingleLeaderboard
 
         private void OnBackToDashboardButtonClicked()
         {
-            SceneManager.LoadScene("TestScene - Hiep/DashboardScene");
+            print("adad");
+            SceneManager.LoadScene("Scenes/DashboardScene");
         }
 
         private void OnMoreButtonClicked(int index)

@@ -34,7 +34,7 @@ class PlayerData
 public class LeaderboardUIScript : MonoBehaviour
 {
     public static List<SoloStats> SoloStatsList;
-    private List<PlayerData> _playerDataList = new();
+    private readonly List<PlayerData> _playerDataList = new();
     private VisualElement _root;
     private int _biggestClimb;
     private int _biggestDrop;
