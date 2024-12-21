@@ -1,5 +1,4 @@
 ﻿using MainCharacter;
-using Photon.Character;
 using UnityEngine;
 
 namespace GameObjects.Fire
@@ -9,7 +8,7 @@ namespace GameObjects.Fire
         public static bool FireIsOngoing = true;
         private static readonly int Die = Animator.StringToHash("die");
         public float speedIncrement = 1f;
-        private Movement _fireMovement;
+        private Movement _fireMovement; 
         private const string SpeedAcceleratorName = "FireAccelerator";
         private void Start()
         {
@@ -34,7 +33,7 @@ namespace GameObjects.Fire
             if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies
             var characterAnimator = other.GetComponent<Animator>();
             characterAnimator.SetTrigger(Die);
-            other.GetComponent<PlayerDieNetworked>().Die();
+            ClearDeathEnemies.Clear();
         }
     }
 }

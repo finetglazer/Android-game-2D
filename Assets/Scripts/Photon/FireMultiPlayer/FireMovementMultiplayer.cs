@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameObjects.Fire
+namespace Photon.FireMultiPlayer
 {
     public class FireMovementMultiplayer : MonoBehaviour
     {

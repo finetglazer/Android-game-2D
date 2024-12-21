@@ -33,9 +33,9 @@ namespace ServerInteraction
 
         public Button newGameButton;
         public Button continueGameButton;
-        // public Button soloLeaderboardButton;
-        // public Button singleLeaderboardButton;
-        // public Button matchHistoryButton;
+        public Button soloLeaderboardButton;
+        public Button singleLeaderboardButton;
+        public Button matchHistoryButton;
         private const string RootRequestURL = "http://localhost:8080/api/gameplay";
         private Vector3 _playerPosition;
         public Button passwordChangeButton;
@@ -46,13 +46,16 @@ namespace ServerInteraction
         private bool isInLobby = false;
         private bool isSceneLoading = false;
 
-              private void Start()
+        private void Start()
         {
             // Attach listeners to buttons
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             // future leaderboard or match history handlers go here...
-
+            // soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
+            // singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
+            // matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
+            
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
 
