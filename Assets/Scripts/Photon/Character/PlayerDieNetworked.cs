@@ -32,8 +32,15 @@ namespace Photon.Character
         {
             if (photonView.IsMine)
             {
-                PhotonNetwork.LoadLevel("EndingScene");
+                // call rpc function load scene
+                photonView.RPC("LoadScene", RpcTarget.All);
             }
+        }
+        
+        [PunRPC]
+        private void LoadScene()
+        {
+            PhotonNetwork.LoadLevel("EndingScene");
         }
         
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
