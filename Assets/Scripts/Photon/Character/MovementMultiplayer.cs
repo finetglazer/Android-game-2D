@@ -198,6 +198,8 @@ namespace Photon.Character
             Debug.Log("Hereeeeeeeeeee");
             if (!photonView.IsMine) return; // Only the owner should modify their health
 
+            Debug.Log($"{photonView.Owner.NickName} took {damage} damage.");
+
             currentHealth -= damage;
             currentHealth = Mathf.Max(currentHealth, 0f);
 
@@ -206,7 +208,11 @@ namespace Photon.Character
             if (currentHealth <= 0f)
             {
                 _playerAnimator.SetTrigger(Die);
+                Debug.Log($"{photonView.Owner.NickName} has died.");
+                _playerAnimator.SetTrigger(Die);
+                // Optionally, notify other systems about death
             }
         }
+
     }
 }
