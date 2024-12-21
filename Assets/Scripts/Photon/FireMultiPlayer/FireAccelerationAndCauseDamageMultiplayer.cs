@@ -1,4 +1,6 @@
 ﻿using MainCharacter;
+using Photon.Character;
+using Photon.FireMultiPlayer;
 using UnityEngine;
 
 namespace GameObjects.Fire
@@ -8,17 +10,17 @@ namespace GameObjects.Fire
         public static bool FireIsOngoing = true;
         private static readonly int Die = Animator.StringToHash("die");
         public float speedIncrement = 1f;
-        private Movement _fireMovement;
+        private FireMovementMultiplayer _fireFireMovementMultiplayer;
         private const string SpeedAcceleratorName = "FireAccelerator";
         private void Start()
         {
-            _fireMovement = GetComponent<Movement>();
+            _fireFireMovementMultiplayer = GetComponent<FireMovementMultiplayer>();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.name.Contains(SpeedAcceleratorName))
             {
-                _fireMovement.currentSpeed += speedIncrement;
+                _fireFireMovementMultiplayer.currentSpeed += speedIncrement;
             }
 
             if (other.name.Contains("FireEndingPoint"))
@@ -26,14 +28,14 @@ namespace GameObjects.Fire
                 // gameObject.SetActive(false);
                 FireIsOngoing = false;
                 // speed = 0;
-                _fireMovement.currentSpeed = 0;
+                _fireFireMovementMultiplayer.currentSpeed = 0;
                 // return;
             }
             
             if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies
             var characterAnimator = other.GetComponent<Animator>();
             characterAnimator.SetTrigger(Die);
-            ClearDeathEnemies.Clear();
+            other.GetComponent<PlayerDieNetworked>().Die();
         }
     }
 }

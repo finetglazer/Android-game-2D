@@ -52,9 +52,9 @@ namespace ServerInteraction
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             // future leaderboard or match history handlers go here...
-            soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
-            singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
-            matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
+            // soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
+            // singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
+            // matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);
