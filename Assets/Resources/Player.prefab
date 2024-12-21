@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 5335375419219510388}
   - component: {fileID: 3243630649414286602}
   - component: {fileID: 6261127279053243722}
+  - component: {fileID: 6289839278023457683}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -803,10 +804,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 3586428183536318134}
   - {fileID: 3732794479741691267}
   - {fileID: 5024254674191267590}
   - {fileID: 5335375419219510388}
+  - {fileID: 6289839278023457683}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -822,6 +823,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1e05cc33b6486bb82cd7a6f0255a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6289839278023457683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 1
+    Name: idle
+  - Type: 9
+    SynchronizeType: 1
+    Name: jump
+  - Type: 9
+    SynchronizeType: 1
+    Name: walk
+  - Type: 9
+    SynchronizeType: 1
+    Name: casting
+  - Type: 9
+    SynchronizeType: 1
+    Name: hurt
+  - Type: 9
+    SynchronizeType: 1
+    Name: die
+  - Type: 9
+    SynchronizeType: 1
+    Name: attack
+  - Type: 9
+    SynchronizeType: 1
+    Name: victory
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &8376927958730880529
 GameObject:
   m_ObjectHideFlags: 0

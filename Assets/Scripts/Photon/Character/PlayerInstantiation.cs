@@ -13,6 +13,7 @@ namespace Photon.Character
                 HealthBarManager hbManager = FindObjectOfType<HealthBarManager>();
                 if (hbManager != null)
                 {
+                    Debug.Log("Creating health bar for player: " + photonView.Owner.NickName);
                     hbManager.CreateHealthBar(this.gameObject);
                 }
                 else

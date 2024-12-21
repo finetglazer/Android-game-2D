@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Photon.Character
 {
@@ -10,50 +11,62 @@ namespace Photon.Character
         public TMP_Text playerNameText; // Assign in Inspector
 
         private Transform characterTransform;
-        private UnityEngine.Camera mainCamera; // Reference to the main camera
+        private UnityEngine.Camera mainCamera;
         private float initialHealth;
 
-        private MovementMultiplayer baseMovement;
+        private MovementMultiplayer _movementMultiplayer;
 
-        public Vector3 offset = new Vector3(4.8f, 0, 0); // Offset above the character
+        public Vector3 offset = new Vector3(0, 1.5f, 0); // Offset above the character
 
-        public void SetCharacter(Transform character, Camera camera)
+        public void SetCharacter(Transform character, UnityEngine.Camera camera)
         {
-            
             characterTransform = character;
             mainCamera = camera;
-        
-            baseMovement = character.GetComponent<MovementMultiplayer>();
-            if (baseMovement != null)
+
+            _movementMultiplayer = character.GetComponent<MovementMultiplayer>();
+            if (_movementMultiplayer != null)
             {
-                
-                initialHealth = baseMovement.currentHealth;
-            } 
+                initialHealth = _movementMultiplayer.currentHealth;
+            }
+
             // Set player name
             PhotonView pv = character.GetComponent<PhotonView>();
             if (pv != null && pv.Owner != null)
             {
                 playerNameText.text = pv.Owner.NickName;
             }
-          
         }
 
         private void Update()
         {
-            if (characterTransform == null || healthBarFill == null || mainCamera == null) return;
-        
+            if (characterTransform == null || healthBarFill == null || mainCamera == null || !_movementMultiplayer) return;
+
             // Update position
             Vector3 worldPosition = characterTransform.position + offset;
             // Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
             Vector3 screenPosition = worldPosition;
             transform.position = screenPosition;
-        
+
             // Update health bar
-            if (baseMovement != null)
+            float currentHealth = _movementMultiplayer.currentHealth;
+            float proportionRemainedHp = currentHealth / initialHealth;
+            proportionRemainedHp = Mathf.Clamp01(proportionRemainedHp);
+
+            // Update the fill amount
+            healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
+
+            // Optional: Change color based on health
+            if (proportionRemainedHp > 0.5f)
             {
-                float currentHealth = baseMovement.currentHealth;
-                float proportionRemainedHp = currentHealth / initialHealth;
-                healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
+                healthBarFill.GetComponent<Image>().color = Color.green;
+            }
+            else if (proportionRemainedHp > 0.2f)
+            {
+                healthBarFill.GetComponent<Image>().color = Color.yellow;
+            }
+            else
+            {
+                healthBarFill.GetComponent<Image>().color = Color.red;
             }
         }
     }
