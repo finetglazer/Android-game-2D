@@ -112,8 +112,12 @@ namespace Photon.Character
                 if (!IsGrounded()) isDoubleJump = true;
                 PlayerJump();
             }
-
-            // Attack logic handled by AttackHandlerMultiplayer via OnTriggerEnter2D
+            
+            if (Input.GetMouseButtonDown(0)) // Mouse click
+            {
+                PlayerAttack();
+            }
+            
         }
 
         private void PlayerIdle()
