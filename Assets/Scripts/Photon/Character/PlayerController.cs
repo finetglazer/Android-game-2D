@@ -27,16 +27,7 @@ namespace Photon.Character
                 {
                     Debug.LogError("Player Camera Prefab is not assigned in the PlayerController.");
                 }
-
-                // Notify the SoloLobbyManager to add this player to the target group
-                if (SoloLobbyManager.Instance != null)
-                {
-                    SoloLobbyManager.Instance.AddPlayerToTargetGroup(this.transform);
-                }
-                else
-                {
-                    Debug.LogError("SoloLobbyManager instance is not found.");
-                }
+                
             }
             else
             {
@@ -53,11 +44,6 @@ namespace Photon.Character
             if (playerCam != null)
             {
                 Destroy(playerCam.gameObject);
-            }
-
-            if (photonView.IsMine && SoloLobbyManager.Instance != null)
-            {
-                SoloLobbyManager.Instance.RemovePlayerFromTargetGroup(this.transform);
             }
         }
 

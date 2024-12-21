@@ -38,14 +38,7 @@ namespace Photon
         private Dictionary<int, bool> playerReadyStatus = new Dictionary<int, bool>();
 
         private PhotonView _photonView;
-
-        // Cinemachine references
-        [Header("Cinemachine")]
-        public CinemachineVirtualCamera confineCam;
-        public CinemachineTargetGroup targetGroup;
-
-        // Track how many players are in the lowest area
-        private int playersInLowestArea = 0;
+        
 
         // Singleton pattern for easy access
         public static SoloLobbyManager Instance;
@@ -92,18 +85,7 @@ namespace Photon
 
             // Register to the scene loaded event
             SceneManager.sceneLoaded += OnSceneLoaded;
-
-            // Assign the confineCam to follow the target group
-            if (confineCam != null && targetGroup != null)
-            {
-                confineCam.Follow = targetGroup.transform;
-                confineCam.LookAt = targetGroup.transform;
-                confineCam.gameObject.SetActive(false); // Ensure it's disabled initially
-            }
-            else
-            {
-                Debug.LogError("Confine Camera or Target Group is not assigned in the Inspector.");
-            }
+            
         }
 
         private void OnDestroy()
@@ -323,81 +305,6 @@ namespace Photon
             }
         }
 
-        // Method to add player to target group
-        public void AddPlayerToTargetGroup(Transform playerTransform)
-        {
-            if (targetGroup != null && playerTransform != null)
-            {
-                // Add to target group with default weight and radius
-                targetGroup.AddMember(playerTransform, 1f, 0f);
-                Debug.Log("Added player to target group.");
-            }
-            else
-            {
-                Debug.LogError("Target Group or player transform is null.");
-            }
-        }
-
-        // Method to remove player from target group (optional)
-        public void RemovePlayerFromTargetGroup(Transform playerTransform)
-        {
-            if (targetGroup != null && playerTransform != null)
-            {
-                targetGroup.RemoveMember(playerTransform);
-                Debug.Log("Removed player from target group.");
-            }
-            else
-            {
-                Debug.LogError("Target Group or player transform is null.");
-            }
-        }
-
-        // Trigger handler for lowest area
-        public void PlayerEnteredLowestArea()
-        {
-            playersInLowestArea++;
-            Debug.Log($"Player entered lowest area. Count: {playersInLowestArea}");
-
-            if (playersInLowestArea >= PhotonNetwork.CurrentRoom.PlayerCount)
-            {
-                ActivateConfineCamera();
-            }
-        }
-
-        public void PlayerExitedLowestArea()
-        {
-            playersInLowestArea--;
-            Debug.Log($"Player exited lowest area. Count: {playersInLowestArea}");
-        }
-
-        private void ActivateConfineCamera()
-        {
-            if (confineCam != null && targetGroup != null)
-            {
-                confineCam.gameObject.SetActive(true);
-
-                // Optionally, disable individual player cameras
-                foreach (var player in PhotonNetwork.PlayerList)
-                {
-                    PhotonView photonView = GetPhotonViewFromPlayer(player);
-                    if (photonView != null)
-                    {
-                        GameObject playerObj = photonView.gameObject;
-                        CinemachineVirtualCamera playerCam = playerObj.GetComponentInChildren<CinemachineVirtualCamera>();
-                        if (playerCam != null)
-                        {
-                            playerCam.gameObject.SetActive(false);
-                        }
-                    }
-                }
-
-                Debug.Log("Confine camera activated.");
-            }
-            else
-            {
-                Debug.LogError("Confine Camera or Target Group is not assigned.");
-            }
-        }
 
         private PhotonView GetPhotonViewFromPlayer(Player player)
         {

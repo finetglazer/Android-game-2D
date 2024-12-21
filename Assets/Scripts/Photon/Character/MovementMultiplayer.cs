@@ -10,7 +10,7 @@ namespace Photon.Character
         public InputActionAsset inputActions;
         // public GameObject healthBar;
         public float walkSpeed = 2f;
-        public float jumpSpeed = 2f;
+        public float jumpSpeed = 5f;
         public float currentHealth = 15f; 
         public static float SceneTime;
 
@@ -52,11 +52,6 @@ namespace Photon.Character
                     _moveAction.Enable();
                 }
             }
-            else
-            {
-                // Hide health bar for remote players if you want
-                // if (healthBar != null) healthBar.SetActive(false);
-            }
         }
 
         private void Update()
@@ -73,24 +68,6 @@ namespace Photon.Character
                 _playerBody.position = Vector2.Lerp(_playerBody.position, networkPosition, Time.deltaTime * lerpRate);
                 _playerBody.velocity = networkVelocity;
             }
-
-            // Handle health UI for local player
-            // if (currentHealth <= 0 && photonView.IsMine && healthBar != null)
-            // {
-            //     healthBar.SetActive(false);
-            // }
-
-            // Handle death animation
-            // if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
-            // {
-            //     if (photonView.IsMine)
-            //     {
-            //         gameObject.GetComponent<PlayerDie>().Die();
-            //         ++deathCount;
-            //     }
-            //     PlayerIdle();
-            //     return;
-            // }
         }
 
         private void HandleInput()
@@ -181,12 +158,12 @@ namespace Photon.Character
 
         private void TurnLeft()
         {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
         private void TurnRight()
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
         private bool IsGrounded()

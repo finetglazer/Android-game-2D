@@ -1,4 +1,5 @@
 ﻿using MainCharacter;
+using Photon.Character;
 using UnityEngine;
 
 namespace GameObjects.Fire
@@ -33,7 +34,7 @@ namespace GameObjects.Fire
             if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies
             var characterAnimator = other.GetComponent<Animator>();
             characterAnimator.SetTrigger(Die);
-            ClearDeathEnemies.Clear();
+            other.GetComponent<PlayerDieNetworked>().Die();
         }
     }
 }
