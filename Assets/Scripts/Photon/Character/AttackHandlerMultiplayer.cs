@@ -27,6 +27,10 @@ namespace Photon.Character
                     // Send RPC to the enemy's owner to apply damage
                     enemyPhotonView.RPC("ApplyDamage", enemyPhotonView.Owner, damageDealt);
                 }
+                else
+                {
+                    Debug.LogWarning("PhotonView not found on collided player.");
+                }
             }
         }
     }
