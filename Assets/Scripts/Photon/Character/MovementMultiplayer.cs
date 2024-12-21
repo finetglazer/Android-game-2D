@@ -195,17 +195,17 @@ namespace Photon.Character
         [PunRPC]
         public void ApplyDamage(float damage)
         {
+            Debug.Log("Hereeeeeeeeeee");
             if (!photonView.IsMine) return; // Only the owner should modify their health
 
             currentHealth -= damage;
             currentHealth = Mathf.Max(currentHealth, 0f);
 
-            _playerAnimator.SetTrigger("Hurt");
+            _playerAnimator.SetTrigger(Hurt);
 
             if (currentHealth <= 0f)
             {
-                _playerAnimator.SetTrigger("Die");
-                // Optionally, notify other systems about death
+                _playerAnimator.SetTrigger(Die);
             }
         }
     }
