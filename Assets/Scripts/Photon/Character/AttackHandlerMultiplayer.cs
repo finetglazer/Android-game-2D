@@ -76,13 +76,6 @@ namespace Photon.Character
         }
         
         
-        // Temporary no-op to stop warnings
-        public void CauseDamage() 
-        {
-            // Temporary no-op to stop warnings
-        }
-
-
         // ReSharper disable Unity.PerformanceAnalysis
         [PunRPC]
         private void CauseDamage(int enemyViewID)
