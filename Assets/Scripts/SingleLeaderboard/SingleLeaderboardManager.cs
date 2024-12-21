@@ -31,7 +31,7 @@ namespace SingleLeaderboard
                 {
                     var prevRowPosition = rowData[i - 1].GetComponent<RectTransform>().localPosition;
                     rowData[i].GetComponent<RectTransform>().localPosition =
-                        new Vector3(prevRowPosition.x, prevRowPosition.y - 94, prevRowPosition.z);
+                        new Vector3(prevRowPosition.x, prevRowPosition.y - 58, prevRowPosition.z);
                 }
                 rowData[i].SetActive(true);
                 rowData[i].transform.Find("RankText").GetComponent<TextMeshProUGUI>().text = "#" + (i + 1);
@@ -46,7 +46,6 @@ namespace SingleLeaderboard
 
         private void OnBackToDashboardButtonClicked()
         {
-            print("adad");
             SceneManager.LoadScene("Scenes/DashboardScene");
         }
 
@@ -57,14 +56,22 @@ namespace SingleLeaderboard
             var graphContainer = graph.transform.Find("GraphContainer");
             graphContainer.gameObject.SetActive(true);
             graphContainer.transform.Find("CloseGraphButton").GetComponent<Button>().onClick.AddListener(OnCloseGraphButtonClicked);
-            var graphDrawer = graphContainer.GetComponent<SingleLeaderboardTriangleGraphDrawer>();
-            graphDrawer.playerValues[0] = _finalPointsList[index] / 100;
-            graphDrawer.playerValues[1] = _finishTimeList[index] / _finishTimeList[0];
+            var graphDrawer = graphContainer.transform.Find("GraphDrawer").GetComponent<SingleLeaderboardTriangleGraphDrawer>();
+            var minFinalPoints = _finalPointsList.Min();
+            var maxFinalPoints = _finalPointsList.Max();
+            var minFinishTime = _finishTimeList.Min();
+            var maxFinishTime = _finishTimeList.Max();
             var minDeathCount = _deathCountList.Min();
-            graphDrawer.playerValues[2] = minDeathCount * 1.0f / _deathCountList[index];
+            var maxDeathCount = _deathCountList.Max();
+            graphDrawer.playerValues[0] = (maxFinalPoints - minFinalPoints != 0) ? (_finalPointsList[index] - minFinalPoints) / (maxFinalPoints - minFinalPoints) : 1;
+            graphDrawer.playerValues[1] = (maxFinishTime - minFinishTime != 0) ? 1 - (_finishTimeList[index] - minFinishTime) / (maxFinishTime - minFinishTime) : 1; 
+            graphDrawer.playerValues[2] = (maxDeathCount - minDeathCount != 0) ? 1 - (_deathCountList[index] - minDeathCount) * 1.0f / (maxDeathCount - minDeathCount) : 1;
             graphDrawer.finalPointsText.text = graphDrawer.playerValues[0].ToString("F1");
             graphDrawer.finishTimeText.text = graphDrawer.playerValues[1].ToString("F1");
             graphDrawer.deathCountText.text = graphDrawer.playerValues[2].ToString("F1");
+           
+            graphDrawer.DrawTriangle();
+            print("points: " + graphDrawer.playerValues[0] + " time: " + graphDrawer.playerValues[1] + " death: " + graphDrawer.playerValues[2]);
         }
 
         private void OnCloseGraphButtonClicked()
