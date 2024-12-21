@@ -49,6 +49,11 @@ MonoBehaviour:
   - SpawnPlayerRPC
   - UpdateHealth
   - LoadScene
+  - SetAttackTrigger
+  - SetIdleTrigger
+  - SetJumpTrigger
+  - SetWalkTrigger
+  - ApplyDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

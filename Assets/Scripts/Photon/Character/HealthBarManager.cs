@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameObjects.HealthBar;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -37,6 +38,7 @@ namespace Photon.Character
             }
         }
 
+        // This method should be called when a player prefab is instantiated
         public void CreateHealthBar(GameObject player)
         {
             if (player == null) return;
@@ -51,19 +53,17 @@ namespace Photon.Character
             {
                 // Instantiate the health bar UI
                 GameObject healthBarUI = Instantiate(healthBarPrefab, uiCanvas.transform);
-                
+
                 // Initialize the HealthBarUI script
                 HealthBarUI healthBar = healthBarUI.GetComponent<HealthBarUI>();
                 if (healthBar != null)
                 {
-
                     healthBar.SetCharacter(player.transform, mainCamera);
                 }
 
                 // Add to the dictionary
                 playerHealthBars.Add(actorNumber, healthBarUI);
             }
-          
         }
     }
 }

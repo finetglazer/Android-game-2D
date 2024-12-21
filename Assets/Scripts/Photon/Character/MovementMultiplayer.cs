@@ -1,5 +1,4 @@
-﻿using MainCharacter;
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,6 @@ namespace Photon.Character
     public class MovementMultiplayer : MonoBehaviourPun, IPunObservable
     {
         public InputActionAsset inputActions;
-        // public GameObject healthBar;
         public float walkSpeed = 2f;
         public float jumpSpeed = 5f;
         public float currentHealth = 15f; 
@@ -16,10 +14,10 @@ namespace Photon.Character
 
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Attack = Animator.StringToHash("attack");
-        private static readonly int Casting = Animator.StringToHash("casting");
-        private static readonly int Victory = Animator.StringToHash("victory");
-        private static readonly int Idle = Animator.StringToHash("idle");
         private static readonly int Jump = Animator.StringToHash("jump");
+        private static readonly int Hurt = Animator.StringToHash("hurt");
+        private static readonly int Die = Animator.StringToHash("die");
+        private static readonly int Idle = Animator.StringToHash("idle");
 
         private InputAction _moveAction;
         private Rigidbody2D _playerBody;
@@ -115,11 +113,7 @@ namespace Photon.Character
                 PlayerJump();
             }
 
-            // Attack logic
-            if (Input.GetMouseButtonDown(0) || Keyboard.current.uKey.wasPressedThisFrame)
-            {
-                PlayerAttack();
-            }
+            // Attack logic handled by AttackHandlerMultiplayer via OnTriggerEnter2D
         }
 
         private void PlayerIdle()
@@ -137,7 +131,7 @@ namespace Photon.Character
         public void PlayerAttack()
         {
             _playerAnimator.SetTrigger(Attack);
-            // Additional attack logic here
+            // Additional attack logic can be added here if needed
         }
 
         public void PlayerJump()
@@ -176,15 +170,38 @@ namespace Photon.Character
         {
             if (stream.IsWriting)
             {
+                // Synchronize position and velocity
                 stream.SendNext(_playerBody.position);
                 stream.SendNext(_playerBody.velocity);
-                stream.SendNext(currentHealth);
+                // Optionally remove health if using RPCs
+                // stream.SendNext(currentHealth);
             }
             else
             {
+                // Receive position and velocity
                 networkPosition = (Vector2)stream.ReceiveNext();
                 networkVelocity = (Vector2)stream.ReceiveNext();
-                currentHealth = (float)stream.ReceiveNext();
+                // Optionally receive health if needed
+                // currentHealth = (float)stream.ReceiveNext();
+            }
+        }
+
+
+        // RPC to apply damage
+        [PunRPC]
+        public void ApplyDamage(float damage)
+        {
+            if (!photonView.IsMine) return; // Only the owner should modify their health
+
+            currentHealth -= damage;
+            currentHealth = Mathf.Max(currentHealth, 0f);
+
+            _playerAnimator.SetTrigger("Hurt");
+
+            if (currentHealth <= 0f)
+            {
+                _playerAnimator.SetTrigger("Die");
+                // Optionally, notify other systems about death
             }
         }
     }
