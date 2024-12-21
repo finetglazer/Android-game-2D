@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Photon;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Photon.Pun;
-using Photon.Pun.Demo.Cockpit.Forms;
-using Photon.Realtime;
 
 using ServerInteraction.Responses;
 using SingleLeaderboard;
@@ -17,10 +13,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Random = System.Random;
-
 namespace ServerInteraction
 {
     public class DashboardManager : MonoBehaviourPunCallbacks
@@ -43,8 +36,8 @@ namespace ServerInteraction
         private bool _isNewGame = true;
         internal static GetAllSingleStatsResponse GetAllSingleStatsResponse = new();
 
-        private bool isInLobby = false;
-        private bool isSceneLoading = false;
+        private bool isInLobby;
+        private bool isSceneLoading;
 
         private void Start()
         {
@@ -52,9 +45,9 @@ namespace ServerInteraction
             newGameButton.onClick.AddListener(OnNewGameButtonClicked);
             continueGameButton.onClick.AddListener(OnGameContinueButtonClicked);
             // future leaderboard or match history handlers go here...
-            // soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
-            // singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
-            // matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
+            soloLeaderboardButton.onClick.AddListener(OnSoloLeaderboardButtonClicked);
+            singleLeaderboardButton.onClick.AddListener(OnSingleLeaderboardButtonClicked);
+            matchHistoryButton.onClick.AddListener(OnMatchHistoryButtonClicked);
             
             passwordChangeButton.onClick.AddListener(OnPasswordChangeButtonClicked);
             signOutButton.onClick.AddListener(OnSignOutButtonClicked);

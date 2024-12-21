@@ -14,12 +14,7 @@ namespace SingleLeaderboard
         public TMP_Text deathCountText;
         public TMP_Text finishTimeText;
 
-        private void Start()
-        {
-            DrawTriangle();
-        }
-
-        private void DrawTriangle()
+        public void DrawTriangle()
         {
             // Ensure the LineRenderer has 4 points (3 points + returning to the first)
             lineRenderer.positionCount = 4;
@@ -37,7 +32,7 @@ namespace SingleLeaderboard
                 lineRenderer.SetPosition(i, vertices[i]);
             }
 
-            PlaceTextAtVertex(finalPointsText, new Vector3(vertices[0].x + 120, vertices[0].y, vertices[0].z), playerValues[0]); // Top point
+            PlaceTextAtVertex(finalPointsText, new Vector3(vertices[0].x + 120, vertices[0].y - 10, vertices[0].z), playerValues[0]); // Top point
             PlaceTextAtVertex(finishTimeText, new Vector3(vertices[1].x + 40, vertices[1].y, vertices[1].z), playerValues[1]); // Bottom-left point
             PlaceTextAtVertex(deathCountText, new Vector3(vertices[2].x + 110, vertices[2].y, vertices[2].z), playerValues[2]); // Bottom-right point
         }
