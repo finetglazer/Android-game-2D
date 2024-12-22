@@ -53,8 +53,10 @@ namespace Photon.Character
             proportionRemainedHp = Mathf.Clamp01(proportionRemainedHp);
 
             // Update the fill amount
-            healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
-
+            // healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
+            
+            healthBarFill.GetComponent<Image>().fillAmount = proportionRemainedHp;
+            
             // Optional: Change color based on health
             if (proportionRemainedHp > 0.5f)
             {
