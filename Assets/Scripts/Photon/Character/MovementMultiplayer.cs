@@ -177,18 +177,22 @@ namespace Photon.Character
                 // Synchronize position and velocity
                 stream.SendNext(_playerBody.position);
                 stream.SendNext(_playerBody.velocity);
-                // Optionally remove health if using RPCs
-                // stream.SendNext(currentHealth);
+        
+                // Synchronize localScale for head turning
+                stream.SendNext(transform.localScale);
             }
             else
             {
                 // Receive position and velocity
                 networkPosition = (Vector2)stream.ReceiveNext();
                 networkVelocity = (Vector2)stream.ReceiveNext();
-                // Optionally receive health if needed
-                // currentHealth = (float)stream.ReceiveNext();
+        
+                // Receive localScale for head turning
+                Vector3 receivedScale = (Vector3)stream.ReceiveNext();
+                transform.localScale = receivedScale;
             }
         }
+
 
 
         // RPC to apply damage
