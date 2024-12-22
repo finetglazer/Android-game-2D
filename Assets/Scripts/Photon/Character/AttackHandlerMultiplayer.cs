@@ -7,7 +7,7 @@ namespace Photon.Character
     {
         private static readonly int Hurt = Animator.StringToHash("hurt");
         public float damageDealt = 1f;
-        public float distanceDealDamage = 1f;
+        public float distanceDealDamage = 4f;
         private GameObject _enemy;
 
         private BoxCollider2D _playerBoxCollider;
@@ -19,24 +19,25 @@ namespace Photon.Character
 
         private bool EnemyIsInDamageDealtDistance()
         {
-            Debug.LogWarning("BoxCast initiated");
+            ContactFilter2D contactFilter = new ContactFilter2D();
+            contactFilter.SetLayerMask(LayerMask.GetMask("Player")); // Consider changing to "Enemy" if using separate layers
+            contactFilter.useTriggers = false;
 
-            // Define the direction based on player's facing
+            RaycastHit2D[] results = new RaycastHit2D[10]; // Array for potential hits
             Vector2 direction = new Vector2(-Mathf.Sign(transform.localScale.x), 0);
-
-            // Perform the BoxCast
-            RaycastHit2D raycastHit = Physics2D.BoxCast(
+            int hitCount = Physics2D.BoxCast(
                 _playerBoxCollider.bounds.center,
-                _playerBoxCollider.bounds.size,
+                _playerBoxCollider.bounds.size * 0.5f, // Adjusted size for more accurate detection
                 0,
                 direction,
-                distanceDealDamage,
-                LayerMask.GetMask("Player") // Ensure this layer includes all players
+                contactFilter,
+                results,
+                distanceDealDamage
             );
 
-            // Debug information
-            if (raycastHit.collider != null)
+            for (int i = 0; i < hitCount; i++)
             {
+<<<<<<< HEAD
                 GameObject detectedObject = raycastHit.collider.gameObject;
 
                 // Get the PhotonView of the detected object
@@ -44,21 +45,27 @@ namespace Photon.Character
 
                 // Ensure the detected object has a PhotonView and it's not the local player
                 if (detectedPhotonView != null && !detectedPhotonView.Owner.Equals(photonView.Owner))
+=======
+                RaycastHit2D hit = results[i];
+                if (hit.collider != null && hit.collider.gameObject != gameObject)
+>>>>>>> 6d89e7d95d7b580e101314db607405a5e6bc44ee
                 {
-                    _enemy = detectedObject;
-                    Debug.LogWarning("Enemy found: " + _enemy.GetComponent<PhotonView>().Owner.NickName);
-                    return true;
+                    Debug.LogWarning("xyyy");
+                    PhotonView detectedPhotonView = hit.collider.GetComponent<PhotonView>();
+                    if (detectedPhotonView != null && detectedPhotonView.Owner != photonView.Owner)
+                    {
+                        _enemy = hit.collider.gameObject;
+                        Debug.LogWarning("Enemy found: " + _enemy.name + " by " + photonView.Owner.NickName);
+                        return true;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Detected object is self or teammate.");
+                    }
                 }
-                else
-                {
-                    Debug.LogWarning("Detected object is self or has no PhotonView.");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("No enemy detected.");
             }
 
+            Debug.Log("No enemies in range.");
             return false;
         }
         // private void OnCollisionEnter2D(Collision2D collision)
@@ -82,7 +89,6 @@ namespace Photon.Character
         
         private void CauseDamage()
         {
-            Debug.LogWarning("dfdf");
             EnemyIsInDamageDealtDistance();
             if (_enemy == null)
             {
