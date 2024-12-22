@@ -7,7 +7,7 @@ namespace Photon.Character
     {
         private static readonly int Hurt = Animator.StringToHash("hurt");
         public float damageDealt = 1f;
-        public float distanceDealDamage = 1f;
+        public float distanceDealDamage = 100f;
         private GameObject _enemy;
 
         private BoxCollider2D _playerBoxCollider;
@@ -19,7 +19,7 @@ namespace Photon.Character
 
         private bool EnemyIsInDamageDealtDistance()
         {
-            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(-Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask("Player"));
+            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask("Player"));
             if (raycastHit.collider is not null) _enemy = raycastHit.collider.gameObject;
             return raycastHit.collider is not null;
         }
@@ -45,12 +45,15 @@ namespace Photon.Character
         
         private void CauseDamage()
         {
+            print("xxx");
+            
             if (_enemy == null) return;
             if (_enemy.GetComponent<Animator>() is null) return;   // Enemy is dead
             if (!EnemyIsInDamageDealtDistance()) return;
             
             if (EnemyIsInDamageDealtDistance())
             {
+                print("xxx2");
                 if (!photonView.IsMine) return; // Only the local player can initiate attacks
                 PhotonView enemyPhotonView = _enemy.GetComponentInParent<PhotonView>();
                 if (enemyPhotonView != null && !enemyPhotonView.IsMine)
