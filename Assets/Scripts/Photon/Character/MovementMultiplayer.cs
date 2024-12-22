@@ -33,6 +33,8 @@ namespace Photon.Character
         private Vector2 networkPosition;
         private Vector2 networkVelocity;
         private float lerpRate = 10f;
+        
+        
 
         private void Start()
         {
@@ -136,7 +138,7 @@ namespace Photon.Character
         {
             if (photonView.IsMine)
             {
-                _playerAnimator.SetTrigger(Attack);
+                _playerAnimator.SetTrigger("attack");
                 photonView.RPC("TriggerAttackAnimation", RpcTarget.Others);
                 Debug.Log($"{photonView.Owner.NickName} attacked.");
             }
