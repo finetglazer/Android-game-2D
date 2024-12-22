@@ -37,18 +37,8 @@ namespace Photon.Character
 
             for (int i = 0; i < hitCount; i++)
             {
-<<<<<<< HEAD
-                GameObject detectedObject = raycastHit.collider.gameObject;
-
-                // Get the PhotonView of the detected object
-                PhotonView detectedPhotonView = detectedObject.GetComponent<PhotonView>();
-
-                // Ensure the detected object has a PhotonView and it's not the local player
-                if (detectedPhotonView != null && !detectedPhotonView.Owner.Equals(photonView.Owner))
-=======
                 RaycastHit2D hit = results[i];
                 if (hit.collider != null && hit.collider.gameObject != gameObject)
->>>>>>> 6d89e7d95d7b580e101314db607405a5e6bc44ee
                 {
                     Debug.LogWarning("xyyy");
                     PhotonView detectedPhotonView = hit.collider.GetComponent<PhotonView>();
@@ -83,7 +73,7 @@ namespace Photon.Character
         // }
         // else
         // {
-        //     Debug.LogWarning("PhotonView not found on collided player.");
+//     Debug.LogWarning("PhotonView not found on collided player.");
         // }
         //     }
         
