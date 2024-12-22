@@ -8,7 +8,7 @@ namespace GameObjects.Fire
         public static bool FireIsOngoing = true;
         private static readonly int Die = Animator.StringToHash("die");
         public float speedIncrement = 1f;
-        private Movement _fireMovement;
+        private Movement _fireMovement; 
         private const string SpeedAcceleratorName = "FireAccelerator";
         private void Start()
         {
@@ -23,9 +23,11 @@ namespace GameObjects.Fire
 
             if (other.name.Contains("FireEndingPoint"))
             {
-                gameObject.SetActive(false);
+                // gameObject.SetActive(false);
                 FireIsOngoing = false;
-                return;
+                // speed = 0;
+                _fireMovement.currentSpeed = 0;
+                // return;
             }
             
             if (other.GetComponent<Animator>() == null) return;  // neither player nor enemies

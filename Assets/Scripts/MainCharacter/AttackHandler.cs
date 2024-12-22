@@ -1,10 +1,11 @@
 using JetBrains.Annotations;
 using Respawner;
 using UnityEngine;
+using Photon.Pun;  // Import Photon.Pun for networking
 
 namespace MainCharacter
 {
-    public class AttackHandler : MonoBehaviour
+    public class AttackHandler : MonoBehaviourPunCallbacks
     {
         public float damageDealt = 1;
         public float distanceDealDamage = 1;
@@ -16,18 +17,22 @@ namespace MainCharacter
         private const string PriestEnemyTag = "PriestEnemy";
         private const string SoldierEnemyTag = "SoldierEnemy";
         private const string ThiefEnemyTag = "ThiefEnemy";
-        [CanBeNull] private GameObject _enemy; 
+        [CanBeNull] private GameObject _enemy;
         private BoxCollider2D _playerBoxCollider;
         private Animator _playerAnimator;
         private bool _isEnemyDead;
-        
+
         private void Start()
         {
             _playerBoxCollider = GetComponent<BoxCollider2D>();
             _playerAnimator = GetComponent<Animator>();
         }
+
         private void Update()
         {
+            // Only process input for the local player's character
+            // if (!photonView.IsMine) return;
+
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();
@@ -35,10 +40,11 @@ namespace MainCharacter
             }
 
             if (EnemyIsInDamageDealtDistance())  // Just a reason to update _enemy
-            {}
-            
+            {
+                // Optional: Could call attack or damage-related actions here
+            }
         }
-        
+
         private bool EnemyIsInDamageDealtDistance()
         {
             var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(-Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask(EnemyTag));
@@ -52,7 +58,7 @@ namespace MainCharacter
             if (_enemy == null) return;
             if (_enemy.GetComponent<Animator>() is null) return;   // Enemy is dead
             if (!EnemyIsInDamageDealtDistance()) return;
-            
+
             var enemyAnimator = _enemy.GetComponent<Animator>();
             float currentEnemyHealth = 0, immortalRerenderTime = 0;
             if (_enemy.CompareTag(MerchantEnemyTag))
@@ -90,7 +96,7 @@ namespace MainCharacter
                 currentEnemyHealth = t.currentHealth;
                 immortalRerenderTime = t.immortalRerenderTime;
             }
-            
+
             if (EnemyIsInDamageDealtDistance())
             {
                 currentEnemyHealth -= damageDealt;
@@ -120,7 +126,7 @@ namespace MainCharacter
                     _enemy.GetComponent<OtherCharacters.Thief.Movement>().currentHealth = currentEnemyHealth;
                 }
             }
-            
+
             if (currentEnemyHealth > 0) return;
             if (_enemy.name.Contains("Immortal"))
             {
@@ -128,18 +134,18 @@ namespace MainCharacter
                 _enemy.SetActive(false);
                 return;
             }
-            
-            _isEnemyDead = !_enemy.name.ToLower().Contains("priest")|| !BossAndEnemiesRespawner.CanReproducible;
+
+            _isEnemyDead = !_enemy.name.ToLower().Contains("priest") || !BossAndEnemiesRespawner.CanReproducible;
             if (_isEnemyDead)
             {
                 enemyAnimator.SetTrigger(Die);
             }
         }
-        
+
         private void EnemyDisappears()
         {
             if (!_isEnemyDead) return;
             ClearDeathEnemies.Clear();
         }
-    }   
+    }
 }

@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Networking;
+using Photon.Pun;
+using UnityEngine.Networking; // Import Photon.Pun for networking
 
 namespace MainCharacter
 {
-    public class Movement : MonoBehaviour
+    public class Movement : MonoBehaviourPunCallbacks
     {
         public InputActionAsset inputActions;
         public GameObject player;
@@ -36,17 +37,27 @@ namespace MainCharacter
             _playerAnimator = player.GetComponent<Animator>();
             _inputAction = inputActions.FindAction("Movement/Move");
             _inputAction.Enable();
+
+            // Disable movement input and animation for other players
+            // if (!photonView.IsMine)
+            // {
+            //     enabled = false;  // Disable this script for non-local players
+            //     return;
+            // }
         }
 
         private void Update()
         {
+            // Check if this is the local player's object
+            // if (!photonView.IsMine) return;
+
             SceneTime += Time.deltaTime;
 
             if (currentHealth <= 0)
             {
-                healthBar.SetActive(false);    
+                healthBar.SetActive(false);
             }
-            
+
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
                 gameObject.GetComponent<PlayerDie>().Die();
@@ -55,8 +66,8 @@ namespace MainCharacter
                 StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
             }
-// f1
 
+            // Handle input for movement and jumping
             horizontalInput = _inputAction.ReadValue<Vector2>().x; // Keyboard mode - Uncomment this
 
             if (IsGrounded())
@@ -68,11 +79,13 @@ namespace MainCharacter
                 PlayerJump();
             }
 
+            // Idle state when no horizontal input
             if (IsGrounded() && horizontalInput == 0)
             {
                 PlayerIdle();
             }
 
+            // Walking movement
             if (horizontalInput != 0)
             {
                 if (horizontalInput < 0) TurnLeft();
@@ -83,6 +96,7 @@ namespace MainCharacter
                 }
             }
 
+            // Double Jump logic
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 if (!canDoubleJump) return;
@@ -91,28 +105,29 @@ namespace MainCharacter
                 PlayerJump();
             }
 
-//f2
-            if (Input.GetMouseButtonDown(0)) // Keyboard mode - Uncomment this
+            // Attack logic
+            if (Input.GetMouseButtonDown(0)) // Mouse click
             {
                 PlayerAttack();
             }
 
-            if (Keyboard.current.uKey.wasPressedThisFrame) // Keyboard mode - Uncomment this
+            if (Keyboard.current.uKey.wasPressedThisFrame) // Keyboard attack
             {
                 PlayerAttack();
             }
         }
 
+        // Player actions
         private void PlayerCasting()
         {
-            _playerAnimator.SetTrigger(Casting);    
+            _playerAnimator.SetTrigger(Casting);
         }
 
         private void PlayerVictory()
         {
             _playerAnimator.SetTrigger(Victory);
         }
-        
+
         private void PlayerIdle()
         {
             _playerAnimator.SetTrigger(Idle);
@@ -153,7 +168,7 @@ namespace MainCharacter
                 _playerBody.velocity = new Vector2(walkSpeed * horizontalInput, _playerBody.velocity.y);
             }
         }
-        
+
         private void TurnLeft()
         {
             player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
@@ -169,12 +184,12 @@ namespace MainCharacter
             var raycastHit = Physics2D.Raycast(_playerBoxCollider.bounds.center, Vector2.down, 0.5f, LayerMask.GetMask("Ground"));
             return raycastHit.collider is not null;
         }
-        
+
         public void PlayerWalkLeft()
         {
             TurnLeft();
             if (!IsGrounded()) return;
-            
+
             _playerAnimator.SetTrigger(Walk);
             _playerBody.velocity = new Vector2(-walkSpeed, _playerBody.velocity.y);
         }
@@ -183,7 +198,7 @@ namespace MainCharacter
         {
             TurnRight();
             if (!IsGrounded()) return;
-            
+
             _playerAnimator.SetTrigger(Walk);
             _playerBody.velocity = new Vector2(walkSpeed, _playerBody.velocity.y);
         }
