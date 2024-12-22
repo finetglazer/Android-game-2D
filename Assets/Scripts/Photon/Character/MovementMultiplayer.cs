@@ -192,6 +192,7 @@ namespace Photon.Character
                 // Synchronize position and velocity
                 stream.SendNext(_playerBody.position);
                 stream.SendNext(_playerBody.velocity);
+                stream.SendNext(currentHealth);
         
                 // Synchronize localScale for head turning
                 stream.SendNext(transform.localScale);
@@ -201,6 +202,7 @@ namespace Photon.Character
                 // Receive position and velocity
                 networkPosition = (Vector2)stream.ReceiveNext();
                 networkVelocity = (Vector2)stream.ReceiveNext();
+                currentHealth = (float)stream.ReceiveNext();
         
                 // Receive localScale for head turning
                 Vector3 receivedScale = (Vector3)stream.ReceiveNext();

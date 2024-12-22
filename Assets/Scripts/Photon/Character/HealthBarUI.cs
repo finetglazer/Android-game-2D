@@ -71,5 +71,7 @@ namespace Photon.Character
                 healthBarFill.GetComponent<Image>().color = Color.red;
             }
         }
+        
+        
     }
 }
