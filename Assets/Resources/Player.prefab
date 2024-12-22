@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
-  distanceDealDamage: 1
+  distanceDealDamage: 4
 --- !u!114 &3732794479741691267
 MonoBehaviour:
   m_ObjectHideFlags: 0
