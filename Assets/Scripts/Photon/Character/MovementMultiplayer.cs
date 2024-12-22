@@ -134,9 +134,22 @@ namespace Photon.Character
 
         public void PlayerAttack()
         {
-            _playerAnimator.SetTrigger(Attack);
-            // Additional attack logic can be added here if needed
+            if (photonView.IsMine)
+            {
+                _playerAnimator.SetTrigger(Attack);
+                photonView.RPC("TriggerAttackAnimation", RpcTarget.Others);
+                Debug.Log($"{photonView.Owner.NickName} attacked.");
+            }
         }
+        
+        [PunRPC]
+        public void TriggerAttackAnimation()
+        {
+            _playerAnimator.SetTrigger("attack");
+            Debug.Log($"{photonView.Owner.NickName} triggered an attack animation.");
+        }
+
+
 
         public void PlayerJump()
         {
