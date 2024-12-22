@@ -19,8 +19,14 @@ namespace Photon.Character
 
         private bool EnemyIsInDamageDealtDistance()
         {
-            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask("Player"));
-            if (raycastHit.collider is not null) _enemy = raycastHit.collider.gameObject;
+            Debug.LogWarning("kkee");
+            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(-Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask("Player"));
+            if (raycastHit.collider is not null)
+            {
+                _enemy = raycastHit.collider.gameObject;
+                Debug.LogWarning("Enemy found: " + _enemy.name);
+
+            }
             return raycastHit.collider is not null;
         }
 
@@ -45,22 +51,41 @@ namespace Photon.Character
         
         private void CauseDamage()
         {
-            print("xxx");
-            
-            if (_enemy == null) return;
-            if (_enemy.GetComponent<Animator>() is null) return;   // Enemy is dead
-            if (!EnemyIsInDamageDealtDistance()) return;
+            Debug.LogWarning("dfdf");
+            EnemyIsInDamageDealtDistance();
+            if (_enemy == null)
+            {
+                Debug.LogWarning("Enemy not found");
+                return;
+            }
+
+
+            if (_enemy.GetComponent<Animator>() is null)
+            {
+                Debug.LogWarning("Enemy is dead");
+                return; // Enemy is dead
+            }
+        
+            if (!EnemyIsInDamageDealtDistance()) {
+                print("xxx3");
+                 return;}
             
             if (EnemyIsInDamageDealtDistance())
             {
-                print("xxx2");
-                if (!photonView.IsMine) return; // Only the local player can initiate attacks
-                PhotonView enemyPhotonView = _enemy.GetComponentInParent<PhotonView>();
+                if (!photonView.IsMine) {
+                    print("xxx4");
+                    return; // Only the local player can initiate attacks
+                }
+                PhotonView enemyPhotonView = _enemy.GetComponent<PhotonView>();
                 if (enemyPhotonView != null && !enemyPhotonView.IsMine)
                 {
                     Debug.LogWarning("Attacking player: " + _enemy.name);
                     // Send RPC to the enemy's owner to apply damage
                     enemyPhotonView.RPC("ApplyDamage", enemyPhotonView.Owner, damageDealt);
+                }
+                else
+                {
+                    Debug.LogWarning("player: " + _enemy.name);
                 }
             }
             
