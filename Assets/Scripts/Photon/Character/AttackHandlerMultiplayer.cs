@@ -43,7 +43,7 @@ namespace Photon.Character
                 PhotonView detectedPhotonView = detectedObject.GetComponent<PhotonView>();
 
                 // Ensure the detected object has a PhotonView and it's not the local player
-                if (detectedPhotonView != null && detectedPhotonView.Owner != photonView.Owner)
+                if (detectedPhotonView != null && !detectedPhotonView.Owner.Equals(photonView.Owner))
                 {
                     _enemy = detectedObject;
                     Debug.LogWarning("Enemy found: " + _enemy.GetComponent<PhotonView>().Owner.NickName);
