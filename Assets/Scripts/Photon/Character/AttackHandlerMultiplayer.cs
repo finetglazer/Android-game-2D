@@ -19,17 +19,48 @@ namespace Photon.Character
 
         private bool EnemyIsInDamageDealtDistance()
         {
-            Debug.LogWarning("kkee");
-            var raycastHit = Physics2D.BoxCast(_playerBoxCollider.bounds.center, _playerBoxCollider.bounds.size, 0, new Vector2(-Mathf.Sign(transform.localScale.x), 0), distanceDealDamage, LayerMask.GetMask("Player"));
-            if (raycastHit.collider is not null)
+            Debug.LogWarning("BoxCast initiated");
+
+            // Define the direction based on player's facing
+            Vector2 direction = new Vector2(-Mathf.Sign(transform.localScale.x), 0);
+
+            // Perform the BoxCast
+            RaycastHit2D raycastHit = Physics2D.BoxCast(
+                _playerBoxCollider.bounds.center,
+                _playerBoxCollider.bounds.size,
+                0,
+                direction,
+                distanceDealDamage,
+                LayerMask.GetMask("Player") // Ensure this layer includes all players
+            );
+
+            // Debug information
+            if (raycastHit.collider != null)
             {
-                _enemy = raycastHit.collider.gameObject;
-                Debug.LogWarning("Enemy found: " + _enemy.name);
+                GameObject detectedObject = raycastHit.collider.gameObject;
 
+                // Get the PhotonView of the detected object
+                PhotonView detectedPhotonView = detectedObject.GetComponent<PhotonView>();
+
+                // Ensure the detected object has a PhotonView and it's not the local player
+                if (detectedPhotonView != null && detectedPhotonView.Owner != photonView.Owner)
+                {
+                    _enemy = detectedObject;
+                    Debug.LogWarning("Enemy found: " + _enemy.GetComponent<PhotonView>().Owner.NickName);
+                    return true;
+                }
+                else
+                {
+                    Debug.LogWarning("Detected object is self or has no PhotonView.");
+                }
             }
-            return raycastHit.collider is not null;
-        }
+            else
+            {
+                Debug.LogWarning("No enemy detected.");
+            }
 
+            return false;
+        }
         // private void OnCollisionEnter2D(Collision2D collision)
         // {
         //
@@ -85,7 +116,7 @@ namespace Photon.Character
                 }
                 else
                 {
-                    Debug.LogWarning("player: " + _enemy.name);
+                    Debug.LogWarning("player: " + enemyPhotonView.Owner.NickName);
                 }
             }
             
