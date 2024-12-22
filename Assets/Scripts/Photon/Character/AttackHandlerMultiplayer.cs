@@ -7,7 +7,7 @@ namespace Photon.Character
     {
         private static readonly int Hurt = Animator.StringToHash("hurt");
         public float damageDealt = 1f;
-        public float distanceDealDamage = 100f;
+        public float distanceDealDamage = 1f;
         private GameObject _enemy;
 
         private BoxCollider2D _playerBoxCollider;
