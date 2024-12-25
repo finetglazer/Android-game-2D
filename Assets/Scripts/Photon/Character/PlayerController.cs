@@ -21,6 +21,10 @@ namespace Photon.Character
                     playerCam = Instantiate(playerCamPrefab, transform.position, Quaternion.identity, transform);
                     playerCam.Follow = this.transform;
                     playerCam.LookAt = this.transform;
+                    
+                    //set up orthographic size
+                    playerCam.m_Lens.OrthographicSize = 5;
+                    
                     playerCam.gameObject.SetActive(true);
                 }
                 else

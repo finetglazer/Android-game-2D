@@ -1,12 +1,13 @@
-﻿using Photon.Pun;
+﻿using System.Collections.Generic;
+using ExitGames.Client.Photon;
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
+using UnityEngine.UI;
 
-namespace Photon
+namespace Photon.Lobby
 {
     public class LobbyManager : MonoBehaviourPunCallbacks
     {
@@ -46,6 +47,8 @@ namespace Photon
 
         private void Start()
         {
+            Hashtable playerProperties = PhotonNetwork.CurrentRoom.CustomProperties;
+            Debug.Log(playerProperties["type"]);
             // Attach listener to the Start Match button
             if (startMatchButton != null)
                 startMatchButton.onClick.AddListener(OnStartMatchButtonClicked);
@@ -74,8 +77,7 @@ namespace Photon
             UpdatePlayerSlots();
 
             // Register to the scene loaded event
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
            
 
             
@@ -101,7 +103,7 @@ namespace Photon
         private void OnDestroy()
         {
             // Unregister from the scene loaded event to avoid memory leaks
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -304,7 +306,7 @@ namespace Photon
                 AssignSpawnIndicesToAllPlayers(); // Assign here when all players are present and ready
             }
             // Load the SoloScene for all players
-            PhotonNetwork.LoadLevel("SoloScene"); // Ensure SoloScene is added to Build Settings
+            PhotonNetwork.LoadLevel("MultiCharSelection"); // Ensure SoloScene is added to Build Settings
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

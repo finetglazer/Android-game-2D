@@ -1,10 +1,9 @@
 ﻿using Photon.Pun;
-using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Photon
+namespace Photon.Lobby
 {
     public class LobbyChat : MonoBehaviourPunCallbacks
     {

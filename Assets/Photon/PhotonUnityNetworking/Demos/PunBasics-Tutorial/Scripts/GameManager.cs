@@ -39,7 +39,7 @@ namespace Photon.Pun.Demo.PunBasics
         [Tooltip("The prefab to use for representing the player")]
         [SerializeField]
         private GameObject playerPrefab;
-
+        
         #endregion
 
         #region MonoBehaviour CallBacks
