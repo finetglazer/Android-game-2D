@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7889669818217438289}
-  - component: {fileID: 5894717279667704459}
+  - component: {fileID: 5230758696581891143}
   m_Layer: 5
   m_Name: HealthBarUI
   m_TagString: Untagged
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchoredPosition: {x: 5985, y: -1041}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5894717279667704459
+--- !u!114 &5230758696581891143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,12 +48,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2585628496207717227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca56f4d8705c4495abc9edee85e05bbc, type: 3}
+  m_Script: {fileID: 11500000, guid: d785727f5b2c4fbaade0cb24c9b4c05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 4146794971297589915}
   playerNameText: {fileID: 5327164802669111244}
-  offset: {x: 2.3, y: 0.5, z: 0}
+  offset: {x: 0, y: 1.5, z: 0}
 --- !u!1 &6633984322717530905
 GameObject:
   m_ObjectHideFlags: 0

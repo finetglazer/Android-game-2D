@@ -10,6 +10,7 @@ using Photon.Pun;
 using ServerInteraction.Responses;
 using SingleLeaderboard;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;

@@ -1326,11 +1326,11 @@ GameObject:
   - component: {fileID: 3569565041834359320}
   - component: {fileID: 5495211719528382133}
   - component: {fileID: 8754636687898557846}
-  - component: {fileID: 4425572279518823753}
-  - component: {fileID: 7422088263689307820}
   - component: {fileID: 8679036178234569449}
-  - component: {fileID: 5256991005671954187}
   - component: {fileID: 300915346948397356}
+  - component: {fileID: 4855077345765615277}
+  - component: {fileID: 6680560073970839074}
+  - component: {fileID: 4255552831609899394}
   m_Layer: 8
   m_Name: Peasant
   m_TagString: PeasantEnemy
@@ -1521,32 +1521,6 @@ MonoBehaviour:
   - {fileID: 7107048039163306541}
   - {fileID: 3440190672395462641}
   - {fileID: 3500938680223266623}
---- !u!114 &4425572279518823753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989387461264371691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53325453adbf4accbfb4f5fa716dab18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -15
---- !u!114 &7422088263689307820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989387461264371691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81daf57c08b947b280d1f3d0fed1c6df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
 --- !u!114 &8679036178234569449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,24 +1541,12 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5495211719528382133}
-  - {fileID: 4425572279518823753}
-  - {fileID: 7422088263689307820}
   - {fileID: 300915346948397356}
+  - {fileID: 4855077345765615277}
+  - {fileID: 6680560073970839074}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5256991005671954187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989387461264371691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1e05cc33b6486bb82cd7a6f0255a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &300915346948397356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,6 +1586,44 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &4855077345765615277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989387461264371691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080eb71b51ec42a2bd4ea3f537d2503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
+--- !u!114 &6680560073970839074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989387461264371691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e25d474c664ac5a27114fa3785f5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -15
+--- !u!114 &4255552831609899394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989387461264371691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85709677a6564ca299ac1c366f6aa4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2380918915030632520
 GameObject:
   m_ObjectHideFlags: 0

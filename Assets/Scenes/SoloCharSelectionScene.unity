@@ -1932,11 +1932,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Playertest
+    - m_Text: Knight
       m_Image: {fileID: 0}
-    - m_Text: Player 2
+    - m_Text: Merchant
       m_Image: {fileID: 0}
-    - m_Text: Player 3
+    - m_Text: Peasant
+      m_Image: {fileID: 0}
+    - m_Text: Soldier
+      m_Image: {fileID: 0}
+    - m_Text: Thief
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2366,7 +2370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Playertest
+  m_text: Knight
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 806dd5652628b5c4c85673e6cc07f895, type: 2}
   m_sharedMaterial: {fileID: -2940875413807154895, guid: 806dd5652628b5c4c85673e6cc07f895, type: 2}
