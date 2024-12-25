@@ -43,6 +43,7 @@ namespace Photon.CharSelectionRoom
         // Ready Status Tracking
         private Dictionary<int, bool> playerReadyStatus = new Dictionary<int, bool>();
 
+        private bool isConfirmed;
 
         private void Awake()
         {
@@ -60,10 +61,15 @@ namespace Photon.CharSelectionRoom
                 timerEndTime = (double)PhotonNetwork.CurrentRoom.CustomProperties[TimerEndTimeKey];
                 isTimerRunning = true;
             }
+
             
             
             // Attach listener to the confirm button
+            // check if this button is click or not
             confirmButton.onClick.AddListener(OnConfirmButtonClicked);
+
+            if (isConfirmed)
+                OnConfirmSelection();
             
             // Update the player slots
             UpdatePlayerSlots();
@@ -156,6 +162,7 @@ namespace Photon.CharSelectionRoom
 
         private void OnConfirmButtonClicked()
         {
+            isConfirmed = true;
             ToggleReadyStatus();
             confirmButton.interactable = false;
             UpdatePlayerSlots();

@@ -39,13 +39,14 @@ namespace Photon.SceneManager.Multi
             Debug.Log(spawnPosition.x + " " + spawnPosition.y + " " + spawnPosition.z);
             
             // get the name of the player option from the dropdown
-            PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("Character", out object playerOption);
+            string playerPrefab = PhotonNetwork.LocalPlayer.CustomProperties["Character"] as string;
             
-            GameObject player = PhotonNetwork.Instantiate("Player", spawnPosition, spawnRotation);
-            if (player == null)
+
+            Debug.Log($"Spawning player {PhotonNetwork.LocalPlayer.NickName} at {spawnPosition} with SpawnIndex");
+            GameObject instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab, spawnPosition, spawnRotation);
+            if (instantiatedPlayer == null)
             {
-                Debug.LogError("Failed to spawn player.");
-                return;
+                Debug.LogError("Failed to instantiate player prefab in SoloScene.");
             }
             
         }

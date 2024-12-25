@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using Photon.Pun;
-using Photon.Solo.Characters.Knight;
+using Photon.Solo.Characters.Soldier;
 using UnityEngine;
 using UnityEngine.Networking;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
