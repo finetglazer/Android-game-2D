@@ -440,11 +440,11 @@ GameObject:
   - component: {fileID: 939004052084167590}
   - component: {fileID: 1077902050108835069}
   - component: {fileID: 7252771288230839624}
-  - component: {fileID: 5250585910336832454}
-  - component: {fileID: 8257269501954886148}
   - component: {fileID: 4077417168454867050}
-  - component: {fileID: -8952972059554070882}
   - component: {fileID: -1150390205383821474}
+  - component: {fileID: 6114612414670850488}
+  - component: {fileID: 4976367886274410456}
+  - component: {fileID: 748977794797437995}
   m_Layer: 8
   m_Name: Merchant
   m_TagString: MerchantEnemy
@@ -595,32 +595,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: 1
   distanceDealDamage: 4
---- !u!114 &5250585910336832454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013261649242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53325453adbf4accbfb4f5fa716dab18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -15
---- !u!114 &8257269501954886148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013261649242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81daf57c08b947b280d1f3d0fed1c6df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
 --- !u!114 &4077417168454867050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,24 +615,12 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1077902050108835069}
-  - {fileID: 5250585910336832454}
-  - {fileID: 8257269501954886148}
   - {fileID: -1150390205383821474}
+  - {fileID: 6114612414670850488}
+  - {fileID: 748977794797437995}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-8952972059554070882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013261649242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1e05cc33b6486bb82cd7a6f0255a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1150390205383821474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +663,44 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &6114612414670850488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013261649242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e25d474c664ac5a27114fa3785f5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -15
+--- !u!114 &4976367886274410456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013261649242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85709677a6564ca299ac1c366f6aa4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &748977794797437995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013261649242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080eb71b51ec42a2bd4ea3f537d2503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
 --- !u!1 &1000013350955496
 GameObject:
   m_ObjectHideFlags: 0

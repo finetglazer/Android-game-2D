@@ -602,13 +602,13 @@ GameObject:
   - component: {fileID: 2973376353608917100}
   - component: {fileID: 381710302352702716}
   - component: {fileID: 6291561058460492660}
-  - component: {fileID: 3586428183536318134}
-  - component: {fileID: 3732794479741691267}
-  - component: {fileID: 5024254674191267590}
-  - component: {fileID: 5335375419219510388}
   - component: {fileID: 3243630649414286602}
-  - component: {fileID: 6261127279053243722}
   - component: {fileID: 6289839278023457683}
+  - component: {fileID: 5977307810823322085}
+  - component: {fileID: 2449640172769966965}
+  - component: {fileID: 7676574662980121310}
+  - component: {fileID: 103140809015925775}
+  - component: {fileID: 6684791967692970212}
   m_Layer: 6
   m_Name: Playertest
   m_TagString: Player
@@ -725,66 +725,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3586428183536318134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478686290618477188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f88c21b7ff44dd9e04be9b13b554de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageDealt: 1
-  distanceDealDamage: 4
---- !u!114 &3732794479741691267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478686290618477188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c301f53af844014bd20c2a762a9bd24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
-  walkSpeed: 2
-  jumpSpeed: 5
-  currentHealth: 15
-  isDoubleJump: 0
-  horizontalInput: 0
-  canDoubleJump: 0
-  deathCount: 0
---- !u!114 &5024254674191267590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478686290618477188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53325453adbf4accbfb4f5fa716dab18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathPoint: -15
---- !u!114 &5335375419219510388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478686290618477188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81daf57c08b947b280d1f3d0fed1c6df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
 --- !u!114 &3243630649414286602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,25 +744,13 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 3732794479741691267}
-  - {fileID: 5024254674191267590}
-  - {fileID: 5335375419219510388}
   - {fileID: 6289839278023457683}
+  - {fileID: 5977307810823322085}
+  - {fileID: 103140809015925775}
+  - {fileID: 6684791967692970212}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &6261127279053243722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478686290618477188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1e05cc33b6486bb82cd7a6f0255a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6289839278023457683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +793,78 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &5977307810823322085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b5bcd538e84412833146952f4caef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
+  walkSpeed: 2
+  jumpSpeed: 5
+  currentHealth: 15
+  isDoubleJump: 0
+  horizontalInput: 0
+  canDoubleJump: 0
+  deathCount: 0
+--- !u!114 &2449640172769966965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02537007af4b35b4ebf6990a5aff21d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1
+  distanceDealDamage: 4
+--- !u!114 &7676574662980121310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85709677a6564ca299ac1c366f6aa4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &103140809015925775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e25d474c664ac5a27114fa3785f5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPoint: -15
+--- !u!114 &6684791967692970212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478686290618477188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080eb71b51ec42a2bd4ea3f537d2503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamPrefab: {fileID: 2765727304144615593, guid: ec49a20832c0708489fc82d709e2dfcd, type: 3}
 --- !u!1 &8376927958730880529
 GameObject:
   m_ObjectHideFlags: 0
