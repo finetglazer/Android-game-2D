@@ -1,4 +1,5 @@
-﻿using Photon.Multiplayer.Commons.PlayerCore;
+﻿
+using Photon.Solo.Commons.PlayerCore;
 using UnityEngine;
 
 namespace Photon.FireMultiPlayer
