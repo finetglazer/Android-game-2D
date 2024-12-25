@@ -1033,7 +1033,7 @@ namespace Photon.Pun
         /// Removes the RPCs of someone else (to be used as master).
         /// This won't clean any local caches. It just tells the server to forget a player's RPCs and instantiates.
         /// </summary>
-        /// <param name="actorNumber"></param>
+        /// <param name="actorNumbeaddr"></param>
         public static void OpCleanActorRpcBuffer(int actorNumber)
         {
             RaiseEventOptions options = new RaiseEventOptions() { CachingOption = EventCaching.RemoveFromRoomCache, TargetActors = new int[] { actorNumber } };
