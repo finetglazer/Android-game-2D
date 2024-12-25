@@ -1,13 +1,16 @@
-﻿using Photon.Pun;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-using Cinemachine;
+using UnityEngine.UI;
+using ExitGames.Client.Photon;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-namespace Photon
+
+namespace Photon.Lobby
 {
     public class SoloLobbyManager : MonoBehaviourPunCallbacks
     {
@@ -59,6 +62,8 @@ namespace Photon
 
         private void Start()
         {
+            AssignTypeOfRoom();
+            
             // Attach listeners
             if (startMatchButton != null)
                 startMatchButton.onClick.AddListener(OnStartMatchButtonClicked);
@@ -84,13 +89,20 @@ namespace Photon
             UpdatePlayerSlots();
 
             // Register to the scene loaded event
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
             
+        }
+        
+        private void AssignTypeOfRoom()
+        {
+           Hashtable roomProps = PhotonNetwork.CurrentRoom.CustomProperties;
+           roomProps["type"] = "solo";
+           PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
         }
 
         private void OnDestroy()
         {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -289,7 +301,7 @@ namespace Photon
             {
                 AssignSpawnIndicesToAllPlayers();
             }
-            PhotonNetwork.LoadLevel("SoloScene"); // Ensure SoloScene is added to Build Settings
+            PhotonNetwork.LoadLevel("SoloCharSelectionScene"); // Ensure SoloScene is added to Build Settings
         }
 
         void AssignSpawnIndicesToAllPlayers()

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace Photon.Character
 {
@@ -71,9 +72,21 @@ namespace Photon.Character
             // Send the request asynchronously
             StartCoroutine(SendRequest(request));
 
+            // Set the winner and loser in the GameManager
+           
+            string winnerName = otherPlayer;
+            string loserName = PhotonNetwork.LocalPlayer.NickName;
+            
+            // Set up the properties of Photon
+            Hashtable result = PhotonNetwork.CurrentRoom.CustomProperties;
+            result["loser"] = loserName;
+            result["winner"] = winnerName;
+            PhotonNetwork.CurrentRoom.SetCustomProperties(result);
+            
+            
             if (photonView.IsMine)
             {
-                // Notify all clients to load the "EndingScene"
+                // Notify all clients to load the appropriate scene, passing winner and loser names
                 photonView.RPC("LoadScene", RpcTarget.All);
             }
         }
@@ -81,9 +94,8 @@ namespace Photon.Character
         [PunRPC]
         private void LoadScene()
         {
-            Debug.Log("RPC LoadScene called. Loading EndingScene.");
-            // Optionally, add delay or effects before loading the scene
-            PhotonNetwork.LoadLevel("EndingScene");
+            // Load the appropriate scene
+            PhotonNetwork.LoadLevel("ResultSoloScene");
         }
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

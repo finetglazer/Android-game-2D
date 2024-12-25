@@ -14,7 +14,6 @@ namespace Photon
      
 
         private bool isSceneLoading = false;
-
         private void Start()
         {
             soloModeButton.onClick.AddListener(OnSoloModeClicked);
@@ -33,6 +32,7 @@ namespace Photon
 
         void OnSoloModeClicked()
         {
+            // isSoloScene = true;
             Debug.Log("CreateRoomManager started.");
             // Create a room for solo mode
             // For solo mode, let’s say MaxPlayers = 2. Adjust if needed.
@@ -50,9 +50,18 @@ namespace Photon
 
         void OnMultiModeClicked()
         {
-            // Future implementation for multi mode
-            // For now, just a placeholder
-            Debug.Log("Multi mode not implemented yet.");
+            // RoomOptions roomOptions = new RoomOptions()
+            // {
+            //     MaxPlayers = 4,
+            //     IsVisible = true,
+            //     IsOpen = true
+            // };
+            //
+            // string roomName = Random.Range(1000, 9999).ToString();
+            // PhotonNetwork.CreateRoom(roomName, roomOptions);
+            // Debug.Log("Creating a multi mode room...");
+            
+            PhotonNetwork.LoadLevel("ModeSelectionScene");
         }
 
         public override void OnCreatedRoom()
@@ -63,6 +72,7 @@ namespace Photon
             {
                 isSceneLoading = true;
                 PhotonNetwork.LoadLevel("SoloLobbyScene");
+            
             }
         }
 
