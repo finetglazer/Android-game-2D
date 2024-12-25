@@ -1,9 +1,7 @@
-﻿using MainCharacter;
-using Photon.Character;
-using Photon.FireMultiPlayer;
+﻿using Photon.Multiplayer.Commons.PlayerCore;
 using UnityEngine;
 
-namespace GameObjects.Fire
+namespace Photon.FireMultiPlayer
 {
     public class FireAccelerationAndCauseDamageMultiplayer : MonoBehaviour
     {

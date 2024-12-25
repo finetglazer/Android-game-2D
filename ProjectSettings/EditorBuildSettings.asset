@@ -25,7 +25,7 @@ EditorBuildSettings:
     guid: fe2e363884f086646b3d830433b4139d
   - enabled: 1
     path: Assets/Scenes/DashboardScene.unity
-    guid: 769b4c33d345d3c42b5bc3c737860234
+    guid: 2ce01bfbf2187474d9d111a3bf0bbbe4
   - enabled: 1
     path: Assets/Scenes/CreateRoomScene.unity
     guid: 17fc621415bcaf64984ed8e5b78a33a0
@@ -33,11 +33,32 @@ EditorBuildSettings:
     path: Assets/Scenes/SoloLobbyScene.unity
     guid: e01c0471ad983fd4b8c401328f724e55
   - enabled: 1
-    path: Assets/Scenes/LobbyScene.unity
+    path: Assets/Scenes/ModeSelectionScene.unity
+    guid: 2942cda902a09aa48b49ded1a977b6e5
+  - enabled: 1
+    path: Assets/Scenes/MultiLobbyScene.unity
     guid: c9405ed6ed3bb4b4dbddf29d9998c597
+  - enabled: 1
+    path: Assets/Scenes/MultiEasyScene.unity
+    guid: 61e430bb6a896d74fa36ac978c3a3922
+  - enabled: 1
+    path: Assets/Scenes/MultiMediumScene.unity
+    guid: 04355b7061f9748478d3f8a727d61c27
+  - enabled: 1
+    path: Assets/Scenes/MultiNightMareScene.unity
+    guid: d11f5b9fcfec4da42bd73e4c816f96d1
+  - enabled: 1
+    path: Assets/Scenes/MultiCharSelection.unity
+    guid: 8e57c430d9721804e953e5fe5af24a07
+  - enabled: 1
+    path: Assets/Scenes/SoloCharSelectionScene.unity
+    guid: 72a0d86152c9fef4381f18a30fc1bddb
   - enabled: 1
     path: Assets/Scenes/SoloScene.unity
     guid: 2fa422a79226a7c48baef465070c836c
+  - enabled: 1
+    path: Assets/Scenes/ResultSoloScene.unity
+    guid: 156c415cb5c08c74d822f0cf2af2fe30
   - enabled: 1
     path: Assets/Scenes/LeaderboardScene.unity
     guid: bb7877098dc4c9142b9ce72bc53e6f07
@@ -112,5 +133,5 @@ EditorBuildSettings:
     guid: 7bf5dd6cc2628c54d8c8afbc0067af4f
   - enabled: 1
     path: Assets/TestScene - Hiep/SingleLeaderboardScene.unity
-    guid: f8f50cf2824b59c4c95bf26dc813b8d5
+    guid: 36d3bd5f648c4b04a8436907bcd3d497
   m_configObjects: {}
