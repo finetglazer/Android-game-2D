@@ -9,7 +9,6 @@ namespace Photon.SceneManager.Solo
     public class SoloSceneManager : MonoBehaviourPunCallbacks
     {
         [Header("Player Settings")]
-        public GameObject playerPrefab;
         public Transform[] spawnPoints;
 
         [Header("UI Elements")]
@@ -73,12 +72,7 @@ namespace Photon.SceneManager.Solo
 
         private void SpawnLocalPlayer(int spawnIndex)
         {
-            Debug.Log("The call");
-            if (playerPrefab == null)
-            {
-                Debug.LogError("Player Prefab is not assigned in SoloSceneManager.");
-                return;
-            }
+         
 
             Vector3 spawnPosition;
             Quaternion spawnRotation;
@@ -94,9 +88,13 @@ namespace Photon.SceneManager.Solo
                 spawnRotation = Quaternion.identity;
                 Debug.LogWarning("No valid spawn point found. Spawning at a random position.");
             }
+            
+            //get from photon local player
+            string playerPrefab = PhotonNetwork.LocalPlayer.CustomProperties["Character"] as string;
+            
 
             Debug.Log($"Spawning player {PhotonNetwork.LocalPlayer.NickName} at {spawnPosition} with SpawnIndex {spawnIndex}");
-            GameObject instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, spawnRotation);
+            GameObject instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab, spawnPosition, spawnRotation);
             if (instantiatedPlayer == null)
             {
                 Debug.LogError("Failed to instantiate player prefab in SoloScene.");
