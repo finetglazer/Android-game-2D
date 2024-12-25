@@ -1,4 +1,4 @@
-﻿using Photon.Multiplayer.Commons.HealthBar;
+﻿using Photon.Solo.Commons.HealthBar;
 using Photon.Pun;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ namespace Photon.Solo.Commons.PlayerCore
 {
     public class PlayerInstantiation : MonoBehaviourPunCallbacks
     {
+        
         private void Start()
         {
             if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
