@@ -72,6 +72,7 @@ namespace Photon.Solo.Commons.HealthBar
             float proportionRemainedHp = currentHealth / initialHealth;
             proportionRemainedHp = Mathf.Clamp01(proportionRemainedHp);
 
+            
             // Update the fill amount
             // healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
             
@@ -90,6 +91,8 @@ namespace Photon.Solo.Commons.HealthBar
             {
                 healthBarFill.GetComponent<Image>().color = Color.red;
             }
+            
+      
         }
         
         

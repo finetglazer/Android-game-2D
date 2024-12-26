@@ -143,6 +143,7 @@ namespace Photon.CharSelectionRoom
         private void OnTimerEnded()
         {
             Debug.Log("Timer has ended!");
+            OnConfirmSelection();
             // if (PhotonNetwork.IsMasterClient)
             //     SendResult();
             

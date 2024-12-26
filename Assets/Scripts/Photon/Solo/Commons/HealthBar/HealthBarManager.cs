@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace Photon.Solo.Commons.HealthBar
 
         // Dictionary to keep track of player health bars
         private Dictionary<int, GameObject> playerHealthBars = new Dictionary<int, GameObject>();
+
+        private GameObject _healthBar;
 
         private void Start()
         {
@@ -51,18 +54,47 @@ namespace Photon.Solo.Commons.HealthBar
             if (!playerHealthBars.ContainsKey(actorNumber))
             {
                 // Instantiate the health bar UI
-                GameObject healthBarUI = Instantiate(healthBarPrefab, uiCanvas.transform);
+                _healthBar = Instantiate(healthBarPrefab, uiCanvas.transform);
 
                 // Initialize the HealthBarUI script
-                HealthBarUI healthBar = healthBarUI.GetComponent<HealthBarUI>();
+                HealthBarUI healthBar = _healthBar.GetComponent<HealthBarUI>();
                 if (healthBar != null)
                 {
                     healthBar.SetCharacter(player.transform, mainCamera);
                 }
 
                 // Add to the dictionary
-                playerHealthBars.Add(actorNumber, healthBarUI);
+                playerHealthBars.Add(actorNumber, _healthBar);
+                
+                // Find the object name filledHealthBar in the healthbar
+               
+                
             }
+        }
+
+        private void Update()
+        {
+            Transform filledHealthBar = _healthBar.transform.Find("FilledHealthBar");
+            // Get component image filled health bar and check if fill amount = 0 -> set active false
+            if (filledHealthBar != null)
+            {
+                    
+                UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
+                if (filledHealthBarImage != null)
+                {
+                    Debug.Log("haha");
+                    if (filledHealthBarImage.fillAmount <= 0f)
+                    {
+                        _healthBar.gameObject.SetActive(false);
+                        Debug.Log("hihihihiihi");
+                    }
+                    else
+                    {
+                        Debug.Log("keke");
+                    }
+                }
+            }
+          
         }
     }
 }
