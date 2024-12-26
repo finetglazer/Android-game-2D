@@ -1,10 +1,14 @@
-﻿using Photon.Pun;
+﻿using System.Collections;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using ExitGames.Client.Photon;
 using System.Collections.Generic;
+using System.Text;
 using Photon.Realtime;
+using ServerInteraction.Payload;
+using UnityEngine.Networking;
 
 
 namespace Photon.SceneManager.Multi
@@ -45,6 +49,8 @@ namespace Photon.SceneManager.Multi
             {
                 Debug.LogError("Leave Button is not assigned in the Inspector.");
             }
+            
+            SendResult();
 
         }
         
@@ -98,5 +104,64 @@ namespace Photon.SceneManager.Multi
             }
         }
 
+        void SendResult()
+        {
+            double endingTime = PhotonNetwork.Time;
+            double startingTime = (double)PhotonNetwork.CurrentRoom.CustomProperties["startTime"];
+            double timeElapsed = endingTime - startingTime;
+
+            string dateStartTime = (string)PhotonNetwork.CurrentRoom.CustomProperties["dateStartTime"];
+
+            // Get all names of players
+            object[] playerNamesArray = (object[])PhotonNetwork.CurrentRoom.CustomProperties["playerNames"];
+            List<string> playerNames = new List<string>();
+            foreach (var name in playerNamesArray)
+            {
+                playerNames.Add(name.ToString());
+            }
+
+            // Create the MultiHistoryMatch object
+            MultiHistoryMatch match = new MultiHistoryMatch
+            {
+                dateStartTime = dateStartTime,
+                timeElapsed = timeElapsed,
+                playerNames = playerNames,
+                deathCount = Random.Range(1, 20)
+            };
+
+            // Debug logs to print all results first
+            Debug.Log("dateStartTime: " + match.dateStartTime);
+            Debug.Log("timeElapsed: " + match.timeElapsed);
+            Debug.Log("playerNames: " + string.Join(", ", match.playerNames));
+            Debug.Log("deathCount: " + match.deathCount);
+
+            // Serialize the object to JSON
+            string jsonString = JsonUtility.ToJson(match);
+            Debug.Log("Serialized JSON: " + jsonString); // Add this to verify the JSON
+
+            // Create a UnityWebRequest with POST method
+            UnityWebRequest request = new UnityWebRequest("http://localhost:8080/api/gameplay/update-multi-match", "POST");
+            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonString);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Start the coroutine to send the request
+            StartCoroutine(SendRequestCoroutine(request));
+        }
+
+        IEnumerator SendRequestCoroutine(UnityWebRequest request)
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Response: " + request.downloadHandler.text);
+            }
+            else
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+        }
     }
 }
