@@ -39,8 +39,11 @@ namespace Photon.Enemy
         private float synchronizedHealth;
         private bool synchronizedIsAttacking;
 
-        // Reference to HealthBarManager
-        private HealthBarManager _healthBarManager;
+        private Solo.Characters.Knight.MovementSoloPlayer _knightMovementSoloPlayer;
+        private Solo.Characters.Merchant.MovementSoloPlayer _merchantMovementSoloPlayer;
+        private Solo.Characters.Peasant.MovementSoloPlayer _peasantMovementSoloPlayer;
+        private Solo.Characters.Soldier.MovementSoloPlayer _soldierMovementSoloPlayer;
+        private Solo.Characters.Thief.MovementSoloPlayer _thiefMovementSoloPlayer;
         
         private void Start()
         {
@@ -57,13 +60,6 @@ namespace Photon.Enemy
             else
             {
                 Debug.LogError("Movement script is missing on the enemy prefab.");
-            }
-        
-            // Find HealthBarManager
-            _healthBarManager = FindObjectOfType<HealthBarManager>();
-            if (_healthBarManager == null)
-            {
-                Debug.LogError("HealthBarManager not found in the scene.");
             }
             
         }
@@ -92,7 +88,7 @@ namespace Photon.Enemy
             _attackCoolDownTimer += Time.deltaTime;
 
             // Detect player presence
-            bool playerDetected = PlayerDetectedOnLeft() || PlayerDetectedOnRight();
+            var playerDetected = PlayerDetectedOnLeft() || PlayerDetectedOnRight();
 
             if (!playerDetected)
             {
@@ -110,7 +106,7 @@ namespace Photon.Enemy
             // Handle attack animations based on player's state
             if (_player != null)
             {
-                Animator playerAnimator = _player.GetComponent<Animator>();
+                var playerAnimator = _player.GetComponent<Animator>();
                 if (playerAnimator != null &&
                     playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "walk")
                 {
@@ -140,7 +136,7 @@ namespace Photon.Enemy
         /// <returns>True if a player is detected on the left, otherwise false.</returns>
         internal bool PlayerDetectedOnLeft()
         {
-            RaycastHit2D raycastHit = Physics2D.Raycast(
+            var raycastHit = Physics2D.Raycast(
                 _characterBoxCollider.bounds.center,
                 Vector2.left,
                 distanceDetectingPlayer,
@@ -163,7 +159,7 @@ namespace Photon.Enemy
         /// <returns>True if a player is detected on the right, otherwise false.</returns>
         internal bool PlayerDetectedOnRight()
         {
-            RaycastHit2D raycastHit = Physics2D.Raycast(
+            var raycastHit = Physics2D.Raycast(
                 _characterBoxCollider.bounds.center,
                 Vector2.right,
                 distanceDetectingPlayer,
@@ -186,7 +182,7 @@ namespace Photon.Enemy
         /// <returns>True if the player is within range, otherwise false.</returns>
         private bool PlayerIsInDamageDealtDistance()
         {
-            RaycastHit2D raycastHitLeft = Physics2D.BoxCast(
+            var raycastHitLeft = Physics2D.BoxCast(
                 _characterBoxCollider.bounds.center,
                 _characterBoxCollider.bounds.size,
                 0f,
@@ -195,7 +191,7 @@ namespace Photon.Enemy
                 LayerMask.GetMask(PlayerMask)
             );
 
-            RaycastHit2D raycastHitRight = Physics2D.BoxCast(
+            var raycastHitRight = Physics2D.BoxCast(
                 _characterBoxCollider.bounds.center,
                 _characterBoxCollider.bounds.size,
                 0f,
@@ -235,11 +231,11 @@ namespace Photon.Enemy
             _characterAnimator.SetTrigger(Walk);
 
             // Increase walk speed when chasing
-            float newWalkSpeed = _firstWalkSpeed * (1 + increaseWalkSpeedWhenChasingBy);
+            var newWalkSpeed = _firstWalkSpeed * (1 + increaseWalkSpeedWhenChasingBy);
             _characterMovement.walkSpeed = newWalkSpeed;
 
             // Move towards the player
-            Vector3 movementDirection = Mathf.Approximately(Mathf.Sign(transform.localScale.x), 1) 
+            var movementDirection = Mathf.Approximately(Mathf.Sign(transform.localScale.x), 1) 
                 ? Vector3.left 
                 : Vector3.right;
 
@@ -255,17 +251,26 @@ namespace Photon.Enemy
         {
             if (_player == null) return;
 
-            Animator playerAnimator = _player.GetComponent<Animator>();
-            MainCharacter.Movement playerMovement = _player.GetComponent<MainCharacter.Movement>();
+            var playerAnimator = _player.GetComponent<Animator>();
 
-            if (playerMovement == null)
+            _knightMovementSoloPlayer = _player.GetComponent<Solo.Characters.Knight.MovementSoloPlayer>();
+            _merchantMovementSoloPlayer = _player.GetComponent<Solo.Characters.Merchant.MovementSoloPlayer>();
+            _peasantMovementSoloPlayer = _player.GetComponent<Solo.Characters.Peasant.MovementSoloPlayer>();
+            _soldierMovementSoloPlayer = _player.GetComponent<Solo.Characters.Soldier.MovementSoloPlayer>();
+            _thiefMovementSoloPlayer = _player.GetComponent<Solo.Characters.Thief.MovementSoloPlayer>();
+            
+            if (AllPlayerMovementAreNull())
             {
                 Debug.LogError("Player's Movement script is missing.");
                 return;
             }
 
             // Apply damage
-            playerMovement.currentHealth -= damageDealt;
+            if (_knightMovementSoloPlayer) _knightMovementSoloPlayer.currentHealth -= damageDealt;
+            else if (_merchantMovementSoloPlayer) _merchantMovementSoloPlayer.currentHealth -= damageDealt;
+            else if (_peasantMovementSoloPlayer) _peasantMovementSoloPlayer.currentHealth -= damageDealt;
+            else if (_soldierMovementSoloPlayer) _soldierMovementSoloPlayer.currentHealth -= damageDealt;
+            else if (_thiefMovementSoloPlayer) _thiefMovementSoloPlayer.currentHealth -= damageDealt;
 
             // Trigger hurt animation
             if (playerAnimator != null)
@@ -274,15 +279,16 @@ namespace Photon.Enemy
             }
 
             // Check if player is dead
-            if (playerMovement.currentHealth <= 0f)
+            if ((_knightMovementSoloPlayer && _knightMovementSoloPlayer.currentHealth <= 0)
+                || (_merchantMovementSoloPlayer && _merchantMovementSoloPlayer.currentHealth <= 0)
+                || (_peasantMovementSoloPlayer && _peasantMovementSoloPlayer.currentHealth <= 0)
+                || (_soldierMovementSoloPlayer && _soldierMovementSoloPlayer.currentHealth <= 0)
+                || (_thiefMovementSoloPlayer && _thiefMovementSoloPlayer.currentHealth <= 0))
             {
                 if (playerAnimator != null)
                 {
                     playerAnimator.SetTrigger(Die);
                 }
-
-                // Optionally, handle player death (e.g., respawn)
-                // You can add additional logic here
             }
             
         }
@@ -329,6 +335,15 @@ namespace Photon.Enemy
                 //     _characterAnimator.SetTrigger(Attack);
                 // }
             }
+        }
+
+        private bool AllPlayerMovementAreNull()
+        {
+            return (_knightMovementSoloPlayer == null 
+                    && _merchantMovementSoloPlayer == null 
+                    && _peasantMovementSoloPlayer == null 
+                    && _soldierMovementSoloPlayer == null 
+                    && _thiefMovementSoloPlayer == null);
         }
     }
 }

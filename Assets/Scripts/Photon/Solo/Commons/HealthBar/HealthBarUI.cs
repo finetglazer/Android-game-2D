@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Photon.Enemy;
+using Photon.Pun;
 using Photon.Solo.Characters.Knight;
 using TMPro;
 using UnityEngine;
@@ -11,10 +12,10 @@ namespace Photon.Solo.Commons.HealthBar
         public RectTransform healthBarFill; // Assign in Inspector (the fill part)
         public TMP_Text playerNameText; // Assign in Inspector
 
-        private Transform characterTransform;
-        private UnityEngine.Camera mainCamera;
-        private float initialHealth;
+        private Transform _characterTransform;
         private Transform _enemyTransform;
+        private Camera _mainCamera;
+        private float _initialHealth;
 
         private Characters.Knight.MovementSoloPlayer _knightMovementSoloPlayer;
         private Characters.Merchant.MovementSoloPlayer _merchantMovementSoloPlayer;
@@ -22,13 +23,15 @@ namespace Photon.Solo.Commons.HealthBar
         private Characters.Soldier.MovementSoloPlayer _soldierMovementSoloPlayer;
         private Characters.Thief.MovementSoloPlayer _thiefMovementSoloPlayer;
 
-        public Vector3 offset = new Vector3(0, 1.5f, 0); // Offset above the character
+        private Enemy.MultiEnemyMovement _enemyMovement;
 
-        private bool isEnemy = false;
-        public void SetCharacter(Transform character, UnityEngine.Camera camera)
+        public Vector3 offset = new (0, 1.5f, 0); // Offset above the character
+
+        private bool _isEnemy;
+        public void SetCharacter(Transform character, Camera mainCamera)
         {
-            characterTransform = character;
-            mainCamera = camera;
+            _characterTransform = character;
+            _mainCamera = mainCamera;
 
             _knightMovementSoloPlayer = character.GetComponent<Characters.Knight.MovementSoloPlayer>();
             _merchantMovementSoloPlayer = character.GetComponent<Characters.Merchant.MovementSoloPlayer>();
@@ -36,14 +39,14 @@ namespace Photon.Solo.Commons.HealthBar
             _soldierMovementSoloPlayer = character.GetComponent<Characters.Soldier.MovementSoloPlayer>();
             _thiefMovementSoloPlayer = character.GetComponent<Characters.Thief.MovementSoloPlayer>();
 
-            if (_knightMovementSoloPlayer) initialHealth = _knightMovementSoloPlayer.currentHealth;
-            else if (_merchantMovementSoloPlayer) initialHealth = _merchantMovementSoloPlayer.currentHealth;
-            else if (_peasantMovementSoloPlayer) initialHealth = _peasantMovementSoloPlayer.currentHealth;
-            else if (_soldierMovementSoloPlayer) initialHealth = _soldierMovementSoloPlayer.currentHealth;
-            else if (_thiefMovementSoloPlayer) initialHealth = _thiefMovementSoloPlayer.currentHealth;
+            if (_knightMovementSoloPlayer) _initialHealth = _knightMovementSoloPlayer.currentHealth;
+            else if (_merchantMovementSoloPlayer) _initialHealth = _merchantMovementSoloPlayer.currentHealth;
+            else if (_peasantMovementSoloPlayer) _initialHealth = _peasantMovementSoloPlayer.currentHealth;
+            else if (_soldierMovementSoloPlayer) _initialHealth = _soldierMovementSoloPlayer.currentHealth;
+            else if (_thiefMovementSoloPlayer) _initialHealth = _thiefMovementSoloPlayer.currentHealth;
 
             // Set player name
-            PhotonView pv = character.GetComponent<PhotonView>();
+            var pv = character.GetComponent<PhotonView>();
             if (pv != null && pv.Owner != null)
             {
                 Debug.Log("lalalalala");
@@ -53,41 +56,79 @@ namespace Photon.Solo.Commons.HealthBar
             }
         }
         
-        public void SetCharacterEnemy(Transform character, UnityEngine.Camera camera, bool isEnemy = false)
+        public void SetCharacterEnemy(Transform character, Camera mainCamera, bool isEnemy = false)
         {
             _enemyTransform = character;
-            mainCamera = camera;
-            this.isEnemy = isEnemy;
+            _mainCamera = mainCamera;
+            _isEnemy = isEnemy;
+
+            _enemyMovement = character.GetComponent<MultiEnemyMovement>();
+            if (_enemyMovement) _initialHealth = _enemyMovement.currentHealth;
             
-    
+            var pv = character.GetComponent<PhotonView>();
+            if (pv != null && pv.Owner != null)
+            {
+                Debug.Log("setting up for enemy");
+                playerNameText.text = pv.Owner.NickName;
+                playerNameText.color = Color.red;
+            }
         }
 
         private void Update()
         {
-            if (characterTransform == null || healthBarFill == null || mainCamera == null || (
-                    !_knightMovementSoloPlayer && !_merchantMovementSoloPlayer && !_peasantMovementSoloPlayer && !_soldierMovementSoloPlayer && !_thiefMovementSoloPlayer)) return;
+            if (!_isEnemy &&
+                (_characterTransform == null 
+                    || healthBarFill == null 
+                    || _mainCamera == null 
+                    || (!_knightMovementSoloPlayer 
+                        && !_merchantMovementSoloPlayer 
+                        && !_peasantMovementSoloPlayer 
+                        && !_soldierMovementSoloPlayer 
+                        && !_thiefMovementSoloPlayer)
+                    )
+                || (_isEnemy
+                    && (_enemyTransform == null
+                        || healthBarFill == null
+                        || _mainCamera == null
+                        || !_enemyMovement))
+                ) return;
 
-            // Update position
-            Vector3 worldPosition = characterTransform.position + offset;
-            // Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
-            Vector3 screenPosition = worldPosition;
-            transform.position = screenPosition;
-
-            // Update health bar
-            float currentHealth = -1;
-            if (_knightMovementSoloPlayer) currentHealth = _knightMovementSoloPlayer.currentHealth;
-            else if (_merchantMovementSoloPlayer) currentHealth = _merchantMovementSoloPlayer.currentHealth;
-            else if (_peasantMovementSoloPlayer) currentHealth = _peasantMovementSoloPlayer.currentHealth;
-            else if (_soldierMovementSoloPlayer) currentHealth = _soldierMovementSoloPlayer.currentHealth;
-            else if (_thiefMovementSoloPlayer) currentHealth = _thiefMovementSoloPlayer.currentHealth;
+            float currentHealth = -10000;
             
-            float proportionRemainedHp = currentHealth / initialHealth;
+            // If not Enemy
+            
+            if (!_isEnemy)
+            {
+                // Update player health bar position
+                var worldPosition = _characterTransform.position + offset;
+                // Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
+                var screenPosition = worldPosition;
+                transform.position = screenPosition;
+                
+                if (_knightMovementSoloPlayer) currentHealth = _knightMovementSoloPlayer.currentHealth;
+                else if (_merchantMovementSoloPlayer) currentHealth = _merchantMovementSoloPlayer.currentHealth;
+                else if (_peasantMovementSoloPlayer) currentHealth = _peasantMovementSoloPlayer.currentHealth;
+                else if (_soldierMovementSoloPlayer) currentHealth = _soldierMovementSoloPlayer.currentHealth;
+                else if (_thiefMovementSoloPlayer) currentHealth = _thiefMovementSoloPlayer.currentHealth;
+            }
+
+            // If is Enemy
+            else
+            {
+                // Update enemy health bar position
+                var worldPosition = _enemyTransform.position + offset;
+                // Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
+                var screenPosition = worldPosition;
+                transform.position = screenPosition;
+                
+                currentHealth = _enemyMovement.currentHealth;
+            }
+                
+            var proportionRemainedHp = currentHealth / _initialHealth;
             proportionRemainedHp = Mathf.Clamp01(proportionRemainedHp);
 
             
             // Update the fill amount
-            // healthBarFill.localScale = new Vector3(proportionRemainedHp, 1, 1);
-            
             healthBarFill.GetComponent<Image>().fillAmount = proportionRemainedHp;
             
             // Optional: Change color based on health
@@ -103,10 +144,6 @@ namespace Photon.Solo.Commons.HealthBar
             {
                 healthBarFill.GetComponent<Image>().color = Color.red;
             }
-            
-      
         }
-        
-        
     }
 }

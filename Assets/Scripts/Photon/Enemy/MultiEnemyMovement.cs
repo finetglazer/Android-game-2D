@@ -1,6 +1,4 @@
-﻿using OtherCharacters.Merchant;
-using Photon.Pun;
-using Respawner;
+﻿using Photon.Pun;
 using UnityEngine;
 
 namespace Photon.Enemy
@@ -14,29 +12,24 @@ namespace Photon.Enemy
         public float moveTime = 1;
         public float deathPoint = -100;
         public float gravityAcceleration = 0.4f;
-        public float distanceDetectingFire = 1f;
-        public float immortalRerenderTime = 1f;
-        private GameObject _healthBar;
         private static readonly int Walk = Animator.StringToHash("walk");
         private static readonly int Idle = Animator.StringToHash("idle");
+        private static readonly int Hurt = Animator.StringToHash("hurt");
+        private static readonly int Die = Animator.StringToHash("die");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
         private MultiEnemyAttackHandler _characterDetector;
         private float _clock;
-        private Vector3 _initialPosition;
         private float _fallVelocity;
         private bool _playerDetected;
         private bool _isWallOnLeft;
         private bool _isWallOnRight;
-        private bool _isFlaming;
         
         private void Start()
         {
-            _initialPosition = transform.position;
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterDetector = GetComponent<MultiEnemyAttackHandler>();
-            // _healthBar = GetComponent<>()
         }
 
         private void Update()
@@ -48,10 +41,7 @@ namespace Photon.Enemy
                 return;
             }
             
-            
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
-            // debug _playerDetected is null 
-            // Debug.Log(_playerDetected);
             
             _isWallOnLeft = IsWallOnLeft();
             _isWallOnRight = IsWallOnRight();
@@ -163,34 +153,49 @@ namespace Photon.Enemy
             {
                 // Send position and rotation data
                 stream.SendNext(transform.position);
+                stream.SendNext(transform.localScale);
                 stream.SendNext(transform.rotation);
         
                 // Send health data
                 stream.SendNext(currentHealth);
         
                 // Send animation state
-                bool isWalking = _characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk");
+                var isWalking = _characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("walk");
                 stream.SendNext(isWalking);
             }
             else
             {
                 // Receive position and rotation data
                 transform.position = (Vector3)stream.ReceiveNext();
+                transform.localScale = (Vector3)stream.ReceiveNext();
                 transform.rotation = (Quaternion)stream.ReceiveNext();
         
                 // Receive health data
                 currentHealth = (float)stream.ReceiveNext();
         
                 // Receive animation state
-                bool isWalking = (bool)stream.ReceiveNext();
-                if (isWalking)
-                {
-                    _characterAnimator.SetTrigger(Walk);
-                }
-                else
-                {
-                    _characterAnimator.SetTrigger(Idle);
-                }
+                var isWalking = (bool)stream.ReceiveNext();
+                _characterAnimator.SetTrigger(isWalking ? Walk : Idle);
+            }
+        }
+        
+        [PunRPC]
+        public void ApplyDamage(float damage)
+        {
+            Debug.Log("Enemy ApplyDamage hereeeeeeeeeee");
+            if (!photonView.IsMine) return; // Only the owner should modify their health
+
+            Debug.Log($"{photonView.Owner.NickName} took {damage} damage.");
+
+            currentHealth -= damage;
+            currentHealth = Mathf.Max(currentHealth, 0f);
+
+            _characterAnimator.SetTrigger(Hurt);
+
+            if (currentHealth <= 0f)
+            {
+                Debug.Log($"{photonView.Owner.NickName} has died.");
+                _characterAnimator.SetTrigger(Die);
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -8,20 +7,18 @@ namespace Photon.Solo.Commons.HealthBar
 {
     public class HealthBarManager : MonoBehaviourPunCallbacks
     {
-        public GameObject healthBarPrefab; // Prefab for the health bar UI
-        public Canvas uiCanvas; // Reference to the UI Canvas
-        public UnityEngine.Camera mainCamera; // Reference to the main camera
+        public GameObject healthBarPrefab;
+        public Canvas uiCanvas;
+        public Camera mainCamera;
 
         // Dictionary to keep track of player health bars
-        private Dictionary<int, GameObject> playerHealthBars = new Dictionary<int, GameObject>();
-        // New dictionary for enemy health bars
-        private Dictionary<int, GameObject> enemyHealthBars = new Dictionary<int, GameObject>();
+        private readonly Dictionary<int, GameObject> _playerHealthBars = new();
 
+        // New dictionary for enemy health bars
+        private readonly Dictionary<int, GameObject> _enemyHealthBars = new();
         
         private GameObject _healthBar;
         private GameObject _healthBarEnemy;
-
-        private bool _isInstantiated;
 
         private void Start()
         {
@@ -39,10 +36,10 @@ namespace Photon.Solo.Commons.HealthBar
         {
             base.OnPlayerLeftRoom(otherPlayer);
             // Remove the health bar when a player leaves
-            if (playerHealthBars.ContainsKey(otherPlayer.ActorNumber))
+            if (_playerHealthBars.ContainsKey(otherPlayer.ActorNumber))
             {
-                Destroy(playerHealthBars[otherPlayer.ActorNumber]);
-                playerHealthBars.Remove(otherPlayer.ActorNumber);
+                Destroy(_playerHealthBars[otherPlayer.ActorNumber]);
+                _playerHealthBars.Remove(otherPlayer.ActorNumber);
             }
         }
 
@@ -52,58 +49,55 @@ namespace Photon.Solo.Commons.HealthBar
             if (player == null) return;
 
             // Get the PhotonView ID of the player
-            PhotonView pv = player.GetComponent<PhotonView>();
+            var pv = player.GetComponent<PhotonView>();
             if (pv == null) return;
 
-            int actorNumber = pv.Owner.ActorNumber;
+            var actorNumber = pv.Owner.ActorNumber;
 
-            if (!playerHealthBars.ContainsKey(actorNumber))
+            if (!_playerHealthBars.ContainsKey(actorNumber))
             {
                 // Instantiate the health bar UI
                 _healthBar = Instantiate(healthBarPrefab, uiCanvas.transform);
                 Debug.Log($"Health bar instantiated for Player {actorNumber}");
 
                 // Initialize the HealthBarUI script
-                HealthBarUI healthBar = _healthBar.GetComponent<HealthBarUI>();
+                var healthBar = _healthBar.GetComponent<HealthBarUI>();
                 if (healthBar != null)
                 {
                     healthBar.SetCharacter(player.transform, mainCamera);
                 }
 
                 // Add to the dictionary
-                playerHealthBars.Add(actorNumber, _healthBar);
-                
-                // Find the object name filledHealthBar in the healthbar
-                _isInstantiated = true;
+                _playerHealthBars.Add(actorNumber, _healthBar);
 
             }
         }
-        
+
         // **New Method: CreateEnemyHealthBar**
         public void CreateEnemyHealthBar(GameObject enemy)
         {
             if (enemy == null) return;
-        
+
             // Get the PhotonView ID of the enemy
-            PhotonView pv = enemy.GetComponent<PhotonView>();
+            var pv = enemy.GetComponent<PhotonView>();
             if (pv == null) return;
-        
-            int viewID = pv.ViewID;
-        
-            if (!enemyHealthBars.ContainsKey(viewID))
+
+            var viewID = pv.ViewID;
+
+            if (!_enemyHealthBars.ContainsKey(viewID))
             {
                 // Instantiate the health bar UI
                 _healthBarEnemy = Instantiate(healthBarPrefab, uiCanvas.transform);
-        
+
                 // Initialize the HealthBarUI script
-                HealthBarUI healthBar = _healthBarEnemy.GetComponent<HealthBarUI>();
+                var healthBar = _healthBarEnemy.GetComponent<HealthBarUI>();
                 if (healthBar != null)
                 {
                     healthBar.SetCharacterEnemy(enemy.transform, mainCamera, isEnemy: true);
                 }
-        
+
                 // Add to the dictionary
-                enemyHealthBars.Add(viewID, _healthBarEnemy);
+                _enemyHealthBars.Add(viewID, _healthBarEnemy);
             }
         }
 
@@ -111,54 +105,63 @@ namespace Photon.Solo.Commons.HealthBar
         private void Update()
         {
             // traverse the dictionary, check the filled health bar and set active false if fill amount <= 0
-            Debug.LogWarning(playerHealthBars.Count);
-            if (_isInstantiated)
+            Debug.Log("Number of players: " + _playerHealthBars.Count);
+            foreach (var playerHealthBar in _playerHealthBars)
             {
-                foreach (var playerHealthBar in playerHealthBars)
-                {
-                    Transform filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
-                    if (filledHealthBar != null)
-                    {
-                        Debug.LogWarning("fill healthBar found");
-                        UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
-                        if (filledHealthBarImage != null)
-                        {
-                            Debug.LogWarning("image found");
-                            if (filledHealthBarImage.fillAmount <= 0f)
-                            {
-                                Debug.LogWarning("kjkjkjkjk");
-                                playerHealthBar.Value.gameObject.SetActive(false);
-                            }
-                        }
-                    }
-                }
-            }
-           
-            
-        
-            
-            // enemy the same
-            
-            foreach (var enemyHealthBar in enemyHealthBars)
-            {
-                Transform filledHealthBar = enemyHealthBar.Value.transform.Find("FilledHealthBar");
+                var filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
                 if (filledHealthBar != null)
                 {
-                    UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
+                    Debug.Log("player fill health bar found");
+                    var filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
                     if (filledHealthBarImage != null)
                     {
+                        Debug.Log("player health bar image found");
                         if (filledHealthBarImage.fillAmount <= 0f)
                         {
+                            Debug.Log("player health bar fill amount <= 0");
+                            playerHealthBar.Value.gameObject.SetActive(false);
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("player health bar image not found");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("player fill health bar not found");
+                }
+            }
+
+            
+            // Same for enemy
+            Debug.Log("Number of enemies: " + _enemyHealthBars.Count);
+            foreach (var enemyHealthBar in _enemyHealthBars)
+            {
+                var filledHealthBar = enemyHealthBar.Value.transform.Find("FilledHealthBar");
+                if (filledHealthBar != null)
+                {
+                    Debug.Log("enemy fill health bar found");
+                    var filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
+                    if (filledHealthBarImage != null)
+                    {
+                        Debug.Log("enemy health bar image found");
+                        if (filledHealthBarImage.fillAmount <= 0f)
+                        {
+                            Debug.Log("enemy health bar fill amount <= 0");
                             enemyHealthBar.Value.gameObject.SetActive(false);
                         }
                     }
+                    else
+                    {
+                        Debug.LogWarning("enemy health bar image not found");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("enemy fill health bar not found");
                 }
             }
-            
-            
-            
-         
-          
         }
     }
 }
