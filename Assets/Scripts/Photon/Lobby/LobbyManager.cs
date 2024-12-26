@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -169,6 +171,27 @@ namespace Photon.Lobby
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                double currentTime = PhotonNetwork.Time;
+                Hashtable startTimeProp = new Hashtable
+                {
+                    { "startTime", currentTime }
+                };
+                
+                // get the current date time 
+                DateTime dateTime = DateTime.UtcNow;
+                PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
+                {
+                    { "dateStartTime", dateTime.ToString("o") } // ISO 8601 format for consistency
+                });
+                
+                
+                PhotonNetwork.CurrentRoom.SetCustomProperties(startTimeProp);
+                
+                // save all name of the player in the list and save them into the photonnetwork
+                object[] playerNames = PhotonNetwork.PlayerList.Select(player => (object)player.NickName).ToArray();
+                PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable { { "playerNames", playerNames } });
+
+                
                 // Master Client: Start the match if all non-master clients are ready
                 if (AreAllNonMasterPlayersReady())
                 {
