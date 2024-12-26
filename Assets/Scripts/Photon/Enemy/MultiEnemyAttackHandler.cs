@@ -13,7 +13,7 @@ namespace Photon.Enemy
         public float increaseWalkSpeedWhenChasingBy = 0.2f;
         public float attackCoolDownTime = 1f;
         public float delayTimeBeforeAttacking = 0.2f;
-        public GameObject healthBar;
+        // public GameObject healthBar;
 
         // Animator Parameters
         private static readonly int Hurt = Animator.StringToHash("hurt");
@@ -81,18 +81,7 @@ namespace Photon.Enemy
                 // UpdateHealthBar();
             }
 
-            // Handle death conditions
-            if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("die") ||
-                transform.position.y < -100f ||
-                synchronizedHealth <= 0f)
-            {
-                enabled = false;
-                if (healthBar != null)
-                {
-                    healthBar.SetActive(false);
-                }
-                return;
-            }
+
         }
 
         /// <summary>

@@ -21,6 +21,8 @@ namespace Photon.Solo.Commons.HealthBar
         private GameObject _healthBar;
         private GameObject _healthBarEnemy;
 
+        private bool _isInstantiated;
+
         private void Start()
         {
             // Optionally, if HealthBarManager itself is a networked object
@@ -72,8 +74,8 @@ namespace Photon.Solo.Commons.HealthBar
                 playerHealthBars.Add(actorNumber, _healthBar);
                 
                 // Find the object name filledHealthBar in the healthbar
-               
-                
+                _isInstantiated = true;
+
             }
         }
         
@@ -110,26 +112,30 @@ namespace Photon.Solo.Commons.HealthBar
         {
             // traverse the dictionary, check the filled health bar and set active false if fill amount <= 0
             Debug.LogWarning(playerHealthBars.Count);
-            foreach (var playerHealthBar in playerHealthBars)
+            if (_isInstantiated)
             {
-                Transform filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
-                if (filledHealthBar != null)
+                foreach (var playerHealthBar in playerHealthBars)
                 {
-                    Debug.LogWarning("fill healthBar found");
-                    UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
-                    if (filledHealthBarImage != null)
+                    Transform filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
+                    if (filledHealthBar != null)
                     {
-                        Debug.LogWarning("image found");
-                        if (filledHealthBarImage.fillAmount <= 0f)
+                        Debug.LogWarning("fill healthBar found");
+                        UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
+                        if (filledHealthBarImage != null)
                         {
-                            Debug.LogWarning("kjkjkjkjk");
-                            playerHealthBar.Value.gameObject.SetActive(false);
+                            Debug.LogWarning("image found");
+                            if (filledHealthBarImage.fillAmount <= 0f)
+                            {
+                                Debug.LogWarning("kjkjkjkjk");
+                                playerHealthBar.Value.gameObject.SetActive(false);
+                            }
                         }
                     }
                 }
             }
+           
             
-
+        
             
             // enemy the same
             
