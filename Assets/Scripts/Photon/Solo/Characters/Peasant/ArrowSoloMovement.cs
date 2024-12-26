@@ -16,6 +16,7 @@ namespace Photon.Solo.Characters.Peasant
             Debug.Log(transform.parent.name);
             _characterSoloAttackHandler = transform.parent.GetComponent<AttackHandlerSoloPlayer>();
             
+            
             _damageDealt = _characterSoloAttackHandler.damageDealt;
             _speed = _characterSoloAttackHandler.arrowSpeed;
             _arrowDirection = _characterSoloAttackHandler.ArrowDirection;
