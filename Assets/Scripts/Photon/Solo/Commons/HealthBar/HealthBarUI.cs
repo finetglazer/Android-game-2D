@@ -45,6 +45,8 @@ namespace Photon.Solo.Commons.HealthBar
             if (pv != null && pv.Owner != null)
             {
                 playerNameText.text = pv.Owner.NickName;
+                // set up our name color is green and other is blue
+                playerNameText.color = pv.Owner.IsLocal ? Color.green : Color.red;
             }
         }
 

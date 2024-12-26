@@ -35,6 +35,7 @@ namespace Photon.Multiplayer.Commons.HealthBar
             if (pv != null && pv.Owner != null)
             {
                 playerNameText.text = pv.Owner.NickName;
+                playerNameText.color = pv.Owner.IsLocal ? Color.green : Color.blue;
             }
         }
 
