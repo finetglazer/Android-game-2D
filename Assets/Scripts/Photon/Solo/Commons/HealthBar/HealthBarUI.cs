@@ -45,13 +45,14 @@ namespace Photon.Solo.Commons.HealthBar
             PhotonView pv = character.GetComponent<PhotonView>();
             if (pv != null && pv.Owner != null)
             {
+                Debug.Log("lalalalala");
                 playerNameText.text = pv.Owner.NickName;
                 // set up our name color is green and other is blue
                 playerNameText.color = pv.Owner.IsLocal ? Color.green : Color.red;
             }
         }
         
-        public void SetCharacter(Transform character, UnityEngine.Camera camera, bool isEnemy = false)
+        public void SetCharacterEnemy(Transform character, UnityEngine.Camera camera, bool isEnemy = false)
         {
             characterTransform = character;
             mainCamera = camera;
