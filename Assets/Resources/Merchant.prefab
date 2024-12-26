@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012637965634}
   - component: {fileID: 212000012752857868}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Front arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000010999672690}
   - component: {fileID: 212000010177224794}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Front leg
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011894943896}
   - component: {fileID: 212000010423243800}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Back leg
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012259895262}
   - component: {fileID: 212000010963971380}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011044399452}
   - component: {fileID: 212000010037997588}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,9 +445,9 @@ GameObject:
   - component: {fileID: 6114612414670850488}
   - component: {fileID: 4976367886274410456}
   - component: {fileID: 748977794797437995}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Merchant
-  m_TagString: MerchantEnemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013937349994}
   - component: {fileID: 212000011162561196}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013694043764}
   - component: {fileID: 212000011478754320}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Back arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

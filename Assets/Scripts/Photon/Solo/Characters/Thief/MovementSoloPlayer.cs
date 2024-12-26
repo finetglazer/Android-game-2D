@@ -138,7 +138,7 @@ namespace Photon.Solo.Characters.Thief
         {
             if (photonView.IsMine)
             {
-                _playerAnimator.SetTrigger("attack");
+                _playerAnimator.SetTrigger(Attack);
                 photonView.RPC("TriggerAttackAnimation", RpcTarget.Others);
                 Debug.Log($"{photonView.Owner.NickName} attacked.");
             }
@@ -147,7 +147,7 @@ namespace Photon.Solo.Characters.Thief
         [PunRPC]
         public void TriggerAttackAnimation()
         {
-            _playerAnimator.SetTrigger("attack");
+            _playerAnimator.SetTrigger(Attack);
             Debug.Log($"{photonView.Owner.NickName} triggered an attack animation.");
         }
 

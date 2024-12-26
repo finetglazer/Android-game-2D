@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Photon.Multiplayer.Commons.HealthBar
 {
-    public class HealthBarManager : MonoBehaviourPunCallbacks
+    public class  HealthBarManager : MonoBehaviourPunCallbacks
     {
         public GameObject healthBarPrefab; // Prefab for the health bar UI
         public Canvas uiCanvas; // Reference to the UI Canvas

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Photon.Pun;
-using Photon.Solo.Characters.Soldier;
 using UnityEngine;
 using UnityEngine.Networking;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
@@ -12,25 +11,41 @@ namespace Photon.Solo.Commons.PlayerCore
         public float deathPoint;
         private Vector3 _respawnPoint;
 
-        private MovementSoloPlayer _movementSoloPlayer;
+        private Characters.Knight.MovementSoloPlayer _knightMovementSoloPlayer;
+        private Characters.Merchant.MovementSoloPlayer _merchantMovementSoloPlayer;
+        private Characters.Peasant.MovementSoloPlayer _peasantMovementSoloPlayer;
+        private Characters.Soldier.MovementSoloPlayer _soldierMovementSoloPlayer;
+        private Characters.Thief.MovementSoloPlayer _thiefMovementSoloPlayer;
 
         private bool isDead = false; // Flag to prevent multiple deaths
 
         private void Start()
         {
             _respawnPoint = transform.position;
-            _movementSoloPlayer = GetComponent<MovementSoloPlayer>();
-            if (_movementSoloPlayer == null)
+            _knightMovementSoloPlayer = GetComponent<Characters.Knight.MovementSoloPlayer>();
+            _merchantMovementSoloPlayer = GetComponent<Characters.Merchant.MovementSoloPlayer>();
+            _peasantMovementSoloPlayer = GetComponent<Characters.Peasant.MovementSoloPlayer>();
+            _soldierMovementSoloPlayer = GetComponent<Characters.Soldier.MovementSoloPlayer>();
+            _thiefMovementSoloPlayer = GetComponent<Characters.Thief.MovementSoloPlayer>();
+
+            if (AllMovementSoloPlayerAreNull())
             {
-                Debug.LogError("MovementMultiplayer component not found on the player.");
+                Debug.LogError("MovementSoloPlayer component not found on the player.");
             }
         }
 
         private void Update()
         {
-            if (!_movementSoloPlayer || isDead) return; // Exit if already dead
+            if (AllMovementSoloPlayerAreNull() || isDead) return; // Exit if already dead
 
-            if (_movementSoloPlayer.currentHealth <= 0f)
+            var currentHealth = -1f;
+            if (_knightMovementSoloPlayer) currentHealth = _knightMovementSoloPlayer.currentHealth;
+            else if (_merchantMovementSoloPlayer) currentHealth = _merchantMovementSoloPlayer.currentHealth;
+            else if (_peasantMovementSoloPlayer) currentHealth = _peasantMovementSoloPlayer.currentHealth;
+            else if (_soldierMovementSoloPlayer) currentHealth = _soldierMovementSoloPlayer.currentHealth;
+            else if (_thiefMovementSoloPlayer) currentHealth = _thiefMovementSoloPlayer.currentHealth;
+            
+            if (currentHealth <= 0f)
             {
                 if (photonView.IsMine)
                 {
@@ -124,6 +139,15 @@ namespace Photon.Solo.Commons.PlayerCore
             {
                 Debug.Log("Request sent successfully: " + request.downloadHandler.text);
             }
+        }
+
+        private bool AllMovementSoloPlayerAreNull()
+        {
+            return (!_knightMovementSoloPlayer 
+                    && !_merchantMovementSoloPlayer 
+                    && !_peasantMovementSoloPlayer 
+                    && !_soldierMovementSoloPlayer 
+                    && !_thiefMovementSoloPlayer);
         }
     }
 }

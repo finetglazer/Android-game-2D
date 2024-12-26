@@ -15,7 +15,11 @@ namespace Photon.Solo.Commons.HealthBar
         private UnityEngine.Camera mainCamera;
         private float initialHealth;
 
-        private MovementSoloPlayer _movementSoloPlayer;
+        private Characters.Knight.MovementSoloPlayer _knightMovementSoloPlayer;
+        private Characters.Merchant.MovementSoloPlayer _merchantMovementSoloPlayer;
+        private Characters.Peasant.MovementSoloPlayer _peasantMovementSoloPlayer;
+        private Characters.Soldier.MovementSoloPlayer _soldierMovementSoloPlayer;
+        private Characters.Thief.MovementSoloPlayer _thiefMovementSoloPlayer;
 
         public Vector3 offset = new Vector3(0, 1.5f, 0); // Offset above the character
 
@@ -24,11 +28,17 @@ namespace Photon.Solo.Commons.HealthBar
             characterTransform = character;
             mainCamera = camera;
 
-            _movementSoloPlayer = character.GetComponent<MovementSoloPlayer>();
-            if (_movementSoloPlayer != null)
-            {
-                initialHealth = _movementSoloPlayer.currentHealth;
-            }
+            _knightMovementSoloPlayer = character.GetComponent<Characters.Knight.MovementSoloPlayer>();
+            _merchantMovementSoloPlayer = character.GetComponent<Characters.Merchant.MovementSoloPlayer>();
+            _peasantMovementSoloPlayer = character.GetComponent<Characters.Peasant.MovementSoloPlayer>();
+            _soldierMovementSoloPlayer = character.GetComponent<Characters.Soldier.MovementSoloPlayer>();
+            _thiefMovementSoloPlayer = character.GetComponent<Characters.Thief.MovementSoloPlayer>();
+
+            if (_knightMovementSoloPlayer) initialHealth = _knightMovementSoloPlayer.currentHealth;
+            else if (_merchantMovementSoloPlayer) initialHealth = _merchantMovementSoloPlayer.currentHealth;
+            else if (_peasantMovementSoloPlayer) initialHealth = _peasantMovementSoloPlayer.currentHealth;
+            else if (_soldierMovementSoloPlayer) initialHealth = _soldierMovementSoloPlayer.currentHealth;
+            else if (_thiefMovementSoloPlayer) initialHealth = _thiefMovementSoloPlayer.currentHealth;
 
             // Set player name
             PhotonView pv = character.GetComponent<PhotonView>();
@@ -40,7 +50,8 @@ namespace Photon.Solo.Commons.HealthBar
 
         private void Update()
         {
-            if (characterTransform == null || healthBarFill == null || mainCamera == null || !_movementSoloPlayer) return;
+            if (characterTransform == null || healthBarFill == null || mainCamera == null || (
+                    !_knightMovementSoloPlayer && !_merchantMovementSoloPlayer && !_peasantMovementSoloPlayer && !_soldierMovementSoloPlayer && !_thiefMovementSoloPlayer)) return;
 
             // Update position
             Vector3 worldPosition = characterTransform.position + offset;
@@ -49,7 +60,13 @@ namespace Photon.Solo.Commons.HealthBar
             transform.position = screenPosition;
 
             // Update health bar
-            float currentHealth = _movementSoloPlayer.currentHealth;
+            float currentHealth = -1;
+            if (_knightMovementSoloPlayer) currentHealth = _knightMovementSoloPlayer.currentHealth;
+            else if (_merchantMovementSoloPlayer) currentHealth = _merchantMovementSoloPlayer.currentHealth;
+            else if (_peasantMovementSoloPlayer) currentHealth = _peasantMovementSoloPlayer.currentHealth;
+            else if (_soldierMovementSoloPlayer) currentHealth = _soldierMovementSoloPlayer.currentHealth;
+            else if (_thiefMovementSoloPlayer) currentHealth = _thiefMovementSoloPlayer.currentHealth;
+            
             float proportionRemainedHp = currentHealth / initialHealth;
             proportionRemainedHp = Mathf.Clamp01(proportionRemainedHp);
 

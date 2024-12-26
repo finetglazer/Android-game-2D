@@ -7,30 +7,41 @@ namespace Photon.Solo.Characters.Peasant
     {
         public Transform arrowStartingPoint;
         public float damageDealt = 1f;
-        public float arrowSpeed = 1f;
-        public GameObject[] arrowArray;
+        public float arrowSpeed = 5f;
+        public GameObject[] arrowArray; // Pool of arrows
         internal float ArrowDirection;
-        
+
         public void Fire()
         {
             ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
-            var arrowFound = null as GameObject;
-            foreach (var arrow in arrowArray)
+
+            var arrowIndex = -1;
+            for (var i = 0; i < arrowArray.Length; i++)
             {
-                if (arrow.gameObject.activeInHierarchy) continue;
-                arrowFound = arrow;
+                if (arrowArray[i].gameObject.activeInHierarchy) continue;
+                arrowIndex = i;
                 break;
             }
+
+            if (arrowIndex == -1) return; 
+
             
-            if (arrowFound is null) return;
+            photonView.RPC("RPC_FireArrow", RpcTarget.Others, arrowStartingPoint.transform.position, ArrowDirection, arrowIndex);
+        }
+
+        [PunRPC]
+        private void RPC_FireArrow(Vector3 position, float direction, int arrowIndex)
+        {
+            if (arrowIndex < 0 || arrowIndex >= arrowArray.Length) return;
+            var arrowFound = arrowArray[arrowIndex];
             
             arrowFound.SetActive(true);
-            arrowFound.transform.position = arrowStartingPoint.transform.position;
-            arrowFound.transform.localScale = new Vector3(arrowFound.transform.localScale.x,
-                Mathf.Sign(gameObject.transform.localScale.x) * Mathf.Abs(arrowFound.transform.localScale.y),
-                arrowFound.transform.localScale.z);
-            ArrowDirection = Mathf.Sign(gameObject.transform.localScale.x);
-            PhotonNetwork.Instantiate("Arrow", transform.position, Quaternion.identity);
+            arrowFound.transform.position = position;
+            arrowFound.transform.localScale = new Vector3(
+                arrowFound.transform.localScale.x,
+                Mathf.Sign(direction) * Mathf.Abs(arrowFound.transform.localScale.y),
+                arrowFound.transform.localScale.z
+            );
         }
     }
 }

@@ -45,18 +45,6 @@ namespace Photon.Solo.Characters.Peasant
             gameObject.SetActive(false);
         }
         
-        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-        {
-            if (stream.IsWriting)
-            {
-                stream.SendNext(gameObject.transform.position);
-                stream.SendNext(gameObject.transform.localScale);
-            }
-            else
-            {
-                gameObject.transform.position = (Vector3)stream.ReceiveNext();
-                gameObject.transform.localScale = (Vector3)stream.ReceiveNext();
-            }
-        }
+        
     }
 }
