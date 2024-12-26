@@ -18,7 +18,7 @@ namespace Photon.Solo.Characters.Peasant
             if (prefabIndex < 0 || prefabIndex >= arrowPrefabs.Length)
             {
                 Debug.LogError("Invalid arrow prefab index!");
-                return false;
+                return false;   //adadad
             }
                 
             ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
