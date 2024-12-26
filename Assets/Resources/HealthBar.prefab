@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 4146794971297589915}
   playerNameText: {fileID: 5327164802669111244}
-  offset: {x: 0, y: 1.5, z: 0}
+  offset: {x: 2.4, y: 0.8, z: 0}
 --- !u!1 &6633984322717530905
 GameObject:
   m_ObjectHideFlags: 0

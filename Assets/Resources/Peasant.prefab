@@ -372,46 +372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6bfbf3c31045278c55577f605e01f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentTransform: {fileID: 1773650267378400147}
   arrowStartingPoint: {fileID: 1041640669803618726}
+  arrowPrefabs: []
   damageDealt: 1
   arrowSpeed: 1
-  arrowArray:
-  - {fileID: 0}
-  - {fileID: 7045375779421798897}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &8679036178234569449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,11 +1268,6 @@ PrefabInstance:
 --- !u!4 &2828654260594286230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2606160083518612209, guid: 556b4b03183eeed4ba3c8dfa227283c4, type: 3}
-  m_PrefabInstance: {fileID: 246456466040683623}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7045375779421798897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7110520978431557014, guid: 556b4b03183eeed4ba3c8dfa227283c4, type: 3}
   m_PrefabInstance: {fileID: 246456466040683623}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441582597348623835
