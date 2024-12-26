@@ -20,7 +20,7 @@ namespace Photon.Solo.Characters.Knight
         private bool EnemyIsInDamageDealtDistance()
         {
             ContactFilter2D contactFilter = new ContactFilter2D();
-            contactFilter.SetLayerMask(LayerMask.GetMask("Player")); // Consider changing to "Enemy" if using separate layers
+            contactFilter.SetLayerMask(LayerMask.GetMask("Player", "Enemy")); // Consider changing to "Enemy" if using separate layers
             contactFilter.useTriggers = false;
 
             RaycastHit2D[] results = new RaycastHit2D[10]; // Array for potential hits
