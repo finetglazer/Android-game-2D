@@ -16,7 +16,7 @@ namespace Photon.Solo.Commons.PlayerCore
                 if (hbManager != null)
                 {
                     Debug.Log("Creating health bar for player: " + photonView.Owner.NickName);
-                    hbManager.CreateHealthBar(this.gameObject);
+                    hbManager.CreateHealthBar(gameObject);
                 }
                 else
                 {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1814806480530679292}
   - component: {fileID: 1573128265052801755}
   - component: {fileID: 7076261487414772651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (30)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 3905890448024550938}
   - component: {fileID: 8027719543843877128}
   - component: {fileID: 7310895331268529867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (14)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 1344721393197675758}
   - component: {fileID: 2009804024799787398}
   - component: {fileID: 8025468445321458945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (13)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 5336248323865419835}
   - component: {fileID: 4173712197401617703}
   - component: {fileID: 7183062321612680489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (8)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 5916493154702326925}
   - component: {fileID: 6077780182595775786}
   - component: {fileID: 7515241299427844660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (26)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 4329231674922825417}
   - component: {fileID: 1713042167524629863}
   - component: {fileID: 6968337035319288316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (15)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5472787761111816138}
   - component: {fileID: 8032159662832329517}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 3873743033350171286}
   - component: {fileID: 6176888103060566561}
   - component: {fileID: 8593176769999807322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (3)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021851081086373894}
   - component: {fileID: 7007919125758306815}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 5856843368618633551}
   - component: {fileID: 8315692653583566198}
   - component: {fileID: 1911764951781269974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (16)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -1331,9 +1331,9 @@ GameObject:
   - component: {fileID: 4855077345765615277}
   - component: {fileID: 6680560073970839074}
   - component: {fileID: 4255552831609899394}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Peasant
-  m_TagString: PeasantEnemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413831230578778970}
   - component: {fileID: 3687068394760088974}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 709566917115822420}
   - component: {fileID: 7430657189705776333}
   - component: {fileID: 4168724963949978022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 8859664076839584289}
   - component: {fileID: 1323631412222547826}
   - component: {fileID: 5713216387637919434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (20)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 6632875413908828392}
   - component: {fileID: 5109328743375678397}
   - component: {fileID: 5477781122311677936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (23)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 1247936852872312657}
   - component: {fileID: 4904633126607292818}
   - component: {fileID: 6681530300557003921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (7)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2297,7 +2297,7 @@ GameObject:
   - component: {fileID: 3747169543681615469}
   - component: {fileID: 3135434229521679987}
   - component: {fileID: 8897766592072059870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (12)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2440,7 +2440,7 @@ GameObject:
   - component: {fileID: 4811272791019775322}
   - component: {fileID: 1890946857431241742}
   - component: {fileID: 352168263073694808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (34)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2583,7 +2583,7 @@ GameObject:
   - component: {fileID: 5899050288808118709}
   - component: {fileID: 8396557101141630276}
   - component: {fileID: 7575660950944715919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (29)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2726,7 +2726,7 @@ GameObject:
   - component: {fileID: 5460810961521749226}
   - component: {fileID: 8250877602779361466}
   - component: {fileID: 8696478846902144495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (35)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -2869,7 +2869,7 @@ GameObject:
   - component: {fileID: 40403312255148676}
   - component: {fileID: 4225480520957984304}
   - component: {fileID: 986263899399768441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (19)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3009,7 +3009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041640669803618726}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: ArrowStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -3043,7 +3043,7 @@ GameObject:
   - component: {fileID: 8886441495038163216}
   - component: {fileID: 8437347729214108507}
   - component: {fileID: 7684471054128946952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (32)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3186,7 +3186,7 @@ GameObject:
   - component: {fileID: 7533812948842141617}
   - component: {fileID: 353318358589490383}
   - component: {fileID: 6557328984466903030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (21)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3329,7 +3329,7 @@ GameObject:
   - component: {fileID: 6950453092267469619}
   - component: {fileID: 2362583529608796352}
   - component: {fileID: 2698802089041752605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (25)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 1456190577296185496}
   - component: {fileID: 2801536059843376588}
   - component: {fileID: 3967575447884542200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (5)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3615,7 +3615,7 @@ GameObject:
   - component: {fileID: 6401898555092201634}
   - component: {fileID: 6590840007823030919}
   - component: {fileID: 2675093602503916820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (28)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3758,7 +3758,7 @@ GameObject:
   - component: {fileID: 5849564519488894448}
   - component: {fileID: 93622503229765417}
   - component: {fileID: 1221534834770445870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (18)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -3901,7 +3901,7 @@ GameObject:
   - component: {fileID: 3612531698087807874}
   - component: {fileID: 4092280653092741882}
   - component: {fileID: 6384510365257991699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (11)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 75556887655184735}
   - component: {fileID: 8642385426817418457}
   - component: {fileID: 4858740505015541772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (22)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -4185,7 +4185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403056272451523159}
   - component: {fileID: 865271216423692844}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Back leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4271,7 +4271,7 @@ GameObject:
   - component: {fileID: 4825824290696923263}
   - component: {fileID: 8714228981315883659}
   - component: {fileID: 3346084908192135484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (10)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -4414,7 +4414,7 @@ GameObject:
   - component: {fileID: 8905861390709044085}
   - component: {fileID: 5244925557966697760}
   - component: {fileID: 6333957602949247731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (1)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -4557,7 +4557,7 @@ GameObject:
   - component: {fileID: 6925575396375930437}
   - component: {fileID: 2084081513093805627}
   - component: {fileID: 1892363249040102746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (33)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -4698,7 +4698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4214029065468758194}
   - component: {fileID: 3993506307572525473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hat-green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4782,7 +4782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4860563988242047391}
   - component: {fileID: 2581920500704071820}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4868,7 +4868,7 @@ GameObject:
   - component: {fileID: 7795992586725088633}
   - component: {fileID: 3451892232459717717}
   - component: {fileID: 2703618851307816665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (27)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5011,7 +5011,7 @@ GameObject:
   - component: {fileID: 5581843210332421527}
   - component: {fileID: 3547958863740753860}
   - component: {fileID: 2233666535328002860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (2)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5151,7 +5151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2553436552507889944}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: ArrowArray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5221,7 +5221,7 @@ GameObject:
   - component: {fileID: 3178383050413351436}
   - component: {fileID: 4806767327461109463}
   - component: {fileID: 5492504846543521095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (9)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5364,7 +5364,7 @@ GameObject:
   - component: {fileID: 5400895150237505517}
   - component: {fileID: 5829312861736432096}
   - component: {fileID: 8962689437422995664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (6)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5505,7 +5505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6839620263712303199}
   - component: {fileID: 6625466310687122993}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Front arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5590,7 +5590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868042853191593059}
   - component: {fileID: 6604447151017534760}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Back arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5677,7 +5677,7 @@ GameObject:
   - component: {fileID: 6836014004185916916}
   - component: {fileID: 8851668695315824454}
   - component: {fileID: 1223013392115463325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (4)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5820,7 +5820,7 @@ GameObject:
   - component: {fileID: 4253782205799982272}
   - component: {fileID: 2805737269014367859}
   - component: {fileID: 4332099995780179289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (31)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -5963,7 +5963,7 @@ GameObject:
   - component: {fileID: 7056561521132215805}
   - component: {fileID: 6099027153849783688}
   - component: {fileID: 7657420349380480764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (17)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -6104,7 +6104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3969108405590590113}
   - component: {fileID: 4775184295050226714}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6192,7 +6192,7 @@ GameObject:
   - component: {fileID: 9179867972288379466}
   - component: {fileID: 6268938733168873395}
   - component: {fileID: 1264413548828645565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow (24)
   m_TagString: EnemyPeasantArrow
   m_Icon: {fileID: 0}
@@ -6333,7 +6333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722268097971786980}
   - component: {fileID: 4449720454723344778}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Front leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
