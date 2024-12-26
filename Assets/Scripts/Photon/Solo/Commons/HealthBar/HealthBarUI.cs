@@ -14,6 +14,7 @@ namespace Photon.Solo.Commons.HealthBar
         private Transform characterTransform;
         private UnityEngine.Camera mainCamera;
         private float initialHealth;
+        private Transform _enemyTransform;
 
         private Characters.Knight.MovementSoloPlayer _knightMovementSoloPlayer;
         private Characters.Merchant.MovementSoloPlayer _merchantMovementSoloPlayer;
@@ -54,7 +55,7 @@ namespace Photon.Solo.Commons.HealthBar
         
         public void SetCharacterEnemy(Transform character, UnityEngine.Camera camera, bool isEnemy = false)
         {
-            characterTransform = character;
+            _enemyTransform = character;
             mainCamera = camera;
             this.isEnemy = isEnemy;
             
