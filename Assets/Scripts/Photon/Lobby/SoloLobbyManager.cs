@@ -95,9 +95,13 @@ namespace Photon.Lobby
         
         private void AssignTypeOfRoom()
         {
-           Hashtable roomProps = PhotonNetwork.CurrentRoom.CustomProperties;
-           roomProps["type"] = "solo";
-           PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Hashtable roomProps = PhotonNetwork.CurrentRoom.CustomProperties;
+                roomProps["type"] = "solo";
+                PhotonNetwork.CurrentRoom.SetCustomProperties(roomProps);
+            }
+       
         }
 
         private void OnDestroy()

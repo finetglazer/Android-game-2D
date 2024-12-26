@@ -745,7 +745,7 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
   walkSpeed: 2
   jumpSpeed: 5
-  currentHealth: 15
+  currentHealth: 10
   isDoubleJump: 0
   horizontalInput: 0
   canDoubleJump: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9105b0eae8f4d9d8de7c1bd39e3212c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  damageDealt: 2
   distanceDealDamage: 4
 --- !u!114 &4722778951196133241
 MonoBehaviour:
