@@ -12,7 +12,7 @@ namespace Photon.Solo.Commons.PlayerCore
             if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
             {
                 // Notify HealthBarManager to create a health bar for this player
-                HealthBarManager hbManager = FindObjectOfType<HealthBarManager>();
+                var hbManager = FindObjectOfType<HealthBarManager>();
                 if (hbManager != null)
                 {
                     Debug.Log("Creating health bar for player: " + photonView.Owner.NickName);

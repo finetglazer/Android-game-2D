@@ -26,18 +26,20 @@ namespace Photon.Enemy
         private void Start()
         {
             // Only the Master Client should own the enemy
-            if (PhotonNetwork.IsMasterClient)
-            {
-                AssignOwnership();
-            }
-            else
-            {
-                // Disable enemy behavior scripts on non-owner clients
-                if (_movementScript != null)
-                {
-                    _movementScript.enabled = false;
-                }
-            }
+            // if (PhotonNetwork.IsMasterClient)
+            // {
+            //     AssignOwnership();
+            // }
+            // else
+            // {
+            //     // Disable enemy behavior scripts on non-owner clients
+            //     if (_movementScript != null)
+            //     {
+            //         _movementScript.enabled = false;
+            //     }
+            // }
+            
+            AssignOwnership();
         }
         
         private void AssignOwnership()
@@ -54,7 +56,7 @@ namespace Photon.Enemy
             }
             
             // Notify HealthBarManager to create a health bar for this player
-            HealthBarManager hbManager = FindObjectOfType<HealthBarManager>();
+            var hbManager = FindObjectOfType<HealthBarManager>();
             if (hbManager != null)
             {
                 Debug.Log("Creating health bar for player: " + photonView.Owner.NickName);

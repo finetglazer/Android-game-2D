@@ -5,7 +5,6 @@ namespace Photon.Solo.Characters.Knight
 {
     public class AttackHandlerSoloPlayer : MonoBehaviourPun
     {
-        private static readonly int Hurt = Animator.StringToHash("hurt");
         public float damageDealt = 1f;
         public float distanceDealDamage = 4f;
         private GameObject _enemy;
@@ -21,7 +20,8 @@ namespace Photon.Solo.Characters.Knight
         {
             ContactFilter2D contactFilter = new ContactFilter2D();
             contactFilter.SetLayerMask(LayerMask.GetMask("Player", "Enemy")); // Consider changing to "Enemy" if using separate layers
-            contactFilter.useTriggers = false;
+            // contactFilter.useTriggers = false;   // Solo mode
+            contactFilter.useTriggers = true;       // Multiplayer mode
 
             RaycastHit2D[] results = new RaycastHit2D[10]; // Array for potential hits
             Vector2 direction = new Vector2(-Mathf.Sign(transform.localScale.x), 0);
@@ -34,19 +34,35 @@ namespace Photon.Solo.Characters.Knight
                 results,
                 distanceDealDamage
             );
+            
+            print("number of objects in range: " + hitCount);
 
             for (int i = 0; i < hitCount; i++)
             {
                 RaycastHit2D hit = results[i];
                 if (hit.collider != null && hit.collider.gameObject != gameObject)
                 {
-                    Debug.LogWarning("xyyy");
+                    Debug.Log("xyyy");
                     PhotonView detectedPhotonView = hit.collider.GetComponent<PhotonView>();
-                    if (detectedPhotonView != null && detectedPhotonView.Owner != photonView.Owner)
+                    if (detectedPhotonView != null 
+                        && (!detectedPhotonView.Owner.Equals(photonView.Owner))     // Solo mode
+                            || gameObject.name != hit.collider.gameObject.name)     // Multiplayer mode
                     {
                         _enemy = hit.collider.gameObject;
-                        Debug.LogWarning("Enemy found: " + _enemy.name + " by " + photonView.Owner.NickName);
+                        if (!detectedPhotonView.Owner.Equals(photonView.Owner))
+                        {
+                            Debug.Log("Enemy found: " + _enemy.name + " by " + photonView.Owner.NickName);
+                        }
+                        else if (gameObject.name != hit.collider.gameObject.name)
+                        {
+                            Debug.Log("Enemy found: " + _enemy.name + " by " + hit.collider.gameObject.name);
+                        }
+
                         return true;
+                    }
+                    else if (detectedPhotonView is null)
+                    {
+                        Debug.LogWarning("Detected object is null");
                     }
                     else
                     {
@@ -86,7 +102,9 @@ namespace Photon.Solo.Characters.Knight
                     return; // Only the local player can initiate attacks
                 }
                 PhotonView enemyPhotonView = _enemy.GetComponent<PhotonView>();
-                if (enemyPhotonView != null && !enemyPhotonView.IsMine)
+                if (enemyPhotonView != null 
+                    && (!enemyPhotonView.IsMine                 // Solo mode
+                        || gameObject.name != _enemy.name))     // Multiplayer mode                      
                 {
                     Debug.LogWarning("Attacking player: " + _enemy.name);
                     // Send RPC to the enemy's owner to apply damage
