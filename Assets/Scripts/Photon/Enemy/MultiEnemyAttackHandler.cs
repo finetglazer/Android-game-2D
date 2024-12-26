@@ -41,14 +41,14 @@ namespace Photon.Enemy
 
         // Reference to HealthBarManager
         private HealthBarManager _healthBarManager;
-
+        
         private void Start()
         {
             // Initialize Components
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
             _characterMovement = GetComponent<MultiEnemyMovement>();
-
+        
             // Cache initial walk speed
             if (_characterMovement != null)
             {
@@ -58,19 +58,14 @@ namespace Photon.Enemy
             {
                 Debug.LogError("Movement script is missing on the enemy prefab.");
             }
-
+        
             // Find HealthBarManager
             _healthBarManager = FindObjectOfType<HealthBarManager>();
             if (_healthBarManager == null)
             {
                 Debug.LogError("HealthBarManager not found in the scene.");
             }
-
-            // Initialize Health Bar if not the owner
-            if (!photonView.IsMine && _healthBarManager != null)
-            {
-                _healthBarManager.CreateEnemyHealthBar(gameObject);
-            }
+            
         }
 
         private void Update()
@@ -333,17 +328,17 @@ namespace Photon.Enemy
             else
             {
                 // Non-owners receive data
-                synchronizedHealth = (float)stream.ReceiveNext();
-                synchronizedIsAttacking = (bool)stream.ReceiveNext();
-
-                // Update local variables
-                // currentHealth = synchronizedHealth;
-
-                // Update attack animation if necessary
-                if (synchronizedIsAttacking)
-                {
-                    _characterAnimator.SetTrigger(Attack);
-                }
+                // synchronizedHealth = (float)stream.ReceiveNext();
+                // synchronizedIsAttacking = (bool)stream.ReceiveNext();
+                //
+                // // Update local variables
+                // // currentHealth = synchronizedHealth;
+                //
+                // // Update attack animation if necessary
+                // if (synchronizedIsAttacking)
+                // {
+                //     _characterAnimator.SetTrigger(Attack);
+                // }
             }
         }
     }
