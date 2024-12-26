@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Photon.Solo.Characters.Peasant
@@ -12,7 +13,14 @@ namespace Photon.Solo.Characters.Peasant
         private float _arrowDirection;
         private void Start()
         {
-            _characterSoloAttackHandler = GetComponentInParent<AttackHandlerSoloPlayer>();  
+            Debug.Log(transform.parent.name);
+            gameObject.SetActive(true);
+            var gameObjectList = GameObject.FindGameObjectsWithTag("Player"); 
+            var parentPhotonView = transform.parent.GetComponent<PhotonView>();
+            var parent = gameObjectList.FirstOrDefault(i => i.GetComponent<PhotonView>() == parentPhotonView);
+
+            if (parent != null) _characterSoloAttackHandler = parent.GetComponent<AttackHandlerSoloPlayer>();
+            else print("Parent not found");
             _damageDealt = _characterSoloAttackHandler.damageDealt;
             _speed = _characterSoloAttackHandler.arrowSpeed;
             _arrowDirection = _characterSoloAttackHandler.ArrowDirection;

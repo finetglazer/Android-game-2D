@@ -24,8 +24,12 @@ namespace Photon.Solo.Characters.Peasant
             ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
             
             var arrowPrefab = arrowPrefabs[prefabIndex];
+            
+            // PhotonNetwork Instantiate arrow prefab be the child of its parent
+            
             var arrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowStartingPoint.position, Quaternion.identity);
 
+            
             if (arrowPrefab.activeInHierarchy) return false;
             
             arrowPrefab.SetActive(true);
