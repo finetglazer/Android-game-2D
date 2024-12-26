@@ -5,6 +5,7 @@ namespace Photon.Solo.Characters.Peasant
 {
     public class AttackHandlerSoloPlayer : MonoBehaviourPun
     {
+        public Transform parentTransform;
         public Transform arrowStartingPoint; 
         public GameObject[] arrowPrefabs;
         public float damageDealt = 1f;
@@ -24,12 +25,9 @@ namespace Photon.Solo.Characters.Peasant
             ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
             
             var arrowPrefab = arrowPrefabs[prefabIndex];
-            
-            // PhotonNetwork Instantiate arrow prefab be the child of its parent
-            
             var arrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowStartingPoint.position, Quaternion.identity);
-
             
+            arrow.transform.SetParent(parentTransform);
             if (arrowPrefab.activeInHierarchy) return false;
             
             arrowPrefab.SetActive(true);
