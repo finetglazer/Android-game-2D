@@ -58,12 +58,12 @@ namespace Photon.Enemy
             if (hbManager != null)
             {
                 Debug.Log("Creating health bar for player: " + photonView.Owner.NickName);
-                hbManager.CreateHealthBar(gameObject);
+                hbManager.CreateEnemyHealthBar(gameObject);
             }
             else
             {
                 Debug.LogError("HealthBarManager not found in the scene.");
-            }
+            }//
         }
         
         // Optional: Handle Master Client switch

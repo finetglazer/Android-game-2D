@@ -23,6 +23,7 @@ namespace Photon.Solo.Commons.HealthBar
 
         public Vector3 offset = new Vector3(0, 1.5f, 0); // Offset above the character
 
+        private bool isEnemy = false;
         public void SetCharacter(Transform character, UnityEngine.Camera camera)
         {
             characterTransform = character;
@@ -48,6 +49,15 @@ namespace Photon.Solo.Commons.HealthBar
                 // set up our name color is green and other is blue
                 playerNameText.color = pv.Owner.IsLocal ? Color.green : Color.red;
             }
+        }
+        
+        public void SetCharacter(Transform character, UnityEngine.Camera camera, bool isEnemy = false)
+        {
+            characterTransform = character;
+            mainCamera = camera;
+            this.isEnemy = isEnemy;
+            
+    
         }
 
         private void Update()
