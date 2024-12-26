@@ -150,7 +150,12 @@ namespace Photon.Solo.Characters.Peasant
         public void TriggerAttackAnimation()
         {
             _playerAnimator.SetTrigger(Attack);
-            gameObject.GetComponent<AttackHandlerSoloPlayer>().Fire();
+            for (var index = 0; index < 36; ++index)
+            {
+                if (!gameObject.GetComponent<AttackHandlerSoloPlayer>().Fire(index)) continue;
+                break;
+            }
+
             Debug.Log($"{photonView.Owner.NickName} triggered an attack animation.");
         }
 

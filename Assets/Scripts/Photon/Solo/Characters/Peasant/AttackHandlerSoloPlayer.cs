@@ -5,43 +5,38 @@ namespace Photon.Solo.Characters.Peasant
 {
     public class AttackHandlerSoloPlayer : MonoBehaviourPun
     {
-        public Transform arrowStartingPoint;
+        public Transform arrowStartingPoint; 
+        public GameObject[] arrowPrefabs;
         public float damageDealt = 1f;
-        public float arrowSpeed = 5f;
-        public GameObject[] arrowArray; // Pool of arrows
+        public float arrowSpeed = 10f;
         internal float ArrowDirection;
 
-        public void Fire()
+        public bool Fire(int prefabIndex)
         {
-            ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
-
-            var arrowIndex = -1;
-            for (var i = 0; i < arrowArray.Length; i++)
+            if (!photonView.IsMine) return false; 
+            
+            if (prefabIndex < 0 || prefabIndex >= arrowPrefabs.Length)
             {
-                if (arrowArray[i].gameObject.activeInHierarchy) continue;
-                arrowIndex = i;
-                break;
+                Debug.LogError("Invalid arrow prefab index!");
+                return false;
             }
-
-            if (arrowIndex == -1) return; 
-
+                
+            ArrowDirection = transform.localScale.x > 0 ? 1 : -1;
             
-            photonView.RPC("RPC_FireArrow", RpcTarget.Others, arrowStartingPoint.transform.position, ArrowDirection, arrowIndex);
-        }
+            var arrowPrefab = arrowPrefabs[prefabIndex];
+            var arrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowStartingPoint.position, Quaternion.identity);
 
-        [PunRPC]
-        private void RPC_FireArrow(Vector3 position, float direction, int arrowIndex)
-        {
-            if (arrowIndex < 0 || arrowIndex >= arrowArray.Length) return;
-            var arrowFound = arrowArray[arrowIndex];
+            if (arrowPrefab.activeInHierarchy) return false;
             
-            arrowFound.SetActive(true);
-            arrowFound.transform.position = position;
-            arrowFound.transform.localScale = new Vector3(
-                arrowFound.transform.localScale.x,
-                Mathf.Sign(direction) * Mathf.Abs(arrowFound.transform.localScale.y),
-                arrowFound.transform.localScale.z
+            arrowPrefab.SetActive(true);
+    
+            // Adjust scale based on direction
+            arrow.transform.localScale = new Vector3(
+                arrow.transform.localScale.x,
+                Mathf.Sign(gameObject.transform.localScale.x) * Mathf.Abs(arrow.transform.localScale.y),
+                arrow.transform.localScale.z
             );
+            return true;
         }
     }
 }
