@@ -21,7 +21,7 @@ namespace Photon.Enemy
         private static readonly int Idle = Animator.StringToHash("idle");
         private BoxCollider2D _characterBoxCollider;
         private Animator _characterAnimator;
-        private AttackHandler _characterDetector;
+        private MultiEnemyAttackHandler _characterDetector;
         private float _clock;
         private Vector3 _initialPosition;
         private float _fallVelocity;
@@ -35,7 +35,7 @@ namespace Photon.Enemy
             _initialPosition = transform.position;
             _characterBoxCollider = GetComponent<BoxCollider2D>();
             _characterAnimator = GetComponent<Animator>();
-            _characterDetector = GetComponent<AttackHandler>();
+            _characterDetector = GetComponent<MultiEnemyAttackHandler>();
             // _healthBar = GetComponent<>()
         }
 
@@ -50,6 +50,9 @@ namespace Photon.Enemy
             
             
             _playerDetected = _characterDetector.PlayerDetectedOnLeft() || _characterDetector.PlayerDetectedOnRight();
+            // debug _playerDetected is null 
+            // Debug.Log(_playerDetected);
+            
             _isWallOnLeft = IsWallOnLeft();
             _isWallOnRight = IsWallOnRight();
 

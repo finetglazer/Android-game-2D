@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 7043470302946131872}
   - component: {fileID: -1790489318040316946}
   - component: {fileID: -1130550367248867451}
+  - component: {fileID: 4933509790570556391}
   m_Layer: 8
   m_Name: MultiMerchant
   m_TagString: MerchantEnemy
@@ -584,14 +585,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   jumpSpeed: 2
-  currentHealth: 1
+  currentHealth: 5
   idleTime: 1
   moveTime: 1
   deathPoint: -100
   gravityAcceleration: 0.4
   distanceDetectingFire: 1
   immortalRerenderTime: 1
-  healthBar: {fileID: 2585628496207717227, guid: 17f0b2c6a510404489043c7517110ad5, type: 3}
 --- !u!114 &-1790489318040316946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,9 +655,29 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7043470302946131872}
   - {fileID: -1790489318040316946}
+  - {fileID: 4933509790570556391}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &4933509790570556391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013261649242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3bf3e3cf4149438c82254817933d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageDealt: 1
+  distanceTriggeringAttack: 1
+  distanceDetectingPlayer: 1
+  increaseWalkSpeedWhenChasingBy: 0.2
+  attackCoolDownTime: 1
+  delayTimeBeforeAttacking: 0.2
+  healthBar: {fileID: 2585628496207717227, guid: 17f0b2c6a510404489043c7517110ad5, type: 3}
 --- !u!1 &1000013350955496
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,17 +108,20 @@ namespace Photon.Solo.Commons.HealthBar
         private void Update()
         {
             // traverse the dictionary, check the filled health bar and set active false if fill amount <= 0
-            
+            Debug.LogWarning(playerHealthBars.Count);
             foreach (var playerHealthBar in playerHealthBars)
             {
                 Transform filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
                 if (filledHealthBar != null)
                 {
+                    Debug.LogWarning("fill healthBar found");
                     UnityEngine.UI.Image filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
                     if (filledHealthBarImage != null)
                     {
+                        Debug.LogWarning("image found");
                         if (filledHealthBarImage.fillAmount <= 0f)
                         {
+                            Debug.LogWarning("kjkjkjkjk");
                             playerHealthBar.Value.gameObject.SetActive(false);
                         }
                     }
