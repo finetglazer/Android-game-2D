@@ -44,6 +44,13 @@ namespace Photon.SceneManager.Multi
 
             Debug.Log($"Spawning player {PhotonNetwork.LocalPlayer.NickName} at {spawnPosition} with SpawnIndex");
             GameObject instantiatedPlayer = PhotonNetwork.Instantiate(playerPrefab, spawnPosition, spawnRotation);
+            
+            // 
+            Hashtable playerProperties = new Hashtable();
+            playerProperties["position"] = transform.position; // Example: Assign current position
+
+            // Save the hashtable to the local player
+            PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties);
             if (instantiatedPlayer == null)
             {
                 Debug.LogError("Failed to instantiate player prefab in SoloScene.");

@@ -112,6 +112,9 @@ namespace Photon.Enemy
                 {
                     _characterAnimator.SetTrigger(Idle);
                 }
+                
+                // Invoke damage via RPC
+                photonView.RPC("CauseDamage", RpcTarget.AllBuffered);
             }
 
             // Check attack cooldown
@@ -126,8 +129,7 @@ namespace Photon.Enemy
             _attackCoolDownTimer = 0f;
             _delayClock = 0f;
 
-            // Invoke damage via RPC
-            photonView.RPC("CauseDamage", RpcTarget.AllBuffered);
+            
         }
 
         /// <summary>
@@ -136,6 +138,7 @@ namespace Photon.Enemy
         /// <returns>True if a player is detected on the left, otherwise false.</returns>
         internal bool PlayerDetectedOnLeft()
         {
+            
             var raycastHit = Physics2D.Raycast(
                 _characterBoxCollider.bounds.center,
                 Vector2.left,
@@ -145,6 +148,7 @@ namespace Photon.Enemy
 
             if (raycastHit.collider != null)
             {
+                Debug.LogWarning("left");
                 _player = raycastHit.collider.gameObject;
                 return true;
             }
@@ -159,6 +163,8 @@ namespace Photon.Enemy
         /// <returns>True if a player is detected on the right, otherwise false.</returns>
         internal bool PlayerDetectedOnRight()
         {
+            
+
             var raycastHit = Physics2D.Raycast(
                 _characterBoxCollider.bounds.center,
                 Vector2.right,
@@ -168,6 +174,7 @@ namespace Photon.Enemy
 
             if (raycastHit.collider != null)
             {
+                Debug.LogWarning("right");
                 _player = raycastHit.collider.gameObject;
                 return true;
             }
@@ -212,7 +219,7 @@ namespace Photon.Enemy
             {
                 return;
             }
-
+            Debug.LogWarning("Chasing player");
             // Determine direction to turn
             if (PlayerDetectedOnLeft())
             {
@@ -261,7 +268,7 @@ namespace Photon.Enemy
             
             if (AllPlayerMovementAreNull())
             {
-                Debug.LogError("Player's Movement script is missing.");
+                Debug.Log("Player's Movement script is missing.");
                 return;
             }
 
