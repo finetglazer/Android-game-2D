@@ -574,8 +574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 6acb3ef1bf2bd734e84b56ffc86f9740, type: 3}
-  walkSpeed: 4
-  jumpSpeed: 6
+  walkSpeed: 7
+  jumpSpeed: 8
   currentHealth: 10
   isDoubleJump: 0
   horizontalInput: 0
