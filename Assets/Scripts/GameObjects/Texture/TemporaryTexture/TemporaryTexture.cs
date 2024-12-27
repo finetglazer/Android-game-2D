@@ -49,10 +49,10 @@ namespace GameObjects.Texture.TemporaryTexture
                 }
                 timeOnTexture += Time.deltaTime; // Increment the time spent on the texture.
                 // print(_timeOnTexture);
-                print("Clock starts to run: " + gameObject.name);
+                // print("Clock starts to run: " + gameObject.name);
                 if (!(timeOnTexture >= duration)) return;
             
-                print(gameObject.name + " disappeared");
+                // print(gameObject.name + " disappeared");
                 // Deactivate the texture instead of destroying it
                 gameObject.SetActive(false);
                 textureActive = false;

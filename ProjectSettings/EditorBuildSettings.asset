@@ -40,16 +40,19 @@ EditorBuildSettings:
     guid: c9405ed6ed3bb4b4dbddf29d9998c597
   - enabled: 1
     path: Assets/Scenes/MultiEasyScene.unity
-    guid: 61e430bb6a896d74fa36ac978c3a3922
+    guid: c1980b273964fa7439ae1c7ea51f0940
   - enabled: 1
     path: Assets/Scenes/MultiMediumScene.unity
-    guid: 04355b7061f9748478d3f8a727d61c27
+    guid: 67b48207f6544f54db0fa9118184db98
   - enabled: 1
     path: Assets/Scenes/MultiNightMareScene.unity
-    guid: d11f5b9fcfec4da42bd73e4c816f96d1
+    guid: c91a551944deb08478d30e87389536ef
   - enabled: 1
     path: Assets/Scenes/MultiCharSelection.unity
     guid: 8e57c430d9721804e953e5fe5af24a07
+  - enabled: 1
+    path: Assets/Scenes/ResultMultiScene.unity
+    guid: 8ec7e3311f2be1141aef447dd0a3b5dd
   - enabled: 1
     path: Assets/Scenes/SoloCharSelectionScene.unity
     guid: 72a0d86152c9fef4381f18a30fc1bddb
@@ -58,7 +61,7 @@ EditorBuildSettings:
     guid: 2fa422a79226a7c48baef465070c836c
   - enabled: 1
     path: Assets/Scenes/ResultSoloScene.unity
-    guid: 156c415cb5c08c74d822f0cf2af2fe30
+    guid: 17fcdf5812b3e9b44957eae519d24644
   - enabled: 1
     path: Assets/Scenes/LeaderboardScene.unity
     guid: bb7877098dc4c9142b9ce72bc53e6f07
@@ -83,9 +86,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/7thscene.unity
     guid: add34d42d57c3824faff52b801033693
-  - enabled: 1
-    path: Assets/Scenes/8thscene.unity
-    guid: dd85c077c17d7fc49beb343e085f9b23
   - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: 83e90bf5e0820cd4da61e45db7c2c282

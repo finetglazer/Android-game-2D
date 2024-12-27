@@ -69,7 +69,7 @@ namespace Photon.Solo.Commons.HealthBar
             if (pv != null && pv.Owner != null)
             {
                 Debug.Log("setting up for enemy");
-                playerNameText.text = pv.Owner.NickName;
+                // playerNameText.text = pv.Owner.NickName;
                 playerNameText.color = Color.red;
             }
         }

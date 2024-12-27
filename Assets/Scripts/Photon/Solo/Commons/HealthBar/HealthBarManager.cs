@@ -105,20 +105,20 @@ namespace Photon.Solo.Commons.HealthBar
         private void Update()
         {
             // traverse the dictionary, check the filled health bar and set active false if fill amount <= 0
-            Debug.Log("Number of players: " + _playerHealthBars.Count);
+            // Debug.Log("Number of players: " + _playerHealthBars.Count);
             foreach (var playerHealthBar in _playerHealthBars)
             {
                 var filledHealthBar = playerHealthBar.Value.transform.Find("FilledHealthBar");
                 if (filledHealthBar != null)
                 {
-                    Debug.Log("player fill health bar found");
+                    // Debug.Log("player fill health bar found");
                     var filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
                     if (filledHealthBarImage != null)
                     {
-                        Debug.Log("player health bar image found");
+                        // Debug.Log("player health bar image found");
                         if (filledHealthBarImage.fillAmount <= 0f)
                         {
-                            Debug.Log("player health bar fill amount <= 0");
+                            // Debug.Log("player health bar fill amount <= 0");
                             playerHealthBar.Value.gameObject.SetActive(false);
                         }
                     }
@@ -135,20 +135,20 @@ namespace Photon.Solo.Commons.HealthBar
 
             
             // Same for enemy
-            Debug.Log("Number of enemies: " + _enemyHealthBars.Count);
+            // Debug.Log("Number of enemies: " + _enemyHealthBars.Count);
             foreach (var enemyHealthBar in _enemyHealthBars)
             {
                 var filledHealthBar = enemyHealthBar.Value.transform.Find("FilledHealthBar");
                 if (filledHealthBar != null)
                 {
-                    Debug.Log("enemy fill health bar found");
+                    // Debug.Log("enemy fill health bar found");
                     var filledHealthBarImage = filledHealthBar.GetComponent<UnityEngine.UI.Image>();
                     if (filledHealthBarImage != null)
                     {
-                        Debug.Log("enemy health bar image found");
+                        // Debug.Log("enemy health bar image found");
                         if (filledHealthBarImage.fillAmount <= 0f)
                         {
-                            Debug.Log("enemy health bar fill amount <= 0");
+                            // Debug.Log("enemy health bar fill amount <= 0");
                             enemyHealthBar.Value.gameObject.SetActive(false);
                         }
                     }

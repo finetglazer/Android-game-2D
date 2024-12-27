@@ -49,7 +49,18 @@ namespace Photon.Solo.Commons.PlayerCore
             {
                 if (photonView.IsMine)
                 {
-                    Die();
+                    if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("type", out object typeValue))
+                    {
+                        if (typeValue.ToString().Equals("solo"))
+                        {
+                            Die();
+                        }
+                        else
+                        {
+                            MultiDie();
+                        }
+                    }
+                    
                 }
             }
 
@@ -58,9 +69,32 @@ namespace Photon.Solo.Commons.PlayerCore
             {
                 if (photonView.IsMine)
                 {
-                    Die();
+                    if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("type", out object typeValue))
+                    {
+                        if (typeValue.ToString().Equals("solo"))
+                        {
+                            Die();
+                        }
+                        else
+                        {
+                            MultiDie();
+                        }
+                    }
                 }
             }
+        }
+
+        public void MultiDie()
+        {
+            Debug.Log("Player has died. Initiating death sequence.");
+            // base on the key position in each local player, respawn the player to the position of the key
+            Hashtable playerProperties = PhotonNetwork.LocalPlayer.CustomProperties;
+            if (playerProperties.TryGetValue("position", out object position))
+            {
+                transform.position = (Vector3) position;
+            }
+            
+            
         }
 
         public void Die()
