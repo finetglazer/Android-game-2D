@@ -104,7 +104,7 @@ namespace Photon.Solo.Characters.Knight
                 PhotonView enemyPhotonView = _enemy.GetComponent<PhotonView>();
                 if (enemyPhotonView != null 
                     && (!enemyPhotonView.IsMine                 // Solo mode
-                        || gameObject.name != _enemy.name))     // Multiplayer mode                      
+                        || gameObject.name != _enemy.name))     // Multiplayer mode                     
                 {
                     Debug.LogWarning("Attacking player: " + _enemy.name);
                     // Send RPC to the enemy's owner to apply damage
