@@ -72,49 +72,25 @@ EditorBuildSettings:
     path: Assets/Scenes/SignOutScene.unity
     guid: 9b2d9001aacad3d4ca9682263ac3d56a
   - enabled: 1
-    path: Assets/Scenes/1stscene.unity
-    guid: 267eda816f150984298eceed3e0354d7
-  - enabled: 1
-    path: Assets/Scenes/2ndscene.unity
-    guid: 5d7e187b86451c84fbcd5d35c9a4e8d0
-  - enabled: 1
-    path: Assets/Scenes/4thscene.unity
-    guid: 6a18974e4ca5c3c4d80a85add76eaf80
-  - enabled: 1
-    path: Assets/Scenes/5thScene.unity
-    guid: 94a5b9f2e2e85994da007c79471554f3
-  - enabled: 1
-    path: Assets/Scenes/7thscene.unity
-    guid: add34d42d57c3824faff52b801033693
-  - enabled: 1
-    path: Assets/Scenes/EndingScene.unity
-    guid: 83e90bf5e0820cd4da61e45db7c2c282
-  - enabled: 1
-    path: Assets/TestScene - Hiep/SignInScene.unity
-    guid: a2dc0f9794afe2844b25b97a45879679
-  - enabled: 1
-    path: Assets/TestScene - Hiep/DashboardScene.unity
-    guid: 38610b6edc0253b44b4f207b50ee7ee2
-  - enabled: 1
-    path: Assets/TestScene - Hiep/1stscene.unity
+    path: Assets/Scenes/1stscene - Copy.unity
     guid: e3665c8654a72794ab74417e4657ce20
   - enabled: 1
-    path: Assets/TestScene - Hiep/2ndscene.unity
+    path: Assets/Scenes/2ndscene - Copy.unity
     guid: d612be4dda7a92345889a6f11087deaa
   - enabled: 1
-    path: Assets/TestScene - Hiep/4thscene.unity
+    path: Assets/Scenes/4thscene - Copy.unity
     guid: 73abdb92687062549a988b6c5d5213ec
   - enabled: 1
-    path: Assets/TestScene - Hiep/5thScene.unity
+    path: Assets/Scenes/5thScene - Copy.unity
     guid: cfc45e748b81e094a830862ad93f1de6
   - enabled: 1
-    path: Assets/TestScene - Hiep/7thscene.unity
+    path: Assets/Scenes/7thscene - Copy.unity
     guid: 863438834a5582647ad09ffb953af2bb
   - enabled: 1
-    path: Assets/TestScene - Hiep/8thscene.unity
+    path: Assets/Scenes/8thscene - Copy.unity
     guid: 705d0688478f1c248bf584c917cc3acd
   - enabled: 1
-    path: Assets/TestScene - Hiep/EndingScene.unity
+    path: Assets/Scenes/EndingScene - Copy.unity
     guid: fe99af51f4d677649b5fdbf843b9fc04
   - enabled: 1
     path: Assets/TestScene - Hiep/SoloLeaderboardScene.unity
