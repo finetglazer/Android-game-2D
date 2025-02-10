@@ -20,7 +20,7 @@ namespace OtherCharacters.Peasant
 
         private void Update()
         {
-            transform.Translate(new Vector2(0, _speed * Time.deltaTime * _arrowDirection));   
+            transform.Translate(new Vector2(0, _speed * Time.deltaTime * _arrowDirection)); 
             // Since arrow has been rotated 90 degrees to be horizontal, the translation should be handled carefully! 
         }
         private void OnTriggerEnter2D(Collider2D other)

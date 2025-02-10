@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 1
+    text: ' Hello bro, which wind brought you here?'
+    duration: 3
+  - speaker: 0
+    text: ...
+    duration: 5
+  - speaker: 1
+    text: "your name is\u2026"
+    duration: 2
+  - speaker: 0
+    text: 'What''s in a name, when it pales in comparison to her? '
+    duration: 3
+  - speaker: 0
+    text: Where must I go now?
+    duration: 2
+  - speaker: 1
+    text: At this age, the fear of unemployment is nothing
+    duration: 3.5
+  - speaker: 1
+    text: The true terror lies in the heartbreak of lost love
+    duration: 3.5
+  - speaker: 1
+    text: 'But it''s strange, isn''t it? '
+    duration: 2
+  - speaker: 1
+    text: "When love is mutual, just follow the heart, and you'll find each other.
+      But when it's one-sided\u2026"
+    duration: 4
+  - speaker: 0
+    text: F*cking off
+    duration: 2

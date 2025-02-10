@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 1
+    text: 
+    duration: 2
+  - speaker: 0
+    text: Have you loved someone?
+    duration: 3
+  - speaker: 1
+    text: Sometimes
+    duration: 2.5
+  - speaker: 0
+    text: What the your feelings when they left
+    duration: 3
+  - speaker: 1
+    text: Each time, each feeling
+    duration: 3
+  - speaker: 0
+    text: It must be the same, right?
+    duration: 3
+  - speaker: 0
+    text: Heart broken
+    duration: 3
+  - speaker: 1
+    text: I knew that feeling exactly!
+    duration: 3
+  - speaker: 1
+    text: But after that, there are some brand new
+    duration: 3
+  - speaker: 1
+    text: Heart broken, calmness, passion, regret, and even happiness
+    duration: 3
+  - speaker: 1
+    text: Heart broken, calmness, passion, regret, and even happiness
+    duration: 3
+  - speaker: 0
+    text: WHAT!
+    duration: 3
+  - speaker: 0
+    text: It's hard to trust:()
+    duration: 3
+  - speaker: 1
+    text: For me, life is the story of each one. Love is one part, each version,
+      each part
+    duration: 4
+  - speaker: 1
+    text: My story is one of kind! And I trust your story is the same!
+    duration: 3
+  - speaker: 0
+    text: ...
+    duration: 3
+  - speaker: 1
+    text: I know you need to know something from me!
+    duration: 3
+  - speaker: 1
+    text: But let's try it on your own
+    duration: 3
+  - speaker: 1
+    text: We will have some fun stories to share, haha
+    duration: 3
+  - speaker: 0
+    text: Oh, well
+    duration: 3
+  - speaker: 1
+    text: Sorry, if I make you feel like I teach you
+    duration: 3
+  - speaker: 0
+    text: Oh, no. I always try to learn
+    duration: 3
+  - speaker: 0
+    text: I must thank you for that
+    duration: 3
+  - speaker: 1
+    text: Okay. Your mind is beautiful!
+    duration: 3
+  - speaker: 1
+    text: ... Well, Let's go!
+    duration: 3
+  - speaker: 0
+    text: Oh, yeah. Let's find her
+    duration: 3
+  - speaker: 1
+    text: (Let's do good and be stronger!...)
+    duration: 3

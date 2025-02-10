@@ -90,6 +90,8 @@ namespace OtherCharacters.Peasant
                     Mathf.Sign(gameObject.transform.localScale.x) * Mathf.Abs(arrow.transform.localScale.y),
                     arrow.transform.localScale.z);
                 ArrowDirection = Mathf.Sign(gameObject.transform.localScale.x);
+                Debug.Log(ArrowDirection);
+                Debug.Log(gameObject.transform.localScale.x);
                 arrow.GetComponent<ArrowMovement>().characterController = this;
                 break;
             }

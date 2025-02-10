@@ -332,7 +332,7 @@ namespace ServerInteraction
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                LoadSceneWithLoadingScreen("Scenes/1stscene");
+                LoadSceneWithLoadingScreen("Scenes/OpenScene");
             }
             else
             {

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 4
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 0
+    text: Oh, he's too strong
+    duration: 3
+  - speaker: 0
+    text: but as I say that love is stronger!
+    duration: 3
+  - speaker: 1
+    text: Yeah, you are strong ^^ after many times...
+    duration: 3
+  - speaker: 1
+    text: In the real life, you won't have many chances like here
+    duration: 3
+  - speaker: 0
+    text: Well
+    duration: 3
+  - speaker: 0
+    text: Oh, that door! May she be there, Go! After this big challenge
+    duration: 3

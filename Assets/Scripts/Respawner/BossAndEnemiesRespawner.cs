@@ -24,6 +24,8 @@ namespace Respawner
         private bool _canRenderEnemies = true;
         private GameObject[] _renderEnemiesCautionZones;
         private readonly Dictionary<GameObject, bool > _used = new();
+        private float _secondPriestBossHealth;
+        public static int cnt = 0;
 
         private void Start()
         {
@@ -63,6 +65,9 @@ namespace Respawner
                 CanReproducible = false;
                 return;
             }
+            
+            
+            
 
             if (currentFirstBossHealth > (1 - renderEnemiesWhenHpPercentageLost) * _initialHealth || !_canRenderEnemies) return;
 
