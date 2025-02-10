@@ -1,8 +1,10 @@
 using System.Collections;
+using GameObjects.Fire;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
-using UnityEngine.Networking; // Import Photon.Pun for networking
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement; // Import Photon.Pun for networking
 
 namespace MainCharacter
 {
@@ -60,9 +62,18 @@ namespace MainCharacter
 
             if (_playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("die"))
             {
+                Debug.Log("hihi");
                 gameObject.GetComponent<PlayerDie>().Die();
                 ++deathCount;
                 PlayerIdle();
+                if (SceneManager.GetActiveScene().name == "6thscene")
+                {
+                    var fire = GameObject.Find("FireWalls");
+                    fire.transform.position = new Vector3(-0.930000007f, -0.589999974f, -0.0533737652f);
+                    // get component movement of fire and set speed to 0.01f
+                    var fireMovement = fire.GetComponent<GameObjects.Fire.Movement>();
+                    fireMovement.currentSpeed= 0.013f;
+                }
                 StartCoroutine(CreateUpdateDeathCountRequest());
                 return;
             }

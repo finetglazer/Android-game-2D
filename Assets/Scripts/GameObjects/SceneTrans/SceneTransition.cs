@@ -37,6 +37,7 @@ namespace GameObjects.SceneTrans
             const string url = "http://localhost:8080/api/gameplay/update-scene-finish-time";
             var request = new UnityWebRequest(url, "POST");
             var sceneIndex = Array.FindIndex(SceneNamesAndURLs.SceneNames, s => s == SceneManager.GetActiveScene().name) + 1;
+            Debug.Log(sceneIndex);
             var userId = PlayerPrefs.GetString("userId");
             var jsonBody = "{\"userId\":\"" + userId + "\",\"sceneIndex\":\"" + sceneIndex + "\",\"sceneFinishTime\":\"" + MainCharacter.Movement.SceneTime + "\"}";  
             var jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonBody);

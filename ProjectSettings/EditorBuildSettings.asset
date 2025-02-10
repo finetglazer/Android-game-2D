@@ -25,7 +25,7 @@ EditorBuildSettings:
     guid: fe2e363884f086646b3d830433b4139d
   - enabled: 1
     path: Assets/Scenes/DashboardScene.unity
-    guid: 2ce01bfbf2187474d9d111a3bf0bbbe4
+    guid: 38610b6edc0253b44b4f207b50ee7ee2
   - enabled: 1
     path: Assets/Scenes/CreateRoomScene.unity
     guid: 17fc621415bcaf64984ed8e5b78a33a0
@@ -72,42 +72,60 @@ EditorBuildSettings:
     path: Assets/Scenes/SignOutScene.unity
     guid: 9b2d9001aacad3d4ca9682263ac3d56a
   - enabled: 1
-    path: Assets/Scenes/1stscene - Copy.unity
+    path: Assets/Scenes/OpenScene.unity
+    guid: 02b56635822a8c542b50e0bd030e4797
+  - enabled: 1
+    path: Assets/Scenes/1stscene.unity
     guid: e3665c8654a72794ab74417e4657ce20
   - enabled: 1
-    path: Assets/Scenes/2ndscene - Copy.unity
+    path: Assets/Scenes/2ndscene.unity
     guid: d612be4dda7a92345889a6f11087deaa
   - enabled: 1
-    path: Assets/Scenes/4thscene - Copy.unity
+    path: Assets/Scenes/3rdscene.unity
+    guid: d594a6bcd8f9c0b419a82d3337b4513c
+  - enabled: 1
+    path: Assets/Scenes/4thscene.unity
     guid: 73abdb92687062549a988b6c5d5213ec
   - enabled: 1
-    path: Assets/Scenes/5thScene - Copy.unity
+    path: Assets/Scenes/5thscene.unity
     guid: cfc45e748b81e094a830862ad93f1de6
   - enabled: 1
-    path: Assets/Scenes/7thscene - Copy.unity
+    path: Assets/Scenes/6thscene.unity
+    guid: d33ba6a0744195843b3c419e313ad504
+  - enabled: 1
+    path: Assets/Scenes/7thscene.unity
     guid: 863438834a5582647ad09ffb953af2bb
   - enabled: 1
-    path: Assets/Scenes/8thscene - Copy.unity
+    path: Assets/Scenes/8thscene.unity
     guid: 705d0688478f1c248bf584c917cc3acd
   - enabled: 1
-    path: Assets/Scenes/EndingScene - Copy.unity
+    path: Assets/Scenes/9thscene.unity
+    guid: a870cf1c4f4da5440b82395d41662c8b
+  - enabled: 1
+    path: Assets/Scenes/ChoosingScene.unity
+    guid: 143bd6b1a58487a4c9656f4bd6c737f6
+  - enabled: 1
+    path: Assets/Scenes/EndingScene 1.unity
+    guid: 4c031fe2b7b441340be33ef1e40b4575
+  - enabled: 1
+    path: Assets/Scenes/EndingScene2.unity
     guid: fe99af51f4d677649b5fdbf843b9fc04
   - enabled: 1
-    path: Assets/TestScene - Hiep/SoloLeaderboardScene.unity
+    path: Assets/Scenes/SoloLeaderboardScene.unity
     guid: 87a880e9c107f374d96429ee4279cf76
   - enabled: 1
-    path: Assets/TestScene - Hiep/MatchHistoryScene.unity
+    path: Assets/Scenes/MatchHistoryScene.unity
     guid: a357bd833906c1f49a3f21857592188a
   - enabled: 1
-    path: Assets/TestScene - Hiep/SoloStatsMatchHistoryScene.unity
+    path: Assets/Scenes/SoloStatsMatchHistoryScene.unity
     guid: a5348186a9304f64bb094e48a9969641
   - enabled: 1
-    path: Assets/TestScene - Hiep/TeamStatsMatchHistoryScene.unity
+    path: Assets/Scenes/TeamStatsMatchHistoryScene.unity
     guid: 69fe1f5365d651341a4294677af68def
   - enabled: 1
-    path: Assets/TestScene - Hiep/OptionsLeaderboardScene.unity
+    path: Assets/Scenes/OptionsLeaderboardScene.unity
     guid: 7bf5dd6cc2628c54d8c8afbc0067af4f
   - enabled: 1
-    path: Assets/TestScene - Hiep/SingleLeaderboardScene.unity
+    path: Assets/Scenes/SingleLeaderboardScene.unity
     guid: 36d3bd5f648c4b04a8436907bcd3d497
   m_configObjects: {}

@@ -5,6 +5,12 @@ namespace OtherCharacters.Priest
 {
     public class Movement : MonoBehaviour
     {
+        // gọi biến canReproduce từ BossAndEnemiesRespawner
+        public GameObject sceneTransition;
+
+        public GameObject chatTrigger3 = null;
+        public GameObject chatTrigger4 = null;
+        // public static int cnt => BossAndEnemiesRespawner.cnt;
         public float walkSpeed = 4;
         public float jumpSpeed = 2;
         public float currentHealth = 1;
@@ -30,6 +36,7 @@ namespace OtherCharacters.Priest
         
         private void Start()
         {
+       
             _initialPosition = transform.position;
             if(gameObject.name.Contains("BAER") is false && gameObject.name.Contains("Immortal") is false) DeathNote.AddObject(gameObject, _initialPosition);
             _characterBoxCollider = GetComponent<BoxCollider2D>();
@@ -43,6 +50,19 @@ namespace OtherCharacters.Priest
             {
                 enabled = false;
                 if (gameObject.name.Contains("Immortal") is false) healthBar.SetActive(false);
+                
+                ++BossAndEnemiesRespawner.cnt;
+                if (BossAndEnemiesRespawner.cnt == 3)
+                {
+                    sceneTransition.SetActive(true);
+                    chatTrigger4.SetActive(true);
+                }
+                
+                if (BossAndEnemiesRespawner.cnt == 1) 
+                {
+                    chatTrigger3.SetActive(true);
+                }
+               
                 return;
             }
 

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 1
+    text: 
+    duration: 3
+  - speaker: 0
+    text: Oh rising!
+    duration: 3
+  - speaker: 1
+    text: Yeah, rising
+    duration: 3
+  - speaker: 0
+    text: I see what happening now?
+    duration: 3
+  - speaker: 0
+    text: I see what happening now?
+    duration: 3
+  - speaker: 0
+    text: Down, straight, and now up
+    duration: 3
+  - speaker: 0
+    text: We are better, exactly
+    duration: 3
+  - speaker: 0
+    text: Yeah
+    duration: 3
+  - speaker: 1
+    text: Right. So lets rise
+    duration: 3

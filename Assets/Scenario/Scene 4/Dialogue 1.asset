@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 1
+    text: 
+    duration: 3
+  - speaker: 0
+    text: Oh, no!
+    duration: 3
+  - speaker: 0
+    text: Still, She is not there!
+    duration: 3
+  - speaker: 0
+    text: I tried so much!
+    duration: 3
+  - speaker: 0
+    text: Whyyyyyyyyy?
+    duration: 3
+  - speaker: 0
+    text: Where are you? - My girl
+    duration: 3
+  - speaker: 1
+    text: Do you think this is enough?
+    duration: 3
+  - speaker: 1
+    text: This game is endless and you never can meet her
+    duration: 3
+  - speaker: 1
+    text: If...
+    duration: 3
+  - speaker: 0
+    text: If I am not strong enough, right?
+    duration: 3
+  - speaker: 1
+    text: ...True, strong
+    duration: 3
+  - speaker: 0
+    text: So, continue now
+    duration: 3
+  - speaker: 1
+    text: Do not fear, if you can overcome everything in this world, you will understand!
+    duration: 3
+  - speaker: 1
+    text: And, yeah. What is your name?
+    duration: 3
+  - speaker: 0
+    text: Jayce
+    duration: 3
+  - speaker: 0
+    text: I even do not know your name
+    duration: 3
+  - speaker: 1
+    text: It's Viktor
+    duration: 3
+  - speaker: 0
+    text: Ok Viktor, let's go
+    duration: 3
+  - speaker: 1
+    text: Well, let's do good!
+    duration: 3

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0bacbeb17d442fae5e7485184a7e13, type: 3}
+  m_Name: Dialogue 3
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: 0
+    text: Even though I have no idea where I'm headed
+    duration: 3
+  - speaker: 0
+    text: for you, I must keep moving forward
+    duration: 2
+  - speaker: 0
+    text: "Here it is, just like before\u2014it's as simple as passing by to get
+      there"
+    duration: 3
