@@ -30,7 +30,7 @@ A feature-rich 2D action game developed in **Unity** utilizing **C#** for core l
 * **Networking:** Photon Unity Networking 2 (PUN2) & Photon Chat
 * **Input:** Unity Input System (`InputActions`)
 * **Architecture:** Component-based with separation of concerns (Managers, Handlers, Models).
-* 
+  
 ## 🔧 Installation & Setup
 
 1. **Clone the repository**
